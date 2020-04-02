@@ -1,0 +1,12 @@
+<!-- IDENTIFICATION_DOCUMENT_TYPE.READ -->
+ => {
+LIST_OF_IDENTIFICATION_DOCUMENT_TYPE = sub element : com.lhs.ccb.common.soiimpl.NamedValueContainerList
+-[0]IDTYPE_CODE = 1 : java.lang.Long
+-[0]IDTYPE_NAME = ID card : java.lang.String
+-[1]IDTYPE_CODE = 2 : java.lang.Long
+-[1]IDTYPE_NAME = Passport : java.lang.String
+-[2]IDTYPE_CODE = 3 : java.lang.Long
+-[2]IDTYPE_NAME = Driving Licence : java.lang.String
+-[3]IDTYPE_CODE = 4 : java.lang.Long
+-[3]IDTYPE_NAME = Residential authorization : java.lang.String
+}

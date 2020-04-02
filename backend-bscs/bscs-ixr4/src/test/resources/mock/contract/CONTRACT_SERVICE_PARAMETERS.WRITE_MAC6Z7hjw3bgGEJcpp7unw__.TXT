@@ -1,0 +1,21 @@
+<!--
+execute (CONTRACT_SERVICE_PARAMETERS.WRITE, {
+PARAM_VALUES = sub element : com.lhs.ccb.common.soiimpl.NamedValueContainerList
+-[0]COMPLEX_NO = 1 : java.lang.Long
+-[0]COMPLEX_LEVEL = 1 : java.lang.Long
+-[0]PARENT_NO = 1 : java.lang.Long
+-[0]TARGET_PARAM_VALUES = sub element : com.lhs.ccb.common.soiimpl.NamedValueContainerList
+-[0]-[0]MULT_VALUES = sub element : com.lhs.ccb.common.soiimpl.NamedValueContainerList
+-[0]-[0]-[0]VALUE_DES = mail : java.lang.String
+-[0]-[0]-[0]VALUE = mail : java.lang.String
+-[0]SIBLING_NO = 1 : java.lang.Long
+-[0]COS_ACTION = a : java.lang.Character
+-[0]PRM_NO = 1 : java.lang.Long
+CO_ID_PUB = CONTR0000000111 : java.lang.String
+PROFILE_ID = 0 : java.lang.Long
+SNCODE_PUB = Email : java.lang.String
+SPCODE_PUB = P&SI : java.lang.String
+}
+-->
+ => {
+}

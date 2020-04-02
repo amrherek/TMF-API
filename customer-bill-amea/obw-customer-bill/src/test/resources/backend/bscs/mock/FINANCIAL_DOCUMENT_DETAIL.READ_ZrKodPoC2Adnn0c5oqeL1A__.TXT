@@ -1,0 +1,35 @@
+<!--
+ execute (FINANCIAL_DOCUMENT_DETAIL.READ, {
+DOCUMENT_ID = 4832268 : java.lang.Long
+})
+-->
+ => {
+ITEMS = sub element : com.lhs.ccb.common.soiimpl.NamedValueContainerList
+-[0]ENTRY_DATE = YYYY-MM-DD: 2015-2-11 : com.lhs.ccb.common.soiimpl.SVLDateImpl
+-[0]GL_ACCOUNT = 100300 : java.lang.String
+-[0]AMOUNT_CURRENT_PAY = 7.25BWP : com.lhs.ccb.common.soiimpl.SVLMoneyImpl
+-[0]TRANSACTION_REFNUM = 00000RIVT3000003993 : java.lang.String
+-[0]USE_CASE_CODE = CE2DD : java.lang.String
+-[0]REF_DATE = YYYY-MM-DD: 2015-2-11 : com.lhs.ccb.common.soiimpl.SVLDateImpl
+-[0]TRANSACTION_ID = 4852821 : java.lang.Long
+-[0]CONV_DATE = YYYY-MM-DD: 2015-1-16 : com.lhs.ccb.common.soiimpl.SVLDateImpl
+-[0]ITEM_CREDIT_DEBIT_TYPE = C : java.lang.Character
+-[0]AMOUNT_CASH_PAY = 7.25BWP : com.lhs.ccb.common.soiimpl.SVLMoneyImpl
+-[0]TRANS_CODE_PUB = CE2DD : java.lang.String
+-[1]ENTRY_DATE = YYYY-MM-DD: 2015-3-4 : com.lhs.ccb.common.soiimpl.SVLDateImpl
+-[1]GL_ACCOUNT = 100300 : java.lang.String
+-[1]AMOUNT_CURRENT_PAY = 791.75BWP : com.lhs.ccb.common.soiimpl.SVLMoneyImpl
+-[1]TRANSACTION_REFNUM = 00000RIVT3000004694 : java.lang.String
+-[1]POSTING_DATE = Sun Mar 15 19:36:01 CET 2015 : com.lhs.ccb.common.soiimpl.SVLDateTimeImpl
+-[1]USE_CASE_CODE = CE2DD : java.lang.String
+-[1]REF_DATE = YYYY-MM-DD: 2015-3-4 : com.lhs.ccb.common.soiimpl.SVLDateImpl
+-[1]TRANSACTION_ID = 4895475 : java.lang.Long
+-[1]CONV_DATE = YYYY-MM-DD: 2015-1-16 : com.lhs.ccb.common.soiimpl.SVLDateImpl
+-[1]ITEM_CREDIT_DEBIT_TYPE = C : java.lang.Character
+-[1]AMOUNT_CASH_PAY = 791.75BWP : com.lhs.ccb.common.soiimpl.SVLMoneyImpl
+-[1]TRANS_CODE_PUB = CE2DD : java.lang.String
+DOCUMENT_CODE = 01166662610115 : java.lang.String
+DOCUMENT_ID = 4832268 : java.lang.Long
+
+}
+

@@ -1,0 +1,2301 @@
+spring:
+    profiles: OBW
+apibss:
+    productInventory:
+        msisdn:
+            withContracts: 26776546964
+            withoutContracts: 11111111
+            invalid: pony
+            withFaf: 26772118188
+            withoutFaf: 26774843725
+            withDataBundle: 26772118188
+            withoutDataBundle: 26774843725
+        iccId:
+            withContracts: 8926702121300159814F
+            withoutContracts: 11111111
+            invalid: pony
+            partial: 8926702121300159814*
+        partyId:
+            withContracts: CUST0001408231
+            withoutContracts: 11111111
+            invalid: pony
+        category:
+            withContracts: option
+            withoutContracts:
+            invalid: pony
+        productStatus:
+            withContracts:
+            withoutContracts: Created
+            invalid: pony
+        productWithContracts:
+            - id: CONT0000381545
+              ratingType: Prepaid
+              name: Orange Prepaid
+              status: Active
+              isBundle: true
+              startDate: '2014-01-07T23:00:00Z'
+              orderDate: '2014-01-07T23:00:00Z'
+              productOffering:
+                id: PRORN
+                category: offer
+                name: Orange Prepaid
+              productSpecification:
+                id: offer
+              productCharacteristic:
+              - name: statusReason
+                value: '1'
+              productRelationship:
+              - type: contains
+                product:
+                  id: CONT0000381545|C|PRORN
+              - type: contains
+                product:
+                  id: CONT0000381545|C|SUPP
+              - type: contains
+                product:
+                  productOffering:
+                    id: simCard
+              - type: contains
+                product:
+                  productOffering:
+                    id: mobileCom
+              - type: contains
+                product:
+                  productOffering:
+                    id: '1'
+              - type: contains
+                product:
+                  productOffering:
+                    id: '2'
+              billingAccount:
+              - id: BA0002221555
+              relatedParty:
+              - id: CUST0001937874
+                role: customer
+            - id: CONT0000381545|A|CFNRE
+              name: Call Forward Not Reachable
+              status: Active
+              isBundle: false
+              startDate: '2014-01-07T23:00:00Z'
+              orderDate: '2014-01-07T23:00:00Z'
+              productOffering:
+                id: CFNRE
+                category: includedService
+                name: Call Forward Not Reachable
+              productSpecification:
+                id: serviceBSCS
+              productRelationship:
+              - type: isContainedIn
+                product:
+                  id: CONT0000381545|C|PRORN
+            - id: CONT0000381545|A|CFU
+              name: Call Forward Unconditional
+              status: Active
+              isBundle: false
+              startDate: '2014-01-07T23:00:00Z'
+              orderDate: '2014-01-07T23:00:00Z'
+              productOffering:
+                id: CFU
+                category: includedService
+                name: Call Forward Unconditional
+              productSpecification:
+                id: serviceBSCS
+              productRelationship:
+              - type: isContainedIn
+                product:
+                  id: CONT0000381545|C|PRORN
+            - id: CONT0000381545|A|CFB
+              name: Call Forward on Busy
+              status: Active
+              isBundle: false
+              startDate: '2014-01-07T23:00:00Z'
+              orderDate: '2014-01-07T23:00:00Z'
+              productOffering:
+                id: CFB
+                category: includedService
+                name: Call Forward on Busy
+              productSpecification:
+                id: serviceBSCS
+              productRelationship:
+              - type: isContainedIn
+                product:
+                  id: CONT0000381545|C|PRORN
+            - id: CONT0000381545|A|CFNRY
+              name: Call Forward on No Reply
+              status: Active
+              isBundle: false
+              startDate: '2014-01-07T23:00:00Z'
+              orderDate: '2014-01-07T23:00:00Z'
+              productOffering:
+                id: CFNRY
+                category: includedService
+                name: Call Forward on No Reply
+              productSpecification:
+                id: serviceBSCS
+              productRelationship:
+              - type: isContainedIn
+                product:
+                  id: CONT0000381545|C|PRORN
+            - id: CONT0000381545|A|CHOLD
+              name: Call Holding
+              status: Active
+              isBundle: false
+              startDate: '2014-01-07T23:00:00Z'
+              orderDate: '2014-01-07T23:00:00Z'
+              productOffering:
+                id: CHOLD
+                category: includedService
+                name: Call Holding
+              productSpecification:
+                id: serviceBSCS
+              productRelationship:
+              - type: isContainedIn
+                product:
+                  id: CONT0000381545|C|PRORN
+            - id: CONT0000381545|A|CWAIT
+              name: Call Waiting
+              status: Active
+              isBundle: false
+              startDate: '2014-01-07T23:00:00Z'
+              orderDate: '2014-01-07T23:00:00Z'
+              productOffering:
+                id: CWAIT
+                category: includedService
+                name: Call Waiting
+              productSpecification:
+                id: serviceBSCS
+              productRelationship:
+              - type: isContainedIn
+                product:
+                  id: CONT0000381545|C|PRORN
+            - id: CONT0000381545|A|CLIP
+              name: Calling Line Ident Present
+              status: Active
+              isBundle: false
+              startDate: '2014-01-07T23:00:00Z'
+              orderDate: '2014-01-07T23:00:00Z'
+              productOffering:
+                id: CLIP
+                category: includedService
+                name: Calling Line Ident Present
+              productSpecification:
+                id: serviceBSCS
+              productRelationship:
+              - type: isContainedIn
+                product:
+                  id: CONT0000381545|C|PRORN
+            - id: CONT0000381545|A|EMGNC
+              name: Emergency Calls
+              status: Active
+              isBundle: false
+              startDate: '2014-01-07T23:00:00Z'
+              orderDate: '2014-01-07T23:00:00Z'
+              productOffering:
+                id: EMGNC
+                category: includedService
+                name: Emergency Calls
+              productSpecification:
+                id: serviceBSCS
+              productRelationship:
+              - type: isContainedIn
+                product:
+                  id: CONT0000381545|C|PRORN
+            - id: CONT0000381545|A|Voice
+              name: GSM Telephony
+              status: Active
+              isBundle: false
+              startDate: '2014-01-07T23:00:00Z'
+              orderDate: '2014-01-07T23:00:00Z'
+              productOffering:
+                id: Voice
+                category: includedService
+                name: GSM Telephony
+              productSpecification:
+                id: serviceBSCS
+              productRelationship:
+              - type: isContainedIn
+                product:
+                  id: CONT0000381545|C|PRORN
+            - id: CONT0000381545|A|MTPY
+              name: Multi-Party Calls
+              status: Active
+              isBundle: false
+              startDate: '2014-01-07T23:00:00Z'
+              orderDate: '2014-01-07T23:00:00Z'
+              productOffering:
+                id: MTPY
+                category: includedService
+                name: Multi-Party Calls
+              productSpecification:
+                id: serviceBSCS
+              productRelationship:
+              - type: isContainedIn
+                product:
+                  id: CONT0000381545|C|PRORN
+            - id: CONT0000381545|A|SMSMO
+              name: Short Message Mobile Orig
+              status: Active
+              isBundle: false
+              startDate: '2014-01-07T23:00:00Z'
+              orderDate: '2014-01-07T23:00:00Z'
+              productOffering:
+                id: SMSMO
+                category: includedService
+                name: Short Message Mobile Orig
+              productSpecification:
+                id: serviceBSCS
+              productRelationship:
+              - type: isContainedIn
+                product:
+                  id: CONT0000381545|C|PRORN
+            - id: CONT0000381545|A|SMSMT
+              name: Short Message Mobile Term
+              status: Active
+              isBundle: false
+              startDate: '2014-01-07T23:00:00Z'
+              orderDate: '2014-01-07T23:00:00Z'
+              productOffering:
+                id: SMSMT
+                category: includedService
+                name: Short Message Mobile Term
+              productSpecification:
+                id: serviceBSCS
+              productRelationship:
+              - type: isContainedIn
+                product:
+                  id: CONT0000381545|C|PRORN
+            - id: CONT0000381545|A|DCF
+              name: Default Call Forwarding
+              status: Active
+              isBundle: false
+              startDate: '2014-01-07T23:00:00Z'
+              orderDate: '2014-01-07T23:00:00Z'
+              productOffering:
+                id: DCF
+                category: includedService
+                name: Default Call Forwarding
+              productSpecification:
+                id: serviceBSCS
+              productRelationship:
+              - type: isContainedIn
+                product:
+                  id: CONT0000381545|C|PRORN
+            - id: CONT0000381545|A|OBR-2
+              name: Op Bar Roaming outside HPLMN
+              status: Active
+              isBundle: false
+              startDate: '2014-01-07T23:00:00Z'
+              orderDate: '2014-01-07T23:00:00Z'
+              productOffering:
+                id: OBR-2
+                category: includedService
+                name: Op Bar Roaming outside HPLMN
+              productSpecification:
+                id: serviceBSCS
+              productRelationship:
+              - type: isContainedIn
+                product:
+                  id: CONT0000381545|C|PRORN
+            - id: CONT0000381545|A|CUG
+              name: Closed User Group
+              status: Active
+              isBundle: false
+              startDate: '2014-01-07T23:00:00Z'
+              orderDate: '2014-01-07T23:00:00Z'
+              productOffering:
+                id: CUG
+                category: option
+                name: Closed User Group
+              productSpecification:
+                id: serviceBSCS
+              productRelationship:
+              - type: isContainedIn
+                product:
+                  id: CONT0000381545|C|SUPP
+            - id: CONT0000381545|A|NRESE
+              name: Non Register Service
+              status: Active
+              isBundle: false
+              startDate: '2014-01-07T23:00:00Z'
+              orderDate: '2014-01-07T23:00:00Z'
+              productOffering:
+                id: NRESE
+                category: includedService
+                name: Non Register Service
+              productSpecification:
+                id: serviceBSCS
+              productRelationship:
+              - type: isContainedIn
+                product:
+                  id: CONT0000381545|C|PRORN
+            - id: CONT0000381545|C|SUPP
+              name: Supplementary
+              isBundle: true
+              productOffering:
+                id: SUPP
+                category: package
+                name: Supplementary
+              productRelationship:
+              - type: isContainedIn
+                product:
+                  id: CONT0000381545
+              - type: contains
+                product:
+                  id: CONT0000381545|A|CUG
+            - id: CONT0000381545|C|PRORN
+              name: Orange Prepaid
+              isBundle: true
+              productOffering:
+                id: PRORN
+                category: package
+                name: Orange Prepaid
+              productRelationship:
+              - type: isContainedIn
+                product:
+                  id: CONT0000381545
+              - type: contains
+                product:
+                  id: CONT0000381545|A|CFNRE
+              - type: contains
+                product:
+                  id: CONT0000381545|A|CFU
+              - type: contains
+                product:
+                  id: CONT0000381545|A|CFB
+              - type: contains
+                product:
+                  id: CONT0000381545|A|CFNRY
+              - type: contains
+                product:
+                  id: CONT0000381545|A|CHOLD
+              - type: contains
+                product:
+                  id: CONT0000381545|A|CWAIT
+              - type: contains
+                product:
+                  id: CONT0000381545|A|CLIP
+              - type: contains
+                product:
+                  id: CONT0000381545|A|EMGNC
+              - type: contains
+                product:
+                  id: CONT0000381545|A|Voice
+              - type: contains
+                product:
+                  id: CONT0000381545|A|MTPY
+              - type: contains
+                product:
+                  id: CONT0000381545|A|SMSMO
+              - type: contains
+                product:
+                  id: CONT0000381545|A|SMSMT
+              - type: contains
+                product:
+                  id: CONT0000381545|A|DCF
+              - type: contains
+                product:
+                  id: CONT0000381545|A|OBR-2
+              - type: contains
+                product:
+                  id: CONT0000381545|A|NRESE
+            - name: Mobile communication
+              status: Active
+              isBundle: false
+              productOffering:
+                id: mobileCom
+                category: includedService
+                name: Mobile communication
+              productSpecification:
+                id: accessService
+              productCharacteristic:
+              - name: msisdn
+                value: '76546964'
+              productRelationship:
+              - type: isContainedIn
+                product:
+                  id: CONT0000381545
+            - name: Sim card
+              status: Active
+              isBundle: false
+              productOffering:
+                id: simCard
+                category: includedService
+                name: Sim card
+              productSpecification:
+                id: accessService
+              productCharacteristic:
+              - name: iccId
+                value: 8926702121300159814F
+              productRelationship:
+              - type: isContainedIn
+                product:
+                  id: CONT0000381545
+            - name: pricePlan1
+              status: Active
+              startDate: '2000-01-01T00:00:00Z'
+              orderDate: '2018-01-01T00:00:00Z'
+              terminationDate: '2028-01-01T00:00:00Z'
+              productOffering:
+                id: '1'
+                category: option
+                name: pricePlan1
+              productSpecification:
+                id: bundleData
+              productRelationship:
+              - type: isContainedIn
+                product:
+                  id: CONT0000381545
+            - name: pricePlan2
+              status: Active
+              productOffering:
+                id: '2'
+                category: option
+                name: pricePlan2
+              productSpecification:
+                id: bundleData
+              productRelationship:
+              - type: isContainedIn
+                product:
+                  id: CONT0000381545            
+        productFaf:
+            - id: CONT0000040109|A|FaFF
+              name: Friends and Family
+              status: Active
+              isBundle: false
+              startDate: '2017-05-31T08:01:49Z'
+              orderDate: '2017-05-31T08:01:49Z'
+              productOffering:
+                id: FaFF
+                category: option
+                name: Friends and Family
+              productSpecification:
+                id: faf  
+              productCharacteristic:
+              - name: faf
+                value: '26774843725'
+              - name: faf
+                value: '26774843726'
+              productRelationship:
+              - type: isContainedIn
+                product:
+                  id: CONT0000040109|C|GeSPH
+        serviceWithParameter:
+            id: CONTR0000000694|A|CFNRE
+            name: Call Forward Not Reachable
+            status: Active
+            isBundle: false
+            startDate: '2016-03-12T09:08:07Z'
+            orderDate: '2016-03-12T09:08:07Z'
+            productOffering:
+              id: CFNRE
+              category: includedService
+              name: Call Forward Not Reachable
+            productSpecification:
+              id: serviceBSCS  
+            productCharacteristic:
+            - name: DEMO9
+              value: '1'
+            productRelationship:
+            - type: isContainedIn
+              product:
+                id: CONTR0000000694|C|OMSP1
+        productDataBundle:
+            - name: pricePlan1
+              status: Active
+              startDate: '2000-01-01T00:00:00Z'
+              orderDate: '2018-01-01T00:00:00Z'
+              terminationDate: '2028-01-01T00:00:00Z'
+              productOffering:
+                id: '1'
+                category: option
+                name: pricePlan1
+              productSpecification:
+                id: bundleData
+              productRelationship:
+              - type: isContainedIn
+                product:
+                  id: CONT0000040109
+            - name: pricePlan2
+              status: Active
+              productOffering:
+                id: '2'
+                category: option
+                name: pricePlan2
+              productSpecification:
+                id: bundleData
+              productRelationship:
+              - type: isContainedIn
+                product:
+                  id: CONT0000040109        
+    party:
+        individual:
+            valid:
+              id: CUST0000000065
+              gender: male
+              nationality: BW
+              birthDate: '2000-02-09'
+              title: '1'
+              givenName: Rafik
+              familyName: SARDAR
+              characteristic:
+              - name: occupation
+                value: Director
+              - name: categoryCode
+                value: NORMAL
+              - name: categoryLabel
+                value: Regular Customers
+              - name: registrationStatus
+                value: displyDefault
+              contactMedium:
+              - type: emailAddress
+                medium:
+                  emailAddress: rafik.sardar@orange.com
+              - type: phoneNumber
+                medium:
+                  type: contact
+                  number: '322800'
+              - type: postalAddress
+                medium:
+                  city: GABORONE
+                  country: BW
+                  streetOne: P.O. Box 1376
+                  streetTwo: P. O. Box 1376
+                  number: '999'
+              individualIdentification:
+              - type: '2'
+                identificationId: '0123456789'
+            unknownId: pony
+            updatableId: CUST0002199869
+    customerBill:
+        id: 
+          valid: '5736572'
+          invalid: 0
+          badFormat: unknown
+        msisdn: 
+          valid: '26772100785'
+          invalid: 26772105014
+          badFormat: unknown
+        partyId: 
+          valid: 'CUST0000002066'
+          invalid: CUST0006000047
+          badFormat: unknown
+          largeAccount: CUST0000000077
+        date: '2000-02-26'
+        bills:
+        - id: '5736572'
+          state: validated
+          billDate: '2016-05-16T00:00:00Z'
+          amountDue:
+            unit: BWP
+            value: 969.82
+          paymentDueDate: '2016-05-30T00:00:00Z'
+          remainingAmount:
+            unit: BWP
+            value: 969.82
+          relatedParty:
+          - id: CUST0000002066
+        - id: '5484500'
+          state: validated
+          billDate: '2016-04-16T00:00:00Z'
+          amountDue:
+            unit: BWP
+            value: 489.92
+          paymentDueDate: '2016-04-30T00:00:00Z'
+          remainingAmount:
+            unit: BWP
+            value: 489.92
+          relatedParty:
+          - id: CUST0000002066
+        - id: '5432568'
+          state: validated
+          billDate: '2016-03-16T00:00:00Z'
+          amountDue:
+            unit: BWP
+            value: 1311.82
+          paymentDueDate: '2016-03-30T00:00:00Z'
+          remainingAmount:
+            unit: BWP
+            value: 1311.82
+          relatedParty:
+          - id: CUST0000002066
+        - id: '5385439'
+          state: validated
+          billDate: '2016-02-16T00:00:00Z'
+          amountDue:
+            unit: BWP
+            value: 423.19
+          paymentDueDate: '2016-03-01T00:00:00Z'
+          remainingAmount:
+            unit: BWP
+            value: 418.61
+          appliedPayment:
+          - appliedAmount:
+              unit: BWP
+              value: 4.58
+          relatedParty:
+          - id: CUST0000002066
+        - id: '5342969'
+          state: settled
+          billDate: '2016-01-16T00:00:00Z'
+          amountDue:
+            unit: BWP
+            value: 1506.34
+          paymentDueDate: '2016-01-30T00:00:00Z'
+          remainingAmount:
+            unit: BWP
+            value: 0
+          appliedPayment:
+          - appliedAmount:
+              unit: BWP
+              value: 1506.34
+            payment:
+              id: '5466095'
+              paymentDate: '2016-02-06T00:00:00Z'
+          relatedParty:
+          - id: CUST0000002066        
+billingAccount:
+    billingAccountId:
+        valid: BA0000000176
+        invalid: BA111111111111
+        badFormat: unknown
+    msisdn:
+        valid: 26772100829
+        invalid: 123456789
+        badFormat: unknown
+    partyId:
+        valid: CUST0000000176
+        invalid: CUST123456789
+        badFormat: unknown
+        withSeveralBillingAccounts: CUST0000000954
+    valid:
+    - id: BA0000000176
+      state: active
+      billStructure:
+        cycleSpecification:
+          dateShift: 16
+          frequency: 1 month
+      defaultPaymentMethod:
+        name: CASH
+      lastCustomerBill:
+        billDate: 2016-05-16T00:00:00Z
+        nextBillDate: 2016-06-16T00:00:00Z
+    several:
+    - id: BA0000000966
+      state: active
+      billStructure:
+        cycleSpecification:
+          dateShift: 16
+          frequency: 1 month
+      defaultPaymentMethod:
+        name: CASH
+      lastCustomerBill: 
+        billDate: 2016-05-16T00:00:00Z
+        nextBillDate: 2016-06-16T00:00:00Z
+    - id: BA0000000962
+      state: active
+      billStructure:
+        cycleSpecification:
+          dateShift: 16
+          frequency: 1 month
+      defaultPaymentMethod:
+        name: CASH
+      lastCustomerBill: 
+        billDate: 2016-05-16T00:00:00Z
+        nextBillDate: 2016-06-16T00:00:00Z
+    - id: BA0000000954
+      state: active
+      billStructure:
+        cycleSpecification:
+          dateShift: 16
+          frequency: 1 month
+      defaultPaymentMethod:
+        name: CASH
+      lastCustomerBill: 
+        billDate: 2016-05-16T00:00:00Z
+        nextBillDate: 2016-06-16T00:00:00Z
+    - id: BA0000000956
+      state: active
+      billStructure:
+        cycleSpecification:
+          dateShift: 16
+          frequency: 1 month
+      defaultPaymentMethod:
+        name: CASH
+      lastCustomerBill: 
+        billDate: 2016-05-16T00:00:00Z
+        nextBillDate: 2016-06-16T00:00:00Z
+productOrdering:
+    publicKey:
+        validMsisdn: 26776546912
+    activateOffer:
+        validProductId: CONT0001137473
+        updatableProductId: CONT0000141584
+        terminatedProductId: CONT0000588092
+        invalidProductId: 111111111111
+        validRelatedIndividual:
+            id: CUST0000758193
+            familyName: Dash
+            givenName: Rainbow  
+    simSwap:
+        validIccId: 8926702121300159921F
+        invalidIccId: 11111111111
+        terminatedIccId: 8926702041301059823F
+        validProductId: CONT0000381669
+        invalidProductId: 111111111111
+        beforeSimSwap:
+            productOffering:
+              id: simCard
+            productCharacteristic:
+            - name: iccId
+              value: 00000
+            productRelationship:
+            - type: isContainedIn
+              product:
+                id: 00000
+        afterSimSwap:
+            productOffering:
+              id: simCard
+            productCharacteristic:
+            - name: iccId
+              value: 1111111
+            productRelationship:
+            - type: isContainedIn
+              product:
+                id: 00000
+    service:
+        validProductId: CONT0000149991
+        invalidProductId: 111111111111
+        terminatedProductId: CONT0000151947        
+        invalidServiceId: 111111111111
+        badServiceId: GOVRC
+        invalidServicePackageId: 111111111111
+        badServicePackageId: PRORN        
+        validServiceIdActivate: ItemB 
+        validServiceIdAdd: CrLEC        
+        validServicePackageIdAdd: OPTSP
+        validServiceIdWithparametersModify: CrdLs
+        validParameterId: CLPAR
+        invalidParameterId: 99999
+        validParameterValue: 300000
+        invalidParameterValue: unknown
+        validServiceIdWithparametersAdd: IMEI
+        validServicePackageIdWithparameters: OPTSP
+    friendAndFamily:
+        validProduct:
+            productSpecification:
+                id: faf
+            productCharacteristic:
+                - name: faf
+                  value: 0777777777
+        invalidProduct:
+            id: pony
+            productCharacteristic:
+                - name: XC345
+                  value: pony
+            productRelationship:
+                - type: isContainedIn
+                  product:
+                      id: pony
+            productSpecification:
+                id: bad                      
+    um13:
+        validProduct:
+            id: CONT0001137471
+        validProductOffering:
+            id: PRORN
+        initialProductOffering:
+            id: PROZE
+        invalidProduct:
+            id: pony
+    dataBundle:
+        validProductOffering:
+            id: bundle1                       
+productCatalog:
+    offerProductOfferingId:
+        valid: GeSPH
+        invalid: 11111111
+    productOffering:
+        valid: CAPSV
+        invalid: unknown
+    productOfferingsForMigration:
+        - id: GeiDM
+          name: Orange Gem Iphone Diamond
+          isBundle: true
+          category:
+          - name: offer
+          productSpecification:
+            id: offer
+        - id: GeBBd
+          name: Orange Gem BB_Diamond
+          isBundle: true
+          category:
+          - name: offer
+          productSpecification:
+            id: offer
+        - id: BB10G
+          name: BB 10 Gold
+          isBundle: true
+          category:
+          - name: offer
+          productSpecification:
+            id: offer
+        - id: GeDMD
+          name: Orange Gem Diamond
+          isBundle: true
+          category:
+          - name: offer
+          productSpecification:
+            id: offer
+        - id: GeiSR
+          name: Orange Gem Iphone Sapphire
+          isBundle: true
+          category:
+          - name: offer
+          productSpecification:
+            id: offer
+        - id: GeSPS
+          name: Orange Gem SmartPhone Sapphire
+          isBundle: true
+          category:
+          - name: offer
+          productSpecification:
+            id: offer
+        - id: GeBBS
+          name: Orange Gem BB_Sapphire
+          isBundle: true
+          category:
+          - name: offer
+          productSpecification:
+            id: offer
+        - id: GeSMD
+          name: Orange Gem Smart Phone Diamond
+          isBundle: true
+          category:
+          - name: offer
+          productSpecification:
+            id: offer
+        - id: GeBBE
+          name: Orange Gem BB_Emerald
+          isBundle: true
+          category:
+          - name: offer
+          productSpecification:
+            id: offer
+        - id: GeJDE
+          name: Orange Gem Jade
+          isBundle: true
+          category:
+          - name: offer
+          productSpecification:
+            id: offer
+        - id: GeBBJ
+          name: Orange Gem BB_Jade
+          isBundle: true
+          category:
+          - name: offer
+          productSpecification:
+            id: offer
+        - id: GeEMR
+          name: Orange Gem Emerald
+          isBundle: true
+          category:
+          - name: offer
+          productSpecification:
+            id: offer        
+    productOfferingsForCompatibility:
+        - id: R4GLT
+          name: 4G LTE Roaming
+          isBundle: false
+          category:
+          - name: option
+          bundledProductOffering:
+          - id: GeSPH
+          productSpecification:
+            id: serviceBSCS
+          productOfferingPrice:
+          - priceType: punctual
+            price:
+              taxIncludedAmount: 0
+              currencyCode: BWP
+          - priceType: recurring
+            recurringChargePeriod: 1 month
+            price:
+              taxIncludedAmount: 0
+              currencyCode: BWP
+        - id: S4GLT
+          name: 4G LTE subscription
+          isBundle: false
+          category:
+          - name: option
+          bundledProductOffering:
+          - id: GeSPH
+          productSpecification:
+            id: serviceBSCS
+          productOfferingPrice:
+          - priceType: punctual
+            price:
+              taxIncludedAmount: 0
+              currencyCode: BWP
+          - priceType: recurring
+            recurringChargePeriod: 1 month
+            price:
+              taxIncludedAmount: 0
+              currencyCode: BWP
+        - id: BAGP
+          name: Barring GPRS
+          isBundle: false
+          category:
+          - name: option
+          bundledProductOffering:
+          - id: GeSPH
+          productSpecification:
+            id: serviceBSCS
+          productOfferingPrice:
+          - priceType: punctual
+            price:
+              taxIncludedAmount: 0
+              currencyCode: BWP
+          - priceType: recurring
+            recurringChargePeriod: 1 month
+            price:
+              taxIncludedAmount: 0
+              currencyCode: BWP
+        - id: BBery
+          name: Blackberry Subscription
+          isBundle: false
+          category:
+          - name: option
+          bundledProductOffering:
+          - id: GeSPH
+          productSpecification:
+            id: serviceBSCS
+          productOfferingPrice:
+          - priceType: punctual
+            price:
+              taxIncludedAmount: 0
+              currencyCode: BWP
+          - priceType: recurring
+            recurringChargePeriod: 1 month
+            price:
+              taxIncludedAmount: 590
+              currencyCode: BWP
+          - priceType: recurring
+            recurringChargePeriod: 1 month
+            price:
+              taxIncludedAmount: 590
+              currencyCode: BWP
+        - id: FaFF
+          name: Friends and Family
+          isBundle: false
+          category:
+          - name: option
+          bundledProductOffering:
+          - id: GeSPH
+          productSpecification:
+            id: serviceBSCS
+          productOfferingPrice:
+          - priceType: punctual
+            price:
+              taxIncludedAmount: 0
+              currencyCode: BWP
+          - priceType: recurring
+            recurringChargePeriod: 1 month
+            price:
+              taxIncludedAmount: 8.93
+              currencyCode: BWP
+          - priceType: recurring
+            recurringChargePeriod: 1 month
+            price:
+              taxIncludedAmount: 8.93
+              currencyCode: BWP
+        - id: OBR-1
+          name: Op Bar Roaming inside HPLMN
+          isBundle: false
+          category:
+          - name: option
+          bundledProductOffering:
+          - id: GeSPH
+          productSpecification:
+            id: serviceBSCS
+          productOfferingPrice:
+          - priceType: punctual
+            price:
+              taxIncludedAmount: 0
+              currencyCode: BWP
+          - priceType: recurring
+            recurringChargePeriod: 1 month
+            price:
+              taxIncludedAmount: 0
+              currencyCode: BWP
+          - priceType: recurring
+            recurringChargePeriod: 1 month
+            price:
+              taxIncludedAmount: 0
+              currencyCode: BWP
+        - id: DCF
+          name: Default Call Forwarding
+          isBundle: false
+          category:
+          - name: option
+          bundledProductOffering:
+          - id: GeSPH
+          productSpecification:
+            id: serviceBSCS
+          productOfferingPrice:
+          - priceType: punctual
+            price:
+              taxIncludedAmount: 0
+              currencyCode: BWP
+          - priceType: recurring
+            recurringChargePeriod: 1 month
+            price:
+              taxIncludedAmount: 0
+              currencyCode: BWP
+          - priceType: recurring
+            recurringChargePeriod: 1 month
+            price:
+              taxIncludedAmount: 0
+              currencyCode: BWP
+        - id: OBO-2
+          name: Op Bar of all OG Int Calls
+          isBundle: false
+          category:
+          - name: option
+          bundledProductOffering:
+          - id: GeSPH
+          productSpecification:
+            id: serviceBSCS
+          productOfferingPrice:
+          - priceType: punctual
+            price:
+              taxIncludedAmount: 0
+              currencyCode: BWP
+          - priceType: recurring
+            recurringChargePeriod: 1 month
+            price:
+              taxIncludedAmount: 0
+              currencyCode: BWP
+          - priceType: recurring
+            recurringChargePeriod: 1 month
+            price:
+              taxIncludedAmount: 0
+              currencyCode: BWP
+        - id: COLP
+          name: Connected Line Ident Present
+          isBundle: false
+          category:
+          - name: option
+          bundledProductOffering:
+          - id: GeSPH
+          productSpecification:
+            id: serviceBSCS
+          productOfferingPrice:
+          - priceType: punctual
+            price:
+              taxIncludedAmount: 0
+              currencyCode: BWP
+          - priceType: recurring
+            recurringChargePeriod: 1 month
+            price:
+              taxIncludedAmount: 0
+              currencyCode: BWP
+          - priceType: recurring
+            recurringChargePeriod: 1 month
+            price:
+              taxIncludedAmount: 0
+              currencyCode: BWP
+        - id: COLR
+          name: Connected Line Ident Restrict
+          isBundle: false
+          category:
+          - name: option
+          bundledProductOffering:
+          - id: GeSPH
+          productSpecification:
+            id: serviceBSCS
+          productOfferingPrice:
+          - priceType: punctual
+            price:
+              taxIncludedAmount: 0
+              currencyCode: BWP
+          - priceType: recurring
+            recurringChargePeriod: 1 month
+            price:
+              taxIncludedAmount: 0
+              currencyCode: BWP
+          - priceType: recurring
+            recurringChargePeriod: 1 month
+            price:
+              taxIncludedAmount: 0
+              currencyCode: BWP
+        - id: CLIR
+          name: Calling Line Ident Restrict
+          isBundle: false
+          category:
+          - name: option
+          bundledProductOffering:
+          - id: GeSPH
+          productSpecification:
+            id: serviceBSCS
+          productOfferingPrice:
+          - priceType: punctual
+            price:
+              taxIncludedAmount: 0
+              currencyCode: BWP
+          - priceType: recurring
+            recurringChargePeriod: 1 month
+            price:
+              taxIncludedAmount: 0
+              currencyCode: BWP
+          - priceType: recurring
+            recurringChargePeriod: 1 month
+            price:
+              taxIncludedAmount: 0
+              currencyCode: BWP
+        - id: BAIC
+          name: Bar all IC Calls
+          isBundle: false
+          category:
+          - name: option
+          bundledProductOffering:
+          - id: GeSPH
+          productSpecification:
+            id: serviceBSCS
+          productOfferingPrice:
+          - priceType: punctual
+            price:
+              taxIncludedAmount: 0
+              currencyCode: BWP
+          - priceType: recurring
+            recurringChargePeriod: 1 month
+            price:
+              taxIncludedAmount: 0
+              currencyCode: BWP
+          - priceType: recurring
+            recurringChargePeriod: 1 month
+            price:
+              taxIncludedAmount: 0
+              currencyCode: BWP
+        - id: BIEXH
+          name: Bar all IC Calls Outside HPLMN
+          isBundle: false
+          category:
+          - name: option
+          bundledProductOffering:
+          - id: GeSPH
+          productSpecification:
+            id: serviceBSCS
+          productOfferingPrice:
+          - priceType: punctual
+            price:
+              taxIncludedAmount: 0
+              currencyCode: BWP
+          - priceType: recurring
+            recurringChargePeriod: 1 month
+            price:
+              taxIncludedAmount: 8.93
+              currencyCode: BWP
+          - priceType: recurring
+            recurringChargePeriod: 1 month
+            price:
+              taxIncludedAmount: 8.93
+              currencyCode: BWP
+        - id: CUG
+          name: Closed User Group
+          isBundle: false
+          category:
+          - name: option
+          bundledProductOffering:
+          - id: GeSPH
+          productSpecification:
+            id: serviceBSCS
+          productOfferingPrice:
+          - priceType: punctual
+            price:
+              taxIncludedAmount: 0
+              currencyCode: BWP
+          - priceType: recurring
+            recurringChargePeriod: 1 month
+            price:
+              taxIncludedAmount: 44.642
+              currencyCode: BWP
+          - priceType: recurring
+            recurringChargePeriod: 1 month
+            price:
+              taxIncludedAmount: 44.642
+              currencyCode: BWP
+        - id: E750M
+          name: EXTRA Bonus 100%
+          isBundle: false
+          category:
+          - name: option
+          bundledProductOffering:
+          - id: GeSPH
+          productSpecification:
+            id: serviceBSCS
+          productOfferingPrice:
+          - priceType: punctual
+            price:
+              taxIncludedAmount: 0
+              currencyCode: BWP
+          - priceType: recurring
+            recurringChargePeriod: 1 month
+            price:
+              taxIncludedAmount: 0
+              currencyCode: BWP
+          - priceType: recurring
+            recurringChargePeriod: 1 month
+            price:
+              taxIncludedAmount: 0
+              currencyCode: BWP
+        - id: GeOLL
+          name: Option Landline
+          isBundle: false
+          category:
+          - name: option
+          bundledProductOffering:
+          - id: GeSPH
+          productSpecification:
+            id: serviceBSCS
+          productOfferingPrice:
+          - priceType: punctual
+            price:
+              taxIncludedAmount: 0
+              currencyCode: BWP
+          - priceType: recurring
+            recurringChargePeriod: 1 month
+            price:
+              taxIncludedAmount: 0
+              currencyCode: BWP
+          - priceType: recurring
+            recurringChargePeriod: 1 month
+            price:
+              taxIncludedAmount: 0
+              currencyCode: BWP
+        - id: OpWKE
+          name: Option WeekEnd
+          isBundle: false
+          category:
+          - name: option
+          bundledProductOffering:
+          - id: GeSPH
+          productSpecification:
+            id: serviceBSCS
+          productOfferingPrice:
+          - priceType: punctual
+            price:
+              taxIncludedAmount: 0
+              currencyCode: BWP
+          - priceType: recurring
+            recurringChargePeriod: 1 month
+            price:
+              taxIncludedAmount: 0
+              currencyCode: BWP
+          - priceType: recurring
+            recurringChargePeriod: 1 month
+            price:
+              taxIncludedAmount: 0
+              currencyCode: BWP
+        - id: OpPRO
+          name: Option WE and Landline
+          isBundle: false
+          category:
+          - name: option
+          bundledProductOffering:
+          - id: GeSPH
+          productSpecification:
+            id: serviceBSCS
+          productOfferingPrice:
+          - priceType: punctual
+            price:
+              taxIncludedAmount: 0
+              currencyCode: BWP
+          - priceType: recurring
+            recurringChargePeriod: 1 month
+            price:
+              taxIncludedAmount: 0
+              currencyCode: BWP
+          - priceType: recurring
+            recurringChargePeriod: 1 month
+            price:
+              taxIncludedAmount: 0
+              currencyCode: BWP
+        - id: CAPSV
+          name: CAP_SERVICE
+          isBundle: false
+          category:
+          - name: option
+          bundledProductOffering:
+          - id: GeSPH
+          productSpecification:
+            id: serviceBSCS
+          productOfferingPrice:
+          - priceType: punctual
+            price:
+              taxIncludedAmount: 0
+              currencyCode: BWP
+          - priceType: recurring
+            recurringChargePeriod: 1 month
+            price:
+              taxIncludedAmount: 0
+              currencyCode: BWP
+          - priceType: recurring
+            recurringChargePeriod: 1 month
+            price:
+              taxIncludedAmount: 0
+              currencyCode: BWP
+        - id: E100U
+          name: EXTRA Bonus 100% Unlimited
+          isBundle: false
+          category:
+          - name: option
+          bundledProductOffering:
+          - id: GeSPH
+          productSpecification:
+            id: serviceBSCS
+          productOfferingPrice:
+          - priceType: punctual
+            price:
+              taxIncludedAmount: 0
+              currencyCode: BWP
+          - priceType: recurring
+            recurringChargePeriod: 1 month
+            price:
+              taxIncludedAmount: 0
+              currencyCode: BWP
+          - priceType: recurring
+            recurringChargePeriod: 1 month
+            price:
+              taxIncludedAmount: 0
+              currencyCode: BWP
+        - id: HS005
+          name: Handset Service5
+          isBundle: false
+          category:
+          - name: option
+          bundledProductOffering:
+          - id: HNDSP
+          productSpecification:
+            id: serviceBSCS
+          productOfferingPrice:
+          - priceType: punctual
+            price:
+              taxIncludedAmount: 0
+              currencyCode: BWP
+          - priceType: recurring
+            recurringChargePeriod: 1 month
+            price:
+              taxIncludedAmount: 0
+              currencyCode: BWP
+        - id: HS004
+          name: Handset Service4
+          isBundle: false
+          category:
+          - name: option
+          bundledProductOffering:
+          - id: HNDSP
+          productSpecification:
+            id: serviceBSCS
+          productOfferingPrice:
+          - priceType: punctual
+            price:
+              taxIncludedAmount: 0
+              currencyCode: BWP
+          - priceType: recurring
+            recurringChargePeriod: 1 month
+            price:
+              taxIncludedAmount: 0
+              currencyCode: BWP
+        - id: HS003
+          name: Handset Service3
+          isBundle: false
+          category:
+          - name: option
+          bundledProductOffering:
+          - id: HNDSP
+          productSpecification:
+            id: serviceBSCS
+          productOfferingPrice:
+          - priceType: punctual
+            price:
+              taxIncludedAmount: 0
+              currencyCode: BWP
+          - priceType: recurring
+            recurringChargePeriod: 1 month
+            price:
+              taxIncludedAmount: 0
+              currencyCode: BWP
+        - id: HS002
+          name: Handset Service2
+          isBundle: false
+          category:
+          - name: option
+          bundledProductOffering:
+          - id: HNDSP
+          productSpecification:
+            id: serviceBSCS
+          productOfferingPrice:
+          - priceType: punctual
+            price:
+              taxIncludedAmount: 0
+              currencyCode: BWP
+          - priceType: recurring
+            recurringChargePeriod: 1 month
+            price:
+              taxIncludedAmount: 0
+              currencyCode: BWP
+        - id: HS001
+          name: Handset Service1
+          isBundle: false
+          category:
+          - name: option
+          bundledProductOffering:
+          - id: HNDSP
+          productSpecification:
+            id: serviceBSCS
+          productOfferingPrice:
+          - priceType: punctual
+            price:
+              taxIncludedAmount: 0
+              currencyCode: BWP
+          - priceType: recurring
+            recurringChargePeriod: 1 month
+            price:
+              taxIncludedAmount: 0
+              currencyCode: BWP
+        - id: IMEI
+          name: IMEI Service
+          isBundle: false
+          category:
+          - name: option
+          bundledProductOffering:
+          - id: OPTSP
+          productSpecification:
+            id: serviceBSCS
+          productOfferingPrice:
+          - priceType: punctual
+            price:
+              taxIncludedAmount: 0
+              currencyCode: BWP
+          - priceType: recurring
+            recurringChargePeriod: 1 month
+            price:
+              taxIncludedAmount: 0
+              currencyCode: BWP
+        - id: CrLEC
+          name: Credit Limit Enhance Charge
+          isBundle: false
+          category:
+          - name: option
+          bundledProductOffering:
+          - id: OPTSP
+          productSpecification:
+            id: serviceBSCS
+          productOfferingPrice:
+          - priceType: punctual
+            price:
+              taxIncludedAmount: 0
+              currencyCode: BWP
+          - priceType: recurring
+            recurringChargePeriod: 1 month
+            price:
+              taxIncludedAmount: 0
+              currencyCode: BWP
+          - priceType: recurring
+            recurringChargePeriod: 1 month
+            price:
+              taxIncludedAmount: 0
+              currencyCode: BWP
+        - id: CLTMP
+          name: Credit Limit Temp
+          isBundle: false
+          category:
+          - name: option
+          bundledProductOffering:
+          - id: OPTSP
+          productSpecification:
+            id: serviceBSCS
+          productOfferingPrice:
+          - priceType: punctual
+            price:
+              taxIncludedAmount: 0
+              currencyCode: BWP
+          - priceType: recurring
+            recurringChargePeriod: 1 month
+            price:
+              taxIncludedAmount: 0
+              currencyCode: BWP
+          - priceType: recurring
+            recurringChargePeriod: 1 month
+            price:
+              taxIncludedAmount: 0
+              currencyCode: BWP
+          - priceType: usage
+        - id: ItemB
+          name: Itemised Bill
+          isBundle: false
+          category:
+          - name: option
+          bundledProductOffering:
+          - id: OPTSP
+          productSpecification:
+            id: serviceBSCS
+          productOfferingPrice:
+          - priceType: punctual
+            price:
+              taxIncludedAmount: 0
+              currencyCode: BWP
+          - priceType: recurring
+            recurringChargePeriod: 1 month
+            price:
+              taxIncludedAmount: 6.36
+              currencyCode: BWP
+        - id: OBOC
+          name: Op Bar all OG Calls
+          isBundle: false
+          category:
+          - name: option
+          bundledProductOffering:
+          - id: OMSP1
+          productSpecification:
+            id: serviceBSCS
+          productOfferingPrice:
+          - priceType: punctual
+            price:
+              taxIncludedAmount: 0
+              currencyCode: BWP
+          - priceType: recurring
+            recurringChargePeriod: 1 month
+            price:
+              taxIncludedAmount: 0
+              currencyCode: BWP
+          - priceType: recurring
+            recurringChargePeriod: 1 month
+            price:
+              taxIncludedAmount: 0
+              currencyCode: BWP
+        - id: '440'
+          name: All Access internet-1month
+          category:
+          - name: option
+          productSpecification:
+            id: bundleData
+        - id: '426'
+          name: My Music-1day
+          category:
+          - name: option
+          productSpecification:
+            id: bundleData
+        - id: '407'
+          name: CallHome Offer–Zimbabwe
+          category:
+          - name: option
+          productSpecification:
+            id: bundleData
+        - id: PostData_Bundle_50MB
+          name: PostData Bundle-50MB
+          category:
+          - name: option
+          productSpecification:
+            id: bundleData
+        - id: '290'
+          name: Prepaid Data Bundle-10MB
+          category:
+          - name: option
+          productSpecification:
+            id: bundleData
+        - id: '98'
+          name: Youth offer individual price plan
+          category:
+          - name: option
+          productSpecification:
+            id: bundleData
+        - id: '439'
+          name: All Access internet-2weeks
+          category:
+          - name: option
+          productSpecification:
+            id: bundleData
+        - id: '386'
+          name: Prepaid Voice Bundle-1day
+          category:
+          - name: option
+          productSpecification:
+            id: bundleData            
+    productOfferingForConfiguration:
+      id: CAPSV
+      name: CAP_SERVICE
+      isBundle: false
+      productSpecification:
+        id: serviceBSCS
+        productSpecCharacteristic:
+        - name: GSM40
+          configurable: true
+          valueType: listBox
+          maxOccurrence: 1
+          productSpecCharacteristicValue:
+          - value: '178'
+            description: BB10 Rub 300m+100SMS+750MB
+            valueType: number
+          - value: '206'
+            description: Gem Smat Sap 160m+100SMS+100MB
+            valueType: number
+          - value: '192'
+            description: Corporate BB Titanium P893
+            valueType: number            
+          - value: '185'
+            description: Buss Smart Silv P223+50MB+100S
+            valueType: number
+          - value: '176'
+            description: BB10 Opale 100MB
+            valueType: number
+          - value: '199'
+            description: Gem Sapphire 160m+50SMS+50MB
+            valueType: number
+          - value: '157'
+            description: EXTRA 5.GB
+            valueType: number
+          - value: '171'
+            description: BB10 Diamon 575m+150SMS+1GB
+            valueType: number
+          - value: '179'
+            description: BB10 Sapphir 160m+50SMS+500MB
+            valueType: number
+          - value: '193'
+            description: Corporate BB WhiteGold P313
+            valueType: number
+          - value: '165'
+            description: Ob-EXTRA 1.5GB
+            valueType: number
+          - value: '150'
+            description: EXTRA 10MB
+            valueType: number
+          - value: '173'
+            description: BB10 Gol P446 + 750MB
+            valueType: number
+          - value: '61'
+            description: Orange Gem WE Option
+            valueType: number
+          - value: '180'
+            description: BB10 Silver P223+300MB
+            valueType: number
+          - value: '170'
+            description: BB10 Bronze P90+ 100MB
+            valueType: number
+          - value: '191'
+            description: Corporate BB Silver P223
+            valueType: number
+          - value: '46'
+            description: DATA FREE 2GB
+            valueType: number
+          - value: '201'
+            description: Gem iph Dia 575m+200SMS+200MB
+            valueType: number
+          - value: '181'
+            description: BB10 Titanium P893+1.5GB
+            valueType: number
+          - value: '198'
+            description: Gem Ruby 300m+100SMS+100MB
+            valueType: number
+          - value: '200'
+            description: Gem Dia 550m+150SMS+150MB
+            valueType: number
+          - value: '172'
+            description: BB10 Emeral 60m+30SMS+300MB
+            valueType: number
+          - value: '190'
+            description: Corporate BB Nickel P134
+            valueType: number
+          - value: '189'
+            description: Corporate BB Gold P446
+            valueType: number
+          - value: '175'
+            description: BB10 Nickel P134+200MB
+            valueType: number
+          - value: '203'
+            description: Gem iPh Sapp 160m+150SMS+100MB
+            valueType: number
+          - value: '58'
+            description: Orange Gem WE Landline Options
+            valueType: number
+          - value: '196'
+            description: Gem BB Eme 60m+30SMS+30MB
+            valueType: number
+          - value: '182'
+            description: BB10 WhiteGold P313+500MB
+            valueType: number
+          - value: '92'
+            description: Ob-Option Peak
+            valueType: number
+          - value: '188'
+            description: Corp BB Bronze P90
+            valueType: number
+          - value: '147'
+            description: EXTRA 500MBv2
+            valueType: number
+          - value: '197'
+            description: Gem Jade 15min+15SMS+15MB
+            valueType: number
+          - value: '202'
+            description: Gem iph Rub 300m+200SMS+150MB
+            valueType: number
+          - value: '57'
+            description: Orange Gem Landline Option
+            valueType: number
+          - value: '194'
+            description: Corporate BB Platinum P625
+            valueType: number
+          - value: '187'
+            description: Buss Smt WGol  P313+100MB+100S
+            valueType: number
+          - value: '183'
+            description: Buss Sma Gold P446+250M+100SMS
+            valueType: number
+          - value: '174'
+            description: BB10 Jade 15m+15SMS+200MB
+            valueType: number
+          - value: '93'
+            description: '50MB +100SMS :Iphone + Tablet '
+            valueType: number
+          - value: '177'
+            description: BB10 Platinu P635 + 1GB
+            valueType: number
+          - value: '264'
+            description: GPRS_CAP
+            valueType: number
+          - value: '184'
+            description: 'Buss Smart P625+500MB+100SMS '
+            valueType: number
+          - value: '60'
+            description: Ob-Orange Gem FAF
+            valueType: number
+          - value: '94'
+            description: '50MB +50SMS : SmartPhone'
+            valueType: number
+          - value: '146'
+            description: EXTRA 1GB
+            valueType: number
+          - value: '205'
+            description: Gem Smar Rub 300m+200SMS+150MB
+            valueType: number
+          - value: '186'
+            description: Buss Smt Titu P893+1GB+100SMS
+            valueType: number
+          - value: '149'
+            description: EXTRA 25MB
+            valueType: number
+          - value: '59'
+            description: Ob-Orange Gem South Africa
+            valueType: number
+          - value: '195'
+            description: Gem BB Dia 575m+150SMS+150MB
+            valueType: number
+          - value: '204'
+            description: Gem Smar Dia 575m+200SMS+200MB
+            valueType: number
+          - value: '156'
+            description: EXTRA 2.5GB
+            valueType: number
+          description: Free Units Package
+eligibility:
+    msisdnValid: 26774843725
+    msisdnInvalid: 11111111
+    msisdnUnknown: 26772105014
+    productOfferingId: COLP
+    eligibleOptions:
+        - productOfferingName: EmergencyCredit
+          canBeSubscribed: true
+          eligibleCharacteristic:
+          - name: maxAmount
+            productSpecCharacteristicValues:
+            - value: '5'
+          productSpecification:
+            id: emergencyCredit
+        - productOfferingId: '440'
+          productOfferingName: All Access internet-1month
+          productSpecification:
+            id: bundleData
+        - productOfferingId: '426'
+          productOfferingName: My Music-1day
+          productSpecification:
+            id: bundleData
+        - productOfferingId: '407'
+          productOfferingName: CallHome Offer–Zimbabwe
+          productSpecification:
+            id: bundleData
+        - productOfferingId: PostData_Bundle_50MB
+          productOfferingName: PostData Bundle-50MB
+          productSpecification:
+            id: bundleData
+        - productOfferingId: '290'
+          productOfferingName: Prepaid Data Bundle-10MB
+          productSpecification:
+            id: bundleData
+        - productOfferingId: '98'
+          productOfferingName: Youth offer individual price plan
+          productSpecification:
+            id: bundleData
+        - productOfferingId: '439'
+          productOfferingName: All Access internet-2weeks
+          productSpecification:
+            id: bundleData
+        - productOfferingId: '386'
+          productOfferingName: Prepaid Voice Bundle-1day
+          productSpecification:
+            id: bundleData
+        - productOfferingId: GPDAT
+          productOfferingName: GPRS Data
+          canBeSubscribed: true
+          price:
+            currencyCode: BWP
+            taxIncludedAmount: 0
+          productSpecification:
+            id: serviceBSCS
+        - productOfferingId: OBOC
+          productOfferingName: Op Bar all OG Calls
+          canBeSubscribed: true
+          price:
+            currencyCode: BWP
+            taxIncludedAmount: 0
+          productSpecification:
+            id: serviceBSCS
+        - productOfferingId: OBR-1
+          productOfferingName: Op Bar Roaming inside HPLMN
+          canBeSubscribed: true
+          price:
+            currencyCode: BWP
+            taxIncludedAmount: 0
+          productSpecification:
+            id: serviceBSCS
+        - productOfferingId: COLP
+          productOfferingName: Connected Line Ident Present
+          canBeSubscribed: true
+          price:
+            currencyCode: BWP
+            taxIncludedAmount: 0
+          productSpecification:
+            id: serviceBSCS
+        - productOfferingId: COLR
+          productOfferingName: Connected Line Ident Restrict
+          canBeSubscribed: true
+          price:
+            currencyCode: BWP
+            taxIncludedAmount: 0
+          productSpecification:
+            id: serviceBSCS
+        - productOfferingId: CLIR
+          productOfferingName: Calling Line Ident Restrict
+          canBeSubscribed: true
+          price:
+            currencyCode: BWP
+            taxIncludedAmount: 0
+          productSpecification:
+            id: serviceBSCS
+        - productOfferingId: BAIC
+          productOfferingName: Bar all IC Calls
+          canBeSubscribed: true
+          price:
+            currencyCode: BWP
+            taxIncludedAmount: 0
+          productSpecification:
+            id: serviceBSCS
+        - productOfferingId: BAOC
+          productOfferingName: Bar all OG Calls
+          canBeSubscribed: true
+          price:
+            currencyCode: BWP
+            taxIncludedAmount: 0
+          productSpecification:
+            id: serviceBSCS
+        - productOfferingId: BIEXH
+          productOfferingName: Bar all IC Calls Outside HPLMN
+          canBeSubscribed: true
+          price:
+            currencyCode: BWP
+            taxIncludedAmount: 0
+          productSpecification:
+            id: serviceBSCS
+        - productOfferingId: R4GLT
+          productOfferingName: 4G LTE Roaming
+          canBeSubscribed: true
+          price:
+            currencyCode: BWP
+            taxIncludedAmount: 0
+          productSpecification:
+            id: serviceBSCS
+        - productOfferingId: S4GLT
+          productOfferingName: 4G LTE subscription
+          canBeSubscribed: true
+          price:
+            currencyCode: BWP
+            taxIncludedAmount: 0
+          productSpecification:
+            id: serviceBSCS
+        - productOfferingId: BAGP
+          productOfferingName: Barring GPRS
+          canBeSubscribed: true
+          price:
+            currencyCode: BWP
+            taxIncludedAmount: 0
+          productSpecification:
+            id: serviceBSCS
+        - productOfferingId: OBOC
+          productOfferingName: Op Bar all OG Calls
+          canBeSubscribed: true
+          price:
+            currencyCode: BWP
+            taxIncludedAmount: 0
+          productSpecification:
+            id: serviceBSCS
+        - productOfferingId: IMEI
+          productOfferingName: IMEI Service
+          canBeSubscribed: true
+          price:
+            currencyCode: BWP
+            taxIncludedAmount: 0
+          productSpecification:
+            id: serviceBSCS
+        - productOfferingId: MMSGP
+          productOfferingName: GPRS MMS
+          canBeSubscribed: true
+          price:
+            currencyCode: BWP
+            taxIncludedAmount: 0
+          productSpecification:
+            id: serviceBSCS        
+    eligibleOptionsFiltered:
+        - productOfferingId: COLP
+          productOfferingName: Connected Line Ident Present
+          canBeSubscribed: true
+          price:
+            currencyCode: BWP
+            taxIncludedAmount: 0
+          productSpecification:
+            id: serviceBSCS   
+    dataBundleEligibleOptions:
+        - productOfferingId: '440'
+          productOfferingName: All Access internet-1month
+          productSpecification:
+            id: bundleData
+        - productOfferingId: '426'
+          productOfferingName: My Music-1day
+          productSpecification:
+            id: bundleData
+        - productOfferingId: '407'
+          productOfferingName: CallHome Offer–Zimbabwe
+          productSpecification:
+            id: bundleData
+        - productOfferingId: PostData_Bundle_50MB
+          productOfferingName: PostData Bundle-50MB
+          productSpecification:
+            id: bundleData
+        - productOfferingId: '290'
+          productOfferingName: Prepaid Data Bundle-10MB
+          productSpecification:
+            id: bundleData
+        - productOfferingId: '98'
+          productOfferingName: Youth offer individual price plan
+          productSpecification:
+            id: bundleData
+        - productOfferingId: '439'
+          productOfferingName: All Access internet-2weeks
+          productSpecification:
+            id: bundleData
+        - productOfferingId: '386'
+          productOfferingName: Prepaid Voice Bundle-1day
+          productSpecification:
+            id: bundleData  
+    emergencyCreditEligibleOptions:
+        - productOfferingName: EmergencyCredit
+          canBeSubscribed: true
+          eligibleCharacteristic:
+          - name: maxAmount
+            productSpecCharacteristicValues:
+            - value: '5'
+          productSpecification:
+            id: emergencyCredit                       
+    eligibleContract:
+        productOffering:
+        - id: PROZE
+          name: Orange Zebra
+        - id: PROMM
+          name: Orange Masa Mova                    
+bucketBalance:
+    msisdn:
+        prepaid: 26772174851
+        postpaid: 26772174850
+        invalid: 11111111
+    prepaidUsageReports:
+      - publicKey:
+          id: '26772174851'
+          name: msisdn
+        buckets:
+        - id: '681'
+          name: Local Currency
+          validFor:
+            startDateTime: '2017-03-08T23:00:00Z'
+            endDateTime: '2017-03-08T23:00:00Z'
+          bucketBalances:
+          - remainingValue: 0
+            lastUpdateDate: '2017-03-09T02:02:14Z'
+        - id: '683'
+          name: Voice1
+          validFor:
+            startDateTime: '2017-03-09T02:02:14Z'
+            endDateTime: '2017-03-16T02:02:14Z'
+          bucketBalances:
+          - remainingValue: 3000
+            lastUpdateDate: '2017-03-09T02:02:14Z'
+        - id: '10091'
+          name: Main Balance
+          usageType: money
+          validFor:
+            startDateTime: '2017-05-31T22:00:00Z'
+            endDateTime: '2018-10-07T22:00:00Z'
+          bucketBalances:
+          - unit: BWP
+            remainingValue: 848863490
+            lastUpdateDate: '2017-06-15T06:31:59Z'
+    postpaidUsageReports:
+      - publicKey:
+          id: '26772174850'
+          name: msisdn
+        buckets:
+        - id: '681'
+          name: Local Currency
+          validFor:
+            startDateTime: '2017-03-08T23:00:00Z'
+            endDateTime: '2017-03-08T23:00:00Z'
+          bucketBalances:
+          - remainingValue: 0
+            lastUpdateDate: '2017-03-09T02:02:14Z'
+        - id: '683'
+          name: Voice1
+          validFor:
+            startDateTime: '2017-03-09T02:02:14Z'
+            endDateTime: '2017-03-16T02:02:14Z'
+          bucketBalances:
+          - remainingValue: 3000
+            lastUpdateDate: '2017-03-09T02:02:14Z'
+        - id: '10091'
+          name: Credit limit
+          validFor:
+            startDateTime: '2017-05-31T22:00:00Z'
+            endDateTime: '2018-10-07T22:00:00Z'
+          bucketBalances:
+          - remainingValue: 848863490
+            lastUpdateDate: '2017-06-15T06:31:59Z'
+    creditBucketBalanceTransactions:
+      - date: '2017-05-16T12:55:38Z'
+        value: 40
+        unit: BWP
+      - date: '2017-05-16T12:55:35Z'
+        value: 30
+        unit: BWP
+payment:
+    paymentId:
+      valid: '4730465'
+      invalid: '99999'
+      badFormat: 'unknown' 
+    partyId:
+      valid: 'CUST0000018633'
+      invalid: CUST123456789
+    payments:
+    - id: '4730465'
+      correlatorId: 00000PHAT1000001110
+      paymentDate: '2014-11-13T00:00:00Z'
+      transactionType: advance
+      totalAmount:
+        amount: 562.12
+        units: BWP
+      payer:
+        id: CUST0000018633
+      paymentItem:
+      - totalAmount:
+          amount: 562.12
+          units: BWP
+        item:
+          id: '4722676'
+          type: CO
+    - id: '822868'
+      correlatorId: '2002070615'
+      paymentDate: '2004-03-15T00:00:00Z'
+      transactionType: debt
+      totalAmount:
+        amount: 1625.64
+        units: BWP
+      payer:
+        id: CUST0000018633
+      paymentItem:
+      - totalAmount:
+          amount: 247.78
+          units: BWP
+        item:
+          id: '773284'
+          type: IN
+      - totalAmount:
+          amount: 538.86
+          units: BWP
+        item:
+          id: '791180'
+          type: IN
+      - totalAmount:
+          amount: 310.58
+          units: BWP
+        item:
+          id: '813046'
+          type: IN
+      - totalAmount:
+          amount: 264.08
+          units: BWP
+        item:
+          id: '831651'
+          type: IN
+      - totalAmount:
+          amount: 264.34
+          units: BWP
+        item:
+          id: '851209'
+          type: IN
+    - id: '756651'
+      correlatorId: '2002065157'
+      paymentDate: '2003-12-22T00:00:00Z'
+      transactionType: debt
+      totalAmount:
+        amount: 500
+        units: BWP
+      payer:
+        id: CUST0000018633
+      paymentItem:
+      - totalAmount:
+          amount: 309.86
+          units: BWP
+        item:
+          id: '754431'
+          type: IN
+      - totalAmount:
+          amount: 190.14
+          units: BWP
+        item:
+          id: '773284'
+          type: IN
+    - id: '683927'
+      correlatorId: '2002059687'
+      paymentDate: '2003-10-02T00:00:00Z'
+      transactionType: debt
+      totalAmount:
+        amount: 500
+        units: BWP
+      payer:
+        id: CUST0000018633
+      paymentItem:
+      - totalAmount:
+          amount: 40.89
+          units: BWP
+        item:
+          id: '716936'
+          type: IN
+      - totalAmount:
+          amount: 434.1
+          units: BWP
+        item:
+          id: '735277'
+          type: IN
+      - totalAmount:
+          amount: 25.01
+          units: BWP
+        item:
+          id: '754431'
+          type: IN
+    - id: '641397'
+      correlatorId: '2002053713'
+      paymentDate: '2003-08-22T00:00:00Z'
+      transactionType: debt
+      totalAmount:
+        amount: 500
+        units: BWP
+      payer:
+        id: CUST0000018633
+      paymentItem:
+      - totalAmount:
+          amount: 500
+          units: BWP
+        item:
+          id: '716936'
+          type: IN
+    - id: '610991'
+      correlatorId: '2002051233'
+      paymentDate: '2003-07-08T00:00:00Z'
+      transactionType: debt
+      totalAmount:
+        amount: 600
+        units: BWP
+      payer:
+        id: CUST0000018633
+      paymentItem:
+      - totalAmount:
+          amount: 590.48
+          units: BWP
+        item:
+          id: '698202'
+          type: IN
+      - totalAmount:
+          amount: 9.52
+          units: BWP
+        item:
+          id: '711230'
+          type: CO
+    - id: '592680'
+      correlatorId: '2002036980'
+      paymentDate: '2003-06-09T00:00:00Z'
+      transactionType: debt
+      totalAmount:
+        amount: 370
+        units: BWP
+      payer:
+        id: CUST0000018633
+      paymentItem:
+      - totalAmount:
+          amount: 365.73
+          units: BWP
+        item:
+          id: '680589'
+          type: IN
+      - totalAmount:
+          amount: 4.27
+          units: BWP
+        item:
+          id: '692752'
+          type: CO
+    - id: '566594'
+      correlatorId: 0063  17/04/2003
+      paymentDate: '2003-05-05T00:00:00Z'
+      transactionType: advance
+      totalAmount:
+        amount: 257
+        units: BWP
+      payer:
+        id: CUST0000018633
+      paymentItem:
+      - totalAmount:
+          amount: 257
+          units: BWP
+        item:
+          id: '673064'
+          type: CO
+    - id: '566593'
+      correlatorId: 0063  17/04/2003
+      paymentDate: '2003-05-05T00:00:00Z'
+      transactionType: deposit
+      totalAmount:
+        amount: 150
+        units: BWP
+      payer:
+        id: CUST0000018633
+      paymentItem:
+      - totalAmount:
+          amount: 150
+          units: BWP
+        item:
+          id: '673063'
+          type: DP

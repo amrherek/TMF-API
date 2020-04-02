@@ -1,0 +1,11 @@
+execute NDC_LOGICALHLR.READ, {
+NDC = 1 : java.lang.String
+ => {
+NDCxHMCODE = sub element : com.lhs.ccb.common.soiimpl.NamedValueContainerList
+-[0]NDC = 1 : java.lang.String
+-[0]LEN_MIN = 1 : java.lang.Integer
+-[0]NDC_ID = 70 : java.lang.Long
+-[0]LEN_MAX = 10 : java.lang.Integer
+-[0]HMCODE = 10 : java.lang.Long
+-[0]HMCODE_PUB = Log X25 Register : java.lang.String
+}

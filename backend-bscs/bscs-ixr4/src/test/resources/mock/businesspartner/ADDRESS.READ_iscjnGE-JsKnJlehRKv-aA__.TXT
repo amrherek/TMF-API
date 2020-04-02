@@ -1,0 +1,26 @@
+<!--
+execute (ADDRESS.READ, {
+CS_ID_PUB = CUST0000000200 : java.lang.String
+ADR_TYPE = B : java.lang.Character
+}
+-->
+ => {
+CS_ID = 200 : java.lang.Long
+CS_ID_PUB = CUST0000000689 : java.lang.String
+ADR_SEQ = 2 : java.lang.Long
+ADR_FNAME = biller : java.lang.String
+ADR_CUSTTYPE = C : java.lang.Character
+ADR_SOCIALSENO = SS123456 : java.lang.String
+ADR_JUR_TAX_OVERRIDDEN = false : java.lang.Boolean
+ADR_URGENT = false : java.lang.Boolean
+ADR_ROLES = BCI : java.lang.String
+ADR_TEMPBILL_OVERRIDDEN = false : java.lang.Boolean
+ADR_NAME = BILLER : java.lang.String
+TTL_ID = 1 : java.lang.Long
+ADR_EMPLOYEE = false : java.lang.Boolean
+TTL_ID_PUB = MR : java.lang.String
+ADR_BIRTHDT = YYYY-MM-DD: 1979-8-26 : com.lhs.ccb.common.soiimpl.SVLDateImpl
+ADR_COMPNO = COMPNO123456 : java.lang.String
+ADR_LNAME = TEST200 : java.lang.String
+ADR_FORWARD = false : java.lang.Boolean
+}

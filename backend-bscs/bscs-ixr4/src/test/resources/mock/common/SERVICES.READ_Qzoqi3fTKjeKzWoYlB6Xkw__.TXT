@@ -1,0 +1,43 @@
+<!--
+execute (SERVICES.READ, {
+SNCODE_PUB = GTEL : java.lang.String
+}
+-->
+ => {
+NUM_SV = sub element : com.lhs.ccb.common.soiimpl.NamedValueContainerList
+-[0]SERVICE_PARAMERTER_IND = false : java.lang.Boolean
+-[0]VPN_INTERNAL_ACCESS_IND = false : java.lang.Boolean
+-[0]PDE_IMPLICIT_IND = false : java.lang.Boolean
+-[0]VPN_ADMINISTRATOR_IND = false : java.lang.Boolean
+-[0]SC_SNIND = U : java.lang.Character
+-[0]SNCODE = 1 : java.lang.Long
+-[0]SV_TYPE =  : java.lang.Character
+-[0]DIRNUM_NPCODE_PUB = E.164 : java.lang.String
+-[0]DIRNUM_NPCODE = 1 : java.lang.Long
+-[0]VPN_OWNER_CONTRACT_IND = false : java.lang.Boolean
+-[0]VPN_EXTERNAL_ACCESS_IND = false : java.lang.Boolean
+-[0]PORT_NPCODE_PUB =  : java.lang.String
+-[0]VPN = false : java.lang.Boolean
+-[0]SV_RCOTYPE = true : java.lang.Boolean
+-[0]SC_SCCODE = 1 : java.lang.Long
+-[0]VAS_MAPPING = true : java.lang.Boolean
+-[0]SV_SHDES = GTEL : java.lang.String
+-[0]PORT_NPCODE = -9223372036854775808 : java.lang.Long
+-[0]SV_MCOTYPE = true : java.lang.Boolean
+-[0]SNCODE_PUB = GTEL : java.lang.String
+-[0]VPN_USER_CONTRACT_IND = true : java.lang.Boolean
+-[0]BSG_ID = 1 : java.lang.Long
+-[0]GPRS = false : java.lang.Boolean
+-[0]SUIP = true : java.lang.Boolean
+-[0]SV_ALCOTYPE = false : java.lang.Boolean
+-[0]SV_DES = GSM Telephony : java.lang.String
+-[0]SRVIND = P : java.lang.Character
+-[0]SV_NET_PROV_REQ = true : java.lang.Boolean
+-[0]PREPAID_SUPPORTED_IND = true : java.lang.Boolean
+-[0]RESOURCES = sub element : com.lhs.ccb.common.soiimpl.NamedValueContainerList
+-[0]-[0]MANDATORY = true : java.lang.Boolean
+-[0]-[0]RESOURCE_TYPE = 0 : java.lang.Integer
+-[0]NUM_ACTION = sub element : com.lhs.ccb.common.soiimpl.NamedValueContainerList
+-[0]-[0]ACTION_ID = 1 : java.lang.Long
+-[0]-[1]ACTION_ID = 32 : java.lang.Long
+}

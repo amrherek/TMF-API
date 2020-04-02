@@ -1,0 +1,16 @@
+server:
+    port: 8052
+management:
+    context-path: /manage
+
+spring:
+    application:
+        name: obw-payment
+    cloud:
+        config:
+            enabled: false
+            discovery:  
+                enabled: false
+eureka:
+  client:
+    enabled: false

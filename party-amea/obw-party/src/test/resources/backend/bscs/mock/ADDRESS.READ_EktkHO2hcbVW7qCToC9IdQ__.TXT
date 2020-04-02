@@ -1,0 +1,38 @@
+<!--
+ execute (ADDRESS.READ, {
+CS_ID_PUB = CUST0000000032 : java.lang.String
+ADR_TYPE = B : java.lang.Character
+})
+-->
+ => {
+ADR_ZIP = 99999 : java.lang.String
+ADR_FNAME = Peter : java.lang.String
+ADR_JUR_TAX_OVERRIDDEN = false : java.lang.Boolean
+ADR_CUSTTYPE = C : java.lang.Character
+LNG_CODE = 1 : java.lang.Long
+ADR_URGENT = false : java.lang.Boolean
+CS_ID = 42 : java.lang.Long
+ADR_CITY = Frankfurt : java.lang.String
+ADR_ROLES = BREU : java.lang.String
+COUNTRY_ID_PUB = DEU : java.lang.String
+MAS_CODE = 1 : java.lang.Long
+ADR_NATIONALITY_PUB = DEU : java.lang.String
+COUNTRY_ID = 80 : java.lang.Long
+LNG_CODE_PUB = DE : java.lang.String
+TTL_ID = 1 : java.lang.Long
+TTL_ID_PUB = MR : java.lang.String
+ADR_STREETNO = 10 : java.lang.String
+CS_ID_PUB = CUST0000000032 : java.lang.String
+ADR_NATIONALITY = 80 : java.lang.Long
+ADR_TEMPBILL_OVERRIDDEN = false : java.lang.Boolean
+MAS_CODE_PUB = SING : java.lang.String
+ADR_EMPLOYEE = false : java.lang.Boolean
+ADR_SEQ = 1 : java.lang.Long
+ADR_STREET = Dieselstr. : java.lang.String
+ADR_LNAME = Mueller : java.lang.String
+ADR_EMAIL = demolhs@hotmail.de : java.lang.String
+ADR_FORWARD = false : java.lang.Boolean
+ADR_IDNO = 123456 : java.lang.String
+IDTYPE_CODE = 3 : java.lang.Long
+ADR_DRIVELICENCE = drive : java.lang.String
+}

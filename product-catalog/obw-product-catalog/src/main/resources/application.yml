@@ -1,0 +1,14 @@
+server:
+    port: 8092
+spring:
+    application:
+        name: '@project.artifactId@'
+    jackson: 
+        serialization: 
+            WRITE_EMPTY_JSON_ARRAYS: false
+            WRITE_DATES_AS_TIMESTAMPS: false
+        default-property-inclusion: non-null    
+
+api:
+  name: productCatalog
+  version: '@project.version@'   

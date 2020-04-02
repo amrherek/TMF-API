@@ -1,0 +1,29 @@
+<!--
+ execute (FINANCIAL_TRANSACTION.READ, {
+TRANSACTION_ID = 4852545 : java.lang.Long
+})
+-->
+ => {
+BU_ID = 3 : java.lang.Long
+CS_ID_PUB = CUST0000000148 : java.lang.String
+EFFECTIVE_DATE = YYYY-MM-DD: 2015-2-13 : com.lhs.ccb.common.soiimpl.SVLDateImpl
+TRANSACTION_REFNUM = 00000GAMT3000005130 : java.lang.String
+CS_ID = 148 : java.lang.Long
+POSTING_PERIOD = 201502 : java.lang.String
+TRANSACTION_ID = 4852545 : java.lang.Long
+REF_DATE = YYYY-MM-DD: 2015-2-13 : com.lhs.ccb.common.soiimpl.SVLDateImpl
+PARENT_TRANSACTION_ID = 4852545 : java.lang.Long
+AMOUNT_CASH_PAY = 1112.64BWP : com.lhs.ccb.common.soiimpl.SVLMoneyImpl
+USER = PIH : java.lang.String
+ENTRY_DATE = YYYY-MM-DD: 2015-2-13 : com.lhs.ccb.common.soiimpl.SVLDateImpl
+REVERSAL_FLAG = false : java.lang.Boolean
+BATCH_NUMBER = 2014061404 : java.lang.Long
+GL_ACCOUNT = 100200 : java.lang.String
+AMOUNT_CURRENT_PAY = 1112.64BWP : com.lhs.ccb.common.soiimpl.SVLMoneyImpl
+USE_CASE_CODE = CE2DD : java.lang.String
+GL_ACCOUNT_DIS = 200000 : java.lang.String
+REVERSED = false : java.lang.Boolean
+TRANS_CODE_PUB = CE2DD : java.lang.String
+
+}
+

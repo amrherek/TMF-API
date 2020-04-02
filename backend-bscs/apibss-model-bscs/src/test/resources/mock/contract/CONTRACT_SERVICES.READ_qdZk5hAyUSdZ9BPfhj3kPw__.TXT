@@ -1,0 +1,30 @@
+<!--
+ execute (CONTRACT_SERVICES.READ, {
+CO_ID_PUB = CONTR0000000111 : java.lang.String
+PROFILE_ID = 0 : java.lang.Long
+SNCODE_PUB = Email : java.lang.String
+SPCODE_PUB = P&SI : java.lang.String
+})
+-->
+ => {
+CO_ID = 111 : java.lang.Long
+CO_ID_PUB = CONTR0000000111 : java.lang.String
+services = sub element : com.lhs.ccb.common.soiimpl.NamedValueContainerList
+-[0]PROFILE_ID = 0 : java.lang.Long
+-[0]REASON = 1 : java.lang.Integer
+-[0]COS_CURRENCY_PUB = EUR : java.lang.String
+-[0]SNCODE_PUB = Email : java.lang.String
+-[0]COS_CURRENCY = 43 : java.lang.Long
+-[0]CALC_ACC = 0.0 : java.lang.Double
+-[0]directory numbers = sub element : com.lhs.ccb.common.soiimpl.NamedValueContainerList
+-[0]COS_STATUS_DATE = Thu May 30 12:44:24 CEST 2013 : com.lhs.ccb.common.soiimpl.SVLDateTimeImpl
+-[0]SNCODE = 278 : java.lang.Long
+-[0]ports = sub element : com.lhs.ccb.common.soiimpl.NamedValueContainerList
+-[0]SPCODE_PUB = P&SI : java.lang.String
+-[0]PARAMS_IND = true : java.lang.Boolean
+-[0]SPCODE = 73 : java.lang.Long
+-[0]COS_STATUS = 1 : java.lang.Integer
+-[0]CALC_SUB = 0.0 : java.lang.Double
+-[0]USER_REASON = -9223372036854775808 : java.lang.Long
+-[0]COS_QUANTITY = 1 : java.lang.Integer
+}

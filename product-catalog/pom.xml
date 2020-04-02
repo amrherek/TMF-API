@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+
+	<parent>
+		<groupId>com.orange.mea.apisi.workspace</groupId>
+		<artifactId>api-amea</artifactId>
+		<version>1.17-SNAPSHOT</version>
+	</parent>
+
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>com.orange.mea.apisi.product-catalog</groupId>
+	<artifactId>product-catalog-amea</artifactId>
+	<packaging>pom</packaging>
+	<name>[Product Catalog] root</name>
+
+	<!-- List of modules -->
+	<modules>
+		<module>product-catalog-model</module>
+		<module>product-catalog-core</module>
+		<!-- <module>otn-product-catalog</module> -->
+		<module>obw-product-catalog</module>
+		<!-- <module>ocm-product-catalog</module> -->
+	</modules>
+
+	<!-- DependencyManagement -->
+	<dependencyManagement>
+		<dependencies>
+
+			<!-- PROJECTS DEPENDENCIES -->
+
+			<dependency>
+				<groupId>com.orange.mea.apisi.product-catalog</groupId>
+				<artifactId>product-catalog-core</artifactId>
+				<version>${project.version}</version>
+			</dependency>
+
+			<dependency>
+				<groupId>com.orange.mea.apisi.product-catalog</groupId>
+				<artifactId>product-catalog-model</artifactId>
+				<version>${project.version}</version>
+			</dependency>
+
+		</dependencies>
+	</dependencyManagement>
+
+</project>

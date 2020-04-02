@@ -1,0 +1,15 @@
+<!--
+ execute (BILLING_ACCOUNT_ASSIGNMENT.READ, {
+CO_ID = 1460 : java.lang.Long
+})
+-->
+ => {
+RESULT_LIST = sub element : com.lhs.ccb.common.soiimpl.NamedValueContainerList
+-[0]CO_ID_PUB = CONTR0000001492 : java.lang.String
+-[0]ASSIGNMENT_TYPE = I : java.lang.Character
+-[0]BILLING_ACCOUNT_CODE = BA0000000656 : java.lang.String
+-[0]BILLING_ACCOUNT_ID = 260 : java.lang.Long
+-[0]CO_ID = 1460 : java.lang.Long
+
+}
+

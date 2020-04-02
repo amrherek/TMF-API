@@ -1,0 +1,32 @@
+<!--
+ execute (CONTRACT_SERVICE_PARAMETERS.READ, {
+CO_ID_PUB = CONTR0000000111 : java.lang.String
+PROFILE_ID = 0 : java.lang.Long
+SNCODE_PUB = Email : java.lang.String
+SPCODE_PUB = P&SI : java.lang.String
+})
+-->
+ => {
+CO_ID = 111 : java.lang.Long
+CO_ID_PUB = CONTR0000001480 : java.lang.String
+PROFILE_ID = 0 : java.lang.Long
+SPCODE = 73 : java.lang.Long
+SPCODE_PUB = P&SI : java.lang.String
+SNCODE = 278 : java.lang.Long
+SNCODE_PUB = Email : java.lang.String
+NUM_PARAMS = sub element : com.lhs.ccb.common.soiimpl.NamedValueContainerList
+-[0]COMPLEX_NO = 1 : java.lang.Long
+-[0]PRM_DES = email : java.lang.String
+-[0]COMPLEX_LEVEL = 1 : java.lang.Long
+-[0]PARENT_NO = 1 : java.lang.Long
+-[0]MULT_VALUES = sub element : com.lhs.ccb.common.soiimpl.NamedValueContainerList
+-[0]-[0]VALUE_DES = wimax@testbedamea.local : java.lang.String
+-[0]-[0]VALUE = wimax@testbedamea.local : java.lang.String
+-[0]-[0]VALUE_SEQNO = 1 : java.lang.Long
+-[0]SIBLING_NO = 1 : java.lang.Long
+-[0]PRM_ID_PUB = email : java.lang.String
+-[0]TYPE = DF : java.lang.String
+-[0]DATA_TYPE = ST : java.lang.String
+-[0]PRM_NO = 1 : java.lang.Long
+-[0]PRM_ID = 98 : java.lang.Long
+}

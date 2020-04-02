@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+		xmlns:context="http://www.springframework.org/schema/context"
+		xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+		xmlns:p="http://www.springframework.org/schema/p"
+		xsi:schemaLocation="http://www.springframework.org/schema/beans
+			http://www.springframework.org/schema/beans/spring-beans.xsd
+			http://www.springframework.org/schema/context
+			http://www.springframework.org/schema/context/spring-context.xsd">
+	
+	<bean id="soiTransactionsManager"
+		  class="com.orange.bscs.api.connection.SOITransactionsManager">
+		  <!-- The provider of connections (for test purpose,no pool)  -->
+		  <constructor-arg ref="soiConnectionFactory" />
+		  
+		  <!-- Case of the stateful mode : timeout for a connection  (in seconds) -->
+		  <constructor-arg value="${statefull.connection.timeout}" />
+		  <!-- Delay before the reservations control scheduler is to be executed (in seconds) -->
+		  <constructor-arg value="${statefull.connection.control.delay}" />
+		  <!-- Time between successive reservations control executions (in seconds) -->
+		  <constructor-arg value="${statefull.connection.control.period}" />
+	</bean>
+	
+
+	<alias alias="connectionBackendFactory" name="mockBackendFactory"/>
+
+	<bean id="mockBackendFactory" class="com.orange.bscs.api.connection.backend.ConnectionBackendFactoryMock"/>
+
+	
+	<bean id="soiConnectionFactory" class="com.orange.bscs.api.connection.SOIConnectionFactory" >
+		<property name="logManagerFactory">
+			<bean class="com.orange.bscs.api.audit.LogManagerFactory">
+				<property name="activeJMS" value="false"/>
+			</bean>
+		</property>
+		<property name="connectionBackendFactory">
+			 <bean class="com.orange.bscs.api.connection.backend.ConnectionBackendFactoryLog"
+			  		p:sourceBackendFactory-ref="connectionBackendFactory"/>
+		 </property>
+	</bean>
+	
+</beans>

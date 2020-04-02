@@ -1,0 +1,289 @@
+{
+    "id": "CAPSV",
+    "name": "CAP_SERVICE",
+    "isBundle": false,
+    "productSpecification": {
+        "id": "serviceBSCS",       
+        "productSpecCharacteristic": [
+            {
+                "name": "GSM40",
+                "configurable": true,
+                "valueType": "listBox",
+                "maxOccurrence": 1,
+                "productSpecCharacteristicValue": [
+                    {
+                        "value": "178",
+                        "description": "BB10 Rub 300m+100SMS+750MB",
+                        "valueType": "number"
+                    },
+                    {
+                        "value": "192",
+                        "description": "Corporate BB Titanium P893",
+                        "valueType": "number"
+                    },
+                    {
+                        "value": "206",
+                        "description": "Gem Smat Sap 160m+100SMS+100MB",
+                        "valueType": "number"
+                    },
+                    {
+                        "value": "185",
+                        "description": "Buss Smart Silv P223+50MB+100S",
+                        "valueType": "number"
+                    },
+                    {
+                        "value": "176",
+                        "description": "BB10 Opale 100MB",
+                        "valueType": "number"
+                    },
+                    {
+                        "value": "199",
+                        "description": "Gem Sapphire 160m+50SMS+50MB",
+                        "valueType": "number"
+                    },
+                    {
+                        "value": "157",
+                        "description": "EXTRA 5.GB",
+                        "valueType": "number"
+                    },
+                    {
+                        "value": "171",
+                        "description": "BB10 Diamon 575m+150SMS+1GB",
+                        "valueType": "number"
+                    },
+                    {
+                        "value": "179",
+                        "description": "BB10 Sapphir 160m+50SMS+500MB",
+                        "valueType": "number"
+                    },
+                    {
+                        "value": "193",
+                        "description": "Corporate BB WhiteGold P313",
+                        "valueType": "number"
+                    },
+                    {
+                        "value": "165",
+                        "description": "Ob-EXTRA 1.5GB",
+                        "valueType": "number"
+                    },
+                    {
+                        "value": "150",
+                        "description": "EXTRA 10MB",
+                        "valueType": "number"
+                    },
+                    {
+                        "value": "173",
+                        "description": "BB10 Gol P446 + 750MB",
+                        "valueType": "number"
+                    },
+                    {
+                        "value": "61",
+                        "description": "Orange Gem WE Option",
+                        "valueType": "number"
+                    },
+                    {
+                        "value": "180",
+                        "description": "BB10 Silver P223+300MB",
+                        "valueType": "number"
+                    },
+                    {
+                        "value": "170",
+                        "description": "BB10 Bronze P90+ 100MB",
+                        "valueType": "number"
+                    },
+                    {
+                        "value": "191",
+                        "description": "Corporate BB Silver P223",
+                        "valueType": "number"
+                    },
+                    {
+                        "value": "46",
+                        "description": "DATA FREE 2GB",
+                        "valueType": "number"
+                    },
+                    {
+                        "value": "201",
+                        "description": "Gem iph Dia 575m+200SMS+200MB",
+                        "valueType": "number"
+                    },
+                    {
+                        "value": "181",
+                        "description": "BB10 Titanium P893+1.5GB",
+                        "valueType": "number"
+                    },
+                    {
+                        "value": "198",
+                        "description": "Gem Ruby 300m+100SMS+100MB",
+                        "valueType": "number"
+                    },
+                    {
+                        "value": "200",
+                        "description": "Gem Dia 550m+150SMS+150MB",
+                        "valueType": "number"
+                    },
+                    {
+                        "value": "172",
+                        "description": "BB10 Emeral 60m+30SMS+300MB",
+                        "valueType": "number"
+                    },
+                    {
+                        "value": "190",
+                        "description": "Corporate BB Nickel P134",
+                        "valueType": "number"
+                    },
+                    {
+                        "value": "189",
+                        "description": "Corporate BB Gold P446",
+                        "valueType": "number"
+                    },
+                    {
+                        "value": "175",
+                        "description": "BB10 Nickel P134+200MB",
+                        "valueType": "number"
+                    },
+                    {
+                        "value": "203",
+                        "description": "Gem iPh Sapp 160m+150SMS+100MB",
+                        "valueType": "number"
+                    },
+                    {
+                        "value": "58",
+                        "description": "Orange Gem WE Landline Options",
+                        "valueType": "number"
+                    },
+                    {
+                        "value": "196",
+                        "description": "Gem BB Eme 60m+30SMS+30MB",
+                        "valueType": "number"
+                    },
+                    {
+                        "value": "182",
+                        "description": "BB10 WhiteGold P313+500MB",
+                        "valueType": "number"
+                    },
+                    {
+                        "value": "92",
+                        "description": "Ob-Option Peak",
+                        "valueType": "number"
+                    },
+                    {
+                        "value": "188",
+                        "description": "Corp BB Bronze P90",
+                        "valueType": "number"
+                    },
+                    {
+                        "value": "147",
+                        "description": "EXTRA 500MBv2",
+                        "valueType": "number"
+                    },
+                    {
+                        "value": "197",
+                        "description": "Gem Jade 15min+15SMS+15MB",
+                        "valueType": "number"
+                    },
+                    {
+                        "value": "202",
+                        "description": "Gem iph Rub 300m+200SMS+150MB",
+                        "valueType": "number"
+                    },
+                    {
+                        "value": "57",
+                        "description": "Orange Gem Landline Option",
+                        "valueType": "number"
+                    },
+                    {
+                        "value": "194",
+                        "description": "Corporate BB Platinum P625",
+                        "valueType": "number"
+                    },
+                    {
+                        "value": "187",
+                        "description": "Buss Smt WGol  P313+100MB+100S",
+                        "valueType": "number"
+                    },
+                    {
+                        "value": "183",
+                        "description": "Buss Sma Gold P446+250M+100SMS",
+                        "valueType": "number"
+                    },
+                    {
+                        "value": "174",
+                        "description": "BB10 Jade 15m+15SMS+200MB",
+                        "valueType": "number"
+                    },
+                    {
+                        "value": "93",
+                        "description": "50MB +100SMS :Iphone + Tablet ",
+                        "valueType": "number"
+                    },
+                    {
+                        "value": "177",
+                        "description": "BB10 Platinu P635 + 1GB",
+                        "valueType": "number"
+                    },
+                    {
+                        "value": "264",
+                        "description": "GPRS_CAP",
+                        "valueType": "number"
+                    },
+                    {
+                        "value": "184",
+                        "description": "Buss Smart P625+500MB+100SMS ",
+                        "valueType": "number"
+                    },
+                    {
+                        "value": "60",
+                        "description": "Ob-Orange Gem FAF",
+                        "valueType": "number"
+                    },
+                    {
+                        "value": "94",
+                        "description": "50MB +50SMS : SmartPhone",
+                        "valueType": "number"
+                    },
+                    {
+                        "value": "146",
+                        "description": "EXTRA 1GB",
+                        "valueType": "number"
+                    },
+                    {
+                        "value": "205",
+                        "description": "Gem Smar Rub 300m+200SMS+150MB",
+                        "valueType": "number"
+                    },
+                    {
+                        "value": "186",
+                        "description": "Buss Smt Titu P893+1GB+100SMS",
+                        "valueType": "number"
+                    },
+                    {
+                        "value": "149",
+                        "description": "EXTRA 25MB",
+                        "valueType": "number"
+                    },
+                    {
+                        "value": "59",
+                        "description": "Ob-Orange Gem South Africa",
+                        "valueType": "number"
+                    },
+                    {
+                        "value": "195",
+                        "description": "Gem BB Dia 575m+150SMS+150MB",
+                        "valueType": "number"
+                    },
+                    {
+                        "value": "204",
+                        "description": "Gem Smar Dia 575m+200SMS+200MB",
+                        "valueType": "number"
+                    },
+                    {
+                        "value": "156",
+                        "description": "EXTRA 2.5GB",
+                        "valueType": "number"
+                    }
+                ],
+                "description": "Free Units Package"
+            }
+        ]
+    }
+}

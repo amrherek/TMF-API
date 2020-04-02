@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+
+    <parent>
+        <groupId>com.orange.mea.apisi.workspace</groupId>
+        <artifactId>api-amea</artifactId>
+        <version>1.17-SNAPSHOT</version>
+    </parent>
+
+    <modelVersion>4.0.0</modelVersion>
+    <groupId>com.orange.mea.apisi.backend</groupId>
+    <artifactId>backend-bscs</artifactId>
+    <packaging>pom</packaging>
+    <name>[BSCS] root</name>
+
+    <properties>
+
+        <!-- The properties for bscs-model project -->
+        <com.lhs.ccb.version>1.0</com.lhs.ccb.version>
+        <commons-lang.version>2.5</commons-lang.version>
+        <jms.version>1.1</jms.version>
+        <hibernate.version>1.0.0.Final</hibernate.version>
+        
+        <!-- test properties -->
+        <junit.exclude.group>com.orange.bscs.service.CorbaBscsTest</junit.exclude.group>
+    </properties>
+
+    <!-- List of modules -->
+    <modules>
+        <module>apibss-model-bscs</module>
+        <module>apibss-backend-cms</module>
+        <module>apibss-adapter-cms</module>
+        <module>bscs-model</module>
+        <module>bscs-service</module>
+        <module>bscs-spring-boot-autoconfigure</module>
+        <module>bscs-spring-boot-starter</module>	
+        <module>bscs-ixr4</module>
+        <module>bscs-ixr2</module>
+        <module>bscs-v8</module>
+        <module>bscs-remote-wsdl</module>
+        <module>bscs-remote-client</module>
+        <module>bscs-remote-v8</module>
+        <module>bscs-remote-ixr2</module>
+        <module>bscs-remote-ixr4</module>
+    </modules>
+    
+    <profiles>
+	    <profile>
+	        <id>CorbaTest</id>
+	        <properties>
+	            <junit.exclude.group />
+	        </properties>
+	    </profile>
+	</profiles>
+
+    <dependencyManagement>
+        <dependencies>
+
+            <!-- PROJECTS DEPENDENCIES -->
+            <dependency>
+                <groupId>com.orange.mea.apisi.backend</groupId>
+                <artifactId>apibss-model-bscs</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.orange.mea.apisi.backend</groupId>
+                <artifactId>bscs-model</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.orange.mea.apisi.backend</groupId>
+                <artifactId>apibss-backend-cms</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.orange.mea.apisi.backend</groupId>
+                <artifactId>apibss-adapter-cms</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.orange.mea.apisi.backend</groupId>
+                <artifactId>bscs-spring-boot-autoconfigure</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+            <dependency>
+	            <groupId>com.orange.mea.apisi.backend</groupId>
+	            <artifactId>bscs-service</artifactId>
+	            <version>${project.version}</version>
+	        </dependency>
+
+            <dependency>
+                <groupId>com.orange.mea.apisi.backend</groupId>
+                <artifactId>bscs-remote-wsdl</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.orange.mea.apisi.backend</groupId>
+                <artifactId>bscs-remote-client</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>commons-lang</groupId>
+                <artifactId>commons-lang</artifactId>
+                <version>${commons-lang.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.lhs.ccb</groupId>
+                <artifactId>util</artifactId>
+                <version>${com.lhs.ccb.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.lhs.ccb</groupId>
+                <artifactId>soi</artifactId>
+                <version>${com.lhs.ccb.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.lhs.ccb</groupId>
+                <artifactId>common</artifactId>
+                <version>${com.lhs.ccb.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>javax.jms</groupId>
+                <artifactId>jms</artifactId>
+                <version>${jms.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>org.hibernate.javax.persistence</groupId>
+                <artifactId>hibernate-jpa-2.1-api</artifactId>
+                <version>${hibernate.version}</version>
+            </dependency>
+
+        </dependencies>
+    </dependencyManagement>
+</project>

@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:p="http://www.springframework.org/schema/p"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+			http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <!--  choose in api-generic.properties which implementation to choose between cache/file/corba -->
+    <alias alias="connectionBackendFactory" name="${backendFactory}"/>
+
+
+    <bean id="fileBackendFactory" class="com.orange.bscs.api.connection.backend.ConnectionBackendFactoryFile">
+        <property name="racinePath" value="${fileBackendFactory.racine}"/>
+        <property name="mode" value="${fileBackendFactory.mode}"/>
+        <property name="sourceBackendFactory">
+            <bean class="com.orange.bscs.api.connection.backend.ConnectionBackendFactoryMock"/>
+        </property>
+    </bean>
+
+    <bean id="soiConnectionFactory" class="com.orange.bscs.api.connection.factory.SOIConnectionFactory">
+        <property name="connectionBackendFactory">
+            <bean class="com.orange.bscs.api.connection.backend.ConnectionBackendFactoryLog">
+                <property name="sourceBackendFactory">
+                    <bean class="com.orange.bscs.api.connection.backend.ConnectionBackendFactoryRecorder"
+                          p:sourceBackendFactory-ref="fileBackendFactory"
+                    />
+                </property>
+            </bean>
+        </property>
+    </bean>
+
+</beans>
+	

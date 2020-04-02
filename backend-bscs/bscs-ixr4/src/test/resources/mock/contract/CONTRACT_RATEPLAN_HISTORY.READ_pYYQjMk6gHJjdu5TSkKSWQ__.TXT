@@ -1,0 +1,18 @@
+<!--
+ execute (CONTRACT_RATEPLAN_HISTORY.READ, {
+CO_ID_PUB = CONTR0000000111 : java.lang.String
+})
+
+Empty list if no rateplan change.
+Fill a value for unit-test
+-->
+ => {
+CO_ID = 111 : java.lang.Long
+CO_ID_PUB = CONTR0000000111 : java.lang.String
+contracted composite product history = sub element : com.lhs.ccb.common.soiimpl.NamedValueContainerList
+-[0]RPCODE = 1 : java.lang.Long
+-[0]RPCODE_PUB = FIXE : java.lang.String
+-[0]RP_SEQNO = 0 : java.lang.Long
+-[0]RP_USERLASTMOD = ISAD : java.lang.String
+-[0]RP_VALID_FROM  = YYYY-MM-DD: 2013-5-30 : com.lhs.ccb.common.soiimpl.SVLDateImpl
+ }

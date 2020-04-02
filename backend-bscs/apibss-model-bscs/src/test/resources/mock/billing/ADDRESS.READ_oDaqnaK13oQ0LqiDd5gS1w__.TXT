@@ -1,0 +1,27 @@
+<!--
+execute (ADDRESSES.READ, {
+CS_ID = 101 : java.lang.Long
+ADR_TYPE = B : java.lang.Character
+}
+-->
+ => {
+CS_ID_PUB = CUST0000000689 : java.lang.String
+CS_ID = 761 : java.lang.Long
+LIST_OF_ALL_ADDRESSES = sub element : com.lhs.ccb.common.soiimpl.NamedValueContainerList
+-[0]ADR_SEQ = 1 : java.lang.Long
+-[0]ADR_FNAME = test : java.lang.String
+-[0]ADR_CUSTTYPE = C : java.lang.Character
+-[0]ADR_SOCIALSENO = SS123456 : java.lang.String
+-[0]ADR_JUR_TAX_OVERRIDDEN = false : java.lang.Boolean
+-[0]ADR_URGENT = false : java.lang.Boolean
+-[0]ADR_ROLES = BCIDPRSEU : java.lang.String
+-[0]ADR_TEMPBILL_OVERRIDDEN = false : java.lang.Boolean
+-[0]ADR_NAME = DUMONTET : java.lang.String
+-[0]TTL_ID = 1 : java.lang.Long
+-[0]ADR_EMPLOYEE = false : java.lang.Boolean
+-[0]TTL_ID_PUB = MR : java.lang.String
+-[0]ADR_BIRTHDT = YYYY-MM-DD: 1979-8-26 : com.lhs.ccb.common.soiimpl.SVLDateImpl
+-[0]ADR_COMPNO = COMPNO123456 : java.lang.String
+-[0]ADR_LNAME = TEST : java.lang.String
+-[0]ADR_FORWARD = false : java.lang.Boolean
+}

@@ -1,0 +1,67 @@
+{
+    "id": "BAOC",
+    "name": "Bar all OG Calls",
+    "isBundle": false,
+    "productSpecification": {
+        "id": "serviceBSCS",       
+        "productSpecCharacteristic": [
+            {
+                "name": "GSM11",
+                "configurable": true,
+                "valueType": "listBox",
+                "maxOccurrence": 1,
+                "productSpecCharacteristicValue": [
+                    {
+                        "value": "0",
+                        "description": "by Subscriber using password",
+                        "valueType": "string"
+                    },
+                    {
+                        "value": "1",
+                        "description": "by Operator",
+                        "valueType": "string"
+                    }
+                ],
+                "description": "Control of Barring Services"
+            },
+            {
+                "name": "GSM12",
+                "configurable": true,
+                "valueType": "freeValue",
+                "maxOccurrence": 1,
+                "productSpecCharacteristicValue": [
+                    {
+                        "valueType": "string",
+                        "format": "[0-9]{1,4}"
+                    }
+                ],
+                "description": "Password"
+            },
+            {
+                "name": "GSM13",
+                "configurable": true,
+                "valueType": "listBox",
+                "maxOccurrence": 1,
+                "productSpecCharacteristicValue": [
+                    {
+                        "value": "Y",
+                        "description": "Yes",
+                        "valueType": "string"
+                    },
+                    {
+                        "value": "N",
+                        "description": "No",
+                        "valueType": "string"
+                    }
+                ],
+                "description": "Reset"
+            },
+            {
+                "name": "GSM46",
+                "configurable": true,
+                "maxOccurrence": 1,
+                "description": "Basic Service Group"
+            }
+        ]
+    }
+}

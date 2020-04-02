@@ -1,0 +1,11 @@
+execute PHONE_USAGE.READ, {
+
+ => {
+usage = sub element : com.lhs.ccb.common.soiimpl.NamedValueContainerList
+-[0]PU_CODE = 1 : java.lang.Integer
+-[0]PU_DES = Business : java.lang.String
+-[1]PU_CODE = 3 : java.lang.Integer
+-[1]PU_DES = Combination of the two : java.lang.String
+-[2]PU_CODE = 2 : java.lang.Integer
+-[2]PU_DES = Personal : java.lang.String
+}

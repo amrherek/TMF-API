@@ -1,0 +1,13 @@
+server:
+    port: 8062
+spring:
+    application:
+        name: '@project.artifactId@'
+    jackson: 
+        serialization: 
+            WRITE_EMPTY_JSON_ARRAYS: false
+
+api:
+  name: billingAccount 
+  version: '@project.version@'   
+            

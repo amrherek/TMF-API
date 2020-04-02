@@ -1,0 +1,432 @@
+########################
+## configuration-files #
+########################
+- 1.16
+	* no changed 
+- 1.15
+	* no changed - just for Git technical problem
+- 1.14
+	* [OBW] product-catalog.properties: added queryAllPricePlan.productCode and ZteIn WS information
+	* [OTN] product-catalog.properties: added friendAndFamily WS information
+	* errors-common.properties, errors-product-ordering.properties: update missing errors description
+- 1.13
+	* [OBW] eligibility.properties: added queryAllPricePlan.productCode and emergencyCredit.activate
+	* [OTN] product-ordering.properties, productinventory.properties, bucket-balance.properties: added transfertSolde WS information
+	* [OTN] productinventory.properties: added transferCredit.snCodePub
+	* [OTN] eligibility.properties: added transferData WS information and transferData.name
+- 1.12
+	* [OTN] product-catalog.properties: removed WS information
+	* [OTN] eligibility.properties: added synchroInBscs WS information
+	* [OBW] product-ordering.properties: added emergencyCredit WS information
+	* [OBW] eligibility.properties: added ZteIn and emergencyCredit WS information
+	* bscs.properties: removed logManager section
+- 1.11
+	* [OTN] product-inventory.properties: add productInventory.transferData.name
+	* [OTN] product-inventory.properties, product-ordering.properties: add transferData WS information
+	* [OTN] eligibility.properties: added buyOptionCatalogue informations, sosCredit information and currencyCode
+	* bucket-balance.properties: added creditBucketBalanceTransaction.searchLimit
+	* customer-bill.properties: added customerBill.searchLimit
+	* [OTN] bucket-balance.properties: removed usageDataRecords.read.period and usageDataRecords.read.searchLimit, added Zebra WS information
+- 1.10
+	* [OBW] added payment.properties
+	* [OTN] product-ordering.properties: added sosCredit WS information
+- 1.9
+	* [OBW] bucket-balance.properties: added parameter currencyCode
+	* [OTN] updated scripts (added role for payment)
+- 1.8
+	* [OBW] productinventory.properties: added parameter faf.activateZte
+	* [OBW] product-ordering.properties: added parameter zte.faf.fellowType
+- 1.6
+	* errors-common.properties: fix message for error 5300
+	* product-ordering.properties:
+		- update version in apitmf.party.url.base (should be setted in country environment)
+	* [OBW] errors-product-ordering.properties: added message for 4108, 4103 and 4110 errors
+
+- 1.5
+	* application.properties
+		- Remove spring.profiles.include
+		- Add audit.xml.enabled and audit.database.enabled
+	* bscs.properties
+		- bscs.use.connection.pool renamed bscs.useConnectionPool
+	* errors-common.properties, errors-party.property and errors-product-ordering.properties updated
+	* [OBW] parameters zte.url, zte.login and zte.password added to product-ordering.properties, product-inventories.properties
+	* [OBW] parameters faf.snCodePubs and faf.activateZte added to product-inventories.properties
+
+########################
+## Party ###############
+########################
+Swagger version: 1.4.1, released
+- 1.16
+	* [OBW] add Type in individualIdentification for DrivingLicence. IssuingDate, IssuingPlace and expirationDate can be retrieve and updated. 
+- 1.14
+	* updated swagger ([OBW] add search criteria: tradingName) 
+	* [OBW] add tradingName in characteristic and in filter (should be in the Organization resource)
+- 1.13
+	* [OBW] map BSCS field ADR_NOTE1 to TMF field streetTwo
+- 1.12
+	* BSCS cleanup
+- 1.9
+	* updated swagger
+	* Replace orange-standardapi-plugin by swagger-codegen-maven-plugin 
+- 1.8
+	* Cleanup - sonar improvements
+- 1.7
+	* Removed dependency to orange-standardapi-core lib
+	* [OCM] dates from DB and customer/contract fields are traduced to GMT midnight date-time
+- 1.6
+	* update error message for bad postcode
+	* AAS deployment adaption (no functional impact)
+- 1.5
+	* Refactoring
+	* /status endpoint added
+	* CategoryCode and CategoryLabel added (contains PRG_CODE and PRG_DES)
+	* Data inconsitent error is replaced by Bad parameter value error
+- 1.3
+	* Add log in DB
+	* Refactoring security
+	* Refactoring BSCS
+	* Decrease generated war size
+	
+#########################
+## Product Inventory ####
+#########################
+Swagger version: 0.13.0, released
+- 1.14
+	* [OBW] Add RequestId in ZTE IN header (15 characters random number)
+	* fix a bug on serviceBSCS filter (services packages were returned)
+- 1.13
+	* [OTN] add transfer credit for postpaid
+	* updated swagger	
+	* refactoring: 1 FindOtherByContractBackend per service type, EnhancedBscsServiceBackend
+- 1.12
+	* [OBW] Add data bundles
+	* [OTN] update transfer data
+	* updated swagger (no impact on code)
+	* BSCS cleanup
+- 1.11
+	* [OTN] add transfer data service
+	* remove package on top of simCard and mobileCom (now directly attached to offer)
+	* fill productSpecification.id in addition to productOffering.category
+	* updated swagger
+- 1.10
+	* Fix parameter value for FreeUnits (remove ".0")
+	* updated swagger (method definition - no impact on code)
+- 1.9
+	* updated swagger
+	* Replace orange-standardapi-plugin by swagger-codegen-maven-plugin 
+- 1.8
+	* [OBW] ZteIn can be deactivated
+	* fix pb on parameter parsing for numeric value with ","
+	* Cleanup - sonar improvements
+- 1.7
+	* Updated swagger (v1.0): some fields are not required anymore
+	* Removed dependency to orange-standardapi-core lib
+	* [OTN] fix bug #427625: search with iccId returned all the once associated contract instead of the latest one
+- 1.6
+	* Refactoring
+	* fix status "parsing" in find products by party id (lowercase is allowed)
+	* AAS deployment adaption (no functional impact)
+- 1.5
+	* Refactoring
+	* /status endpoint added
+	* '*' can be used for iccId or msisdn search
+- 1.3
+	* Add log in DB
+	* For unknown msisdn, an empty result is returned instead of an error 
+	* Fix security (API can be launched without security)
+	* Refactoring security
+	* Refactoring BSCS
+	* Decrease generated war size
+	
+#########################
+## Product ordering #####
+#########################
+Swagger version: 1.0.0, released
+- 1.14
+	* [OBW] Add RequestId in ZTE IN header (15 characters random number)
+	* Improve error management (FaF with more than 1 characteristic, productSpecification.id suggestion)
+- 1.13
+	* Fix bug on missing productCharacteristic for emergency Services
+	* [OBW] Data bundle / transfer credit: update parameters for ZTE WS call
+	* transfer data / credit, add Too many parameters error (if volume or targetPublicKey are duplicated)
+	* [OTN] Add transfer credit for postpaid (punctual and recurring)
+	* refactor transfer service integration
+- 1.12
+	* [OTN] Fix bug on delete transfer data service
+	* modify add request syntax (productSpecification from orderItem.product used instead of the one from orderItem.productOffering)
+	* updated swagger (no more orderItem.productOffering.productSpecification)
+	* [OBW] Add data bundles, emergency credit and transfer credit
+	* BSCS cleanup	
+- 1.11
+	* [OTN] add transfer data service (delete + add + sendData)
+	* [OTN] add emergency services
+	* [OTN] remove bonus management
+	* use productSpecification.id instead of productOffering.category (but keep backward compatibility)
+	* update swagger (added productSpecification.id)
+- 1.10
+	* [OBW] updated WSDL for ZTE IN webservice (FaF management)
+	* [OTN] Add add emergency credit (temporary version)
+- 1.9
+	* updated swagger
+	* Fix a bug for adding a service around midnight (depending on timezone)
+	* [OTN] add modify FaFs (erase all existing FaFs and replace by new ones)
+	* Replace orange-standardapi-plugin by swagger-codegen-maven-plugin 
+	* Add exception if requestedStartDate is specified and cannot be used
+- 1.8
+	* Deactivate offer return a not implemented error
+	* Fix parameter name used for update of list box parameters
+    * HTTP status code for successfull POST request is 201 (instead of 200)
+	* Fix bug #428626: when adding a service with parameters, the parameter value was taken instead of the parameter name
+	* channel.name field is mandatory
+	* Cleanup - sonar improvements
+- 1.7
+	* Removed dependency to orange-standardapi-core lib
+- 1.6
+	* Refactoring
+	* AAS deployment adaption (no functional impact)
+	* category is taken from orderItem.product.productOffering or from orderItem.productOffering + for faf use cases, use category instead of id
+	* Delete option, activate/deactivate bonus: use productOffering.id from product instead of the one from orderItem. Category is always retreived from orderItem.productOffering.category
+- 1.5
+	* Refactoring
+	* /status endpoint added
+	* UM85: use migrate action
+- 1.3
+	* Add log in DB
+	* Add exceptions: invalid msisdn (4108) + no FaF configured (4109)
+	* Refactoring security
+	* Refactoring BSCS
+	* Decrease generated war size	
+	
+########################
+## Billing account #####
+########################
+Swagger version: 0.1.0, released
+- 1.12
+	* BSCS cleanup
+- 1.9
+	* New version of swagger from TMF (account management)
+	* Replace orange-standardapi-plugin by swagger-codegen-maven-plugin 
+- 1.8
+	* Cleanup - sonar improvements
+- 1.7
+	* Removed dependency to orange-standardapi-core lib
+	* dates from BSCS are traduced to GMT midnight date-time (instead of local midnights date-time)
+- 1.6
+	* AAS deployment adaption (no functional impact)
+- 1.5
+	* Refactoring
+	* /status endpoint added
+	* Add lastCustomerBill
+- 1.3
+	* Updated swagger (add search by party id)
+	* Add log in DB
+	* Refactoring security
+	* Refactoring BSCS
+	* Decrease generated war size
+
+########################
+## Bucket balance ######
+########################
+Swagger version: 0.4.0, released
+- 1.14
+	* [OBW] Add RequestId in ZTE IN header (15 characters random number)
+	* [OBW] fix bug on unit filtering 
+	* [OTN] fix bug on limit for Add transfer credit for postpaid
+	* [OTN] Add channel to return of getCreditBucketBalanceTransactions
+	* updated swagger (ratingType added to model and to GET /usageReport and GET /creditBucketBalanceTransaction)
+	* [OTN] parameter ratingType is mandatory for getCreditBucketBalanceTransactions
+	* [OTN] Manage "Offer not configured" error in transfer credit for postpaid WS
+	* [OTN] Report OTN bug fix: ContractHandling WS return TND and not millimes
+- 1.13
+	* [OTN] Add transfer credit for postpaid 
+	* updated swagger (added targetPublicKey to CreditBucketBalanceTransaction + added X-OAPI-PinCode parameter for get /creditBucketBalanceTransaction)
+- 1.12
+	* [OTN] fix type parameter for express recharge
+	* [OTN] remove call to SosCredit.getConsumption
+	* BSCS cleanup	
+- 1.11
+	* [OTN] add Zebra WS integration (retailer operations)
+ 	* in FIND request, date.gte is mandatory
+	* [OTN] Add SOSCredit WS integration
+	* [OTN] removed default period (6 months) for find
+	* added date.lte 
+	* added no limit value (-1) and default limit value (from conf)
+	* added X-Total-Count and X-Result-Count headers for find
+	* updated swagger (use date.lte instead of date.lt)
+- 1.10
+	* [OBW] updated WSDL for ZTE IN webservice
+	* add /creditBucketBalanceByTransfer endpoint (UM24) but it always returns "not implemented"
+- 1.9
+	* updated swagger
+	* [OBW] add ZTE IN integration
+	* Replace orange-standardapi-plugin by swagger-codegen-maven-plugin 
+- 1.8
+	* HTTP status code for successfull POST request is 201 (instead of 200)
+	* date.gte is a UTC date
+	* [OTN] fix a bug due to floating point arithmetic issue: creditByValue could refuse values that are integer once converted to millimes
+	* Cleanup - sonar improvements
+- 1.7
+	* Removed dependency to orange-standardapi-core lib
+- 1.6
+	* AAS deployment adaption (no functional impact)
+	* fix bug #416752: UM45, RechargeIN WS only accept integer values
+	* fix bug #415829: bucketBalance.getRemainingValue() may be null
+- 1.5
+	* Refactoring
+	* /status endpoint added
+	* Fill included bucketCounter instead of beyond
+- 1.3
+	* Updated swagger (add characteristic, add type on creditBucketBalanceTransactions)
+	* Remove filters on unit
+	* UC92: do not filter by VAS_CODE anymore, but use the VAS_CODE to deduce transaction type
+	* UC92: Add a filter on type
+	* UM45: use characteristic instead of comment to get all required data from WS
+	* UC19: add filters on unit
+	* UC19: use only endDate from WS (ignore startDate)
+	* Convert output from WS from millimes to Tunisian dinar + add currency
+	* Add log in DB
+	* Refactoring security
+	* Refactoring BSCS
+	* Decrease generated war size	
+	
+########################
+## Customer bill #######
+########################
+Swagger version: 1.1.0, released
+- 1.12
+	* BSCS cleanup
+- 1.11
+ 	* in FIND request, billDate.gte is mandatory
+	* updated swagger (no impact on model)
+	* added no limit value (-1) and default limit value (from conf)
+	* added X-Total-Count and X-Result-Count headers for find
+- 1.10
+	* in get by id, customerBill is returned only if its type is 'IN'
+	* add appliedPayment (transactions used to pay the bill)
+	* refactoring
+- 1.9
+	* UC32: add /file subresource to download directly the bill document
+	* billDocument is filled systematically if the document is available + remove fields parameter in GET
+	* New version of swagger from TMF
+	* [OCM][OTN] bills are returned in descending order (more recent first)
+	* Replace orange-standardapi-plugin by swagger-codegen-maven-plugin 
+- 1.8
+	* [OTN] fix download image
+	* [OBW] Add UC32 (download bill)
+	* billDate.lte and billDate.gte are UTC date. for OTN, we add 23h59 to billDate.lte (as billDate is a dateTime in BSCS)
+	* Cleanup - sonar improvements
+- 1.7
+	* Removed dependency to orange-standardapi-core lib
+	* [OBW][OCM] dates from BSCS are traduced to GMT midnight date-time (instead of local midnights date-time)
+- 1.6
+	* AAS deployment adaption (no functional impact)
+- 1.5
+	* Refactoring
+	* /status endpoint added
+	* Fill status
+- 1.3
+	* Updated south mapping
+	* Add log in DB
+	* Refactoring security
+	* Refactoring BSCS
+	* Decrease generated war size	
+	
+########################
+## Eligibility #########
+########################
+Swagger version: 0.4.0, released
+- 1.14
+	* [OBW] Add RequestId in ZTE IN header (15 characters random number)
+	* [OBW] fix bug on productSpecification.id filter
+- 1.13
+	* [OBW] call to emergency WS can be deactivated
+	* [OBW] Data bundle: update parameters for ZTE WS call
+	* [OTN] add transfer data fee (getTransferableData)
+- 1.12
+	* [OTN] remove spaces from response of SosCatalog WS
+	* Add UC116: get eligible main offers for migration
+	* updated swagger
+	* [OBW] Add data bundles and emergency credit
+	* BSCS cleanup	
+- 1.11
+	* only permanent (not event) service are returned
+	* [OTN] Add SOSCredit WS integration
+	* Add search criteria: productSpecification.id
+	* Fill productSpecification and price
+ 	* Updated swagger (add productSpecification and price) 
+	* [OTN] use BuyOptionCatalogue WS instead of BSCS
+- 1.10
+	* Updated swagger (no impact on code)
+- 1.9
+	* Replace orange-standardapi-plugin by swagger-codegen-maven-plugin 
+- 1.8
+	* Cleanup - sonar improvements
+- 1.7
+	* Removed dependency to orange-standardapi-core lib
+- 1.6
+	* AAS deployment adaption (no functional impact)
+- 1.5
+	* Refactoring
+	* /status endpoint added
+- 1.3: first version
+
+########################
+## Product catalog #####
+########################
+Swagger version: 0.9.0, released
+- 1.14
+	* [OBW] Add RequestId in ZTE IN header (15 characters random number)
+	* [OBW] UC3: add data bundle (Zte IN call)
+	* UC3: PriceAlteration contains the amount of the reduction and not the discounted amount
+	* [OTN] Restore UC1 for FaF
+- 1.13
+	* Add productSpecification.id filter for compatibilityWith
+- 1.12
+	* use offerProductOfferingId instead of publicKey
+	* updated swagger
+	* BSCS cleanup	
+- 1.11
+	* Add productSpecification.id
+- 1.10
+	* Add parameter configuration (UC1 from productOfferingId)
+	* [OTN] Change FaF display (UC1)
+	* updated swagger
+- 1.9
+	* updated swagger
+	* Replace orange-standardapi-plugin by swagger-codegen-maven-plugin 
+- 1.8
+	* Cleanup - sonar improvements
+- 1.7
+	* Removed dependency to orange-standardapi-core lib
+- 1.6
+	* AAS deployment adaption (no functional impact)
+- 1.5
+	* Refactoring
+	* /status endpoint added
+- 1.3
+	* Add log in DB
+	* Refactoring security
+	* Refactoring BSCS
+	* Decrease generated war size
+	
+########################
+## Payment #############
+########################
+Swagger version: 0.4.0, released
+- 1.14
+	* [OTN] shift endDate (Date is converted to dateTime for BSCS command search)
+- 1.12
+	* [OTN] integrate OTN code 
+	* updated swagger (no impact on code)
+	* BSCS cleanup	
+- 1.11
+ 	* in FIND request, paymentDate.gte is mandatory
+	* updated swagger (no impact on model)
+	* added X-Total-Count and X-Result-Count headers for find
+- 1.10
+	* search only with specific transaction codes
+	* [OBW] updated returned fields
+	* updated swagger
+	* Added limit parameter (default from conf file, -1 means no limit)
+- 1.9
+	* [OBW] first version

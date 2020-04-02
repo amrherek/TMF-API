@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<parent>
+        <groupId>com.orange.mea.apisi.backend</groupId>
+		<artifactId>backend-bscs</artifactId>
+        <version>1.17-SNAPSHOT</version>
+    </parent>	
+    <modelVersion>4.0.0</modelVersion>
+    
+	<artifactId>bscs-spring-boot-starter</artifactId>
+	<packaging>jar</packaging>
+	<name>[BSCS] Starter Spring Boot</name>
+
+	<properties>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+	</properties>
+
+	<dependencies> 
+	
+		<dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter</artifactId>
+        </dependency>
+	
+        <dependency>
+            <groupId>com.orange.mea.apisi.backend</groupId>
+            <artifactId>bscs-spring-boot-autoconfigure</artifactId>
+        </dependency>
+		
+		<dependency>
+			<groupId>com.orange.mea.apisi.backend</groupId>
+        	<artifactId>apibss-backend-cms</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>com.orange.mea.apisi.backend</groupId>
+			<artifactId>apibss-adapter-cms</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>com.orange.mea.apisi.backend</groupId>
+			<artifactId>bscs-model</artifactId>
+		</dependency>
+		<dependency>
+            <groupId>com.orange.mea.apisi.backend</groupId>
+            <artifactId>bscs-service</artifactId>
+        </dependency>
+	</dependencies>
+
+
+</project>

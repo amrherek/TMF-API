@@ -1,0 +1,1176 @@
+{
+ "swagger": "2.0",
+ "info": {
+  "description": "Ajout du parametre d'appel 'ratingType' sur le GET creditBucketBalanceransaction (besoin OTN)",
+  "version": "0.4.0_release",
+  "title": "API BucketBalance",
+  "x-logo": {
+   "url": "/redoc/logo.png",
+   "backgroundColor": "#FFFFFF"
+  }
+ },
+ "host": "api.orange.com",
+ "basePath": "/",
+ "schemes": ["http"],
+ "consumes": ["application/json;charset=utf-8"],
+ "produces": ["application/json;charset=utf-8"],
+ "tags": [{
+   "name": "CreditBucketBalanceByRetailerTransfer",
+   "description": ""
+  }, {
+   "name": "CreditBucketBalanceByTransfer",
+   "description": "Credit the balance of a prepaid bucket by transfering a credit value from an another prepaid bucket"
+  }, {
+   "name": "CreditBucketBalanceByValue",
+   "description": "Credit the balance of a prepaid bucket with a given credit value after a payment by credit card for example"
+  }, {
+   "name": "CreditBucketBalanceByVoucher",
+   "description": "Credit the balance of a prepaid bucket using a voucher identified by a number and a pin code"
+  }, {
+   "name": "CreditBucketBalanceTransaction",
+   "description": "Query a list of credit transactions done for a device identified by its msisdn for a given period"
+  }, {
+   "name": "DebitRetailerBucketBalanceByValue",
+   "description": ""
+  }, {
+   "name": "UsageReport",
+   "description": ""
+  }
+ ],
+ "paths": {
+  "/creditBucketBalanceByRetailerTransfer": {
+   "post": {
+    "tags": ["CreditBucketBalanceByRetailerTransfer"],
+    "operationId": "creditBucketBalanceByRetailerTransferCreate",
+    "summary": "create creditBucketBalanceByRetailerTransfer",
+    "description": "\n\nSpecific business errors for current operation will be encapsulated in\n\nHTTP Response 422 Unprocessable entity\n",
+    "deprecated": false,
+    "parameters": [{
+      "name": "CreditBucketBalanceByRetailerTransfer",
+      "required": true,
+      "in": "body",
+      "description": "",
+      "schema": {
+       "$ref": "#/definitions/CreditBucketBalanceByRetailerTransfer"
+      }
+     }
+    ],
+    "responses": {
+     "201": {
+      "description": "Success",
+      "schema": {
+       "$ref": "#/definitions/CreditBucketBalanceByRetailerTransfer"
+      }
+     },
+     "400": {
+      "description": "Bad Request\n\nList of supported error codes:\n- 20: Invalid URL parameter value\n- 21: Missing body\n- 22: Invalid body\n- 23: Missing body field\n- 24: Invalid body field\n- 25: Missing header\n- 26: Invalid header value\n- 27: Missing query-string parameter\n- 28: Invalid query-string parameter value",
+      "schema": {
+       "$ref": "#/definitions/Error"
+      }
+     },
+     "401": {
+      "description": "Unauthorized\n\nList of supported error codes:\n- 40: Missing credentials\n- 41: Invalid credentials\n- 42: Expired credentials",
+      "schema": {
+       "$ref": "#/definitions/Error"
+      }
+     },
+     "403": {
+      "description": "Forbidden\n\nList of supported error codes:\n- 50: Access denied\n- 51: Forbidden requester\n- 52: Forbidden user\n- 53: Too many requests",
+      "schema": {
+       "$ref": "#/definitions/Error"
+      }
+     },
+     "404": {
+      "description": "Not Found\n\nList of supported error codes:\n- 60: Resource not found",
+      "schema": {
+       "$ref": "#/definitions/Error"
+      }
+     },
+     "405": {
+      "description": "Method Not Allowed\n\nList of supported error codes:\n- 61: Method not allowed",
+      "schema": {
+       "$ref": "#/definitions/Error"
+      }
+     },
+     "406": {
+      "description": "Not Acceptable\n\nList of supported error codes:\n- 62: Not acceptable",
+      "schema": {
+       "$ref": "#/definitions/Error"
+      }
+     },
+     "500": {
+      "description": "Internal Server Error\n\nList of supported error codes:\n- 1: Internal error",
+      "schema": {
+       "$ref": "#/definitions/Error"
+      }
+     },
+     "503": {
+      "description": "Service Unavailable\n\nList of supported error codes:\n- 5: The service is temporarily unavailable\n- 6: Orange API is over capacity, retry later !",
+      "schema": {
+       "$ref": "#/definitions/Error"
+      }
+     }
+    }
+   }
+  },
+  "/creditBucketBalanceByTransfer": {
+   "post": {
+    "tags": ["CreditBucketBalanceByTransfer"],
+    "operationId": "creditBucketBalanceByTransferCreate",
+    "summary": "create creditBucketBalanceByTransfer",
+    "description": "\n\nSpecific business errors for current operation will be encapsulated in\n\nHTTP Response 422 Unprocessable entity\n",
+    "deprecated": false,
+    "parameters": [{
+      "name": "CreditBucketBalanceByTransfer",
+      "required": true,
+      "in": "body",
+      "description": "",
+      "schema": {
+       "$ref": "#/definitions/CreditBucketBalanceByTransfer"
+      }
+     }
+    ],
+    "responses": {
+     "201": {
+      "description": "Success",
+      "schema": {
+       "$ref": "#/definitions/CreditBucketBalanceByTransfer"
+      }
+     },
+     "400": {
+      "description": "Bad Request\n\nList of supported error codes:\n- 20: Invalid URL parameter value\n- 21: Missing body\n- 22: Invalid body\n- 23: Missing body field\n- 24: Invalid body field\n- 25: Missing header\n- 26: Invalid header value\n- 27: Missing query-string parameter\n- 28: Invalid query-string parameter value",
+      "schema": {
+       "$ref": "#/definitions/Error"
+      }
+     },
+     "401": {
+      "description": "Unauthorized\n\nList of supported error codes:\n- 40: Missing credentials\n- 41: Invalid credentials\n- 42: Expired credentials",
+      "schema": {
+       "$ref": "#/definitions/Error"
+      }
+     },
+     "403": {
+      "description": "Forbidden\n\nList of supported error codes:\n- 50: Access denied\n- 51: Forbidden requester\n- 52: Forbidden user\n- 53: Too many requests",
+      "schema": {
+       "$ref": "#/definitions/Error"
+      }
+     },
+     "404": {
+      "description": "Not Found\n\nList of supported error codes:\n- 60: Resource not found",
+      "schema": {
+       "$ref": "#/definitions/Error"
+      }
+     },
+     "405": {
+      "description": "Method Not Allowed\n\nList of supported error codes:\n- 61: Method not allowed",
+      "schema": {
+       "$ref": "#/definitions/Error"
+      }
+     },
+     "406": {
+      "description": "Not Acceptable\n\nList of supported error codes:\n- 62: Not acceptable",
+      "schema": {
+       "$ref": "#/definitions/Error"
+      }
+     },
+     "500": {
+      "description": "Internal Server Error\n\nList of supported error codes:\n- 1: Internal error",
+      "schema": {
+       "$ref": "#/definitions/Error"
+      }
+     },
+     "503": {
+      "description": "Service Unavailable\n\nList of supported error codes:\n- 5: The service is temporarily unavailable\n- 6: Orange API is over capacity, retry later !",
+      "schema": {
+       "$ref": "#/definitions/Error"
+      }
+     }
+    }
+   }
+  },
+  "/creditBucketBalanceByValue": {
+   "post": {
+    "tags": ["CreditBucketBalanceByValue"],
+    "operationId": "creditBucketBalanceByValueCreate",
+    "summary": "create creditBucketBalanceByValue",
+    "description": "\n\nSpecific business errors for current operation will be encapsulated in\n\nHTTP Response 422 Unprocessable entity\n",
+    "deprecated": false,
+    "parameters": [{
+      "name": "CreditBucketBalanceByValue",
+      "required": true,
+      "in": "body",
+      "description": "",
+      "schema": {
+       "$ref": "#/definitions/CreditBucketBalanceByValue"
+      }
+     }
+    ],
+    "responses": {
+     "201": {
+      "description": "Success",
+      "schema": {
+       "$ref": "#/definitions/CreditBucketBalanceByValue"
+      }
+     },
+     "400": {
+      "description": "Bad Request\n\nList of supported error codes:\n- 20: Invalid URL parameter value\n- 21: Missing body\n- 22: Invalid body\n- 23: Missing body field\n- 24: Invalid body field\n- 25: Missing header\n- 26: Invalid header value\n- 27: Missing query-string parameter\n- 28: Invalid query-string parameter value",
+      "schema": {
+       "$ref": "#/definitions/Error"
+      }
+     },
+     "401": {
+      "description": "Unauthorized\n\nList of supported error codes:\n- 40: Missing credentials\n- 41: Invalid credentials\n- 42: Expired credentials",
+      "schema": {
+       "$ref": "#/definitions/Error"
+      }
+     },
+     "403": {
+      "description": "Forbidden\n\nList of supported error codes:\n- 50: Access denied\n- 51: Forbidden requester\n- 52: Forbidden user\n- 53: Too many requests",
+      "schema": {
+       "$ref": "#/definitions/Error"
+      }
+     },
+     "404": {
+      "description": "Not Found\n\nList of supported error codes:\n- 60: Resource not found",
+      "schema": {
+       "$ref": "#/definitions/Error"
+      }
+     },
+     "405": {
+      "description": "Method Not Allowed\n\nList of supported error codes:\n- 61: Method not allowed",
+      "schema": {
+       "$ref": "#/definitions/Error"
+      }
+     },
+     "406": {
+      "description": "Not Acceptable\n\nList of supported error codes:\n- 62: Not acceptable",
+      "schema": {
+       "$ref": "#/definitions/Error"
+      }
+     },
+     "500": {
+      "description": "Internal Server Error\n\nList of supported error codes:\n- 1: Internal error",
+      "schema": {
+       "$ref": "#/definitions/Error"
+      }
+     },
+     "503": {
+      "description": "Service Unavailable\n\nList of supported error codes:\n- 5: The service is temporarily unavailable\n- 6: Orange API is over capacity, retry later !",
+      "schema": {
+       "$ref": "#/definitions/Error"
+      }
+     }
+    }
+   }
+  },
+  "/creditBucketBalanceByVoucher": {
+   "post": {
+    "tags": ["CreditBucketBalanceByVoucher"],
+    "operationId": "creditBucketBalanceByVoucherCreate",
+    "summary": "create creditBucketBalanceByVoucher",
+    "description": "\n\nSpecific business errors for current operation will be encapsulated in\n\nHTTP Response 422 Unprocessable entity\n",
+    "deprecated": false,
+    "parameters": [{
+      "name": "CreditBucketBalanceByVoucher",
+      "required": true,
+      "in": "body",
+      "description": "",
+      "schema": {
+       "$ref": "#/definitions/CreditBucketBalanceByVoucher"
+      }
+     }
+    ],
+    "responses": {
+     "201": {
+      "description": "Success",
+      "schema": {
+       "$ref": "#/definitions/CreditBucketBalanceByVoucher"
+      }
+     },
+     "400": {
+      "description": "Bad Request\n\nList of supported error codes:\n- 20: Invalid URL parameter value\n- 21: Missing body\n- 22: Invalid body\n- 23: Missing body field\n- 24: Invalid body field\n- 25: Missing header\n- 26: Invalid header value\n- 27: Missing query-string parameter\n- 28: Invalid query-string parameter value",
+      "schema": {
+       "$ref": "#/definitions/Error"
+      }
+     },
+     "401": {
+      "description": "Unauthorized\n\nList of supported error codes:\n- 40: Missing credentials\n- 41: Invalid credentials\n- 42: Expired credentials",
+      "schema": {
+       "$ref": "#/definitions/Error"
+      }
+     },
+     "403": {
+      "description": "Forbidden\n\nList of supported error codes:\n- 50: Access denied\n- 51: Forbidden requester\n- 52: Forbidden user\n- 53: Too many requests",
+      "schema": {
+       "$ref": "#/definitions/Error"
+      }
+     },
+     "404": {
+      "description": "Not Found\n\nList of supported error codes:\n- 60: Resource not found",
+      "schema": {
+       "$ref": "#/definitions/Error"
+      }
+     },
+     "405": {
+      "description": "Method Not Allowed\n\nList of supported error codes:\n- 61: Method not allowed",
+      "schema": {
+       "$ref": "#/definitions/Error"
+      }
+     },
+     "406": {
+      "description": "Not Acceptable\n\nList of supported error codes:\n- 62: Not acceptable",
+      "schema": {
+       "$ref": "#/definitions/Error"
+      }
+     },
+     "500": {
+      "description": "Internal Server Error\n\nList of supported error codes:\n- 1: Internal error",
+      "schema": {
+       "$ref": "#/definitions/Error"
+      }
+     },
+     "503": {
+      "description": "Service Unavailable\n\nList of supported error codes:\n- 5: The service is temporarily unavailable\n- 6: Orange API is over capacity, retry later !",
+      "schema": {
+       "$ref": "#/definitions/Error"
+      }
+     }
+    }
+   }
+  },
+  "/creditBucketBalanceTransaction": {
+   "get": {
+    "tags": ["CreditBucketBalanceTransaction"],
+    "operationId": "creditBucketBalanceTransactionFind",
+    "summary": "find creditBucketBalanceTransaction",
+    "description": "\n\nSpecific business errors for current operation will be encapsulated in\n\nHTTP Response 422 Unprocessable entity\n",
+    "deprecated": false,
+    "parameters": [{
+      "name": "publicKey.id",
+      "required": true,
+      "in": "query",
+      "description": "",
+      "type": "string"
+     }, {
+      "name": "type",
+      "required": false,
+      "in": "query",
+      "description": "Type voucher, value , or transfer",
+      "type": "string",
+      "enum": ["voucher", "value", "transfer"]
+     }, {
+      "name": "date.gte",
+      "required": true,
+      "in": "query",
+      "description": "Start date of the period (format ISO-8601)",
+      "type": "string",
+      "format": "date"
+     }, {
+      "name": "date.lte",
+      "required": false,
+      "in": "query",
+      "description": "End date of the period (format ISO-8601)",
+      "type": "string",
+      "format": "date"
+     }, {
+      "name": "limit",
+      "required": false,
+      "in": "query",
+      "description": "The maximum number of elements to retrieve (it can be greater than the actual available number of items)",
+      "type": "integer",
+      "format": "int32"
+     }, {
+      "name": "ratingType",
+      "required": false,
+      "in": "query",
+      "description": "Nature of the account bearing the msisdn (prepaid, postpaid, hybrid)",
+      "type": "string",
+      "enum": ["prepaid", "postpaid", "hybrid"]
+     }, {
+      "name": "X-OAPI-PinCode",
+      "required": false,
+      "in": "header",
+      "description": "Pin code",
+      "type": "string"
+     }
+    ],
+    "responses": {
+     "200": {
+      "description": "Success",
+      "schema": {
+       "type": "array",
+       "items": {
+        "$ref": "#/definitions/CreditBucketBalanceTransaction"
+       }
+      },
+      "headers": {
+       "X-Total-Count": {
+        "description": "Total number of items in the collection",
+        "type": "integer",
+        "format": "int32"
+       },
+       "X-Result-Count": {
+        "description": "Actual number of items contained in the response body",
+        "type": "integer",
+        "format": "int32"
+       }
+      }
+     },
+     "400": {
+      "description": "Bad Request\n\nList of supported error codes:\n- 20: Invalid URL parameter value\n- 21: Missing body\n- 22: Invalid body\n- 23: Missing body field\n- 24: Invalid body field\n- 25: Missing header\n- 26: Invalid header value\n- 27: Missing query-string parameter\n- 28: Invalid query-string parameter value",
+      "schema": {
+       "$ref": "#/definitions/Error"
+      }
+     },
+     "401": {
+      "description": "Unauthorized\n\nList of supported error codes:\n- 40: Missing credentials\n- 41: Invalid credentials\n- 42: Expired credentials",
+      "schema": {
+       "$ref": "#/definitions/Error"
+      }
+     },
+     "403": {
+      "description": "Forbidden\n\nList of supported error codes:\n- 50: Access denied\n- 51: Forbidden requester\n- 52: Forbidden user\n- 53: Too many requests",
+      "schema": {
+       "$ref": "#/definitions/Error"
+      }
+     },
+     "404": {
+      "description": "Not Found\n\nList of supported error codes:\n- 60: Resource not found",
+      "schema": {
+       "$ref": "#/definitions/Error"
+      }
+     },
+     "405": {
+      "description": "Method Not Allowed\n\nList of supported error codes:\n- 61: Method not allowed",
+      "schema": {
+       "$ref": "#/definitions/Error"
+      }
+     },
+     "406": {
+      "description": "Not Acceptable\n\nList of supported error codes:\n- 62: Not acceptable",
+      "schema": {
+       "$ref": "#/definitions/Error"
+      }
+     },
+     "500": {
+      "description": "Internal Server Error\n\nList of supported error codes:\n- 1: Internal error",
+      "schema": {
+       "$ref": "#/definitions/Error"
+      }
+     },
+     "503": {
+      "description": "Service Unavailable\n\nList of supported error codes:\n- 5: The service is temporarily unavailable\n- 6: Orange API is over capacity, retry later !",
+      "schema": {
+       "$ref": "#/definitions/Error"
+      }
+     }
+    }
+   }
+  },
+  "/debitRetailerBucketBalanceByValue": {
+   "post": {
+    "tags": ["DebitRetailerBucketBalanceByValue"],
+    "operationId": "debitRetailerBucketBalanceByValueCreate",
+    "summary": "create debitRetailerBucketBalanceByValue",
+    "description": "\n\nSpecific business errors for current operation will be encapsulated in\n\nHTTP Response 422 Unprocessable entity\n",
+    "deprecated": false,
+    "parameters": [{
+      "name": "DebitRetailerBucketBalanceByValue",
+      "required": true,
+      "in": "body",
+      "description": "",
+      "schema": {
+       "$ref": "#/definitions/DebitRetailerBucketBalanceByValue"
+      }
+     }
+    ],
+    "responses": {
+     "201": {
+      "description": "Success",
+      "schema": {
+       "$ref": "#/definitions/DebitRetailerBucketBalanceByValue"
+      }
+     },
+     "400": {
+      "description": "Bad Request\n\nList of supported error codes:\n- 20: Invalid URL parameter value\n- 21: Missing body\n- 22: Invalid body\n- 23: Missing body field\n- 24: Invalid body field\n- 25: Missing header\n- 26: Invalid header value\n- 27: Missing query-string parameter\n- 28: Invalid query-string parameter value",
+      "schema": {
+       "$ref": "#/definitions/Error"
+      }
+     },
+     "401": {
+      "description": "Unauthorized\n\nList of supported error codes:\n- 40: Missing credentials\n- 41: Invalid credentials\n- 42: Expired credentials",
+      "schema": {
+       "$ref": "#/definitions/Error"
+      }
+     },
+     "403": {
+      "description": "Forbidden\n\nList of supported error codes:\n- 50: Access denied\n- 51: Forbidden requester\n- 52: Forbidden user\n- 53: Too many requests",
+      "schema": {
+       "$ref": "#/definitions/Error"
+      }
+     },
+     "404": {
+      "description": "Not Found\n\nList of supported error codes:\n- 60: Resource not found",
+      "schema": {
+       "$ref": "#/definitions/Error"
+      }
+     },
+     "405": {
+      "description": "Method Not Allowed\n\nList of supported error codes:\n- 61: Method not allowed",
+      "schema": {
+       "$ref": "#/definitions/Error"
+      }
+     },
+     "406": {
+      "description": "Not Acceptable\n\nList of supported error codes:\n- 62: Not acceptable",
+      "schema": {
+       "$ref": "#/definitions/Error"
+      }
+     },
+     "500": {
+      "description": "Internal Server Error\n\nList of supported error codes:\n- 1: Internal error",
+      "schema": {
+       "$ref": "#/definitions/Error"
+      }
+     },
+     "503": {
+      "description": "Service Unavailable\n\nList of supported error codes:\n- 5: The service is temporarily unavailable\n- 6: Orange API is over capacity, retry later !",
+      "schema": {
+       "$ref": "#/definitions/Error"
+      }
+     }
+    }
+   }
+  },
+  "/usageReport": {
+   "get": {
+    "tags": ["UsageReport"],
+    "operationId": "usageReportFind",
+    "summary": "find usageReport",
+    "description": "Query the usage report related to a device identified by its public key\n\nSpecific business errors for current operation will be encapsulated in\n\nHTTP Response 422 Unprocessable entity\n",
+    "deprecated": false,
+    "parameters": [{
+      "name": "publicKey.id",
+      "required": true,
+      "in": "query",
+      "description": "Public number of the device (msisdn number for example) - International format E164",
+      "type": "string"
+     }, {
+      "name": "ratingType",
+      "required": true,
+      "in": "query",
+      "description": "Nature of the account bearing the msisdn (prepaid, postpaid, hybrid)",
+      "type": "string",
+      "enum": ["prepaid", "postpaid", "hybrid"]
+     }, {
+      "name": "buckets.bucketBalances.unit",
+      "required": false,
+      "in": "query",
+      "description": "Optional filter on the unit content",
+      "type": "string"
+     }
+    ],
+    "responses": {
+     "200": {
+      "description": "Success",
+      "schema": {
+       "type": "array",
+       "items": {
+        "$ref": "#/definitions/UsageReport"
+       }
+      }
+     },
+     "400": {
+      "description": "Bad Request\n\nList of supported error codes:\n- 20: Invalid URL parameter value\n- 21: Missing body\n- 22: Invalid body\n- 23: Missing body field\n- 24: Invalid body field\n- 25: Missing header\n- 26: Invalid header value\n- 27: Missing query-string parameter\n- 28: Invalid query-string parameter value",
+      "schema": {
+       "$ref": "#/definitions/Error"
+      }
+     },
+     "401": {
+      "description": "Unauthorized\n\nList of supported error codes:\n- 40: Missing credentials\n- 41: Invalid credentials\n- 42: Expired credentials",
+      "schema": {
+       "$ref": "#/definitions/Error"
+      }
+     },
+     "403": {
+      "description": "Forbidden\n\nList of supported error codes:\n- 50: Access denied\n- 51: Forbidden requester\n- 52: Forbidden user\n- 53: Too many requests",
+      "schema": {
+       "$ref": "#/definitions/Error"
+      }
+     },
+     "404": {
+      "description": "Not Found\n\nList of supported error codes:\n- 60: Resource not found",
+      "schema": {
+       "$ref": "#/definitions/Error"
+      }
+     },
+     "405": {
+      "description": "Method Not Allowed\n\nList of supported error codes:\n- 61: Method not allowed",
+      "schema": {
+       "$ref": "#/definitions/Error"
+      }
+     },
+     "406": {
+      "description": "Not Acceptable\n\nList of supported error codes:\n- 62: Not acceptable",
+      "schema": {
+       "$ref": "#/definitions/Error"
+      }
+     },
+     "500": {
+      "description": "Internal Server Error\n\nList of supported error codes:\n- 1: Internal error",
+      "schema": {
+       "$ref": "#/definitions/Error"
+      }
+     },
+     "503": {
+      "description": "Service Unavailable\n\nList of supported error codes:\n- 5: The service is temporarily unavailable\n- 6: Orange API is over capacity, retry later !",
+      "schema": {
+       "$ref": "#/definitions/Error"
+      }
+     }
+    }
+   }
+  }
+ },
+ "definitions": {
+  "Type": {
+   "description": "",
+   "type": "string",
+   "enum": ["voucher", "value", "transfer"]
+  },
+  "Status": {
+   "description": "",
+   "type": "string",
+   "enum": ["active", "inactive", "expired"]
+  },
+  "CumulationType": {
+   "description": "",
+   "type": "string",
+   "enum": ["total", "beyond", "outOf", "report", "included", "debt"]
+  },
+  "RatingType": {
+   "description": "",
+   "type": "string",
+   "enum": ["prepaid", "postpaid", "hybrid"]
+  },
+  "ErrorDetail": {
+   "description": "",
+   "required": ["code", "message"],
+   "type": "object",
+   "properties": {
+    "code": {
+     "description": "",
+     "type": "integer",
+     "format": "int32"
+    },
+    "message": {
+     "description": "",
+     "type": "string"
+    },
+    "description": {
+     "description": "",
+     "type": "string"
+    },
+    "infoURL": {
+     "description": "",
+     "type": "string"
+    }
+   }
+  },
+  "Error": {
+   "description": "",
+   "required": ["code", "message"],
+   "type": "object",
+   "properties": {
+    "code": {
+     "description": "",
+     "type": "integer",
+     "format": "int32"
+    },
+    "message": {
+     "description": "",
+     "type": "string"
+    },
+    "description": {
+     "description": "",
+     "type": "string"
+    },
+    "infoURL": {
+     "description": "",
+     "type": "string"
+    },
+    "details": {
+     "type": "array",
+     "items": {
+      "$ref": "#/definitions/ErrorDetail"
+     }
+    }
+   }
+  },
+  "Characteristic": {
+   "description": "",
+   "required": ["name", "value"],
+   "type": "object",
+   "properties": {
+    "name": {
+     "description": "",
+     "type": "string"
+    },
+    "value": {
+     "description": "",
+     "type": "string"
+    }
+   }
+  },
+  "CreditBucketBalanceByValue": {
+   "description": "",
+   "type": "object",
+   "properties": {
+    "id": {
+     "description": "",
+     "type": "string"
+    },
+    "publicKey": {
+     "$ref": "#/definitions/PublicKey"
+    },
+    "value": {
+     "description": "",
+     "type": "number",
+     "format": "float"
+    },
+    "unit": {
+     "description": "",
+     "type": "string"
+    },
+    "comment": {
+     "description": "",
+     "type": "string"
+    },
+    "characteristic": {
+     "type": "array",
+     "items": {
+      "$ref": "#/definitions/Characteristic"
+     }
+    }
+   }
+  },
+  "CreditBucketBalanceTransaction": {
+   "description": "",
+   "type": "object",
+   "properties": {
+    "id": {
+     "description": "",
+     "type": "string"
+    },
+    "type": {
+     "$ref": "#/definitions/Type"
+    },
+    "unit": {
+     "description": "",
+     "type": "string"
+    },
+    "targetPublicKey": {
+     "$ref": "#/definitions/PublicKey"
+    },
+    "value": {
+     "description": "",
+     "type": "number",
+     "format": "float"
+    },
+    "date": {
+     "description": "",
+     "type": "string",
+     "format": "date-time"
+    },
+    "channel": {
+     "description": "",
+     "type": "string"
+    }
+   }
+  },
+  "UsageReport": {
+   "description": "",
+   "required": ["publicKey"],
+   "type": "object",
+   "properties": {
+    "id": {
+     "description": "",
+     "type": "string"
+    },
+    "name": {
+     "description": "",
+     "type": "string"
+    },
+    "description": {
+     "description": "",
+     "type": "string"
+    },
+    "date": {
+     "description": "",
+     "type": "string",
+     "format": "date-time"
+    },
+    "publicKey": {
+     "$ref": "#/definitions/PublicKey"
+    },
+    "buckets": {
+     "type": "array",
+     "items": {
+      "$ref": "#/definitions/Bucket"
+     }
+    },
+    "outOfBuckets": {
+     "type": "array",
+     "items": {
+      "$ref": "#/definitions/OutOfBucket"
+     }
+    },
+    "bucketCounters": {
+     "type": "array",
+     "items": {
+      "$ref": "#/definitions/BucketCounters"
+     }
+    }
+   }
+  },
+  "PublicKey": {
+   "description": "",
+   "type": "object",
+   "properties": {
+    "id": {
+     "description": "",
+     "type": "string"
+    },
+    "name": {
+     "description": "",
+     "type": "string"
+    }
+   }
+  },
+  "Bucket": {
+   "description": "",
+   "type": "object",
+   "properties": {
+    "id": {
+     "description": "",
+     "type": "string"
+    },
+    "name": {
+     "description": "",
+     "type": "string"
+    },
+    "description": {
+     "description": "",
+     "type": "string"
+    },
+    "period": {
+     "description": "",
+     "type": "string"
+    },
+    "periodExpiryText": {
+     "description": "",
+     "type": "string"
+    },
+    "usageType": {
+     "description": "",
+     "type": "string"
+    },
+    "unit": {
+     "description": "",
+     "type": "string"
+    },
+    "isShared": {
+     "description": "",
+     "type": "boolean"
+    },
+    "validFor": {
+     "$ref": "#/definitions/TimePeriod"
+    },
+    "bucketBalances": {
+     "type": "array",
+     "items": {
+      "$ref": "#/definitions/BucketBalance"
+     }
+    },
+    "status": {
+     "$ref": "#/definitions/Status"
+    }
+   }
+  },
+  "BucketBalance": {
+   "description": "",
+   "type": "object",
+   "properties": {
+    "name": {
+     "description": "",
+     "type": "string"
+    },
+    "description": {
+     "description": "",
+     "type": "string"
+    },
+    "unit": {
+     "description": "",
+     "type": "string"
+    },
+    "lastUsageDate": {
+     "description": "",
+     "type": "string",
+     "format": "date-time"
+    },
+    "usedValue": {
+     "description": "",
+     "type": "number",
+     "format": "float"
+    },
+    "usedValueText": {
+     "description": "",
+     "type": "string"
+    },
+    "userUsedValue": {
+     "description": "",
+     "type": "number",
+     "format": "float"
+    },
+    "userUsedValueText": {
+     "description": "",
+     "type": "string"
+    },
+    "maxValue": {
+     "description": "",
+     "type": "number",
+     "format": "float"
+    },
+    "maxValueText": {
+     "description": "",
+     "type": "string"
+    },
+    "remainingValue": {
+     "description": "",
+     "type": "number",
+     "format": "float"
+    },
+    "remainingValueText": {
+     "description": "",
+     "type": "string"
+    },
+    "lastUpdateDate": {
+     "description": "",
+     "type": "string",
+     "format": "date-time"
+    }
+   }
+  },
+  "OutOfBucket": {
+   "description": "",
+   "type": "object",
+   "properties": {
+    "name": {
+     "description": "",
+     "type": "string"
+    },
+    "description": {
+     "description": "",
+     "type": "string"
+    },
+    "usageType": {
+     "description": "",
+     "type": "string"
+    },
+    "unit": {
+     "description": "",
+     "type": "string"
+    },
+    "value": {
+     "description": "",
+     "type": "number",
+     "format": "float"
+    },
+    "valueText": {
+     "description": "",
+     "type": "string"
+    }
+   }
+  },
+  "CreditBucketBalanceByVoucher": {
+   "description": "",
+   "type": "object",
+   "properties": {
+    "characteristic": {
+     "type": "array",
+     "items": {
+      "$ref": "#/definitions/Characteristic"
+     }
+    },
+    "id": {
+     "description": "",
+     "type": "string"
+    },
+    "publicKey": {
+     "$ref": "#/definitions/PublicKey"
+    },
+    "number": {
+     "description": "",
+     "type": "string"
+    }
+   }
+  },
+  "CreditBucketBalanceByTransfer": {
+   "description": "",
+   "type": "object",
+   "properties": {
+    "id": {
+     "description": "",
+     "type": "string"
+    },
+    "originPublicKey": {
+     "$ref": "#/definitions/PublicKey"
+    },
+    "targetPublicKey": {
+     "$ref": "#/definitions/PublicKey"
+    },
+    "value": {
+     "description": "",
+     "type": "number",
+     "format": "float"
+    },
+    "unit": {
+     "description": "",
+     "type": "string"
+    },
+    "comment": {
+     "description": "",
+     "type": "string"
+    },
+    "characteristic": {
+     "type": "array",
+     "items": {
+      "$ref": "#/definitions/Characteristic"
+     }
+    }
+   }
+  },
+  "TimePeriod": {
+   "description": "",
+   "type": "object",
+   "properties": {
+    "startDateTime": {
+     "description": "",
+     "type": "string",
+     "format": "date-time"
+    },
+    "endDateTime": {
+     "description": "",
+     "type": "string",
+     "format": "date-time"
+    }
+   }
+  },
+  "BucketCounters": {
+   "description": "",
+   "required": ["cumulationType"],
+   "type": "object",
+   "properties": {
+    "cumulationType": {
+     "$ref": "#/definitions/CumulationType"
+    },
+    "totalTaxIncludedAmount": {
+     "description": "",
+     "type": "number",
+     "format": "float"
+    },
+    "totalDutyFreeAmount": {
+     "description": "",
+     "type": "number",
+     "format": "float"
+    },
+    "taxAmount": {
+     "description": "",
+     "type": "number",
+     "format": "float"
+    },
+    "currency": {
+     "description": "",
+     "type": "string"
+    }
+   }
+  },
+  "DebitRetailerBucketBalanceByValue": {
+   "description": "",
+   "required": ["id", "value", "publicKey", "pin", "unit"],
+   "type": "object",
+   "properties": {
+    "id": {
+     "description": "",
+     "type": "string"
+    },
+    "comment": {
+     "description": "",
+     "type": "string"
+    },
+    "value": {
+     "description": "",
+     "type": "number",
+     "format": "float"
+    },
+    "publicKey": {
+     "$ref": "#/definitions/PublicKey"
+    },
+    "pin": {
+     "description": "",
+     "type": "string"
+    },
+    "unit": {
+     "description": "",
+     "type": "string"
+    },
+    "characteristic": {
+     "type": "array",
+     "items": {
+      "$ref": "#/definitions/Characteristic"
+     }
+    }
+   }
+  },
+  "CreditBucketBalanceByRetailerTransfer": {
+   "description": "",
+   "required": ["id", "retailerPublicKey", "targetPublicKey", "value", "unit", "pin"],
+   "type": "object",
+   "properties": {
+    "id": {
+     "description": "",
+     "type": "string"
+    },
+    "retailerPublicKey": {
+     "$ref": "#/definitions/PublicKey"
+    },
+    "targetPublicKey": {
+     "$ref": "#/definitions/PublicKey"
+    },
+    "value": {
+     "description": "",
+     "type": "number",
+     "format": "float"
+    },
+    "unit": {
+     "description": "",
+     "type": "string"
+    },
+    "comment": {
+     "description": "",
+     "type": "string"
+    },
+    "characteristic": {
+     "type": "array",
+     "items": {
+      "$ref": "#/definitions/Characteristic"
+     }
+    },
+    "pin": {
+     "description": "",
+     "type": "string"
+    }
+   }
+  }
+ }
+}

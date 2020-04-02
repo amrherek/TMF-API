@@ -1,0 +1,12 @@
+server:
+    port: 8072
+spring:
+    application:
+        name: '@project.artifactId@'
+    jackson: 
+        serialization: 
+            WRITE_EMPTY_JSON_ARRAYS: false
+            
+api:
+  name: bucketBalance          
+  version: '@project.version@'   

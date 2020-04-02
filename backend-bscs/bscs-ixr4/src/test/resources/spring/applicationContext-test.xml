@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+		xmlns:context="http://www.springframework.org/schema/context"
+		xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+		xmlns:p="http://www.springframework.org/schema/p"
+		xmlns:aop="http://www.springframework.org/schema/aop"
+		xmlns:jaxws="http://cxf.apache.org/jaxws"
+		xsi:schemaLocation="
+			http://www.springframework.org/schema/beans 	http://www.springframework.org/schema/beans/spring-beans.xsd
+			http://www.springframework.org/schema/context	http://www.springframework.org/schema/context/spring-context.xsd
+			http://www.springframework.org/schema/aop		http://www.springframework.org/schema/aop/spring-aop-3.0.xsd
+			http://cxf.apache.org/jaxws 					http://cxf.apache.org/schemas/jaxws.xsd">
+	
+
+	<!-- Read the application configuration file -->
+	<context:property-placeholder location="classpath:api-generic.properties, classpath:application-config.properties" order="0"/>
+	
+	<import resource="dao-test.xml" />
+	<import resource="spring-cache.xml" />
+
+</beans>

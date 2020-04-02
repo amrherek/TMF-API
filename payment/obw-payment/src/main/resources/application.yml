@@ -1,0 +1,13 @@
+server:
+    port: 8052
+spring:
+    application:
+        name: '@project.artifactId@'
+    jackson: 
+        serialization: 
+            WRITE_EMPTY_JSON_ARRAYS: false
+
+api:
+  name: payment 
+  version: '@project.version@'   
+            

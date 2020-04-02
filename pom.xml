@@ -1,0 +1,409 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+
+    <!--
+    all the projects are Spring boot projects
+    -->
+    <parent>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-starter-parent</artifactId>
+        <version>1.4.1.RELEASE</version>
+        <relativePath>../</relativePath>
+    </parent>
+
+
+    <modelVersion>4.0.0</modelVersion>
+    <groupId>com.orange.mea.apisi.workspace</groupId>
+    <artifactId>api-amea</artifactId>
+    <version>1.17-SNAPSHOT</version>
+    <packaging>pom</packaging>
+    <name>[APIS Workspace]</name>
+
+
+    <properties>
+        <!-- Specify Java Compiler Version -->
+        <maven-compiler-plugin.version>3.5.1</maven-compiler-plugin.version>
+        <maven.compiler.source>1.7</maven.compiler.source>
+        <maven.compiler.target>1.7</maven.compiler.target>
+        <jdk.compiler.version>1.7</jdk.compiler.version>
+        <targetJdk>1.7</targetJdk>
+
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+
+        <!-- General Versions -->
+        <orange-standardapi-plugin.version>1.8.2</orange-standardapi-plugin.version>
+        <lombok.version>1.16.10</lombok.version>
+        <swagger-codegen-maven-plugin.version>2.2.3</swagger-codegen-maven-plugin.version>
+        <swagger-core.version>1.5.16</swagger-core.version>
+
+        <spring-boot.version>1.4.1.RELEASE</spring-boot.version>
+        <cxf.version>3.0.3</cxf.version>
+        <cxf-xjc-runtime.version>3.1.0</cxf-xjc-runtime.version>
+        <oracle.jdbc.version>10.2.0.4.0</oracle.jdbc.version>
+
+        <build-helper-maven-plugin.version>1.5</build-helper-maven-plugin.version>
+
+        <!-- distribution management -->
+        <releaseUrl>http://maven2.rd.francetelecom.fr/proxy/repository/inhouse</releaseUrl>
+        <snapshotUrl>http://maven2.rd.francetelecom.fr/proxy/repository/inhouse.snapshot</snapshotUrl>
+
+        <application.packaging>war</application.packaging>
+
+    </properties>
+
+    <!-- List of modules -->
+    <modules>
+        <module>common-core</module>
+        <module>backend-bscs</module>
+        <module>party-amea</module>
+        <module>product-inventory-amea</module>
+        <module>product-ordering-amea</module>
+        <module>billing-account-amea</module>
+        <module>bucket-balance-amea</module>
+        <module>customer-bill-amea</module>
+        <module>product-catalog</module>
+        <module>eligibility</module>
+        <module>payment</module>
+    </modules>
+
+
+    <profiles>
+        <!--
+        Special profile to install non "standard" lib in the local repository
+        -->
+        <profile>
+            <id>external</id>
+            <modules>
+                <module>local-repository</module>
+            </modules>
+        </profile>
+        <!--
+        Special profile to run integration tests
+        -->
+        <profile>
+            <id>integration-test</id>
+            <modules>
+                <module>integration-test</module>
+            </modules>
+        </profile>
+        <!--
+       Profile to use to generate also spring boot runnable wars (with -exec suffix)
+       -->
+        <profile>
+            <id>withExec</id>
+            <properties>
+                <application.packaging>jar</application.packaging>
+            </properties>
+            <dependencyManagement>
+                <dependencies>
+                    <!--
+                        // dependency by olivier
+                    -->
+                    <dependency>
+                        <groupId>org.springframework.cloud</groupId>
+                        <artifactId>spring-cloud-dependencies</artifactId>
+                        <version>Camden.SR7</version>
+                        <type>pom</type>
+                        <scope>import</scope>
+                    </dependency>
+                    <dependency>
+                        <groupId>io.springfox</groupId>
+                        <artifactId>springfox-swagger2</artifactId>
+                        <version>2.4.0</version>
+                        <type>jar</type>
+                    </dependency>
+                    <dependency>
+                        <groupId>io.springfox</groupId>
+                        <artifactId>springfox-swagger-ui</artifactId>
+                        <version>2.4.0</version>
+                    </dependency>
+                </dependencies>
+            </dependencyManagement>
+            <build>
+                <pluginManagement>
+                    <plugins>
+                        <plugin>
+                            <groupId>org.springframework.boot</groupId>
+                            <artifactId>spring-boot-maven-plugin</artifactId>
+                            <configuration>
+                                <attach>true</attach>
+                            </configuration>
+                        </plugin>
+                        <plugin>
+                            <groupId>org.codehaus.mojo</groupId>
+                            <artifactId>build-helper-maven-plugin</artifactId>
+                            <executions>
+                                <execution>
+                                    <id>add-sdp-source</id>
+                                    <phase>generate-sources</phase>
+                                    <goals>
+                                        <goal>add-source</goal>
+                                    </goals>
+                                    <configuration>
+                                        <sources>
+                                            <source>${project.basedir}/src/sdp/java</source>
+                                        </sources>
+                                    </configuration>
+                                </execution>
+                            </executions>
+                        </plugin>
+                    </plugins>
+                </pluginManagement>
+            </build>
+        </profile>
+
+    </profiles>
+
+
+    <!--
+    Configuration to release and deploy the artifacts
+    -->
+    <scm>
+        <connection>scm:git:gitolite@git.forge.orange-labs.fr/api-bss-mea/api-amea.git</connection>
+        <developerConnection>scm:git:gitolite@git.forge.orange-labs.fr/api-bss-mea/api-amea.git
+        </developerConnection>
+        <tag>HEAD</tag>
+    </scm>
+
+    <dependencyManagement>
+        <dependencies>
+            <!-- INTERNAL DEPENDENCIES -->
+            <dependency>
+                <groupId>com.orange.mea.apisi.backend.v8</groupId>
+                <artifactId>bscs-v8</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.orange.mea.apisi.backend.ixr4</groupId>
+                <artifactId>bscs-ixr4</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.orange.mea.apisi.backend.ixr2</groupId>
+                <artifactId>bscs-ixr2</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.orange.mea.apisi.backend</groupId>
+                <artifactId>bscs-spring-boot-starter</artifactId>
+                <version>${project.version}</version>
+                <exclusions>
+                    <exclusion>
+                        <groupId>net.sf.ehcache</groupId>
+                        <artifactId>ehcache</artifactId>
+                    </exclusion>
+                </exclusions>
+            </dependency>
+            <dependency>
+                <groupId>com.orange.mea.apisi.backend</groupId>
+                <artifactId>bscs-service</artifactId>
+                <version>${project.version}</version>
+                <exclusions>
+                    <exclusion>
+                        <groupId>net.sf.ehcache</groupId>
+                        <artifactId>ehcache</artifactId>
+                    </exclusion>
+                </exclusions>
+            </dependency>
+
+            <dependency>
+                <groupId>com.orange.mea.apisi.workflow</groupId>
+                <artifactId>apibss-core-common</artifactId>
+                <version>${project.version}</version>
+                <exclusions>
+                    <exclusion>
+                        <groupId>net.sf.ehcache</groupId>
+                        <artifactId>ehcache</artifactId>
+                    </exclusion>
+                </exclusions>
+            </dependency>
+            <dependency>
+                <groupId>com.orange.mea.apisi.workflow</groupId>
+                <artifactId>core-common-spring-boot-starter</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.orange.mea.apisi.workflow</groupId>
+                <artifactId>database-audit-spring-boot-starter</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+            <!-- <dependency>
+                <groupId>com.orange.mea.apisi.workflow</groupId>
+                <artifactId>otn-webservices</artifactId>
+                <version>${project.version}</version>
+            </dependency> -->
+            <dependency>
+                <groupId>com.orange.mea.apisi.workflow</groupId>
+                <artifactId>obw-webservices</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.orange.mea.apisi.workflow</groupId>
+                <artifactId>core-security-spring-boot-starter</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.orange.mea.apisi.party</groupId>
+                <artifactId>party-model</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>org.projectlombok</groupId>
+                <artifactId>lombok</artifactId>
+                <version>${lombok.version}</version>
+            </dependency>
+            
+            <dependency>
+	            <groupId>io.swagger</groupId>
+	            <artifactId>swagger-core</artifactId>
+	            <version>${swagger-core.version}</version>
+	        </dependency>
+
+            <dependency>
+                <groupId>org.apache.cxf</groupId>
+                <artifactId>cxf-rt-ws-security</artifactId>
+                <version>${cxf.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.apache.cxf</groupId>
+                <artifactId>cxf-rt-transports-http</artifactId>
+                <version>${cxf.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.apache.cxf</groupId>
+                <artifactId>cxf-rt-frontend-jaxws</artifactId>
+                <version>${cxf.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>org.apache.cxf.xjc-utils</groupId>
+                <artifactId>cxf-xjc-runtime</artifactId>
+                <version>${cxf-xjc-runtime.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.oracle</groupId>
+                <artifactId>ojdbc14</artifactId>
+                <version>${oracle.jdbc.version}</version>
+            </dependency>
+
+        </dependencies>
+    </dependencyManagement>
+
+    <distributionManagement>
+        <repository>
+            <id>inhouse</id>
+            <name>inhouse repository</name>
+            <uniqueVersion>true</uniqueVersion>
+            <url>${releaseUrl}</url>
+            <layout>default</layout>
+        </repository>
+        <snapshotRepository>
+            <id>inhouse.snapshot</id>
+            <name>inhouse.snapshot repository</name>
+            <uniqueVersion>false</uniqueVersion>
+            <url>${snapshotUrl}</url>
+            <layout>default</layout>
+        </snapshotRepository>
+    </distributionManagement>
+
+
+    <build>
+        <pluginManagement>
+            <plugins>
+                <!-- For Model Generation -->
+                <plugin>
+                    <groupId>com.orange.apistandard</groupId>
+                    <artifactId>orange-standardapi-plugin</artifactId>
+                    <version>${orange-standardapi-plugin.version}</version>
+                </plugin>
+                
+                <plugin>
+	                <groupId>io.swagger</groupId>
+	                <artifactId>swagger-codegen-maven-plugin</artifactId>
+	                <version>${swagger-codegen-maven-plugin.version}</version>
+	            </plugin>
+
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-compiler-plugin</artifactId>
+                    <version>${maven-compiler-plugin.version}</version>
+                    <inherited>true</inherited>
+                    <configuration>
+                        <source>${jdk.compiler.version}</source>
+                        <target>${jdk.compiler.version}</target>
+                        <encoding>UTF8</encoding>
+                        <optimize>true</optimize>
+                    </configuration>
+                </plugin>
+                
+                <plugin>
+	                <groupId>org.apache.maven.plugins</groupId>
+	                <artifactId>maven-jar-plugin</artifactId>
+	                <version>3.0.2</version>
+                </plugin>
+
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-war-plugin</artifactId>
+                    <version>2.6</version>
+                    <configuration>
+                        <failOnMissingWebXml>false</failOnMissingWebXml>
+                        <packagingExcludes>
+                            WEB-INF/classes/logback-spring.xml,
+                            WEB-INF/classes/*.properties,
+                            WEB-INF/classes/*-h2.sql,
+                            WEB-INF/classes/application-dev.yml
+                        </packagingExcludes>
+                    </configuration>
+                </plugin>
+
+                <plugin>
+                    <!-- Add generated-sources directory to the project -->
+                    <groupId>org.codehaus.mojo</groupId>
+                    <artifactId>build-helper-maven-plugin</artifactId>
+                    <version>${build-helper-maven-plugin.version}</version>
+                    <executions>
+                        <execution>
+                            <id>add-source</id>
+                            <phase>generate-sources</phase>
+                            <goals>
+                                <goal>add-source</goal>
+                            </goals>
+                            <configuration>
+                                <sources>
+                                    <source>${project.build.directory}/generated-sources/model</source>
+                                </sources>
+                            </configuration>
+                        </execution>
+                    </executions>
+                </plugin>
+                <plugin>
+                    <groupId>org.springframework.boot</groupId>
+                    <artifactId>spring-boot-maven-plugin</artifactId>
+                    <configuration>
+                        <mainClass>${start-class}</mainClass>
+                        <classifier>exec</classifier>
+                        <!-- do not deploy auto-exec war -->
+                        <attach>false</attach>
+                    </configuration>
+                </plugin>
+            </plugins>
+        </pluginManagement>
+
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-release-plugin</artifactId>
+                <version>2.5.3</version>
+                <configuration>
+                    <pushChanges>false</pushChanges>
+                    <localCheckout>true</localCheckout>
+                    <autoVersionSubmodules>true</autoVersionSubmodules>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+</project>

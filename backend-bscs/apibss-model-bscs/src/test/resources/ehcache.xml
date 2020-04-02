@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ehcache xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://ehcache.org/ehcache.xsd"
+	updateCheck="false" >
+    <defaultCache  eternal="false" maxElementsInMemory="1000" overflowToDisk="false" timeToLiveSeconds="300"/>
+    
+    <!--  Obsolete use of cache with SOICommandsManager.getOrExecuteCached(...) -->
+    <cache name="commandCache" />
+    
+    
+    <!--  DECLARE HERE ALL CACHES defined in com.orange.bscs.model.Caches -->
+    <!--  =============================================================== -->
+    
+    <!-- ReferentialDAOImpl caches -->
+    <cache name="REFERENTIAL" />
+    
+    <!--  SERVICES.READ (by Code or CodePub) -->
+    <cache name="REF_SERVICES_BY_IDS" />
+
+	<!--  SERVICE_PARAMETERS.READ (SCCODEPUB, SNCODEPUB) -->
+	<cache name="REF_SERVICEPARAMS_BY_SERVICE"  />
+
+	<!--  ALLOWED_SERVICES.READ (RPCODE, RPCODEPUB, RPVER) -->
+	<cache name="REF_ALLOWEDSERVICES" />
+	
+	<!--  ReferentialsService.getFreeUnitPackage -->
+	<cache name="SVC_FREEUNIT_PACKAGE"  />
+
+    <!--  ReferentialsService.getFreeUnitPackageElements  -->
+	<cache name="SVC_FREEUNIT_PACKAGE_ELEMENTS"  />
+	  
+ </ehcache>

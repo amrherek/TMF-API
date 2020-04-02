@@ -1,0 +1,24 @@
+<!--
+execute (BILLING_ACCOUNT_ASSIGNMENT.READ, {
+BILLING_ACCOUNT_CODE = BA0000000100 : java.lang.String
+}
+-->
+ => {
+RESULT_LIST = sub element : com.lhs.ccb.common.soiimpl.NamedValueContainerList
+-[0]CO_ID = 110 : java.lang.Long
+-[0]CO_ID_PUB = CONTR000000110 : java.lang.String
+-[0]BILLING_ACCOUNT_ID = 100 : java.lang.Long
+-[0]BILLING_ACCOUNT_CODE = BA0000000100 : java.lang.String
+-[0]ASSIGNMENT_TYPE = I : java.lang.Character
+-[1]CO_ID = 111 : java.lang.Long
+-[1]CO_ID_PUB = CONTR000000111 : java.lang.String
+-[1]BILLING_ACCOUNT_ID = 100 : java.lang.Long
+-[1]BILLING_ACCOUNT_CODE = BA0000000100 : java.lang.String
+-[1]ASSIGNMENT_TYPE = I : java.lang.Character
+-[2]CO_ID = 112 : java.lang.Long
+-[2]CO_ID_PUB = CONTR0000000112 : java.lang.String
+-[2]BILLING_ACCOUNT_ID = 100 : java.lang.Long
+-[2]BILLING_ACCOUNT_CODE = BA0000000100 : java.lang.String
+-[2]ASSIGNMENT_TYPE = E : java.lang.Character
+-[2]VALID_FROM = Thu May 30 13:31:40 CEST 2013 : com.lhs.ccb.common.soiimpl.SVLDateTimeImpl
+}

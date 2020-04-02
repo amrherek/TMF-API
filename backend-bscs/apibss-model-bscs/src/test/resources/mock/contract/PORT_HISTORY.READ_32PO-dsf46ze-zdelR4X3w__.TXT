@@ -1,0 +1,12 @@
+<!--
+ execute (PORT_HISTORY.READ, {
+CO_ID = 111 : java.lang.Long
+})
+-->
+Returned PORTs = sub element : com.lhs.ccb.common.soiimpl.NamedValueContainerList
+-[0]Parameters = sub element : com.lhs.ccb.common.soiimpl.NamedValueContainerList
+-[0]PORTNUM = 304059100000291 : java.lang.String
+-[0]CAPACITY = -9223372036854775808 : java.lang.Long
+-[0]AVAIL_CAPACITY = -9223372036854775808 : java.lang.Long
+}
+

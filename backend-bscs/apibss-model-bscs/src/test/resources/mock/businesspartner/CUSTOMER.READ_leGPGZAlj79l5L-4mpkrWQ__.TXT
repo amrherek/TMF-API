@@ -1,0 +1,73 @@
+<!--
+ execute (CUSTOMER.READ, {
+CS_ID_PUB = CUST0000000101 : java.lang.String
+})
+-->
+ => {
+CS_ID = 101 : java.lang.Long
+CS_ID_PUB = CUST0000000101 : java.lang.String
+CS_LEVEL_CODE = 40 : java.lang.String
+COST_CODE_PUB = Wise Tel : java.lang.String
+PAYMENT_RESP_ID_PUB = CUST0000000689 : java.lang.String
+EXTERNAL_CUSTOMER_ID = OBILLARD : java.lang.String
+PAYMENT_RESP_ID = 761 : java.lang.Long
+COST_ID = 2 : java.lang.Long
+CS_CONVRATETYPE_REFUND_PUB = UDCRT : java.lang.String
+FAMILY_ID = 1 : java.lang.Long
+CREATED_BY_USER = ISAD : java.lang.String
+CS_LIMIT_TR1_PUB = 50% : java.lang.String
+PARTY_TYPE = C : java.lang.String
+CS_CONVRATETYPE_PAYMENT = 1 : java.lang.Long
+CS_STATUS = i : java.lang.Character
+WP_CODE = 1 : java.lang.Long
+CS_BILL_INFORMATION = false : java.lang.Boolean
+REFUND_CURRENCY_ID_PUB = EUR : java.lang.String
+CS_LIMIT_TR2_PUB = 50% : java.lang.String
+CS_CONTRESP = true : java.lang.Boolean
+RS_CODE = 1 : java.lang.Long
+CS_BILLCYCLE = 04 : java.lang.String
+IS_INDIVIDUAL_OVERDISC_DISABLED = false : java.lang.Boolean
+PRG_CODE = 1 : java.lang.String
+EXPECT_PAY_CURRENCY_ID = 43 : java.lang.Long
+CS_CLIMIT = 0.0EUR : com.lhs.ccb.common.soiimpl.SVLMoneyImpl
+CS_PREPAYMENT = false : java.lang.Boolean
+CS_PAYMNT_RESP_CODE = 1.579 : java.lang.String
+CS_LIMIT_TR3_PUB = 50% : java.lang.String
+CS_CONVRATETYPE_REFUND = 1 : java.lang.Long
+CS_INCORPORATED_IND = false : java.lang.Boolean
+CS_INIT_PREPAID_CONTR_OWNER = false : java.lang.Boolean
+CS_CREATION_DATE = Tue Jun 04 10:33:18 CEST 2013 : com.lhs.ccb.common.soiimpl.SVLDateTimeImpl
+TB_MODE =  : java.lang.String
+LAST_MODIFICATION_USER = ISAD : java.lang.String
+EXTERNAL_CUSTOMER_SET_ID = set01 : java.lang.String
+CS_DUNNING = true : java.lang.Boolean
+EXPECT_PAY_CURRENCY_ID_PUB = EUR : java.lang.String
+RPCODE_PUB = FMI_I : java.lang.String
+RPCODE = 73 : java.lang.Long
+CS_PREVBALANCE = 0.0EUR : com.lhs.ccb.common.soiimpl.SVLMoneyImpl
+TB_PURPOSE =  : java.lang.String
+CS_FC_ID = 43 : java.lang.Long
+CS_CODE = 1.579 : java.lang.String
+CS_CONVRATETYPE_PAYMENT_PUB = UDCRT : java.lang.String
+CS_LIMIT_TR1 = 3 : java.lang.Long
+CS_LIMIT_TR2 = 3 : java.lang.Long
+CS_STATUS_DATE = Tue Jun 04 10:45:28 CEST 2013 : com.lhs.ccb.common.soiimpl.SVLDateTimeImpl
+CS_LIMIT_TR3 = 3 : java.lang.Long
+PAYMENT_RESP = true : java.lang.Boolean
+REFUND_CURRENCY_ID = 43 : java.lang.Long
+CS_CRCHECK_AGREED = false : java.lang.Boolean
+CS_CSCURBALANCE = 0.0EUR : com.lhs.ccb.common.soiimpl.SVLMoneyImpl
+CS_UNBILLED_AMOUNT = 0.0EUR : com.lhs.ccb.common.soiimpl.SVLMoneyImpl
+CS_FC_ID_PUB = EUR : java.lang.String
+CS_DEPOSIT = 0.0EUR : com.lhs.ccb.common.soiimpl.SVLMoneyImpl
+LIST_OF_ASSIGNMENTS = sub element : com.lhs.ccb.common.soiimpl.NamedValueContainerList
+-[0]VALID_FROM = YYYY-MM-DD: 2013-6-4 : com.lhs.ccb.common.soiimpl.SVLDateImpl
+-[0]FAMILY_ID = 1 : java.lang.Long
+-[0]COMPLETION_STATUS = 0 : java.lang.Long
+PARTY_ROLE_ASSIGNMENTS = sub element : com.lhs.ccb.common.soiimpl.NamedValueContainerList
+-[0]PARTY_ROLE_ID = 1 : java.lang.Long
+-[0]PARTY_ROLE_SHNAME = Subscriber : java.lang.String
+-[0]PARTY_ROLE_DESCRIPTION = A Party that uses a network, services or content provided by other Party : java.lang.String
+-[0]PARTY_ROLE_NAME = Subscriber : java.lang.String
+}
+

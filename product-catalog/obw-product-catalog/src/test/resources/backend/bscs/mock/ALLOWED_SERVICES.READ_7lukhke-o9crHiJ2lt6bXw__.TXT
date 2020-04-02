@@ -1,0 +1,25 @@
+<!--
+ execute (ALLOWED_SERVICES.READ, {
+RPCODE_PUB = GeSPH : java.lang.String
+})
+-->
+ => {
+RPCODE = 58 : java.lang.Long
+RP_VSCODE = 1 : java.lang.Long
+LIST_SP_CODE = sub element : com.lhs.ccb.common.soiimpl.NamedValueContainerList
+-[0]SPCODE_PUB = GeSPH : java.lang.String
+-[0]SPCODE = 17 : java.lang.Long
+-[0]LIST_SN_CODE = sub element : com.lhs.ccb.common.soiimpl.NamedValueContainerList
+-[0]-[0]SERVICE_PARAMERTER_IND = false : java.lang.Boolean
+-[0]-[0]SNCODE_PUB = R4GLT : java.lang.String
+-[0]-[0]SNCODE = 122 : java.lang.Long
+-[0]-[1]SERVICE_PARAMERTER_IND = false : java.lang.Boolean
+-[0]-[1]SNCODE_PUB = S4GLT : java.lang.String
+-[0]-[1]SNCODE = 121 : java.lang.Long
+-[0]-[2]SERVICE_PARAMERTER_IND = false : java.lang.Boolean
+-[0]-[2]SNCODE_PUB = BAGP : java.lang.String
+-[0]-[2]SNCODE = 69 : java.lang.Long
+RPCODE_PUB = GeSPH : java.lang.String
+
+}
+

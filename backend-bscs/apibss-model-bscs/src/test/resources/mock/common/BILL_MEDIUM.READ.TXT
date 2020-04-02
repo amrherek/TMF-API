@@ -1,0 +1,22 @@
+<!--
+ execute (BILL_MEDIUM.READ, {
+})
+-->
+ => {
+bill media = sub element : com.lhs.ccb.common.soiimpl.NamedValueContainerList
+-[0]BM_ID_PUB = L1HTM : java.lang.String
+-[0]BM_DES = Layout: 1, Format: html : java.lang.String
+-[0]BM_ID = 5 : java.lang.Long
+-[1]BM_ID_PUB = L1PDF : java.lang.String
+-[1]BM_DES = Layout: 1, Format: pdf : java.lang.String
+-[1]BM_ID = 6 : java.lang.Long
+-[2]BM_ID_PUB = L1PS : java.lang.String
+-[2]BM_DES = Layout: 1, Format: ps : java.lang.String
+-[2]BM_ID = 7 : java.lang.Long
+-[3]BM_ID_PUB = L1XML : java.lang.String
+-[3]BM_DES = Layout 1, Format xml : java.lang.String
+-[3]BM_ID = 8 : java.lang.Long
+BM_DEF_PUB = L1PDF : java.lang.String
+BM_DEF = 6 : java.lang.Long
+}
+

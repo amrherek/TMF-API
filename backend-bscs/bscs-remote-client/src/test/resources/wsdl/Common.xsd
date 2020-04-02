@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- edited with XMLSpy v2011 (http://www.altova.com) by Olivier Sepulchre (Capgemini) -->
+<xs:schema xmlns:tns="http://www.orange.com/BSCS/Interfaces/Common/v1/Model/EBS" xmlns:xs="http://www.w3.org/2001/XMLSchema" targetNamespace="http://www.orange.com/BSCS/Interfaces/Common/v1/Model/EBS">
+	<xs:complexType name="HeaderViewForLocalApiClientRequest">
+		<xs:sequence>
+			<xs:element name="applicationID" type="xs:string">
+				<xs:annotation>
+					<xs:documentation>
+						<!--Description : Client Application Name-->
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="transactionID" type="xs:string" minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>
+						<!--Description : CIL Session Transaction ID -->
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="autoCommit" type="xs:boolean" minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>
+						<!--Description : Commit the Database -->
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="BscsAuthentication" type="tns:BscsAuthentication_ALL_REQ">
+				<xs:annotation>
+					<xs:documentation>
+						<!--Description : The Local_BSCSAuthenticatio presents some attribute concerning the authentication -->
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="BscsAuthentication_ALL_REQ">
+		<xs:sequence>
+			<xs:element name="bscsLogin" type="xs:string">
+				<xs:annotation>
+					<xs:documentation>
+						<!--Description : BSCS User Name -->
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="userID" type="xs:string" minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>
+						<!--Description : Client User Name - Name of the user of the client application -->
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="businessUnit" type="xs:string">
+				<xs:annotation>
+					<xs:documentation>
+						<!--Description : BSCS Business Unit (Operator identifier, MVNO identifier, etc. ) -->
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="HeaderViewForLocalApiClientResponse">
+		<xs:sequence>
+			<xs:element name="transactionID" type="xs:string">
+				<xs:annotation>
+					<xs:documentation>
+						<!--Description : CMS Session Transaction ID -->
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="FaultViewForFaultMessage">
+		<xs:sequence>
+			<xs:element name="local_faultCode" type="xs:string">
+				<xs:annotation>
+					<xs:documentation>
+						<!--Description : Fault Code -->
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="faultLabel" type="xs:string">
+				<xs:annotation>
+					<xs:documentation>
+						<!--Description : litteral description of the Fault code-->
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+</xs:schema>

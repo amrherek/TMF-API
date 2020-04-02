@@ -1,0 +1,95 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+
+    <parent>
+        <groupId>com.orange.mea.apisi.customer-bill</groupId>
+        <artifactId>customer-bill-amea</artifactId>
+        <version>1.17-SNAPSHOT</version>
+    </parent>
+
+    <modelVersion>4.0.0</modelVersion>
+    <artifactId>customer-bill-model</artifactId>
+    <name>[Customer Bill] model</name>
+
+    <dependencies>
+		<!-- <dependency>
+			<groupId>com.orange.mea.apisi.workflow</groupId>
+			<artifactId>apibss-core-common</artifactId>
+		</dependency>
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>com.fasterxml.jackson.module</groupId>
+            <artifactId>jackson-module-jaxb-annotations</artifactId>
+        </dependency> -->
+        <dependency>
+            <groupId>io.swagger</groupId>
+            <artifactId>swagger-core</artifactId>
+        </dependency>
+        <dependency>
+		    <groupId>com.fasterxml.jackson.datatype</groupId>
+		    <artifactId>jackson-datatype-joda</artifactId>
+		</dependency>
+    </dependencies>
+
+    <build>
+        <plugins>
+            <!--  <plugin>
+                <groupId>com.orange.apistandard</groupId>
+                <artifactId>orange-standardapi-plugin</artifactId>
+                <executions>
+                    <execution>
+						<id>generate-model</id>
+						<phase>generate-sources</phase>
+                        <goals>
+                            <goal>generate-model</goal>
+                        </goals>
+                        <configuration>
+                            <generalConfiguration>
+                                <packageName>com.orange.apibss.customerbill.model</packageName>
+                                <apiFile>src/main/resources/frontend/swagger_customerBill.json</apiFile>
+                            </generalConfiguration>
+                            <modelConfiguration>
+                                <generationStyle>simple</generationStyle>
+                            </modelConfiguration>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>-->
+            
+            <plugin>
+                <groupId>io.swagger</groupId>
+                <artifactId>swagger-codegen-maven-plugin</artifactId>
+                <executions>
+                    <execution>
+                        <id>generate-model</id>
+                        <goals>
+                            <goal>generate</goal>
+                        </goals>
+                        <configuration>
+                            <inputSpec>${project.basedir}/src/main/resources/frontend/swagger_customerBill.json</inputSpec>
+                            <language>java</language>
+                            <configOptions>
+                                <sourceFolder>model</sourceFolder>  
+                            </configOptions>
+                            <generateApis>false</generateApis>
+                            <generateSupportingFiles>false</generateSupportingFiles>
+                            <modelPackage>com.orange.apibss.customerbill.model</modelPackage>
+                            <environmentVariables>
+                                <library>resttemplate</library><!--  to use jackson -->
+                            </environmentVariables>
+                            <output>target/generated-sources</output>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+            </plugin>
+
+        </plugins>
+    </build>
+</project>

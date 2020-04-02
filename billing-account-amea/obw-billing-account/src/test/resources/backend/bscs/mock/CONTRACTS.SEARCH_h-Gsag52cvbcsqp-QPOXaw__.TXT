@@ -1,0 +1,43 @@
+<!--
+ execute (CONTRACTS.SEARCH, {
+SEARCHER = SearchContractsEvenWithoutDN : java.lang.String
+CS_ID = 101 : java.lang.Long
+publicKey=0123456789
+})
+-->
+ => {
+SEARCH_IS_COMPLETE = true : java.lang.Boolean
+contracts = sub element : com.lhs.ccb.common.soiimpl.NamedValueContainerList
+-[0]RPCODE = 72 : java.lang.Long
+-[0]ADR_ZIP =  : java.lang.String
+-[0]ADR_FNAME = second : java.lang.String
+-[0]CO_ID_PUB = CONTR0000000111 : java.lang.String
+-[0]MAIN_CO_ID = -9223372036854775808 : java.lang.Long
+-[0]CS_ID = 101 : java.lang.Long
+-[0]ADR_CITY =  : java.lang.String
+-[0]EXTERNALIND = false : java.lang.Boolean
+-[0]CS_CODE = 1.578 : java.lang.String
+-[0]CO_ACTIVATED = YYYY-MM-DD: 2-1-1 : com.lhs.ccb.common.soiimpl.SVLDateImpl
+-[0]DIRNUM = 5550001154 : java.lang.String
+-[0]CO_LEC = -9223372036854775808 : java.lang.Long
+-[0]CO_STATUS = 2 : java.lang.Integer
+-[0]SUBM_ID = 8 : java.lang.Long
+-[0]CO_TYPE =  : java.lang.String
+-[0]MAIN_CO_ID_PUB =  : java.lang.String
+-[0]ADR_STREETNO =  : java.lang.String
+-[0]CS_ID_PUB = CUST0000000101 : java.lang.String
+-[0]BU_ID = 2 : java.lang.Long
+-[0]FOREIGN_PLCODE = -9223372036854775808 : java.lang.Long
+-[0]CONTRACT_TYPE_ID = 1 : java.lang.Long
+-[0]DESCRIPTION =  : java.lang.String
+-[0]VPN_ID = -9223372036854775808 : java.lang.Long
+-[0]PLCODE = 1007 : java.lang.Long
+-[0]ADR_NAME =  : java.lang.String
+-[0]CO_ID = 111 : java.lang.Long
+-[0]FOREIGN_BID_GROUP_ID = -9223372036854775808 : java.lang.Long
+-[0]HOME_BID_GROUP_ID = -9223372036854775808 : java.lang.Long
+-[0]ADR_LNAME = BILL : java.lang.String
+-[0]ADR_STREET =  : java.lang.String
+}
+
+

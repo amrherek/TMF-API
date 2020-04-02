@@ -1,0 +1,286 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<wsdl:definitions xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:ns="http://com.ztesoft.zsmart/xsd" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:tns="http://com.ztesoft.zsmart/service" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="http://com.ztesoft.zsmart/service">
+  <wsdl:documentation>ObwWebservice</wsdl:documentation>
+  <wsdl:types>
+    <xs:schema attributeFormDefault="qualified" elementFormDefault="unqualified" targetNamespace="http://com.ztesoft.zsmart/xsd"> 
+      <xs:complexType name="tDebitAuthRequest"> 
+        <xs:sequence> 
+          <xs:element name="TransactionID"> 
+            <xs:simpleType> 
+              <xs:restriction base="xs:string"> 
+                <xs:minLength value="1"/>  
+                <xs:maxLength value="20"/> 
+              </xs:restriction> 
+            </xs:simpleType> 
+          </xs:element>  
+          <xs:element name="MSISDN"> 
+            <xs:simpleType> 
+              <xs:restriction base="xs:string"> 
+                <xs:minLength value="1"/>  
+                <xs:maxLength value="60"/> 
+              </xs:restriction> 
+            </xs:simpleType> 
+          </xs:element>  
+          <xs:element name="UserPwd" nillable="true"> 
+            <xs:simpleType> 
+              <xs:restriction base="xs:string"> 
+                <xs:minLength value="1"/>  
+                <xs:maxLength value="8"/> 
+              </xs:restriction> 
+            </xs:simpleType> 
+          </xs:element>  
+          <xs:element name="Type" nillable="true"> 
+            <xs:simpleType> 
+              <xs:restriction base="xs:string"> 
+                <xs:minLength value="0"/>  
+                <xs:maxLength value="1"/> 
+              </xs:restriction> 
+            </xs:simpleType> 
+          </xs:element> 
+        </xs:sequence> 
+      </xs:complexType>  
+      <xs:element name="DebitAuthRequest" type="ns:tDebitAuthRequest"/>  
+      <xs:complexType name="tDebitAuthResponse"> 
+        <xs:sequence> 
+          <xs:element name="MaxAmount" nillable="true"> 
+            <xs:simpleType> 
+              <xs:restriction base="xs:string"> 
+                <xs:minLength value="1"/>  
+                <xs:maxLength value="12"/> 
+              </xs:restriction> 
+            </xs:simpleType> 
+          </xs:element>  
+          <xs:element name="Profile" nillable="true"> 
+            <xs:simpleType> 
+              <xs:restriction base="xs:string"> 
+                <xs:minLength value="1"/>  
+                <xs:maxLength value="12"/> 
+              </xs:restriction> 
+            </xs:simpleType> 
+          </xs:element>  
+          <xs:element name="ResultCode" nillable="true"> 
+            <xs:simpleType> 
+              <xs:restriction base="xs:string"> 
+                <xs:minLength value="1"/>  
+                <xs:maxLength value="12"/> 
+              </xs:restriction> 
+            </xs:simpleType> 
+          </xs:element>  
+          <xs:element name="ResultDescription" nillable="true"> 
+            <xs:simpleType> 
+              <xs:restriction base="xs:string"> 
+                <xs:minLength value="1"/>  
+                <xs:maxLength value="120"/> 
+              </xs:restriction> 
+            </xs:simpleType> 
+          </xs:element> 
+        </xs:sequence> 
+      </xs:complexType>  
+      <xs:element name="DebitAuthResponse" type="ns:tDebitAuthResponse"/>  
+      <xs:complexType name="tEmergencyCreditRequest"> 
+        <xs:sequence> 
+          <xs:element name="TransactionID"> 
+            <xs:simpleType> 
+              <xs:restriction base="xs:string"> 
+                <xs:minLength value="1"/>  
+                <xs:maxLength value="20"/> 
+              </xs:restriction> 
+            </xs:simpleType> 
+          </xs:element>  
+          <xs:element name="MSISDN"> 
+            <xs:simpleType> 
+              <xs:restriction base="xs:string"> 
+                <xs:minLength value="1"/>  
+                <xs:maxLength value="60"/> 
+              </xs:restriction> 
+            </xs:simpleType> 
+          </xs:element>  
+          <xs:element name="UserPwd" nillable="true"> 
+            <xs:simpleType> 
+              <xs:restriction base="xs:string"> 
+                <xs:minLength value="1"/>  
+                <xs:maxLength value="8"/> 
+              </xs:restriction> 
+            </xs:simpleType> 
+          </xs:element>  
+          <xs:element name="Amount" nillable="true"> 
+            <xs:simpleType> 
+              <xs:restriction base="xs:string"> 
+                <xs:minLength value="1"/>  
+                <xs:maxLength value="12"/> 
+              </xs:restriction> 
+            </xs:simpleType> 
+          </xs:element>  
+          <xs:element name="Type" nillable="true"> 
+            <xs:simpleType> 
+              <xs:restriction base="xs:string"> 
+                <xs:minLength value="0"/>  
+                <xs:maxLength value="1"/> 
+              </xs:restriction> 
+            </xs:simpleType> 
+          </xs:element> 
+        </xs:sequence> 
+      </xs:complexType>  
+      <xs:element name="EmergencyCreditRequest" type="ns:tEmergencyCreditRequest"/>  
+      <xs:complexType name="tEmergencyCreditResponse"> 
+        <xs:sequence> 
+          <xs:element name="BeforeBal"> 
+            <xs:simpleType> 
+              <xs:restriction base="xs:string"> 
+                <xs:minLength value="1"/>  
+                <xs:maxLength value="12"/> 
+              </xs:restriction> 
+            </xs:simpleType> 
+          </xs:element>  
+          <xs:element name="SucAmount" nillable="true"> 
+            <xs:simpleType> 
+              <xs:restriction base="xs:string"> 
+                <xs:minLength value="1"/>  
+                <xs:maxLength value="12"/> 
+              </xs:restriction> 
+            </xs:simpleType> 
+          </xs:element>  
+          <xs:element name="SucData" nillable="true"> 
+            <xs:simpleType> 
+              <xs:restriction base="xs:string"> 
+                <xs:minLength value="1"/>  
+                <xs:maxLength value="12"/> 
+              </xs:restriction> 
+            </xs:simpleType> 
+          </xs:element>  
+          <xs:element name="AfterBal"> 
+            <xs:simpleType> 
+              <xs:restriction base="xs:string"> 
+                <xs:minLength value="1"/>  
+                <xs:maxLength value="12"/> 
+              </xs:restriction> 
+            </xs:simpleType> 
+          </xs:element>  
+          <xs:element name="AddDays" nillable="true"> 
+            <xs:simpleType> 
+              <xs:restriction base="xs:string"> 
+                <xs:minLength value="1"/>  
+                <xs:maxLength value="12"/> 
+              </xs:restriction> 
+            </xs:simpleType> 
+          </xs:element>  
+          <xs:element name="ResultCode" nillable="true"> 
+            <xs:simpleType> 
+              <xs:restriction base="xs:string"> 
+                <xs:minLength value="1"/>  
+                <xs:maxLength value="12"/> 
+              </xs:restriction> 
+            </xs:simpleType> 
+          </xs:element>  
+          <xs:element name="ResultDescription" nillable="true"> 
+            <xs:simpleType> 
+              <xs:restriction base="xs:string"> 
+                <xs:minLength value="1"/>  
+                <xs:maxLength value="120"/> 
+              </xs:restriction> 
+            </xs:simpleType> 
+          </xs:element> 
+        </xs:sequence> 
+      </xs:complexType>  
+      <xs:element name="EmergencyCreditResponse" type="ns:tEmergencyCreditResponse"/> 
+    </xs:schema>
+  </wsdl:types>
+  <wsdl:message name="DebitAuthRequest">
+    <wsdl:part name="parameters" element="ns:DebitAuthRequest"/>
+  </wsdl:message>
+  <wsdl:message name="DebitAuthResponse">
+    <wsdl:part name="parameters" element="ns:DebitAuthResponse"/>
+  </wsdl:message>
+  <wsdl:message name="EmergencyCreditRequest">
+    <wsdl:part name="parameters" element="ns:EmergencyCreditRequest"/>
+  </wsdl:message>
+  <wsdl:message name="EmergencyCreditResponse">
+    <wsdl:part name="parameters" element="ns:EmergencyCreditResponse"/>
+  </wsdl:message>
+  <wsdl:portType name="ObwWebservicePortType">
+    <wsdl:operation name="DebitAuth">
+      <wsdl:input message="tns:DebitAuthRequest" wsaw:Action="urn:DebitAuthRequest"/>
+      <wsdl:output message="tns:DebitAuthResponse" wsaw:Action="urn:DebitAuthResponse"/>
+    </wsdl:operation>
+    <wsdl:operation name="EmergencyCredit">
+      <wsdl:input message="tns:EmergencyCreditRequest" wsaw:Action="urn:EmergencyCreditRequest"/>
+      <wsdl:output message="tns:EmergencyCreditResponse" wsaw:Action="urn:EmergencyCreditResponse"/>
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="ObwWebserviceSoap11Binding" type="tns:ObwWebservicePortType">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" style="document"/>
+    <wsdl:operation name="EmergencyCredit">
+      <soap:operation soapAction="urn:EmergencyCredit" style="document"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DebitAuth">
+      <soap:operation soapAction="urn:DebitAuth" style="document"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="ObwWebserviceSoap12Binding" type="tns:ObwWebservicePortType">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" style="document"/>
+    <wsdl:operation name="EmergencyCredit">
+      <soap12:operation soapAction="urn:EmergencyCredit" style="document"/>
+      <wsdl:input>
+        <soap12:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DebitAuth">
+      <soap12:operation soapAction="urn:DebitAuth" style="document"/>
+      <wsdl:input>
+        <soap12:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="ObwWebserviceHttpBinding" type="tns:ObwWebservicePortType">
+    <http:binding verb="POST"/>
+    <wsdl:operation name="EmergencyCredit">
+      <http:operation location="EmergencyCredit"/>
+      <wsdl:input>
+        <mime:content type="text/xml" part="parameters"/>
+      </wsdl:input>
+      <wsdl:output>
+        <mime:content type="text/xml" part="parameters"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DebitAuth">
+      <http:operation location="DebitAuth"/>
+      <wsdl:input>
+        <mime:content type="text/xml" part="parameters"/>
+      </wsdl:input>
+      <wsdl:output>
+        <mime:content type="text/xml" part="parameters"/>
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="ObwWebservice">
+    <wsdl:port name="ObwWebserviceHttpSoap11Endpoint" binding="tns:ObwWebserviceSoap11Binding">
+      <soap:address location="http://localhost:8080/ObwWebservice.ObwWebserviceHttpSoap11Endpoint/"/>
+    </wsdl:port>
+    <wsdl:port name="ObwWebserviceHttpSoap12Endpoint" binding="tns:ObwWebserviceSoap12Binding">
+      <soap12:address location="http://localhost:8080/ObwWebservice.ObwWebserviceHttpSoap12Endpoint/"/>
+    </wsdl:port>
+    <!--  <wsdl:port name="ObwWebserviceHttpEndpoint" binding="tns:ObwWebserviceHttpBinding">
+      <http:address location="http://localhost:8080/ObwWebservice.ObwWebserviceHttpEndpoint/"/>
+    </wsdl:port>-->
+  </wsdl:service>
+</wsdl:definitions>
+

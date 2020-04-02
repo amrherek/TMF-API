@@ -1,0 +1,13 @@
+execute TICKLER_STATES.READ, {
+
+ => {
+OPEN_STATUS = OPEN : java.lang.String
+tickler states = sub element : com.lhs.ccb.common.soiimpl.NamedValueContainerList
+-[0]TICK_STATUS = CLOSED : java.lang.String
+-[0]TICKLER_STATUS = CLOSED : java.lang.String
+-[1]TICK_STATUS = NOTE : java.lang.String
+-[1]TICKLER_STATUS = NOTE : java.lang.String
+-[2]TICK_STATUS = OPEN : java.lang.String
+-[2]TICKLER_STATUS = OPEN : java.lang.String
+CLOSED_STATUS = CLOSED : java.lang.String
+}

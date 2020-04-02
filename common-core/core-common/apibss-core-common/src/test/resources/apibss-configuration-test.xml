@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:p="http://www.springframework.org/schema/p"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+			http://www.springframework.org/schema/beans/spring-beans.xsd
+			http://www.springframework.org/schema/context
+			http://www.springframework.org/schema/context/spring-context.xsd">
+
+	<bean id="placeholderConfigExposer"
+		class="com.orange.apibss.common.configuration.impl.SpringPropertiesExposer">
+		<property name="systemPropertiesModeName" value="SYSTEM_PROPERTIES_MODE_OVERRIDE" />
+		<property name="locations">
+			<list>
+				<value>classpath:apibss-cms-config.properties</value>
+				<value>classpath:application-config.properties</value>
+			</list>
+		</property>
+	</bean>
+
+	<bean name="APIConfigurationResolverDefault"
+		class="com.orange.apibss.common.configuration.impl.APIConfigurationResolverDefault">
+		<property name="messageResolver" ref="APIMessageResolverDefault" />
+		<property name="springPropertiesExposer" ref="placeholderConfigExposer" />
+	</bean>
+
+	<bean name="APIMessageResolverDefault"
+		class="com.orange.apibss.common.configuration.impl.APIMessageResolverDefault">
+		<property name="defaultLocale" value="fr_FR" />
+		<property name="messageSource" ref="in18nMessageSource" />
+	</bean>
+
+	<bean id="in18nMessageSource"
+		class="org.springframework.context.support.ResourceBundleMessageSource">
+		<property name="defaultEncoding" value="UTF-8" />
+		<property name="basenames">
+			<list>
+				<value>error/errors-core</value>
+				<value>error/errors-custom</value>
+				<value>error/errors-core_fr_FR</value>
+			</list>
+		</property>
+	</bean>
+
+	<bean id="APIBSSMessageCodesResolver"
+		class="org.springframework.validation.DefaultMessageCodesResolver">
+		<property name="messageCodeFormatter" ref="defaultAPIMessageCodeFormatter" />
+	</bean>
+
+	<bean id="defaultAPIMessageCodeFormatter"
+		class="com.orange.apibss.common.message.formatter.APIMessageCodeFormatter">
+		<property name="messageResolver" ref="APIMessageResolverDefault" />
+	</bean>
+
+	<bean id="configurationHolderTest"
+		class="com.orange.apisbss.common.configuration.test.TestConfigurationHolder">
+		<constructor-arg
+			value="#{APIConfigurationResolverDefault.getString('fileBackendFactory.racine')}" />
+		<constructor-arg
+			value="#{APIConfigurationResolverDefault.getString('fileBackendFactory.mode')}" />
+	</bean>
+
+	<bean id="APIConfigurationTestResolverConstante"
+		class="com.orange.apisbss.common.configuration.test.APIConfigurationTestResolverConstante"
+		parent="APIConfigurationResolverDefault" />
+
+	<bean id="configurationHolderTestConstantes"
+		class="com.orange.apisbss.common.configuration.test.TestConfigurationHolder">
+		<constructor-arg
+			value="#{APIConfigurationTestResolverConstante.getString('fileBackendFactory.racine')}" />
+		<constructor-arg
+			value="#{APIConfigurationTestResolverConstante.getString('fileBackendFactory.mode')}" />
+	</bean>
+
+</beans>
+	

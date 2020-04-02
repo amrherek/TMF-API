@@ -1,0 +1,35 @@
+<!--
+ execute (CONTRACTS.SEARCH, {
+SEARCHER = ContractSearchWithoutHistory : java.lang.String
+DIRNUM = 26772118188 : java.lang.String
+})
+-->
+ => {
+SEARCH_IS_COMPLETE = true : java.lang.Boolean
+contracts = sub element : com.lhs.ccb.common.soiimpl.NamedValueContainerList
+-[0]CS_ID_PUB = CUST0000008206 : java.lang.String
+-[0]BU_ID = 3 : java.lang.Long
+-[0]RPCODE = 58 : java.lang.Long
+-[0]ADR_FNAME = Mmaphiri Elizabeth : java.lang.String
+-[0]CO_ID_PUB = CONT0000040109 : java.lang.String
+-[0]CONTRACT_TYPE_ID = 1 : java.lang.Long
+-[0]CS_ID = 8206 : java.lang.Long
+-[0]CURRENT_DN = true : java.lang.Boolean
+-[0]ADR_CITY = GABORONE : java.lang.String
+-[0]PAYMENT_METHOD_IND = P : java.lang.Character
+-[0]EXTERNALIND = false : java.lang.Boolean
+-[0]PLCODE = 1001 : java.lang.Long
+-[0]CS_CODE = 1.10005253 : java.lang.String
+-[0]CO_ACTIVATED = YYYY-MM-DD: 2000-5-4 : com.lhs.ccb.common.soiimpl.SVLDateImpl
+-[0]DIRNUM = 26772118188 : java.lang.String
+-[0]CO_ID = 40109 : java.lang.Long
+-[0]PAYMENT_RESP = X : java.lang.Character
+-[0]CO_STATUS = 2 : java.lang.Integer
+-[0]SUBM_ID = 1 : java.lang.Long
+-[0]CS_CONTR_RESP = X : java.lang.Character
+-[0]ADR_LNAME = BAKWENA : java.lang.String
+-[0]ADR_STREET = P.O. Box 80922 : java.lang.String
+-[0]ADR_STREETNO = 999 : java.lang.String
+
+}
+

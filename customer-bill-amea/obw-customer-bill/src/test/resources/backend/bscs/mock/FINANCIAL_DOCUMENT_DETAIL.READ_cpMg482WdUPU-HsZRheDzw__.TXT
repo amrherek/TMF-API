@@ -1,0 +1,23 @@
+<!--
+ execute (FINANCIAL_DOCUMENT_DETAIL.READ, {
+DOCUMENT_ID = 4790336 : java.lang.Long
+})
+-->
+ => {
+ITEMS = sub element : com.lhs.ccb.common.soiimpl.NamedValueContainerList
+-[0]ENTRY_DATE = YYYY-MM-DD: 2015-2-11 : com.lhs.ccb.common.soiimpl.SVLDateImpl
+-[0]GL_ACCOUNT = 100300 : java.lang.String
+-[0]AMOUNT_CURRENT_PAY = 1092.75BWP : com.lhs.ccb.common.soiimpl.SVLMoneyImpl
+-[0]TRANSACTION_REFNUM = 00000RIVT3000003993 : java.lang.String
+-[0]USE_CASE_CODE = CE2DD : java.lang.String
+-[0]REF_DATE = YYYY-MM-DD: 2015-2-11 : com.lhs.ccb.common.soiimpl.SVLDateImpl
+-[0]TRANSACTION_ID = 4852821 : java.lang.Long
+-[0]CONV_DATE = YYYY-MM-DD: 2014-12-16 : com.lhs.ccb.common.soiimpl.SVLDateImpl
+-[0]ITEM_CREDIT_DEBIT_TYPE = C : java.lang.Character
+-[0]AMOUNT_CASH_PAY = 1092.75BWP : com.lhs.ccb.common.soiimpl.SVLMoneyImpl
+-[0]TRANS_CODE_PUB = CE2DD : java.lang.String
+DOCUMENT_CODE = 01166280711214 : java.lang.String
+DOCUMENT_ID = 4790336 : java.lang.Long
+
+}
+

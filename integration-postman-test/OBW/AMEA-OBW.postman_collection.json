@@ -1,0 +1,3107 @@
+{
+	"info": {
+		"name": "AMEA-OBW",
+		"_postman_id": "b09a2d8d-dba1-b512-a5e2-c24bbe272d10",
+		"description": "",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "BillingAccount",
+			"item": [
+				{
+					"name": "FIND byMsisdn local without prefix",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"tests[\"Status code is 200\"] = responseCode.code === 200;",
+									"",
+									"var jsonData = JSON.parse(responseBody);",
+									"",
+									"var schema = JSON.parse(postman.getEnvironmentVariable(\"billingAccountSchema\"));",
+									"//console.log(\"schema\", schema);",
+									"",
+									"_.forEach(jsonData, function(dataItem){",
+									" var valid_schema = tv4.validateResult(dataItem, schema, false, true).valid;",
+									" if (valid_schema){",
+									"  tests[\"JSON Response [id:\"+dataItem.id+\"] has valid schema\"] = true",
+									" }else{",
+									"  tests[\"JSON Response [id:\"+dataItem.id+\"] has invalid schema in path [\" + tv4.validateResult(dataItem, schema, false, true).error.dataPath + \"] Error: \"+ tv4.validateResult(dataItem, schema, false, true).error.message] = false;",
+									" }",
+									"});",
+									"",
+									"var reference = JSON.parse(postman.getEnvironmentVariable(\"baReferenceResponse\"));",
+									"//console.log(\"reference\", reference);",
+									"tests[\"The result of byBillingAccountId is included in the result list returned byMsisdnId\"] = _.find(jsonData,reference);",
+									"    "
+								]
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "login",
+								"value": "{{headers_login}}"
+							},
+							{
+								"key": "password",
+								"value": "{{headers_password}}"
+							},
+							{
+								"key": "platform",
+								"value": "{{headers_platform}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{context_billingAccount}}/billingAccount?publicKey={{baMsisdnWithoutPrefix}}",
+							"host": [
+								"{{context_billingAccount}}"
+							],
+							"path": [
+								"billingAccount"
+							],
+							"query": [
+								{
+									"key": "publicKey",
+									"value": "{{baMsisdnWithoutPrefix}}",
+									"equals": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GET byBillingAccountId Err invalid baId",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"tests[\"Status code is 404\"] = responseCode.code === 404;",
+									"var jsonData = JSON.parse(responseBody);",
+									"tests[\"Error code is 4040\"] = jsonData.code === 4040;",
+									"tests[\"Error message\"] = jsonData.message.has(\"Not found\");",
+									"tests[\"Error description\"] = jsonData.description.has(\"No Billing account found with id: \"+postman.getEnvironmentVariable(\"baIdInvalid\"));",
+									""
+								]
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "login",
+								"value": "{{headers_login}}"
+							},
+							{
+								"key": "password",
+								"value": "{{headers_password}}"
+							},
+							{
+								"key": "platform",
+								"value": "{{headers_platform}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": "{{context_billingAccount}}/billingAccount/{{baIdInvalid}}"
+					},
+					"response": []
+				},
+				{
+					"name": "FIND byPartyId Err invalid party Id",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"tests[\"Status code is 200\"] = responseCode.code === 200;",
+									"var jsonData = JSON.parse(responseBody);",
+									"tests[\"is empty\"] = _.isEmpty(jsonData);",
+									""
+								]
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "login",
+								"value": "{{headers_login}}"
+							},
+							{
+								"key": "password",
+								"value": "{{headers_password}}"
+							},
+							{
+								"key": "platform",
+								"value": "{{headers_platform}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{context_billingAccount}}/billingAccount?party.id={{baPartyIdInvalid}}",
+							"host": [
+								"{{context_billingAccount}}"
+							],
+							"path": [
+								"billingAccount"
+							],
+							"query": [
+								{
+									"key": "party.id",
+									"value": "{{baPartyIdInvalid}}",
+									"equals": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "FIND byMsisdn Err invalid msisdn",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"tests[\"Status code is 200\"] = responseCode.code === 200;",
+									"var jsonData = JSON.parse(responseBody);",
+									"tests[\"is empty\"] = _.isEmpty(jsonData);"
+								]
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "login",
+								"value": "{{headers_login}}"
+							},
+							{
+								"key": "password",
+								"value": "{{headers_password}}"
+							},
+							{
+								"key": "platform",
+								"value": "{{headers_platform}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{context_billingAccount}}/billingAccount?publicKey={{baMsisdnInvalid}}",
+							"host": [
+								"{{context_billingAccount}}"
+							],
+							"path": [
+								"billingAccount"
+							],
+							"query": [
+								{
+									"key": "publicKey",
+									"value": "{{baMsisdnInvalid}}",
+									"equals": true
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Party",
+			"item": [
+				{
+					"name": "Get individual  with registrationStatus",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"tests[\"Status code is 200\"] = responseCode.code === 200;",
+									"",
+									"var jsonData = JSON.parse(responseBody);",
+									"",
+									"var liste = _(jsonData.characteristic).filter({name : \"registrationStatus\"}).value();",
+									"//console.log(\"liste\",  liste);",
+									"//console.log(\"liste size\",  _.size(liste));",
+									"tests['Find registrationStatus in characteristic'] = _.size(liste) > 0;",
+									""
+								]
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "login",
+								"value": "{{headers_login}}"
+							},
+							{
+								"key": "password",
+								"value": "{{headers_password}}"
+							},
+							{
+								"key": "platform",
+								"value": "{{headers_platform}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": "{{context_party}}/individual/{{party_partyId}}"
+					},
+					"response": []
+				},
+				{
+					"name": "Get individual Err invalid caract partyId",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"tests[\"Status code is 404\"] = responseCode.code === 404;",
+									"var jsonData = JSON.parse(responseBody);",
+									"tests[\"Error code is 4040\"] = jsonData.code === 4040;",
+									"tests[\"Error message\"] = jsonData.message.has(\"Not found\");",
+									"tests[\"Error description\"] = jsonData.description.has(\"Unknown id [\"+postman.getEnvironmentVariable(\"party_invalidPartyIdCar\")+\"] for party\");"
+								]
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "login",
+								"value": "{{headers_login}}"
+							},
+							{
+								"key": "password",
+								"value": "{{headers_password}}"
+							},
+							{
+								"key": "platform",
+								"value": "{{headers_platform}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": "{{context_party}}/individual/{{party_invalidPartyIdCar}}",
+						"description": "Erreur avec un id party invalide"
+					},
+					"response": []
+				},
+				{
+					"name": "Get individual Err invalid AlphaNum partyId",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"tests[\"Status code is 404\"] = responseCode.code === 404;",
+									"var jsonData = JSON.parse(responseBody);",
+									"tests[\"Error code is 4040\"] = jsonData.code === 4040;",
+									"tests[\"Error message\"] = jsonData.message.has(\"Not found\");",
+									"tests[\"Error description\"] = jsonData.description.has(\"Unknown id [\"+postman.getEnvironmentVariable(\"party_invalidPartyIdAlpha\")+\"] for party\");"
+								]
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "login",
+								"value": "{{headers_login}}"
+							},
+							{
+								"key": "password",
+								"value": "{{headers_password}}"
+							},
+							{
+								"key": "platform",
+								"value": "{{headers_platform}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": "{{context_party}}/individual/{{party_invalidPartyIdAlpha}}"
+					},
+					"response": []
+				},
+				{
+					"name": "PUT 1er update registrationStatus of caracteristic individual",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"tests[\"Status code is 200\"] = responseCode.code === 200;",
+									"",
+									"var jsonData = JSON.parse(responseBody);",
+									"",
+									"var liste = _(jsonData.characteristic).filter({name : \"registrationStatus\"}).value();",
+									"//console.log(\"liste\",  liste);",
+									"//console.log(\"liste size\",  _.size(liste));",
+									"tests['registrationStatus is deleted'] = _.size(liste) === 0;"
+								]
+							}
+						}
+					],
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "login",
+								"value": "{{headers_login}}"
+							},
+							{
+								"key": "password",
+								"value": "{{headers_password}}"
+							},
+							{
+								"key": "platform",
+								"value": "{{headers_platform}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"characteristic\": [\r\n        {\r\n            \"name\": \"registrationStatus\",\r\n            \"value\": \"\"\r\n        }\r\n    ]\r\n}"
+						},
+						"url": "{{context_party}}/individual/{{party_updatePartyId}}",
+						"description": "Erreur avec un id party invalide"
+					},
+					"response": []
+				},
+				{
+					"name": "PUT  2iem update registrationStatus of caracteristic individual",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"tests[\"Status code is 200\"] = responseCode.code === 200;",
+									"",
+									"var jsonData = JSON.parse(responseBody);",
+									"",
+									"var liste = _(jsonData.characteristic).filter({name : \"registrationStatus\"}).value();",
+									"//console.log(\"liste\",  liste);",
+									"//console.log(\"liste size\",  _.size(liste));",
+									"tests['registrationStatus is updated'] = liste[0].value === \"identified\";"
+								]
+							}
+						}
+					],
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "login",
+								"value": "{{headers_login}}"
+							},
+							{
+								"key": "password",
+								"value": "{{headers_password}}"
+							},
+							{
+								"key": "platform",
+								"value": "{{headers_platform}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"characteristic\": [\r\n        {\r\n            \"name\": \"registrationStatus\",\r\n            \"value\": \"identified\"\r\n        }\r\n    ]\r\n}"
+						},
+						"url": "{{context_party}}/individual/{{party_updatePartyId}}",
+						"description": "Erreur avec un id party invalide"
+					},
+					"response": []
+				},
+				{
+					"name": "PUT individual Err PartyInvalidCaractere",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"tests[\"Status code is 404\"] = responseCode.code === 404;",
+									"var jsonData = JSON.parse(responseBody);",
+									"tests[\"Error code is 4040\"] = jsonData.code === 4040;",
+									"tests[\"Error message\"] = jsonData.message.has(\"Not found\");",
+									"tests[\"Error description\"] = jsonData.description.has(\"Unknown id [\"+postman.getEnvironmentVariable(\"party_invalidPartyIdCar\")+\"] for party\");",
+									""
+								]
+							}
+						}
+					],
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "login",
+								"value": "{{headers_login}}"
+							},
+							{
+								"key": "password",
+								"value": "{{headers_password}}"
+							},
+							{
+								"key": "platform",
+								"value": "{{headers_platform}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "    {{party_body_update1}}"
+						},
+						"url": "{{context_party}}/individual/{{party_invalidPartyIdCar}}",
+						"description": "Erreur avec un id party invalide"
+					},
+					"response": []
+				},
+				{
+					"name": "PUT individual Err PartyInvalidAlphaNum",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"tests[\"Status code is 404\"] = responseCode.code === 404;",
+									"var jsonData = JSON.parse(responseBody);",
+									"tests[\"Error code is 4040\"] = jsonData.code === 4040;",
+									"tests[\"Error message\"] = jsonData.message.has(\"Not found\");",
+									"tests[\"Error description\"] = jsonData.description.has(\"Unknown id [\"+postman.getEnvironmentVariable(\"party_invalidPartyIdAlpha\")+\"] for party\");"
+								]
+							}
+						}
+					],
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "login",
+								"value": "{{headers_login}}"
+							},
+							{
+								"key": "password",
+								"value": "{{headers_password}}"
+							},
+							{
+								"key": "platform",
+								"value": "{{headers_platform}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "    {{party_body_update1}}"
+						},
+						"url": "{{context_party}}/individual/{{party_invalidPartyIdAlpha}}"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "ProductOrder",
+			"description": "",
+			"item": [
+				{
+					"name": "WithoutReinit",
+					"description": "",
+					"item": [
+						{
+							"name": "FaF",
+							"description": "",
+							"item": [
+								{
+									"name": "010_Add FaF",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"type": "text/javascript",
+												"exec": [
+													"tests[\"Status code is 201\"] = responseCode.code === 201;",
+													"",
+													"var responseData = JSON.parse(responseBody)",
+													"",
+													"tests[\"status in progress\"] = responseData.state === \"inProgress\";",
+													"",
+													"",
+													""
+												]
+											}
+										}
+									],
+									"request": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Accept",
+												"value": "application/json"
+											},
+											{
+												"key": "Content-Type",
+												"value": "application/json"
+											},
+											{
+												"key": "login",
+												"value": "{{headers_login}}"
+											},
+											{
+												"key": "password",
+												"value": "{{headers_password}}"
+											},
+											{
+												"key": "platform",
+												"value": "{{headers_platform}}"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n\t\"relatedPublicKey\": [{\r\n\t\t\t\"id\": \"{{po_faf_msisdn}}\",\r\n\t\t\t\"name\": \"customerMSISDN\"\r\n\t\t}\r\n\t],\r\n\t\"orderItem\": [{\r\n\t\t\t\"id\": \"1\",\r\n\t\t\t\"action\": \"addCharacteristic\",\r\n\t\t\t\"product\": {\r\n\t\t\t\t\"productSpecification\": {\r\n\t\t\t\t\t\"id\": \"faf\"\r\n\t\t\t\t},\r\n\t\t\t\t\"productCharacteristic\": [{\r\n\t\t\t\t\t\t\"name\": \"faf\",\r\n\t\t\t\t\t\t\"value\": \"555123456\"\r\n\t\t\t\t\t}\r\n\t\t\t\t]\r\n\t\t\t}\r\n\t\t}\r\n\t],\r\n\t\"channel\": {\r\n\t\t\"name\": \"channel\"\r\n\t}\r\n}\r\n"
+										},
+										"url": "{{context_order}}/productOrder"
+									},
+									"response": []
+								},
+								{
+									"name": "020_Add FaF: ERR, add 2 FaF in 1 orderItem",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"id": "8b2d25f6-fc50-4daa-b708-72b5280e7b6b",
+												"type": "text/javascript",
+												"exec": [
+													"tests[\"Status code is 400\"] = responseCode.code === 400;",
+													"var jsonData = JSON.parse(responseBody);",
+													"tests[\"Error code is 4006\"] = jsonData.code === 4006;",
+													"tests[\"Error message\"] = jsonData.message.has(\"Too many parameters\");",
+													"tests[\"Error description\"] = jsonData.description.has(\"Parameter orderItem.product.productCharacteristic must be at most 1 times\");",
+													"",
+													"",
+													""
+												]
+											}
+										}
+									],
+									"request": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Accept",
+												"value": "application/json"
+											},
+											{
+												"key": "Content-Type",
+												"value": "application/json"
+											},
+											{
+												"key": "login",
+												"value": "{{headers_login}}"
+											},
+											{
+												"key": "password",
+												"value": "{{headers_password}}"
+											},
+											{
+												"key": "platform",
+												"value": "{{headers_platform}}"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n\t\"relatedPublicKey\": [{\r\n\t\t\t\"id\": \"{{po_faf_msisdn}}\",\r\n\t\t\t\"name\": \"customerMSISDN\"\r\n\t\t}\r\n\t],\r\n\t\"orderItem\": [{\r\n\t\t\t\"id\": \"1\",\r\n\t\t\t\"action\": \"addCharacteristic\",\r\n\t\t\t\"product\": {\r\n\t\t\t\t\"productSpecification\": {\r\n\t\t\t\t\t\"id\": \"faf\"\r\n\t\t\t\t},\r\n\t\t\t\t\"productCharacteristic\": [{\r\n\t\t\t\t\t\t\"name\": \"faf\",\r\n\t\t\t\t\t\t\"value\": \"555123456\"\r\n\t\t\t\t\t},\r\n\t\t\t\t\t{\r\n\t\t\t\t\t\t\"name\": \"faf\",\r\n\t\t\t\t\t\t\"value\": \"555123457\"\r\n\t\t\t\t\t}\r\n\t\t\t\t]\r\n\t\t\t}\r\n\t\t}\r\n\t],\r\n\t\"channel\": {\r\n\t\t\"name\": \"channel\"\r\n\t}\r\n}\r\n"
+										},
+										"url": "{{context_order}}/productOrder"
+									},
+									"response": []
+								},
+								{
+									"name": "030_Add FaF: ERR, bad characteristic value",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"id": "50a342b7-b794-4190-9160-b0f4da3dd1d9",
+												"type": "text/javascript",
+												"exec": [
+													"tests[\"Status code is 400\"] = responseCode.code === 400;",
+													"var jsonData = JSON.parse(responseBody);",
+													"tests[\"Error code is 4003\"] = jsonData.code === 4003;",
+													"tests[\"Error message\"] = jsonData.message.has(\"Bad parameter value\");",
+													"tests[\"Error description\"] = jsonData.description.has(\"Bad value for parameter orderItem.product.productCharacteristic.name: [faff], should be [faf]\");",
+													"",
+													"",
+													""
+												]
+											}
+										}
+									],
+									"request": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Accept",
+												"value": "application/json"
+											},
+											{
+												"key": "Content-Type",
+												"value": "application/json"
+											},
+											{
+												"key": "login",
+												"value": "{{headers_login}}"
+											},
+											{
+												"key": "password",
+												"value": "{{headers_password}}"
+											},
+											{
+												"key": "platform",
+												"value": "{{headers_platform}}"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n\t\"relatedPublicKey\": [{\r\n\t\t\t\"id\": \"{{po_faf_msisdn}}\",\r\n\t\t\t\"name\": \"customerMSISDN\"\r\n\t\t}\r\n\t],\r\n\t\"orderItem\": [{\r\n\t\t\t\"id\": \"1\",\r\n\t\t\t\"action\": \"addCharacteristic\",\r\n\t\t\t\"product\": {\r\n\t\t\t\t\"productSpecification\": {\r\n\t\t\t\t\t\"id\": \"faf\"\r\n\t\t\t\t},\r\n\t\t\t\t\"productCharacteristic\": [{\r\n\t\t\t\t\t\t\"name\": \"faff\",\r\n\t\t\t\t\t\t\"value\": \"555123456\"\r\n\t\t\t\t\t}\r\n\t\t\t\t]\r\n\t\t\t}\r\n\t\t}\r\n\t],\r\n\t\"channel\": {\r\n\t\t\"name\": \"channel\"\r\n\t}\r\n}\r\n"
+										},
+										"url": "{{context_order}}/productOrder"
+									},
+									"response": []
+								},
+								{
+									"name": "040_Add FaF: ERR, missing faf characteristic",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"id": "915f401c-7dae-49fb-aebb-48a1a676eb21",
+												"type": "text/javascript",
+												"exec": [
+													"tests[\"Status code is 400\"] = responseCode.code === 400;",
+													"var jsonData = JSON.parse(responseBody);",
+													"tests[\"Error code is 4001\"] = jsonData.code === 4001;",
+													"tests[\"Error message\"] = jsonData.message.has(\"Missing parameter\");",
+													"tests[\"Error description\"] = jsonData.description.has(\"Parameter orderItem.product.productCharacteristic is missing, null or empty\");",
+													"",
+													"",
+													""
+												]
+											}
+										}
+									],
+									"request": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Accept",
+												"value": "application/json"
+											},
+											{
+												"key": "Content-Type",
+												"value": "application/json"
+											},
+											{
+												"key": "login",
+												"value": "{{headers_login}}"
+											},
+											{
+												"key": "password",
+												"value": "{{headers_password}}"
+											},
+											{
+												"key": "platform",
+												"value": "{{headers_platform}}"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n\t\"relatedPublicKey\": [{\r\n\t\t\t\"id\": \"{{po_faf_msisdn}}\",\r\n\t\t\t\"name\": \"customerMSISDN\"\r\n\t\t}\r\n\t],\r\n\t\"orderItem\": [{\r\n\t\t\t\"id\": \"1\",\r\n\t\t\t\"action\": \"addCharacteristic\",\r\n\t\t\t\"product\": {\r\n\t\t\t\t\"productSpecification\": {\r\n\t\t\t\t\t\"id\": \"faf\"\r\n\t\t\t\t},\r\n\t\t\t\t\"productCharacteristic\": []\r\n\t\t\t}\r\n\t\t}\r\n\t],\r\n\t\"channel\": {\r\n\t\t\"name\": \"channel\"\r\n\t}\r\n}\r\n"
+										},
+										"url": "{{context_order}}/productOrder"
+									},
+									"response": []
+								},
+								{
+									"name": "110_Delete FaF",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"type": "text/javascript",
+												"exec": [
+													"tests[\"Status code is 201\"] = responseCode.code === 201;",
+													"",
+													"var responseData = JSON.parse(responseBody)",
+													"",
+													"tests[\"status in progress\"] = responseData.state === \"inProgress\";",
+													"",
+													"",
+													""
+												]
+											}
+										}
+									],
+									"request": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Accept",
+												"value": "application/json"
+											},
+											{
+												"key": "Content-Type",
+												"value": "application/json"
+											},
+											{
+												"key": "login",
+												"value": "{{headers_login}}"
+											},
+											{
+												"key": "password",
+												"value": "{{headers_password}}"
+											},
+											{
+												"key": "platform",
+												"value": "{{headers_platform}}"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n\t\"relatedPublicKey\": [{\r\n\t\t\t\"id\": \"{{po_faf_msisdn}}\",\r\n\t\t\t\"name\": \"customerMSISDN\"\r\n\t\t}\r\n\t],\r\n\t\"orderItem\": [{\r\n\t\t\t\"id\": \"1\",\r\n\t\t\t\"action\": \"deleteCharacteristic\",\r\n\t\t\t\"product\": {\r\n\t\t\t\t\"productSpecification\": {\r\n\t\t\t\t\t\"id\": \"faf\"\r\n\t\t\t\t},\r\n\t\t\t\t\"productCharacteristic\": [{\r\n\t\t\t\t\t\t\"name\": \"faf\",\r\n\t\t\t\t\t\t\"value\": \"555123456\"\r\n\t\t\t\t\t}\r\n\t\t\t\t]\r\n\t\t\t}\r\n\t\t}\r\n\t],\r\n\t\"channel\": {\r\n\t\t\"name\": \"channel\"\r\n\t}\r\n}\r\n"
+										},
+										"url": "{{context_order}}/productOrder"
+									},
+									"response": []
+								},
+								{
+									"name": "210_Modify FaF",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"type": "text/javascript",
+												"exec": [
+													"tests[\"Status code is 201\"] = responseCode.code === 201;",
+													"",
+													"var responseData = JSON.parse(responseBody)",
+													"",
+													"tests[\"status in progress\"] = responseData.state === \"inProgress\";",
+													"",
+													"",
+													""
+												]
+											}
+										}
+									],
+									"request": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Accept",
+												"value": "application/json"
+											},
+											{
+												"key": "Content-Type",
+												"value": "application/json"
+											},
+											{
+												"key": "login",
+												"value": "{{headers_login}}"
+											},
+											{
+												"key": "password",
+												"value": "{{headers_password}}"
+											},
+											{
+												"key": "platform",
+												"value": "{{headers_platform}}"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n\t\"relatedPublicKey\": [{\r\n\t\t\t\"id\": \"{{po_faf_msisdn}}\",\r\n\t\t\t\"name\": \"customerMSISDN\"\r\n\t\t}\r\n\t],\r\n\t\"orderItem\": [{\r\n\t\t\t\"id\": \"1\",\r\n\t\t\t\"action\": \"deleteCharacteristic\",\r\n\t\t\t\"orderItemRelationship\":\r\n                {\r\n                    \"type\": \"isPrerequisite\",\r\n                    \"id\": \"2\"\r\n                },\r\n\t\t\t\"product\": {\r\n\t\t\t\t\"productSpecification\": {\r\n\t\t\t\t\t\"id\": \"faf\"\r\n\t\t\t\t},\r\n\t\t\t\t\"productCharacteristic\": [{\r\n\t\t\t\t\t\t\"name\": \"faf\",\r\n\t\t\t\t\t\t\"value\": \"555123456\"\r\n\t\t\t\t\t}\r\n\t\t\t\t]\r\n\t\t\t}\r\n\t\t},{\r\n\t\t\t\"id\": \"2\",\r\n\t\t\t\"action\": \"addCharacteristic\",\r\n\t\t\t\"orderItemRelationship\":\r\n                {\r\n                    \"type\": \"hasPrerequisite\",\r\n                    \"id\": \"1\"\r\n                },\r\n\t\t\t\"product\": {\r\n\t\t\t\t\"productSpecification\": {\r\n\t\t\t\t\t\"id\": \"faf\"\r\n\t\t\t\t},\r\n\t\t\t\t\"productCharacteristic\": [{\r\n\t\t\t\t\t\t\"name\": \"faf\",\r\n\t\t\t\t\t\t\"value\": \"555123457\"\r\n\t\t\t\t\t}\r\n\t\t\t\t]\r\n\t\t\t}\r\n\t\t}\r\n\t],\r\n\t\"channel\": {\r\n\t\t\"name\": \"channel\"\r\n\t}\r\n}\r\n"
+										},
+										"url": "{{context_order}}/productOrder"
+									},
+									"response": []
+								},
+								{
+									"name": "310_Replace all FaF: ERR, not available",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"id": "d53cf979-ed60-4a1c-98bd-03a47b767a2a",
+												"type": "text/javascript",
+												"exec": [
+													"tests[\"Status code is 400\"] = responseCode.code === 400;",
+													"var jsonData = JSON.parse(responseBody);",
+													"tests[\"Error code is 4003\"] = jsonData.code === 4003;",
+													"tests[\"Error message\"] = jsonData.message.has(\"Bad parameter value\");",
+													"tests[\"Error description\"] = jsonData.description.has(\"Bad value for parameter orderItem.product.productSpecification.id: [faf], should be\");"
+												]
+											}
+										}
+									],
+									"request": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Accept",
+												"value": "application/json"
+											},
+											{
+												"key": "Content-Type",
+												"value": "application/json"
+											},
+											{
+												"key": "login",
+												"value": "{{headers_login}}"
+											},
+											{
+												"key": "password",
+												"value": "{{headers_password}}"
+											},
+											{
+												"key": "platform",
+												"value": "{{headers_platform}}"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n\t\"relatedPublicKey\": [{\r\n\t\t\t\"id\": \"{{po_faf_msisdn}}\",\r\n\t\t\t\"name\": \"customerMSISDN\"\r\n\t\t}\r\n\t],\r\n\t\"orderItem\": [{\r\n\t\t\t\"id\": \"1\",\r\n\t\t\t\"action\": \"modifyCharacteristic\",\r\n\t\t\t\"product\": {\r\n\t\t\t\t\"productSpecification\": {\r\n\t\t\t\t\t\"id\": \"faf\"\r\n\t\t\t\t},\r\n\t\t\t\t\"productCharacteristic\": [{\r\n\t\t\t\t\t\t\"name\": \"faf\",\r\n\t\t\t\t\t\t\"value\": \"555123456\"\r\n\t\t\t\t\t},\r\n\t\t\t\t\t{\r\n\t\t\t\t\t\t\"name\": \"faf\",\r\n\t\t\t\t\t\t\"value\": \"555123457\"\r\n\t\t\t\t\t}\r\n\t\t\t\t]\r\n\t\t\t}\r\n\t\t}\r\n\t],\r\n\t\"channel\": {\r\n\t\t\"name\": \"channel\"\r\n\t}\r\n}\r\n"
+										},
+										"url": "{{context_order}}/productOrder"
+									},
+									"response": []
+								}
+							],
+							"_postman_isSubFolder": true
+						},
+						{
+							"name": "ChangeServiceStatus",
+							"description": "",
+							"item": [
+								{
+									"name": "check service not found in contract",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"id": "df7f7eb9-e48c-4ab0-bcaf-204ab441f531",
+												"type": "text/javascript",
+												"exec": [
+													"tests[\"Status code is 404\"] = responseCode.code === 404;",
+													"var jsonData = JSON.parse(responseBody);",
+													"tests[\"Error code is 4040\"] = jsonData.code === 4040;",
+													"tests[\"Error message\"] = jsonData.message.has(\"Not found\");",
+													""
+												]
+											}
+										}
+									],
+									"request": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "login",
+												"value": "{{headers_login}}"
+											},
+											{
+												"key": "password",
+												"value": "{{headers_password}}"
+											},
+											{
+												"key": "platform",
+												"value": "{{headers_platform}}"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": ""
+										},
+										"url": "{{context_inventory}}/product/{{po_activateServiceError_id}}",
+										"description": ""
+									},
+									"response": []
+								},
+								{
+									"name": "010_Change status Active to Terminated: Service Not in contract",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"type": "text/javascript",
+												"exec": [
+													"tests[\"Status code is 201\"] = responseCode.code === 201;",
+													"",
+													"var responseData = JSON.parse(responseBody)",
+													"",
+													"tests[\"status in progress\"] = responseData.state === \"inProgress\";",
+													"",
+													"",
+													""
+												]
+											}
+										}
+									],
+									"request": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Accept",
+												"value": "application/json"
+											},
+											{
+												"key": "Content-Type",
+												"value": "application/json"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n  \"orderItem\": [\r\n    {\r\n      \"id\": \"1\",\r\n      \"action\": \"deactivate\",\r\n      \"product\": {\r\n        \"id\": \"{{po_activateServiceError_id}}\"\r\n      }\r\n    }\r\n  ],\r\n  \"channel\": {\r\n    \"name\": \"Channel\"\r\n  }\r\n}"
+										},
+										"url": "{{context_order}}/productOrder",
+										"description": "Should return an error, but BSCS returns no error so the order seems successfull"
+									},
+									"response": []
+								}
+							],
+							"_postman_isSubFolder": true
+						},
+						{
+							"name": "SimSwap",
+							"description": "",
+							"item": [
+								{
+									"name": "Err new iccId assigned to another contract",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"id": "063fe3bf-4901-449f-a252-35181e2d6bbc",
+												"type": "text/javascript",
+												"exec": [
+													"tests[\"Status code is 400\"] = responseCode.code === 400;",
+													"var jsonData = JSON.parse(responseBody);",
+													"tests[\"Error code is 4103\"] = jsonData.code === 4103;",
+													"tests[\"Error message\"] = jsonData.message.has(\"Sim swap impossible\");",
+													"tests[\"Error description\"] = jsonData.description.has(\"The resource \"+postman.getEnvironmentVariable(\"po_simswap_newIccId_assigned\")+\" of type Storage Medium is not assignable. May be it is already assigned.\");",
+													"",
+													""
+												]
+											}
+										}
+									],
+									"request": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Accept",
+												"value": "application/json"
+											},
+											{
+												"key": "Content-Type",
+												"value": "application/json"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n    \"orderItem\": [\r\n        {\r\n            \"id\": \"1\",\r\n            \"action\": \"deleteCharacteristic\",\r\n            \"orderItemRelationship\":\r\n                {\r\n                    \"type\": \"isPrerequisite\",\r\n                    \"id\": \"2\"\r\n                },\r\n            \"product\": {\r\n                \"productOffering\": {\r\n                    \"id\": \"simCard\"\r\n                },\r\n                \"productCharacteristic\": [\r\n                    {\r\n                        \"name\": \"iccId\",\r\n                        \"value\": \"{{po_simswap_oldIccId}}\"\r\n                    }\r\n                ],\r\n                \"productRelationship\": [\r\n                    {\r\n                        \"type\": \"isContainedIn\",\r\n                        \"product\": {\r\n                            \"id\": \"{{po_simswap_productId}}\" \r\n                        }\r\n                    }\r\n                ]\r\n            }\r\n        },\r\n        {\r\n            \"id\": \"2\",\r\n            \"action\": \"addCharacteristic\",\r\n            \"orderItemRelationship\":\r\n                {\r\n                    \"type\": \"hasPrerequisite\",\r\n                    \"id\": \"1\"\r\n                },\r\n            \"product\": {\r\n                \"productOffering\": {\r\n                    \"id\": \"simCard\"\r\n                },\r\n                \"productCharacteristic\": [\r\n                    {\r\n                        \"name\": \"iccId\",\r\n                        \"value\": \"{{po_simswap_newIccId_assigned}}\"\r\n                    }\r\n                ],\r\n                \"productRelationship\": [\r\n                    {\r\n                        \"type\": \"isContainedIn\",\r\n                        \"product\": {\r\n                            \"id\": \"{{po_simswap_productId}}\"\r\n                        }\r\n                    }\r\n                ]\r\n            }\r\n        }\r\n    ],\r\n    \"channel\": {\r\n        \"name\": \"Nomad\"\r\n    }\r\n}\r\n"
+										},
+										"url": "{{context_order}}/productOrder"
+									},
+									"response": []
+								}
+							],
+							"_postman_isSubFolder": true
+						},
+						{
+							"name": "EmergencyCredit",
+							"description": "",
+							"item": [
+								{
+									"name": "010_Add an emergency credit",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"type": "text/javascript",
+												"exec": [
+													"tests[\"Status code is 201\"] = responseCode.code === 201;",
+													"",
+													"var responseData = JSON.parse(responseBody)",
+													"",
+													"tests[\"status in progress\"] = responseData.state === \"inProgress\";",
+													"",
+													"",
+													""
+												]
+											}
+										}
+									],
+									"request": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Accept",
+												"value": "application/json"
+											},
+											{
+												"key": "Content-Type",
+												"value": "application/json"
+											},
+											{
+												"key": "login",
+												"value": "{{headers_login}}"
+											},
+											{
+												"key": "password",
+												"value": "{{headers_password}}"
+											},
+											{
+												"key": "platform",
+												"value": "{{headers_platform}}"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n\t\"relatedPublicKey\": [{\r\n\t\t\t\"id\": \"{{po_emergency_msisdn}}\",\r\n\t\t\t\"name\": \"customerMSISDN\"\r\n\t\t}\r\n\t],\r\n\t\"orderItem\": [{\r\n\t\t\t\"id\": \"1\",\r\n\t\t\t\"action\": \"add\",\r\n\t\t\t\"productOffering\": {\r\n\t\t\t\t\"id\": \"emergencyCreditFee\"\r\n\t\t\t},\r\n\t\t\t\"product\": {\r\n\t\t\t\t\"productSpecification\": {\r\n\t\t\t\t\t\"id\": \"emergencyCredit\"\r\n\t\t\t\t},\r\n\t\t\t\t\"productCharacteristic\": [{\r\n\t\t\t\t\t\t\"name\": \"volume\",\r\n\t\t\t\t\t\t\"value\": \"100\"\r\n\t\t\t\t\t}\r\n\t\t\t\t]\r\n\t\t\t}\r\n\t\t}\r\n\t],\r\n\t\"channel\": {\r\n\t\t\"name\": \"channel\"\r\n\t}\r\n}\r\n"
+										},
+										"url": "{{context_order}}/productOrder"
+									},
+									"response": []
+								},
+								{
+									"name": "020_Add an emergency data: ERR, missing msisdn",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"id": "e048eb58-05d4-490a-9da1-6503ee938498",
+												"type": "text/javascript",
+												"exec": [
+													"tests[\"Status code is 400\"] = responseCode.code === 400;",
+													"var jsonData = JSON.parse(responseBody);",
+													"tests[\"Error code is 4001\"] = jsonData.code === 4001;",
+													"tests[\"Error message\"] = jsonData.message.has(\"Missing parameter\");",
+													"tests[\"Error description\"] = jsonData.description.has(\"Parameter relatedPublicKey.id is missing, null or empty\");",
+													""
+												]
+											}
+										}
+									],
+									"request": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Accept",
+												"value": "application/json"
+											},
+											{
+												"key": "Content-Type",
+												"value": "application/json"
+											},
+											{
+												"key": "login",
+												"value": "{{headers_login}}"
+											},
+											{
+												"key": "password",
+												"value": "{{headers_password}}"
+											},
+											{
+												"key": "platform",
+												"value": "{{headers_platform}}"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n\t\"relatedPublicKey\": [{\r\n\t\t\t\"name\": \"customerMSISDN\"\r\n\t\t}\r\n\t],\r\n\t\"orderItem\": [{\r\n\t\t\t\"id\": \"1\",\r\n\t\t\t\"action\": \"add\",\r\n\t\t\t\"productOffering\": {\r\n\t\t\t\t\"id\": \"emergencyCreditFee\"\r\n\t\t\t},\r\n\t\t\t\"product\": {\r\n\t\t\t\t\"productSpecification\": {\r\n\t\t\t\t\t\"id\": \"emergencyCredit\"\r\n\t\t\t\t},\r\n\t\t\t\t\"productCharacteristic\": [{\r\n\t\t\t\t\t\t\"name\": \"volume\",\r\n\t\t\t\t\t\t\"value\": \"100\"\r\n\t\t\t\t\t}\r\n\t\t\t\t]\r\n\t\t\t}\r\n\t\t}\r\n\t],\r\n\t\"channel\": {\r\n\t\t\"name\": \"channel\"\r\n\t}\r\n}\r\n"
+										},
+										"url": "{{context_order}}/productOrder"
+									},
+									"response": []
+								},
+								{
+									"name": "030_Add an emergency data: ERR, bad productSpecId",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"id": "7c116e0d-cf60-4d7e-9178-e9deb2f4ee6c",
+												"type": "text/javascript",
+												"exec": [
+													"tests[\"Status code is 400\"] = responseCode.code === 400;",
+													"var jsonData = JSON.parse(responseBody);",
+													"tests[\"Error code is 4003\"] = jsonData.code === 4003;",
+													"tests[\"Error message\"] = jsonData.message.has(\"Bad parameter value\");",
+													"tests[\"Error description\"] = jsonData.description.has(\"orderItem.product.productSpecification.id\") && jsonData.description.has(\"[emerCredit]\") && jsonData.description.has(\"emergencyData\");",
+													""
+												]
+											}
+										}
+									],
+									"request": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Accept",
+												"value": "application/json"
+											},
+											{
+												"key": "Content-Type",
+												"value": "application/json"
+											},
+											{
+												"key": "login",
+												"value": "{{headers_login}}"
+											},
+											{
+												"key": "password",
+												"value": "{{headers_password}}"
+											},
+											{
+												"key": "platform",
+												"value": "{{headers_platform}}"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n\t\"relatedPublicKey\": [{\r\n\t\t\t\"id\": \"{{po_emergency_msisdn}}\",\r\n\t\t\t\"name\": \"customerMSISDN\"\r\n\t\t}\r\n\t],\r\n\t\"orderItem\": [{\r\n\t\t\t\"id\": \"1\",\r\n\t\t\t\"action\": \"add\",\r\n\t\t\t\"productOffering\": {\r\n\t\t\t\t\"id\": \"emergencyCreditFee\"\r\n\t\t\t},\r\n\t\t\t\"product\": {\r\n\t\t\t\t\"productSpecification\": {\r\n\t\t\t\t\t\"id\": \"emerCredit\"\r\n\t\t\t\t},\r\n\t\t\t\t\"productCharacteristic\": [{\r\n\t\t\t\t\t\t\"name\": \"volume\",\r\n\t\t\t\t\t\t\"value\": \"100\"\r\n\t\t\t\t\t}\r\n\t\t\t\t]\r\n\t\t\t}\r\n\t\t}\r\n\t],\r\n\t\"channel\": {\r\n\t\t\"name\": \"channel\"\r\n\t}\r\n}\r\n"
+										},
+										"url": "{{context_order}}/productOrder"
+									},
+									"response": []
+								},
+								{
+									"name": "040_Add an emergency data: ERR, bad productOfferingId",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"id": "af24baee-9ef5-4e12-8e99-10f406648417",
+												"type": "text/javascript",
+												"exec": [
+													"tests[\"Status code is 400\"] = responseCode.code === 400;",
+													"var jsonData = JSON.parse(responseBody);",
+													"tests[\"Error code is 4003\"] = jsonData.code === 4003;",
+													"tests[\"Error message\"] = jsonData.message.has(\"Bad parameter value\");",
+													"tests[\"Error description\"] = jsonData.description.has(\"Bad value for parameter orderItem.productOffering.id: [emerCreditFee], should be [emergencyCreditFee]\");",
+													""
+												]
+											}
+										}
+									],
+									"request": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Accept",
+												"value": "application/json"
+											},
+											{
+												"key": "Content-Type",
+												"value": "application/json"
+											},
+											{
+												"key": "login",
+												"value": "{{headers_login}}"
+											},
+											{
+												"key": "password",
+												"value": "{{headers_password}}"
+											},
+											{
+												"key": "platform",
+												"value": "{{headers_platform}}"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n\t\"relatedPublicKey\": [{\r\n\t\t\t\"id\": \"{{po_emergency_msisdn}}\",\r\n\t\t\t\"name\": \"customerMSISDN\"\r\n\t\t}\r\n\t],\r\n\t\"orderItem\": [{\r\n\t\t\t\"id\": \"1\",\r\n\t\t\t\"action\": \"add\",\r\n\t\t\t\"productOffering\": {\r\n\t\t\t\t\"id\": \"emerCreditFee\"\r\n\t\t\t},\r\n\t\t\t\"product\": {\r\n\t\t\t\t\"productSpecification\": {\r\n\t\t\t\t\t\"id\": \"emergencyCredit\"\r\n\t\t\t\t},\r\n\t\t\t\t\"productCharacteristic\": [{\r\n\t\t\t\t\t\t\"name\": \"volume\",\r\n\t\t\t\t\t\t\"value\": \"100\"\r\n\t\t\t\t\t}\r\n\t\t\t\t]\r\n\t\t\t}\r\n\t\t}\r\n\t],\r\n\t\"channel\": {\r\n\t\t\"name\": \"channel\"\r\n\t}\r\n}\r\n"
+										},
+										"url": "{{context_order}}/productOrder"
+									},
+									"response": []
+								},
+								{
+									"name": "050_Add an emergency data: ERR, missing volume",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"id": "09a2f053-6d6d-4e13-b131-97c1ff461bbe",
+												"type": "text/javascript",
+												"exec": [
+													"tests[\"Status code is 400\"] = responseCode.code === 400;",
+													"var jsonData = JSON.parse(responseBody);",
+													"tests[\"Error code is 4001\"] = jsonData.code === 4001;",
+													"tests[\"Error message\"] = jsonData.message.has(\"Missing parameter\");",
+													"tests[\"Error description\"] = jsonData.description.has(\"Parameter orderItem.product.productCharacteristic[volume] is missing, null or empty\");",
+													""
+												]
+											}
+										}
+									],
+									"request": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Accept",
+												"value": "application/json"
+											},
+											{
+												"key": "Content-Type",
+												"value": "application/json"
+											},
+											{
+												"key": "login",
+												"value": "{{headers_login}}"
+											},
+											{
+												"key": "password",
+												"value": "{{headers_password}}"
+											},
+											{
+												"key": "platform",
+												"value": "{{headers_platform}}"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n\t\"relatedPublicKey\": [{\r\n\t\t\t\"id\": \"{{po_emergency_msisdn}}\",\r\n\t\t\t\"name\": \"customerMSISDN\"\r\n\t\t}\r\n\t],\r\n\t\"orderItem\": [{\r\n\t\t\t\"id\": \"1\",\r\n\t\t\t\"action\": \"add\",\r\n\t\t\t\"productOffering\": {\r\n\t\t\t\t\"id\": \"emergencyCreditFee\"\r\n\t\t\t},\r\n\t\t\t\"product\": {\r\n\t\t\t\t\"productSpecification\": {\r\n\t\t\t\t\t\"id\": \"emergencyCredit\"\r\n\t\t\t\t},\r\n\t\t\t\t\"productCharacteristic\": []\r\n\t\t\t}\r\n\t\t}\r\n\t],\r\n\t\"channel\": {\r\n\t\t\"name\": \"channel\"\r\n\t}\r\n}\r\n"
+										},
+										"url": "{{context_order}}/productOrder"
+									},
+									"response": []
+								},
+								{
+									"name": "060_Add an emergency data: ERR, 2 volume",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"id": "4fd629e5-4559-4c42-a4ce-075dd1114bb0",
+												"type": "text/javascript",
+												"exec": [
+													"tests[\"Status code is 400\"] = responseCode.code === 400;",
+													"var jsonData = JSON.parse(responseBody);",
+													"tests[\"Error code is 4006\"] = jsonData.code === 4006;",
+													"tests[\"Error message\"] = jsonData.message.has(\"Too many parameters\");",
+													"tests[\"Error description\"] = jsonData.description.has(\"Parameter orderItem.product.productCharacteristic[volume] must be at most 1 times\");",
+													""
+												]
+											}
+										}
+									],
+									"request": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Accept",
+												"value": "application/json"
+											},
+											{
+												"key": "Content-Type",
+												"value": "application/json"
+											},
+											{
+												"key": "login",
+												"value": "{{headers_login}}"
+											},
+											{
+												"key": "password",
+												"value": "{{headers_password}}"
+											},
+											{
+												"key": "platform",
+												"value": "{{headers_platform}}"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n\t\"relatedPublicKey\": [{\r\n\t\t\t\"id\": \"{{po_emergency_msisdn}}\",\r\n\t\t\t\"name\": \"customerMSISDN\"\r\n\t\t}\r\n\t],\r\n\t\"orderItem\": [{\r\n\t\t\t\"id\": \"1\",\r\n\t\t\t\"action\": \"add\",\r\n\t\t\t\"productOffering\": {\r\n\t\t\t\t\"id\": \"emergencyCreditFee\"\r\n\t\t\t},\r\n\t\t\t\"product\": {\r\n\t\t\t\t\"productSpecification\": {\r\n\t\t\t\t\t\"id\": \"emergencyCredit\"\r\n\t\t\t\t},\r\n\t\t\t\t\"productCharacteristic\": [{\r\n\t\t\t\t\t\t\"name\": \"volume\",\r\n\t\t\t\t\t\t\"value\": \"100\"\r\n\t\t\t\t\t},{\r\n\t\t\t\t\t\t\"name\": \"volume\",\r\n\t\t\t\t\t\t\"value\": \"200\"\r\n\t\t\t\t\t}]\r\n\t\t\t}\r\n\t\t}\r\n\t],\r\n\t\"channel\": {\r\n\t\t\"name\": \"channel\"\r\n\t}\r\n}\r\n"
+										},
+										"url": "{{context_order}}/productOrder"
+									},
+									"response": []
+								}
+							],
+							"_postman_isSubFolder": true
+						},
+						{
+							"name": "bundleData",
+							"description": "",
+							"item": [
+								{
+									"name": "010_Add bundleData",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"type": "text/javascript",
+												"exec": [
+													"tests[\"Status code is 201\"] = responseCode.code === 201;",
+													"",
+													"var responseData = JSON.parse(responseBody)",
+													"",
+													"tests[\"status in progress\"] = responseData.state === \"inProgress\";",
+													"",
+													"",
+													""
+												]
+											}
+										}
+									],
+									"request": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Accept",
+												"value": "application/json"
+											},
+											{
+												"key": "Content-Type",
+												"value": "application/json"
+											},
+											{
+												"key": "login",
+												"value": "{{headers_login}}"
+											},
+											{
+												"key": "password",
+												"value": "{{headers_password}}"
+											},
+											{
+												"key": "platform",
+												"value": "{{headers_platform}}"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n\t\"relatedPublicKey\": [{\r\n\t\t\t\"id\": \"{{po_bundleData_msisdn}}\",\r\n\t\t\t\"name\": \"customerMSISDN\"\r\n\t\t}\r\n\t],\r\n\t\"orderItem\": [{\r\n\t\t\t\"id\": \"1\",\r\n\t\t\t\"action\": \"add\",\r\n\t\t\t\"productOffering\": {\r\n\t\t\t\t\"id\": \"bundleDataId\"\r\n\t\t\t},\r\n\t\t\t\"product\": {\r\n\t\t\t\t\"productSpecification\": {\r\n\t\t\t\t\t\"id\": \"bundleData\"\r\n\t\t\t\t}\r\n\t\t\t}\r\n\t\t}\r\n\t],\r\n\t\"channel\": {\r\n\t\t\"name\": \"channel\"\r\n\t}\r\n}\r\n"
+										},
+										"url": "{{context_order}}/productOrder"
+									},
+									"response": []
+								},
+								{
+									"name": "020_Add bundleData: ERR, missing relatedPublicKey",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"id": "abec3816-c381-4d24-bdbd-dfe6a5663a4e",
+												"type": "text/javascript",
+												"exec": [
+													"tests[\"Status code is 400\"] = responseCode.code === 400;",
+													"var jsonData = JSON.parse(responseBody);",
+													"tests[\"Error code is 4001\"] = jsonData.code === 4001;",
+													"tests[\"Error message\"] = jsonData.message.has(\"Missing parameter\");",
+													"tests[\"Error description\"] = jsonData.description.has(\"Parameter relatedPublicKey is missing, null or empty\");",
+													""
+												]
+											}
+										}
+									],
+									"request": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Accept",
+												"value": "application/json"
+											},
+											{
+												"key": "Content-Type",
+												"value": "application/json"
+											},
+											{
+												"key": "login",
+												"value": "{{headers_login}}"
+											},
+											{
+												"key": "password",
+												"value": "{{headers_password}}"
+											},
+											{
+												"key": "platform",
+												"value": "{{headers_platform}}"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n\t\"orderItem\": [{\r\n\t\t\t\"id\": \"1\",\r\n\t\t\t\"action\": \"add\",\r\n\t\t\t\"productOffering\": {\r\n\t\t\t\t\"id\": \"bundleDataId\"\r\n\t\t\t},\r\n\t\t\t\"product\": {\r\n\t\t\t\t\"productSpecification\": {\r\n\t\t\t\t\t\"id\": \"bundleData\"\r\n\t\t\t\t}\r\n\t\t\t}\r\n\t\t}\r\n\t],\r\n\t\"channel\": {\r\n\t\t\"name\": \"channel\"\r\n\t}\r\n}"
+										},
+										"url": "{{context_order}}/productOrder"
+									},
+									"response": []
+								},
+								{
+									"name": "030_Add bundleData: ERR, bad productSpecId",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"id": "c174b303-ad78-425b-a54a-6ee9bb72f6ab",
+												"type": "text/javascript",
+												"exec": [
+													"tests[\"Status code is 400\"] = responseCode.code === 400;",
+													"var jsonData = JSON.parse(responseBody);",
+													"tests[\"Error code is 4003\"] = jsonData.code === 4003;",
+													"tests[\"Error message\"] = jsonData.message.has(\"Bad parameter value\");",
+													"tests[\"Error description\"] = jsonData.description.has(\"orderItem.product.productSpecification.id\") && jsonData.description.has(\"[bundleOfData]\") && jsonData.description.has(\"bundleData\");",
+													""
+												]
+											}
+										}
+									],
+									"request": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Accept",
+												"value": "application/json"
+											},
+											{
+												"key": "Content-Type",
+												"value": "application/json"
+											},
+											{
+												"key": "login",
+												"value": "{{headers_login}}"
+											},
+											{
+												"key": "password",
+												"value": "{{headers_password}}"
+											},
+											{
+												"key": "platform",
+												"value": "{{headers_platform}}"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n\t\"relatedPublicKey\": [{\r\n\t\t\t\"id\": \"{{po_bundleData_msisdn}}\",\r\n\t\t\t\"name\": \"customerMSISDN\"\r\n\t\t}\r\n\t],\r\n\t\"orderItem\": [{\r\n\t\t\t\"id\": \"1\",\r\n\t\t\t\"action\": \"add\",\r\n\t\t\t\"productOffering\": {\r\n\t\t\t\t\"id\": \"bundleDataId\"\r\n\t\t\t},\r\n\t\t\t\"product\": {\r\n\t\t\t\t\"productSpecification\": {\r\n\t\t\t\t\t\"id\": \"bundleOfData\"\r\n\t\t\t\t}\r\n\t\t\t}\r\n\t\t}\r\n\t],\r\n\t\"channel\": {\r\n\t\t\"name\": \"channel\"\r\n\t}\r\n}"
+										},
+										"url": "{{context_order}}/productOrder"
+									},
+									"response": []
+								},
+								{
+									"name": "040_Add bundleData: ERR, missing productOfferingId",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"id": "00f68cf4-e2c8-4c96-b612-17e51476376b",
+												"type": "text/javascript",
+												"exec": [
+													"tests[\"Status code is 400\"] = responseCode.code === 400;",
+													"var jsonData = JSON.parse(responseBody);",
+													"tests[\"Error code is 4001\"] = jsonData.code === 4001;",
+													"tests[\"Error message\"] = jsonData.message.has(\"Missing parameter\");",
+													"tests[\"Error description\"] = jsonData.description.has(\"Parameter orderItem.productOffering.id is missing, null or empty\");"
+												]
+											}
+										}
+									],
+									"request": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Accept",
+												"value": "application/json"
+											},
+											{
+												"key": "Content-Type",
+												"value": "application/json"
+											},
+											{
+												"key": "login",
+												"value": "{{headers_login}}"
+											},
+											{
+												"key": "password",
+												"value": "{{headers_password}}"
+											},
+											{
+												"key": "platform",
+												"value": "{{headers_platform}}"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n\t\"relatedPublicKey\": [{\r\n\t\t\t\"id\": \"{{po_bundleData_msisdn}}\",\r\n\t\t\t\"name\": \"customerMSISDN\"\r\n\t\t}\r\n\t],\r\n\t\"orderItem\": [{\r\n\t\t\t\"id\": \"1\",\r\n\t\t\t\"action\": \"add\",\r\n\t\t\t\"productOffering\": {\r\n\t\t\t},\r\n\t\t\t\"product\": {\r\n\t\t\t\t\"productSpecification\": {\r\n\t\t\t\t\t\"id\": \"bundleData\"\r\n\t\t\t\t}\r\n\t\t\t}\r\n\t\t}\r\n\t],\r\n\t\"channel\": {\r\n\t\t\"name\": \"channel\"\r\n\t}\r\n}\r\n"
+										},
+										"url": "{{context_order}}/productOrder"
+									},
+									"response": []
+								},
+								{
+									"name": "110_Add bundleVoice",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"type": "text/javascript",
+												"exec": [
+													"tests[\"Status code is 201\"] = responseCode.code === 201;",
+													"",
+													"var responseData = JSON.parse(responseBody)",
+													"",
+													"tests[\"status in progress\"] = responseData.state === \"inProgress\";",
+													"",
+													"",
+													""
+												]
+											}
+										}
+									],
+									"request": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Accept",
+												"value": "application/json"
+											},
+											{
+												"key": "Content-Type",
+												"value": "application/json"
+											},
+											{
+												"key": "login",
+												"value": "{{headers_login}}"
+											},
+											{
+												"key": "password",
+												"value": "{{headers_password}}"
+											},
+											{
+												"key": "platform",
+												"value": "{{headers_platform}}"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n\t\"relatedPublicKey\": [{\r\n\t\t\t\"id\": \"{{po_bundleData_msisdn}}\",\r\n\t\t\t\"name\": \"customerMSISDN\"\r\n\t\t}\r\n\t],\r\n\t\"orderItem\": [{\r\n\t\t\t\"id\": \"1\",\r\n\t\t\t\"action\": \"add\",\r\n\t\t\t\"productOffering\": {\r\n\t\t\t\t\"id\": \"bundleVoiceId\"\r\n\t\t\t},\r\n\t\t\t\"product\": {\r\n\t\t\t\t\"productSpecification\": {\r\n\t\t\t\t\t\"id\": \"bundleVoice\"\r\n\t\t\t\t}\r\n\t\t\t}\r\n\t\t}\r\n\t],\r\n\t\"channel\": {\r\n\t\t\"name\": \"channel\"\r\n\t}\r\n}\r\n"
+										},
+										"url": "{{context_order}}/productOrder"
+									},
+									"response": []
+								}
+							],
+							"_postman_isSubFolder": true
+						},
+						{
+							"name": "TransferCredit",
+							"description": "",
+							"item": [
+								{
+									"name": "010_Add transfer credit",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"type": "text/javascript",
+												"exec": [
+													"tests[\"Status code is 201\"] = responseCode.code === 201;",
+													"",
+													"var responseData = JSON.parse(responseBody)",
+													"",
+													"tests[\"status in progress\"] = responseData.state === \"inProgress\";",
+													"",
+													"",
+													""
+												]
+											}
+										}
+									],
+									"request": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Accept",
+												"value": "application/json"
+											},
+											{
+												"key": "Content-Type",
+												"value": "application/json"
+											},
+											{
+												"key": "login",
+												"value": "{{headers_login}}"
+											},
+											{
+												"key": "password",
+												"value": "{{headers_password}}"
+											},
+											{
+												"key": "platform",
+												"value": "{{headers_platform}}"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n\t\"relatedPublicKey\": [{\r\n\t\t\t\"id\": \"{{po_transferCredit_msisdn}}\",\r\n\t\t\t\"name\": \"customerMSISDN\"\r\n\t\t}\r\n\t],\r\n\t\"orderItem\": [{\r\n\t\t\t\"id\": \"1\",\r\n\t\t\t\"action\": \"add\",\r\n\t\t\t\"productOffering\": {\r\n\t\t\t\t\"id\": \"transferCreditFee\"\r\n\t\t\t},\r\n\t\t\t\"product\": {\r\n\t\t\t\t\"productSpecification\": {\r\n\t\t\t\t\t\"id\": \"transferCredit\"\r\n\t\t\t\t},\r\n\t\t\t\t\"productCharacteristic\": [{\r\n\t\t\t\t\t\t\"name\": \"volume\",\r\n\t\t\t\t\t\t\"value\": \"100\"\r\n\t\t\t\t\t}, {\r\n\t\t\t\t\t\t\"name\": \"targetPublicKey\",\r\n\t\t\t\t\t\t\"value\": \"555123456\"\r\n\t\t\t\t\t}\r\n\t\t\t\t]\r\n\t\t\t}\r\n\t\t}\r\n\t],\r\n\t\"channel\": {\r\n\t\t\"name\": \"channel\"\r\n\t}\r\n}\r\n"
+										},
+										"url": "{{context_order}}/productOrder"
+									},
+									"response": []
+								},
+								{
+									"name": "020_Add transfer credit: ERR, bad productSpecId",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"id": "2f5f118d-9350-4a0c-8d74-c0779c45cb70",
+												"type": "text/javascript",
+												"exec": [
+													"tests[\"Status code is 400\"] = responseCode.code === 400;",
+													"var jsonData = JSON.parse(responseBody);",
+													"tests[\"Error code is 4003\"] = jsonData.code === 4003;",
+													"tests[\"Error message\"] = jsonData.message.has(\"Bad parameter value\");",
+													"tests[\"Error description\"] = jsonData.description.has(\"orderItem.product.productSpecification.id\") && jsonData.description.has(\"[transfCredit]\") && jsonData.description.has(\"transferCredit\");"
+												]
+											}
+										}
+									],
+									"request": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Accept",
+												"value": "application/json"
+											},
+											{
+												"key": "Content-Type",
+												"value": "application/json"
+											},
+											{
+												"key": "login",
+												"value": "{{headers_login}}"
+											},
+											{
+												"key": "password",
+												"value": "{{headers_password}}"
+											},
+											{
+												"key": "platform",
+												"value": "{{headers_platform}}"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n\t\"relatedPublicKey\": [{\r\n\t\t\t\"id\": \"{{po_transferCredit_msisdn}}\",\r\n\t\t\t\"name\": \"customerMSISDN\"\r\n\t\t}\r\n\t],\r\n\t\"orderItem\": [{\r\n\t\t\t\"id\": \"1\",\r\n\t\t\t\"action\": \"add\",\r\n\t\t\t\"productOffering\": {\r\n\t\t\t\t\"id\": \"transferCreditFee\"\r\n\t\t\t},\r\n\t\t\t\"product\": {\r\n\t\t\t\t\"productSpecification\": {\r\n\t\t\t\t\t\"id\": \"transfCredit\"\r\n\t\t\t\t},\r\n\t\t\t\t\"productCharacteristic\": [{\r\n\t\t\t\t\t\t\"name\": \"volume\",\r\n\t\t\t\t\t\t\"value\": \"100\"\r\n\t\t\t\t\t}, {\r\n\t\t\t\t\t\t\"name\": \"targetPublicKey\",\r\n\t\t\t\t\t\t\"value\": \"555123456\"\r\n\t\t\t\t\t}\r\n\t\t\t\t]\r\n\t\t\t}\r\n\t\t}\r\n\t],\r\n\t\"channel\": {\r\n\t\t\"name\": \"channel\"\r\n\t}\r\n}\r\n"
+										},
+										"url": "{{context_order}}/productOrder"
+									},
+									"response": []
+								},
+								{
+									"name": "030_Add transfer credit: ERR missing msisdn",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"id": "03f46578-a847-476f-9e14-806f4f65c6c8",
+												"type": "text/javascript",
+												"exec": [
+													"tests[\"Status code is 400\"] = responseCode.code === 400;",
+													"var jsonData = JSON.parse(responseBody);",
+													"tests[\"Error code is 4001\"] = jsonData.code === 4001;",
+													"tests[\"Error message\"] = jsonData.message.has(\"Missing parameter\");",
+													"tests[\"Error description\"] = jsonData.description.has(\"Parameter relatedPublicKey.id is missing, null or empty\");"
+												]
+											}
+										}
+									],
+									"request": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Accept",
+												"value": "application/json"
+											},
+											{
+												"key": "Content-Type",
+												"value": "application/json"
+											},
+											{
+												"key": "login",
+												"value": "{{headers_login}}"
+											},
+											{
+												"key": "password",
+												"value": "{{headers_password}}"
+											},
+											{
+												"key": "platform",
+												"value": "{{headers_platform}}"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n\t\"relatedPublicKey\": [{\r\n\t\t\t\"name\": \"customerMSISDN\"\r\n\t\t}\r\n\t],\r\n\t\"orderItem\": [{\r\n\t\t\t\"id\": \"1\",\r\n\t\t\t\"action\": \"add\",\r\n\t\t\t\"productOffering\": {\r\n\t\t\t\t\"id\": \"transferCreditFee\"\r\n\t\t\t},\r\n\t\t\t\"product\": {\r\n\t\t\t\t\"productSpecification\": {\r\n\t\t\t\t\t\"id\": \"transferCredit\"\r\n\t\t\t\t},\r\n\t\t\t\t\"productCharacteristic\": [{\r\n\t\t\t\t\t\t\"name\": \"volume\",\r\n\t\t\t\t\t\t\"value\": \"100\"\r\n\t\t\t\t\t}, {\r\n\t\t\t\t\t\t\"name\": \"targetPublicKey\",\r\n\t\t\t\t\t\t\"value\": \"555123456\"\r\n\t\t\t\t\t}\r\n\t\t\t\t]\r\n\t\t\t}\r\n\t\t}\r\n\t],\r\n\t\"channel\": {\r\n\t\t\"name\": \"channel\"\r\n\t}\r\n}\r\n"
+										},
+										"url": "{{context_order}}/productOrder"
+									},
+									"response": []
+								},
+								{
+									"name": "040_Add transfer credit: ERR, missing targetPublicKey",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"id": "30b8aee1-9821-48fb-b57d-c376fef43e5c",
+												"type": "text/javascript",
+												"exec": [
+													"tests[\"Status code is 400\"] = responseCode.code === 400;",
+													"var jsonData = JSON.parse(responseBody);",
+													"tests[\"Error code is 4001\"] = jsonData.code === 4001;",
+													"tests[\"Error message\"] = jsonData.message.has(\"Missing parameter\");",
+													"tests[\"Error description\"] = jsonData.description.has(\"Parameter orderItem.product.productCharacteristic[targetPublicKey] is missing, null or empty\");"
+												]
+											}
+										}
+									],
+									"request": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Accept",
+												"value": "application/json"
+											},
+											{
+												"key": "Content-Type",
+												"value": "application/json"
+											},
+											{
+												"key": "login",
+												"value": "{{headers_login}}"
+											},
+											{
+												"key": "password",
+												"value": "{{headers_password}}"
+											},
+											{
+												"key": "platform",
+												"value": "{{headers_platform}}"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n\t\"relatedPublicKey\": [{\r\n\t\t\t\"id\": \"{{po_transferCredit_msisdn}}\",\r\n\t\t\t\"name\": \"customerMSISDN\"\r\n\t\t}\r\n\t],\r\n\t\"orderItem\": [{\r\n\t\t\t\"id\": \"1\",\r\n\t\t\t\"action\": \"add\",\r\n\t\t\t\"productOffering\": {\r\n\t\t\t\t\"id\": \"transferCreditFee\"\r\n\t\t\t},\r\n\t\t\t\"product\": {\r\n\t\t\t\t\"productSpecification\": {\r\n\t\t\t\t\t\"id\": \"transferCredit\"\r\n\t\t\t\t},\r\n\t\t\t\t\"productCharacteristic\": [{\r\n\t\t\t\t\t\t\"name\": \"volume\",\r\n\t\t\t\t\t\t\"value\": \"100\"\r\n\t\t\t\t\t}\r\n\t\t\t\t]\r\n\t\t\t}\r\n\t\t}\r\n\t],\r\n\t\"channel\": {\r\n\t\t\"name\": \"channel\"\r\n\t}\r\n}\r\n"
+										},
+										"url": "{{context_order}}/productOrder"
+									},
+									"response": []
+								},
+								{
+									"name": "040_Add transfer credit: ERR, 2 targetPublicKey",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"id": "8bcbc07f-b0ce-41b9-b6a9-957219380be4",
+												"type": "text/javascript",
+												"exec": [
+													"tests[\"Status code is 400\"] = responseCode.code === 400;",
+													"var jsonData = JSON.parse(responseBody);",
+													"tests[\"Error code is 4006\"] = jsonData.code === 4006;",
+													"tests[\"Error message\"] = jsonData.message.has(\"Too many parameters\");",
+													"tests[\"Error description\"] = jsonData.description.has(\"Parameter orderItem.product.productCharacteristic[targetPublicKey] must be at most 1 times\");"
+												]
+											}
+										}
+									],
+									"request": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Accept",
+												"value": "application/json"
+											},
+											{
+												"key": "Content-Type",
+												"value": "application/json"
+											},
+											{
+												"key": "login",
+												"value": "{{headers_login}}"
+											},
+											{
+												"key": "password",
+												"value": "{{headers_password}}"
+											},
+											{
+												"key": "platform",
+												"value": "{{headers_platform}}"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n\t\"relatedPublicKey\": [{\r\n\t\t\t\"id\": \"{{po_transferCredit_msisdn}}\",\r\n\t\t\t\"name\": \"customerMSISDN\"\r\n\t\t}\r\n\t],\r\n\t\"orderItem\": [{\r\n\t\t\t\"id\": \"1\",\r\n\t\t\t\"action\": \"add\",\r\n\t\t\t\"productOffering\": {\r\n\t\t\t\t\"id\": \"transferCreditFee\"\r\n\t\t\t},\r\n\t\t\t\"product\": {\r\n\t\t\t\t\"productSpecification\": {\r\n\t\t\t\t\t\"id\": \"transferCredit\"\r\n\t\t\t\t},\r\n\t\t\t\t\"productCharacteristic\": [{\r\n\t\t\t\t\t\t\"name\": \"volume\",\r\n\t\t\t\t\t\t\"value\": \"100\"\r\n\t\t\t\t\t}, {\r\n\t\t\t\t\t\t\"name\": \"targetPublicKey\",\r\n\t\t\t\t\t\t\"value\": \"555123456\"\r\n\t\t\t\t\t}, {\r\n\t\t\t\t\t\t\"name\": \"targetPublicKey\",\r\n\t\t\t\t\t\t\"value\": \"555123457\"\r\n\t\t\t\t\t}\r\n\t\t\t\t]\r\n\t\t\t}\r\n\t\t}\r\n\t],\r\n\t\"channel\": {\r\n\t\t\"name\": \"channel\"\r\n\t}\r\n}\r\n"
+										},
+										"url": "{{context_order}}/productOrder"
+									},
+									"response": []
+								}
+							],
+							"_postman_isSubFolder": true
+						}
+					],
+					"_postman_isSubFolder": true
+				},
+				{
+					"name": "WithReinit",
+					"description": "",
+					"item": [
+						{
+							"name": "ActivateOffer",
+							"description": "",
+							"item": [],
+							"_postman_isSubFolder": true
+						},
+						{
+							"name": "KonnectaBooster",
+							"description": "",
+							"item": [],
+							"_postman_isSubFolder": true
+						},
+						{
+							"name": "DataCaping",
+							"description": "",
+							"item": [],
+							"_postman_isSubFolder": true
+						},
+						{
+							"name": "CreditLimit",
+							"description": "",
+							"item": [],
+							"_postman_isSubFolder": true
+						},
+						{
+							"name": "TemporaryCreditLimit",
+							"description": "",
+							"item": [],
+							"_postman_isSubFolder": true
+						}
+					],
+					"_postman_isSubFolder": true
+				}
+			]
+		},
+		{
+			"name": "Payment",
+			"description": "",
+			"item": [
+				{
+					"name": "GET payment",
+					"description": "",
+					"item": [
+						{
+							"name": "010_Get payment",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "9c3bc2b9-443b-4dd3-a79a-2d000426065f",
+										"type": "text/javascript",
+										"exec": [
+											"tests[\"Status code is 200\"] = responseCode.code === 200;",
+											"",
+											"var jsonData = JSON.parse(responseBody);",
+											"",
+											"var refData = JSON.parse(postman.getEnvironmentVariable(\"reference_payment\"));",
+											"tests[\"Validate data\"] = _.isEqual(jsonData,refData); "
+										]
+									}
+								}
+							],
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "login",
+										"value": "{{headers_login}}"
+									},
+									{
+										"key": "password",
+										"value": "{{headers_password}}"
+									},
+									{
+										"key": "platform",
+										"value": "{{headers_platform}}"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
+								"url": "{{context_payment}}/payment/{{payment_id}}"
+							},
+							"response": []
+						},
+						{
+							"name": "020_Get payment: ERR, unknown payment",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "cde778b4-741c-4ef3-afb5-ecdc113d7f7d",
+										"type": "text/javascript",
+										"exec": [
+											"tests[\"Status code is 404\"] = responseCode.code === 404;",
+											"var jsonData = JSON.parse(responseBody);",
+											"tests[\"Response code is 4040\"] = jsonData.code === 4040;",
+											"tests[\"message\"] = jsonData.message.has(\"Not found\");",
+											"tests[\"Error description\"] = jsonData.description.has(\"No payment found with id: \"+postman.getEnvironmentVariable(\"payment_unknownId\"));"
+										]
+									}
+								}
+							],
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "login",
+										"value": "{{headers_login}}"
+									},
+									{
+										"key": "password",
+										"value": "{{headers_password}}"
+									},
+									{
+										"key": "platform",
+										"value": "{{headers_platform}}"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
+								"url": "{{context_payment}}/payment/{{payment_unknownId}}"
+							},
+							"response": []
+						}
+					],
+					"_postman_isSubFolder": true
+				}
+			]
+		},
+		{
+			"name": "Eligibility",
+			"description": "",
+			"item": [
+				{
+					"name": "GET EligibleContract",
+					"description": "",
+					"item": [
+						{
+							"name": "010_Get EligibleContract for migration by msisdn: ERR, unknown msisdn",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "e6207fec-ef21-4ec4-8284-63c26ec166b7",
+										"type": "text/javascript",
+										"exec": [
+											"tests[\"Status code is 404\"] = responseCode.code === 404;",
+											"var jsonData = JSON.parse(responseBody);",
+											"tests[\"Response code is 4040\"] = jsonData.code === 4040;",
+											"tests[\"message\"] = jsonData.message.has(\"Not found\");",
+											"tests[\"Error description\"] = jsonData.description.has(\"Unknown msisdn: \"+postman.getEnvironmentVariable(\"el_msisdn_unknown\"));",
+											""
+										]
+									}
+								}
+							],
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "login",
+										"value": "{{headers_login}}"
+									},
+									{
+										"key": "password",
+										"value": "{{headers_password}}"
+									},
+									{
+										"key": "platform",
+										"value": "{{headers_platform}}"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
+								"url": {
+									"raw": "{{context_eligibility}}/eligibleContract?publicKey={{el_msisdn_unknown}}",
+									"host": [
+										"{{context_eligibility}}"
+									],
+									"path": [
+										"eligibleContract"
+									],
+									"query": [
+										{
+											"key": "publicKey",
+											"value": "{{el_msisdn_unknown}}",
+											"equals": true
+										}
+									]
+								}
+							},
+							"response": []
+						}
+					],
+					"_postman_isSubFolder": true
+				},
+				{
+					"name": "GET EligibleOption",
+					"description": "",
+					"item": [
+						{
+							"name": "010_Get EligibleOptions for emergencyCredit",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "ad920fe9-9be3-459a-894f-1327df1e031f",
+										"type": "text/javascript",
+										"exec": [
+											"tests[\"Status code is 200\"] = responseCode.code === 200;",
+											"",
+											"var jsonData = JSON.parse(responseBody);",
+											"",
+											"var refData = JSON.parse(postman.getEnvironmentVariable(\"el_reference_emergencyCredit\"));",
+											"tests[\"Validate data\"] = _.isEqual(jsonData,refData); ",
+											""
+										]
+									}
+								}
+							],
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "login",
+										"value": "{{headers_login}}"
+									},
+									{
+										"key": "password",
+										"value": "{{headers_password}}"
+									},
+									{
+										"key": "platform",
+										"value": "{{headers_platform}}"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
+								"url": {
+									"raw": "{{context_eligibility}}/eligibleOptions?publicKey={{el_msisdn}}&productSpecification.id=emergencyCredit",
+									"host": [
+										"{{context_eligibility}}"
+									],
+									"path": [
+										"eligibleOptions"
+									],
+									"query": [
+										{
+											"key": "publicKey",
+											"value": "{{el_msisdn}}",
+											"equals": true
+										},
+										{
+											"key": "productSpecification.id",
+											"value": "emergencyCredit",
+											"equals": true
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "020_Get EligibleOptions for bundleData",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "8a608156-dfe5-4127-ba9c-a0cef60d5aed",
+										"type": "text/javascript",
+										"exec": [
+											"tests[\"Status code is 200\"] = responseCode.code === 200;",
+											"",
+											"var jsonData = JSON.parse(responseBody);",
+											"",
+											"var refData = JSON.parse(postman.getEnvironmentVariable(\"el_reference_bundleData\"));",
+											"tests[\"Validate data\"] = _.isEqual(jsonData,refData); ",
+											""
+										]
+									}
+								}
+							],
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "login",
+										"value": "{{headers_login}}"
+									},
+									{
+										"key": "password",
+										"value": "{{headers_password}}"
+									},
+									{
+										"key": "platform",
+										"value": "{{headers_platform}}"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
+								"url": {
+									"raw": "{{context_eligibility}}/eligibleOptions?publicKey={{el_msisdn}}&productSpecification.id=bundleData",
+									"host": [
+										"{{context_eligibility}}"
+									],
+									"path": [
+										"eligibleOptions"
+									],
+									"query": [
+										{
+											"key": "publicKey",
+											"value": "{{el_msisdn}}",
+											"equals": true
+										},
+										{
+											"key": "productSpecification.id",
+											"value": "bundleData",
+											"equals": true
+										}
+									]
+								}
+							},
+							"response": []
+						}
+					],
+					"_postman_isSubFolder": true
+				}
+			]
+		},
+		{
+			"name": "BucketBalance",
+			"description": "",
+			"item": [
+				{
+					"name": "Get CreditBucketBalanceTransaction",
+					"description": "",
+					"item": [
+						{
+							"name": "GET CreditBucketBalanceTransaction by msisdn without ratingType",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "50822bf2-b056-4861-816f-d017b55d96ca",
+										"type": "text/javascript",
+										"exec": [
+											"tests[\"Status code is 200\"] = responseCode.code === 200;",
+											"",
+											"var jsonData = JSON.parse(responseBody);",
+											"var refData = JSON.parse(pm.environment.get(\"reference_bb_cbt_prepaid\"));",
+											"tests[\"Validate data\"] = _.isEqual(jsonData,refData); "
+										]
+									}
+								}
+							],
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "password",
+										"value": "password"
+									},
+									{
+										"key": "login",
+										"value": "login"
+									},
+									{
+										"key": "platform",
+										"value": "test"
+									}
+								],
+								"body": {},
+								"url": {
+									"raw": "{{context_bucketBalance}}/creditBucketBalanceTransactions?publicKey.id={{bb_msisdn_ref_prepaid}}&date.gte=2000-01-01",
+									"host": [
+										"{{context_bucketBalance}}"
+									],
+									"path": [
+										"creditBucketBalanceTransactions"
+									],
+									"query": [
+										{
+											"key": "publicKey.id",
+											"value": "{{bb_msisdn_ref_prepaid}}",
+											"equals": true
+										},
+										{
+											"key": "date.gte",
+											"value": "2000-01-01",
+											"equals": true
+										}
+									]
+								}
+							},
+							"response": []
+						}
+					],
+					"_postman_isSubFolder": true
+				},
+				{
+					"name": "POST CreditBucketBalanceByVoucher",
+					"description": "",
+					"item": [
+						{
+							"name": "POST creditBucketBalanceByVoucher: ERR, not implemented",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "70186e05-a8ba-4802-a1a1-c8fe326f3db7",
+										"type": "text/javascript",
+										"exec": [
+											"tests[\"Status code is 500\"] = responseCode.code === 500;",
+											"var jsonData = JSON.parse(responseBody);",
+											"tests[\"Response code is 5003\"] = jsonData.code === 5003;",
+											"tests[\"message\"] = jsonData.message.has(\"Not implemented\");",
+											"tests[\"Error description\"] = jsonData.description.has(\"Function creditByVoucher not implemented\"); ",
+											"",
+											"",
+											""
+										]
+									}
+								}
+							],
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "login",
+										"value": "{{headers_login}}"
+									},
+									{
+										"key": "password",
+										"value": "{{headers_password}}"
+									},
+									{
+										"key": "platform",
+										"value": "{{headers_platform}}"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"publicKey\": {\r\n        \"id\": \"{{bb_msisdn_ref_prepaid}}\",\r\n        \"name\": \"MSISDN\"\r\n    },\r\n    \"number\": \"1345A\"\r\n}"
+								},
+								"url": "{{context_bucketBalance}}/creditBucketBalanceByVoucher"
+							},
+							"response": []
+						}
+					],
+					"_postman_isSubFolder": true
+				},
+				{
+					"name": "POST CreditBucketBalanceByValue",
+					"description": "",
+					"item": [
+						{
+							"name": "POST creditBucketBalanceByValue",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "9bcfff15-ba22-439e-a559-297977dc7d5f",
+										"type": "text/javascript",
+										"exec": [
+											"tests[\"Status code is 201\"] = responseCode.code === 201;",
+											"",
+											"",
+											""
+										]
+									}
+								}
+							],
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "login",
+										"value": "{{headers_login}}"
+									},
+									{
+										"key": "password",
+										"value": "{{headers_password}}"
+									},
+									{
+										"key": "platform",
+										"value": "{{headers_platform}}"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"id\":\"1\",\r\n    \"publicKey\": {\r\n        \"id\": \"{{bb_msisdn_ref_prepaid}}\",\r\n        \"name\": \"MSISDN\"\r\n    },\r\n    \"value\": 20.0\r\n}"
+								},
+								"url": "{{context_bucketBalance}}/creditBucketBalanceByValue"
+							},
+							"response": []
+						},
+						{
+							"name": "POST creditBucketBalanceByValue with BWP unit",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "9bcfff15-ba22-439e-a559-297977dc7d5f",
+										"type": "text/javascript",
+										"exec": [
+											"tests[\"Status code is 201\"] = responseCode.code === 201;",
+											"",
+											"",
+											""
+										]
+									}
+								}
+							],
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "login",
+										"value": "{{headers_login}}"
+									},
+									{
+										"key": "password",
+										"value": "{{headers_password}}"
+									},
+									{
+										"key": "platform",
+										"value": "{{headers_platform}}"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"id\":\"1\",\r\n    \"publicKey\": {\r\n        \"id\": \"{{bb_msisdn_ref_prepaid}}\",\r\n        \"name\": \"MSISDN\"\r\n    },\r\n    \"value\": 20.0,\r\n    \"unit\":\"BWP\"\r\n}"
+								},
+								"url": "{{context_bucketBalance}}/creditBucketBalanceByValue"
+							},
+							"response": []
+						},
+						{
+							"name": "POST creditBucketBalanceByValue with unit: ERR, bad unit",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "5f23ec02-d4d4-4f25-bc89-2a807f50578b",
+										"type": "text/javascript",
+										"exec": [
+											"tests[\"Status code is 400\"] = responseCode.code === 400;",
+											"var jsonData = JSON.parse(responseBody);",
+											"tests[\"Response code is 4003\"] = jsonData.code === 4003;",
+											"tests[\"message\"] = jsonData.message.has(\"Bad parameter value\");",
+											"tests[\"Error description\"] = jsonData.description.has(\"Bad value for parameter unit: [TND], should be [BWP]\"); ",
+											"",
+											"",
+											""
+										]
+									}
+								}
+							],
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "login",
+										"value": "{{headers_login}}"
+									},
+									{
+										"key": "password",
+										"value": "{{headers_password}}"
+									},
+									{
+										"key": "platform",
+										"value": "{{headers_platform}}"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"id\":\"1\",\r\n    \"publicKey\": {\r\n        \"id\": \"{{bb_msisdn_ref_prepaid}}\",\r\n        \"name\": \"MSISDN\"\r\n    },\r\n    \"value\": 20.0,\r\n    \"unit\":\"TND\"\r\n}"
+								},
+								"url": "{{context_bucketBalance}}/creditBucketBalanceByValue"
+							},
+							"response": []
+						},
+						{
+							"name": "POST creditBucketBalanceByValue: ERR, missing id",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "68580858-fd88-4dce-bb62-12ad838a1f9e",
+										"type": "text/javascript",
+										"exec": [
+											"tests[\"Status code is 400\"] = responseCode.code === 400;",
+											"var jsonData = JSON.parse(responseBody);",
+											"tests[\"Response code is 4001\"] = jsonData.code === 4001;",
+											"tests[\"message\"] = jsonData.message.has(\"Missing parameter\");",
+											"tests[\"Error description\"] = jsonData.description.has(\"Parameter id is missing, null or empty\"); ",
+											"",
+											"",
+											""
+										]
+									}
+								}
+							],
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "login",
+										"value": "{{headers_login}}"
+									},
+									{
+										"key": "password",
+										"value": "{{headers_password}}"
+									},
+									{
+										"key": "platform",
+										"value": "{{headers_platform}}"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"publicKey\": {\r\n        \"id\": \"{{bb_msisdn_ref_prepaid}}\",\r\n        \"name\": \"MSISDN\"\r\n    },\r\n    \"value\": 20.0\r\n}"
+								},
+								"url": "{{context_bucketBalance}}/creditBucketBalanceByValue"
+							},
+							"response": []
+						}
+					],
+					"_postman_isSubFolder": true
+				}
+			]
+		},
+		{
+			"name": "ProductInventory",
+			"description": "",
+			"item": [
+				{
+					"name": "FaF",
+					"description": "",
+					"item": [
+						{
+							"name": "FIND FaF by msisdn and productSpecId",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "40e843af-dc54-4191-9d09-6f0204204b99",
+										"type": "text/javascript",
+										"exec": [
+											"tests[\"Status code is 200\"] = responseCode.code === 200;",
+											"",
+											"var jsonData = JSON.parse(responseBody);",
+											"tests[\"Check size\"] = jsonData.length === 1;",
+											"var refData = JSON.parse(postman.getEnvironmentVariable(\"reference_pi_faf\"));",
+											"tests[\"Validate data\"] = _.isEqual(jsonData[0],refData);",
+											""
+										]
+									}
+								}
+							],
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "login",
+										"value": "{{headers_login}}"
+									},
+									{
+										"key": "password",
+										"value": "{{headers_password}}"
+									},
+									{
+										"key": "platform",
+										"value": "{{headers_platform}}"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
+								"url": {
+									"raw": "{{context_inventory}}/product?publicKey={{pi_faf_msisdn}}&productSpecification.id=faf",
+									"host": [
+										"{{context_inventory}}"
+									],
+									"path": [
+										"product"
+									],
+									"query": [
+										{
+											"key": "publicKey",
+											"value": "{{pi_faf_msisdn}}",
+											"equals": true
+										},
+										{
+											"key": "productSpecification.id",
+											"value": "faf",
+											"equals": true
+										}
+									]
+								},
+								"description": ""
+							},
+							"response": []
+						},
+						{
+							"name": "FIND all by faf msisdn",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "127b3dd0-1483-44e0-8bd7-9f9e0b5b196d",
+										"type": "text/javascript",
+										"exec": [
+											"tests[\"Status code is 200\"] = responseCode.code === 200;",
+											"",
+											"var jsonData = JSON.parse(responseBody);",
+											"var fafData = JSON.parse(postman.getEnvironmentVariable(\"reference_pi_faf\"));",
+											"// results contain faf",
+											"tests[\"Check faf\"] = _.find(jsonData,fafData);"
+										]
+									}
+								}
+							],
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "login",
+										"value": "{{headers_login}}"
+									},
+									{
+										"key": "password",
+										"value": "{{headers_password}}"
+									},
+									{
+										"key": "platform",
+										"value": "{{headers_platform}}"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
+								"url": {
+									"raw": "{{context_inventory}}/product?publicKey={{pi_faf_msisdn}}",
+									"host": [
+										"{{context_inventory}}"
+									],
+									"path": [
+										"product"
+									],
+									"query": [
+										{
+											"key": "publicKey",
+											"value": "{{pi_faf_msisdn}}",
+											"equals": true
+										}
+									]
+								},
+								"description": ""
+							},
+							"response": []
+						},
+						{
+							"name": "GET faf by id",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "c6115b6a-b260-4f33-836e-f44cc345693c",
+										"type": "text/javascript",
+										"exec": [
+											"tests[\"Status code is 200\"] = responseCode.code === 200;",
+											"",
+											"var jsonData = JSON.parse(responseBody);",
+											"var refData = JSON.parse(postman.getEnvironmentVariable(\"reference_pi_faf\"));",
+											"tests[\"Validate data\"] = _.isEqual(jsonData,refData);"
+										]
+									}
+								}
+							],
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "login",
+										"value": "{{headers_login}}"
+									},
+									{
+										"key": "password",
+										"value": "{{headers_password}}"
+									},
+									{
+										"key": "platform",
+										"value": "{{headers_platform}}"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
+								"url": "{{context_inventory}}/product/{{pi_faf_id}}",
+								"description": ""
+							},
+							"response": []
+						}
+					],
+					"_postman_isSubFolder": true
+				},
+				{
+					"name": "bundleData",
+					"description": "",
+					"item": [
+						{
+							"name": "FIND all bundle of data by msisdn and productSpecId",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "eb90eb70-7403-4a2d-be9e-5c12ddd1812b",
+										"type": "text/javascript",
+										"exec": [
+											"tests[\"Status code is 200\"] = responseCode.code === 200;",
+											"",
+											"var jsonData = JSON.parse(responseBody);",
+											"var refData = JSON.parse(postman.getEnvironmentVariable(\"reference_pi_bundleData\"));",
+											"tests[\"Validate data\"] = _.isEqual(jsonData,refData);",
+											""
+										]
+									}
+								}
+							],
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "login",
+										"value": "{{headers_login}}"
+									},
+									{
+										"key": "password",
+										"value": "{{headers_password}}"
+									},
+									{
+										"key": "platform",
+										"value": "{{headers_platform}}"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
+								"url": {
+									"raw": "{{context_inventory}}/product?publicKey={{pi_msisdn}}&productSpecification.id=bundleData",
+									"host": [
+										"{{context_inventory}}"
+									],
+									"path": [
+										"product"
+									],
+									"query": [
+										{
+											"key": "publicKey",
+											"value": "{{pi_msisdn}}",
+											"equals": true
+										},
+										{
+											"key": "productSpecification.id",
+											"value": "bundleData",
+											"equals": true
+										}
+									]
+								},
+								"description": ""
+							},
+							"response": []
+						},
+						{
+							"name": "FIND a bundle of data by msisdn and productOfferingId",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "6d42ea8f-7460-489b-9342-3f2aa831c055",
+										"type": "text/javascript",
+										"exec": [
+											"tests[\"Status code is 200\"] = responseCode.code === 200;",
+											"",
+											"var jsonData = JSON.parse(responseBody);",
+											"tests[\"Check size\"] = jsonData.length === 1;",
+											"tests[\"Check productOfferingId\"] = jsonData[0].productOffering.id === postman.getEnvironmentVariable(\"pi_bundleData_productOfferingId\");",
+											"var refData = JSON.parse(postman.getEnvironmentVariable(\"reference_pi_bundleData\"));",
+											"tests[\"Check bundle\"] = _.find(refData,jsonData[0]);",
+											""
+										]
+									}
+								}
+							],
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "login",
+										"value": "{{headers_login}}"
+									},
+									{
+										"key": "password",
+										"value": "{{headers_password}}"
+									},
+									{
+										"key": "platform",
+										"value": "{{headers_platform}}"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
+								"url": {
+									"raw": "{{context_inventory}}/product?publicKey={{pi_msisdn}}&productOffering.id={{pi_bundleData_productOfferingId}}",
+									"host": [
+										"{{context_inventory}}"
+									],
+									"path": [
+										"product"
+									],
+									"query": [
+										{
+											"key": "publicKey",
+											"value": "{{pi_msisdn}}",
+											"equals": true
+										},
+										{
+											"key": "productOffering.id",
+											"value": "{{pi_bundleData_productOfferingId}}",
+											"equals": true
+										}
+									]
+								},
+								"description": ""
+							},
+							"response": []
+						}
+					],
+					"_postman_isSubFolder": true
+				},
+				{
+					"name": "FIND all by international msisdn",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "dc122a09-b153-4194-bdd2-12885f798b73",
+								"type": "text/javascript",
+								"exec": [
+									"tests[\"Status code is 200\"] = responseCode.code === 200;",
+									"",
+									"var jsonData = JSON.parse(responseBody);",
+									"var refData = JSON.parse(postman.getEnvironmentVariable(\"reference_pi_all\"));",
+									"tests[\"Validate data\"] = _.isEqual(jsonData,refData);",
+									""
+								]
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "login",
+								"value": "{{headers_login}}"
+							},
+							{
+								"key": "password",
+								"value": "{{headers_password}}"
+							},
+							{
+								"key": "platform",
+								"value": "{{headers_platform}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{context_inventory}}/product?publicKey={{pi_international_msisdn}}",
+							"host": [
+								"{{context_inventory}}"
+							],
+							"path": [
+								"product"
+							],
+							"query": [
+								{
+									"key": "publicKey",
+									"value": "{{pi_international_msisdn}}",
+									"equals": true
+								}
+							]
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "FIND mobileCom by international msisdn",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "b49cffba-e7da-490c-b6b2-ebf2fadaaa49",
+								"type": "text/javascript",
+								"exec": [
+									"tests[\"Status code is 200\"] = responseCode.code === 200;",
+									"",
+									"var jsonData = JSON.parse(responseBody);",
+									"tests[\"Check size\"] = jsonData.length === 1;",
+									"",
+									"var refData = JSON.parse(postman.getEnvironmentVariable(\"reference_pi_all\"));",
+									"var refDataFiltered = _.filter(refData, {'productOffering':{'id':'mobileCom'}});",
+									"tests[\"Validate data\"] = _.isEqual(jsonData,refDataFiltered);",
+									"// even when given with international prefix as input, the msisdn from mobileCom is in local format",
+									"tests[\"Validate msisdn\"] = _.isEqual(jsonData[0].productCharacteristic[0].value,postman.getEnvironmentVariable(\"pi_msisdn\"));",
+									"",
+									"",
+									"",
+									""
+								]
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "login",
+								"value": "{{headers_login}}"
+							},
+							{
+								"key": "password",
+								"value": "{{headers_password}}"
+							},
+							{
+								"key": "platform",
+								"value": "{{headers_platform}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{context_inventory}}/product?publicKey={{pi_international_msisdn}}&productOffering.id=mobileCom",
+							"host": [
+								"{{context_inventory}}"
+							],
+							"path": [
+								"product"
+							],
+							"query": [
+								{
+									"key": "publicKey",
+									"value": "{{pi_international_msisdn}}",
+									"equals": true
+								},
+								{
+									"key": "productOffering.id",
+									"value": "mobileCom",
+									"equals": true
+								}
+							]
+						},
+						"description": ""
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}

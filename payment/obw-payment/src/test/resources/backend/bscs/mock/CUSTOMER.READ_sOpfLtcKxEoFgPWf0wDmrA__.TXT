@@ -1,0 +1,79 @@
+<!--
+ execute (CUSTOMER.READ, {
+CS_ID_PUB = CUST0000000148 : java.lang.String
+SYNC_WITH_DB = true : java.lang.Boolean
+})
+-->
+ => {
+CS_CONVRATETYPE_PAYMENT = 1 : java.lang.Long
+CS_STATUS = a : java.lang.Character
+CS_ACTIVATION_DATE = Sat Jun 20 00:00:00 CEST 1998 : com.lhs.ccb.common.soiimpl.SVLDateTimeImpl
+WP_CODE = 1 : java.lang.Long
+CS_BILL_INFORMATION = false : java.lang.Boolean
+REFUND_CURRENCY_ID_PUB = BWP : java.lang.String
+CREDIT_SCORE_PROVIDER =  : java.lang.String
+MARKED_FOR_RERATING = false : java.lang.Boolean
+CS_CONTRESP = true : java.lang.Boolean
+CS_BILLCYCLE = 04 : java.lang.String
+CS_CREDITSCORE =  : java.lang.String
+IS_INDIVIDUAL_OVERDISC_DISABLED = false : java.lang.Boolean
+PRG_CODE = SMALL BUS : java.lang.String
+EXPECT_PAY_CURRENCY_ID = 43 : java.lang.Long
+CS_ID_PUB = CUST0000000148 : java.lang.String
+CS_CLIMIT = 650.0BWP : com.lhs.ccb.common.soiimpl.SVLMoneyImpl
+CS_PREPAYMENT = false : java.lang.Boolean
+CS_PAYMNT_RESP_CODE = 4.1692.100000 : java.lang.String
+CS_CONVRATETYPE_REFUND = 1 : java.lang.Long
+COLL_IND = false : java.lang.Boolean
+CS_INCORPORATED_IND = false : java.lang.Boolean
+CS_CREATION_DATE = Sat Jun 20 00:00:00 CEST 1998 : com.lhs.ccb.common.soiimpl.SVLDateTimeImpl
+CS_INIT_PREPAID_CONTR_OWNER = false : java.lang.Boolean
+LAST_MODIFICATION_USER = KHUMOSE : java.lang.String
+TB_MODE =  : java.lang.String
+CS_DUNNING = true : java.lang.Boolean
+EXPECT_PAY_CURRENCY_ID_PUB = BWP : java.lang.String
+RPCODE_PUB = OCCRP : java.lang.String
+CS_ID_HIGH_PUB = CUST0000025058 : java.lang.String
+CS_PASSWORD = DQAPBD : java.lang.String
+RPCODE = 20 : java.lang.Long
+CS_PREVBALANCE = 2543.57BWP : com.lhs.ccb.common.soiimpl.SVLMoneyImpl
+TB_PURPOSE =  : java.lang.String
+CS_ID = 148 : java.lang.Long
+CS_FC_ID = 43 : java.lang.Long
+CS_CODE = 4.1692.100000 : java.lang.String
+CS_CONVRATETYPE_PAYMENT_PUB = UDCRT : java.lang.String
+CS_STATUS_DATE = Sat Jun 20 00:00:00 CEST 1998 : com.lhs.ccb.common.soiimpl.SVLDateTimeImpl
+PAYMENT_RESP = true : java.lang.Boolean
+CS_UNBILLED_AMOUNT = 0.0BWP : com.lhs.ccb.common.soiimpl.SVLMoneyImpl
+REFUND_CURRENCY_ID = 43 : java.lang.Long
+CS_CRCHECK_AGREED = false : java.lang.Boolean
+CS_CSCURBALANCE = -7500.99BWP : com.lhs.ccb.common.soiimpl.SVLMoneyImpl
+CS_LAST_BC_DATE = YYYY-MM-DD: 2016-5-16 : com.lhs.ccb.common.soiimpl.SVLDateImpl
+CS_FC_ID_PUB = BWP : java.lang.String
+PERFORM_CREDIT_SCORING = false : java.lang.Boolean
+CS_DEPOSIT = -1.7976931348623157E308BWP : com.lhs.ccb.common.soiimpl.SVLMoneyImpl
+LIST_OF_ASSIGNMENTS = sub element : com.lhs.ccb.common.soiimpl.NamedValueContainerList
+-[0]VALID_FROM = YYYY-MM-DD: 1999-1-12 : com.lhs.ccb.common.soiimpl.SVLDateImpl
+-[0]COMPLETION_STATUS = 0 : java.lang.Long
+-[0]FAMILY_ID = 3 : java.lang.Long
+PARTY_ROLE_ASSIGNMENTS = sub element : com.lhs.ccb.common.soiimpl.NamedValueContainerList
+-[0]PARTY_ROLE_ID = 1 : java.lang.Long
+-[0]PARTY_ROLE_SHNAME = Subscriber : java.lang.String
+-[0]PARTY_ROLE_DESCRIPTION = A Party that uses a network, services or content provided by other Party : java.lang.String
+-[0]PARTY_ROLE_NAME = Subscriber : java.lang.String
+CS_ID_HIGH = 25058 : java.lang.Long
+COST_CODE_PUB = VCC1 : java.lang.String
+PAYMENT_RESP_ID = 148 : java.lang.Long
+CS_PAYBEHAVIOUR = 040990000000 : java.lang.String
+CS_REMARK1 = SFROK : java.lang.String
+CS_LEVEL_CODE = 2 : java.lang.String
+COST_ID = 4 : java.lang.Long
+CUSTCAT_CODE = 1 : java.lang.Long
+CREATED_BY_USER =  : java.lang.String
+FAMILY_ID = 3 : java.lang.Long
+CS_CONVRATETYPE_REFUND_PUB = UDCRT : java.lang.String
+PARTY_TYPE = C : java.lang.String
+CS_BILLCYCLE_DESC = VISTA Postpaid - BC04 : java.lang.String
+
+}
+

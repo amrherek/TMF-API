@@ -1,0 +1,218 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<wsdl:definitions xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:ns1="http://www.orange.com/BSCS/Interfaces/Common/v1/Model/EBS" xmlns:intf="http://www.orange.com/BSCS/Interfaces/Common/v1" xmlns:root="http://www.orange.com/BSCS/Interfaces/Common/v1/root" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" targetNamespace="http://www.orange.com/BSCS/Interfaces/Common/v1">
+	<wsdl:types>
+		<xsd:schema xmlns="http://www.w3.org/2001/XMLSchema" targetNamespace="http://www.orange.com/BSCS/Interfaces/Common/v1/root">
+			<import namespace="http://www.orange.com/BSCS/Interfaces/Common/v1/Model/EBS" schemaLocation="Common.xsd"/>
+			<xsd:element name="MissingConfigurationExceptionFault">
+				<xsd:complexType>
+					<xsd:complexContent>
+						<xsd:extension base="ns1:FaultViewForFaultMessage">
+							<xsd:annotation>
+								<xsd:documentation>
+									<!--Description : mandatory configuration of the application is missing, e.g. missing entry in api-generic.properties -->
+								</xsd:documentation>
+							</xsd:annotation>
+						</xsd:extension>
+					</xsd:complexContent>
+				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="UnknownExceptionFault">
+				<xsd:complexType>
+					<xsd:complexContent>
+						<xsd:extension base="ns1:FaultViewForFaultMessage">
+							<xsd:annotation>
+								<xsd:documentation>
+									<!--Description : unknown exception -->
+								</xsd:documentation>
+							</xsd:annotation>
+						</xsd:extension>
+					</xsd:complexContent>
+				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="AuthenticationExceptionFault">
+				<xsd:complexType>
+					<xsd:complexContent>
+						<xsd:extension base="ns1:FaultViewForFaultMessage">
+							<xsd:annotation>
+								<xsd:documentation>
+									<!--Description : authentication error-->
+								</xsd:documentation>
+							</xsd:annotation>
+						</xsd:extension>
+					</xsd:complexContent>
+				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="PoolExceptionFault">
+				<xsd:complexType>
+					<xsd:complexContent>
+						<xsd:extension base="ns1:FaultViewForFaultMessage">
+							<xsd:annotation>
+								<xsd:documentation>
+									<!--Description : error in CIL connection pool -->
+								</xsd:documentation>
+							</xsd:annotation>
+						</xsd:extension>
+					</xsd:complexContent>
+				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="InvalidTransactionIDExceptionFault">
+				<xsd:complexType>
+					<xsd:complexContent>
+						<xsd:extension base="ns1:FaultViewForFaultMessage">
+							<xsd:annotation>
+								<xsd:documentation>
+									<!--Description : provided transaction ID is invalid or obsolete -->
+								</xsd:documentation>
+							</xsd:annotation>
+						</xsd:extension>
+					</xsd:complexContent>
+				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="InvalidInputExceptionFault">
+				<xsd:complexType>
+					<xsd:complexContent>
+						<xsd:extension base="ns1:FaultViewForFaultMessage">
+							<xsd:annotation>
+								<xsd:documentation>
+									<!--Description : input data are invalid; e.g. wrongly structured attribute content -->
+								</xsd:documentation>
+							</xsd:annotation>
+						</xsd:extension>
+					</xsd:complexContent>
+				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="InconsistentInputParametersExceptionFault">
+				<xsd:complexType>
+					<xsd:complexContent>
+						<xsd:extension base="ns1:FaultViewForFaultMessage">
+							<xsd:annotation>
+								<xsd:documentation>
+									<!--Description : input data are inconsistent; e.g. mutually exclusive attributes are set -->
+								</xsd:documentation>
+							</xsd:annotation>
+						</xsd:extension>
+					</xsd:complexContent>
+				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="TechnicalExceptionFault">
+				<xsd:complexType>
+					<xsd:complexContent>
+						<xsd:extension base="ns1:FaultViewForFaultMessage">
+							<xsd:annotation>
+								<xsd:documentation>
+									<!--Description : other technical error -->
+								</xsd:documentation>
+							</xsd:annotation>
+						</xsd:extension>
+					</xsd:complexContent>
+				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="SOIExceptionFault">
+				<xsd:complexType>
+					<xsd:complexContent>
+						<xsd:extension base="ns1:FaultViewForFaultMessage">
+							<xsd:annotation>
+								<xsd:documentation>
+									<!--Description : error in BSCS SOI server (CIL) -->
+								</xsd:documentation>
+							</xsd:annotation>
+						</xsd:extension>
+					</xsd:complexContent>
+				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="InvalidMSISDNExceptionFault">
+				<xsd:complexType>
+					<xsd:complexContent>
+						<xsd:extension base="ns1:FaultViewForFaultMessage">
+							<xsd:annotation>
+								<xsd:documentation>
+									<!--Description : input data is expected to be an MSISDN; format does not match -->
+								</xsd:documentation>
+							</xsd:annotation>
+						</xsd:extension>
+					</xsd:complexContent>
+				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="ResourceNotAssignableExceptionFault">
+				<xsd:complexType>
+					<xsd:complexContent>
+						<xsd:extension base="ns1:FaultViewForFaultMessage">
+							<xsd:annotation>
+								<xsd:documentation>
+									<!--Description : resource (e.g. MSISDN) does not have expected status in BSCS  -->
+								</xsd:documentation>
+							</xsd:annotation>
+						</xsd:extension>
+					</xsd:complexContent>
+				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="InconsistentStatusExceptionFault">
+				<xsd:complexType>
+					<xsd:complexContent>
+						<xsd:extension base="ns1:FaultViewForFaultMessage">
+							<xsd:annotation>
+								<xsd:documentation>
+									<!-- Description: An entity has a status which provide an action to be made -->
+								</xsd:documentation>
+							</xsd:annotation>
+						</xsd:extension>
+					</xsd:complexContent>
+				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="InconsistentDatabaseExceptionFault">
+				<xsd:complexType>
+					<xsd:complexContent>
+						<xsd:extension base="ns1:FaultViewForFaultMessage">
+							<xsd:annotation>
+								<xsd:documentation>
+									<!--Description : retrieved data from BSCS are not consistent, or expected data could not be retrieved from BSCS -->
+								</xsd:documentation>
+							</xsd:annotation>
+						</xsd:extension>
+					</xsd:complexContent>
+				</xsd:complexType>
+			</xsd:element>
+		</xsd:schema>
+	</wsdl:types>
+
+	<wsdl:message name="MissingConfigurationExceptionFault">
+		<wsdl:part name="parameters" element="root:MissingConfigurationExceptionFault" />
+	</wsdl:message>
+	<wsdl:message name="UnknownExceptionFault">
+		<wsdl:part name="parameters" element="root:UnknownExceptionFault" />
+	</wsdl:message>
+	<wsdl:message name="AuthenticationExceptionFault">
+		<wsdl:part name="parameters" element="root:AuthenticationExceptionFault" />
+	</wsdl:message>
+	<wsdl:message name="PoolExceptionFault">
+		<wsdl:part name="parameters" element="root:PoolExceptionFault" />
+	</wsdl:message>
+	<wsdl:message name="InvalidTransactionIDExceptionFault">
+		<wsdl:part name="parameters" element="root:InvalidTransactionIDExceptionFault" />
+	</wsdl:message>
+	<wsdl:message name="InvalidInputExceptionFault">
+		<wsdl:part name="parameters" element="root:InvalidInputExceptionFault" />
+	</wsdl:message>
+	<wsdl:message name="InconsistentInputParametersExceptionFault">
+		<wsdl:part name="parameters" element="root:InconsistentInputParametersExceptionFault" />
+	</wsdl:message>
+	<wsdl:message name="TechnicalExceptionFault">
+		<wsdl:part name="parameters" element="root:TechnicalExceptionFault" />
+	</wsdl:message>
+	<wsdl:message name="SOIExceptionFault">
+		<wsdl:part name="parameters" element="root:SOIExceptionFault" />
+	</wsdl:message>
+	<wsdl:message name="InconsistentDatabaseExceptionFault">
+		<wsdl:part name="parameters" element="root:InconsistentDatabaseExceptionFault" />
+	</wsdl:message>
+	<wsdl:message name="InvalidMSISDNExceptionFault">
+		<wsdl:part name="parameters" element="root:InvalidMSISDNExceptionFault"/>
+	</wsdl:message>
+	<wsdl:message name="ResourceNotAssignableExceptionFault">
+		<wsdl:part name="parameters" element="root:ResourceNotAssignableExceptionFault"/>
+	</wsdl:message>
+	<wsdl:message name="InconsistentStatusExceptionFault">
+		<wsdl:part name="parameters" element="root:InconsistentStatusExceptionFault"/>
+	</wsdl:message>
+
+</wsdl:definitions>

@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+
+    <parent>
+        <groupId>com.orange.mea.apisi.workspace</groupId>
+        <artifactId>api-amea</artifactId>
+        <version>1.17-SNAPSHOT</version>
+    </parent>
+
+    <modelVersion>4.0.0</modelVersion>
+    <groupId>com.orange.mea.apisi.product-ordering</groupId>
+    <artifactId>product-ordering-amea</artifactId>
+    <packaging>pom</packaging>
+    <name>[Product Ordering] root</name>
+
+    <!-- List of modules -->
+    <modules>
+        <module>product-ordering-model</module>
+        <module>product-ordering-core</module>
+        <!-- <module>ocm-product-ordering</module>
+        <module>otn-product-ordering</module> -->
+        <module>obw-product-ordering</module>
+    </modules>
+
+    <properties>
+        <!-- OTHER PROPERTIES -->
+        <mapstruct.version>1.0.0.Final</mapstruct.version>
+    </properties>
+
+    <!-- DependencyManagement -->
+    <dependencyManagement>
+        <dependencies>
+
+            <!-- PROJECTS DEPENDENCIES -->
+
+            <dependency>
+                <groupId>com.orange.mea.apisi.product-ordering</groupId>
+                <artifactId>product-ordering-core</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.orange.mea.apisi.product-ordering</groupId>
+                <artifactId>product-ordering-model</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>org.mapstruct</groupId>
+                <artifactId>mapstruct</artifactId>
+                <version>${mapstruct.version}</version>
+            </dependency>
+
+        </dependencies>
+    </dependencyManagement>
+
+</project>

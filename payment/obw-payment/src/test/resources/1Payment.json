@@ -1,0 +1,37 @@
+[
+    {
+        "id": "5064960",
+        "correlatorId": "00000RIVT1000007904",
+        "paymentDate": "2015-07-22T00:00:00Z",
+        "transactionType": "debt",
+        "totalAmount": {
+            "amount": 3192.88,
+            "units": "BWP"
+        },
+        "payer": {
+            "id": "CUST0000000148"
+        },
+        "paymentItem": [
+            {
+                "totalAmount": {
+                    "amount": 2087.44,
+                    "units": "BWP"
+                },
+                "item": {
+                    "id": "4983711",
+                    "type": "IN"
+                }
+            },
+            {
+                "totalAmount": {
+                    "amount": 1105.44,
+                    "units": "BWP"
+                },
+                "item": {
+                    "id": "5025211",
+                    "type": "IN"
+                }
+            }
+        ]
+    }
+]

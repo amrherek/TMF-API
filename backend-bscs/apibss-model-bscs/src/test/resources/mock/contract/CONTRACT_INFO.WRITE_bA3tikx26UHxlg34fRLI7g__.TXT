@@ -1,0 +1,8 @@
+<!--
+ execute (CONTRACT_INFO.WRITE, {
+CO_ID_PUB = CONTR0000000111 : java.lang.String
+TEXT01 = texte 01 : java.lang.String
+})
+-->
+<!-- Output=Null -->
+

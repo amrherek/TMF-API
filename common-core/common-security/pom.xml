@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <parent>
+        <groupId>com.orange.mea.apisi.workflow</groupId>
+        <artifactId>common-core</artifactId>
+        <version>1.17-SNAPSHOT</version>
+    </parent>
+
+    <modelVersion>4.0.0</modelVersion>
+    <artifactId>common-security</artifactId>
+    <name>Common Security module</name>
+    <packaging>pom</packaging>
+
+    <!-- List of modules -->
+    <modules>
+        <module>core-security</module>
+        <module>core-security-spring-boot-autoconfigure</module>
+        <module>core-security-spring-boot-starter</module>
+    </modules>
+
+    <properties>
+    	<!-- DEPENDENCIES VERSION -->
+        <cxf-codegen-plugin.version>3.1.7</cxf-codegen-plugin.version>        
+    </properties>
+
+
+    <!-- DependencyManagement -->
+    <dependencyManagement>
+        <dependencies>
+            <!-- PROJECTS DEPENDENCIES -->
+			<dependency>
+                <groupId>com.orange.mea.apisi.workflow</groupId>
+                <artifactId>core-security-spring-boot-autoconfigure</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
+</project>

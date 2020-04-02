@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <parent>
+        <artifactId>backend-bscs</artifactId>
+        <groupId>com.orange.mea.apisi.backend</groupId>
+        <version>1.17-SNAPSHOT</version>
+    </parent>
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>com.orange.mea.apisi.backend.ixr4</groupId>
+    <artifactId>bscs-ixr4</artifactId>
+    <name>[BSCS] IXR4</name>
+    <dependencies>
+        <!-- BSCS CORBA LIB -->
+        <dependency>
+            <groupId>com.lhs.ccb</groupId>
+            <artifactId>common</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>com.lhs.ccb</groupId>
+            <artifactId>util</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>com.lhs.ccb</groupId>
+            <artifactId>soi</artifactId>
+        </dependency>
+
+        <!-- BSCS MODULES -->
+        <dependency>
+            <groupId>com.orange.mea.apisi.backend</groupId>
+            <artifactId>apibss-adapter-cms</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>com.orange.mea.apisi.backend</groupId>
+            <artifactId>bscs-service</artifactId>
+        </dependency>
+        <dependency>
+			<groupId>com.orange.mea.apisi.backend</groupId>
+			<artifactId>bscs-spring-boot-starter</artifactId>
+			<scope>test</scope>
+		</dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-test</artifactId>
+            <scope>test</scope>
+        </dependency>
+    </dependencies>
+    
+    <build>
+	    <plugins>
+			<plugin>
+				<artifactId>maven-surefire-plugin</artifactId>
+				<configuration>
+					<excludedGroups>${junit.exclude.group}</excludedGroups>
+				</configuration>
+			</plugin>
+	    </plugins>
+    </build>
+   
+</project>

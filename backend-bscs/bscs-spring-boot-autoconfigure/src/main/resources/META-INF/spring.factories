@@ -1,0 +1,6 @@
+org.springframework.boot.autoconfigure.EnableAutoConfiguration=\
+com.orange.bscs.autoconfigure.BscsAutoConfiguration,\
+com.orange.bscs.autoconfigure.BscsCorbaAutoConfiguration,\
+com.orange.bscs.autoconfigure.BscsFileAutoConfiguration,\
+com.orange.bscs.autoconfigure.BscsRecAutoConfiguration,\
+com.orange.bscs.autoconfigure.BscsRemoteAutoConfiguration

@@ -1,0 +1,568 @@
+{
+	"swagger": "2.0",
+	"info": {
+		"description": "ajout du critère de recherche productSpecification.id",
+		"version": "0.13.0_release",
+		"title": "API ProductInventory"
+	},
+	"host": "api.orange.com",
+	"basePath": "/",
+	"schemes": ["http"],
+	"consumes": ["application/json;charset=utf-8"],
+	"produces": ["application/json;charset=utf-8"],
+	"tags": [{
+			"name": "Product",
+			"description": ""
+		}
+	],
+	"paths": {
+		"/product": {
+			"get": {
+				"tags": ["Product"],
+				"operationId": "productFind",
+				"summary": "find product",
+				"description": "\n\nSpecific business errors for current operation will be encapsulated in\n\nHTTP Response 422 Unprocessable entity\n",
+				"deprecated": false,
+				"parameters": [{
+						"name": "publicKey",
+						"required": false,
+						"in": "query",
+						"description": "example : MSISDN, stored in Characteristic name & value",
+						"type": "string"
+					}, {
+						"name": "iccId",
+						"required": false,
+						"in": "query",
+						"description": "ICCID number, stored in Characteristic name & value",
+						"type": "string"
+					}, {
+						"name": "productSpecification.id",
+						"required": false,
+						"in": "query",
+						"description": "eg \"offer\" to filter product inventory on the main offer",
+						"type": "string"
+					}, {
+						"name": "status",
+						"required": false,
+						"in": "query",
+						"description": "status of the product",
+						"type": "string",
+						"enum": ["Created", "Pending_active", "Aborted", "Cancelled", "Active", "Pending_terminate", "Terminated", "Suspended"]
+					}, {
+						"name": "withParameter",
+						"required": false,
+						"in": "query",
+						"description": "if True return the detail of chararacteritcs and value of the product",
+						"type": "boolean"
+					}, {
+						"name": "productOffering.id",
+						"required": false,
+						"in": "query",
+						"description": "to limit the consultation on a single productOffering",
+						"type": "string"
+					}, {
+						"name": "productOffering.category",
+						"required": false,
+						"in": "query",
+						"description": "",
+						"type": "string"
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "Success",
+						"schema": {
+							"type": "array",
+							"items": {
+								"$ref": "#/definitions/Product"
+							}
+						}
+					}
+				}
+			}
+		},
+		"/product/{productId}": {
+			"get": {
+				"tags": ["Product"],
+				"operationId": "productGet",
+				"summary": "get product",
+				"description": "\n\nSpecific business errors for current operation will be encapsulated in\n\nHTTP Response 422 Unprocessable entity\n",
+				"deprecated": false,
+				"parameters": [{
+						"name": "productId",
+						"in": "path",
+						"required": true,
+						"type": "string",
+						"description": ""
+					}, {
+						"name": "withParameter",
+						"required": false,
+						"in": "query",
+						"description": "",
+						"type": "boolean"
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "Success",
+						"schema": {
+							"$ref": "#/definitions/Product"
+						}
+					}
+				}
+			}
+		}
+	},
+	"definitions": {
+		"State": {
+			"description": "",
+			"type": "string",
+			"enum": ["Created", "Pending_active", "Aborted", "Cancelled", "Active", "Pending_terminate", "Terminated", "Suspended"]
+		},
+		"ProductRelationshipType": {
+			"description": "",
+			"type": "string",
+			"enum": ["isContainedIn", "contains"]
+		},
+		"ProductRatingType": {
+			"description": "",
+			"type": "string",
+			"enum": ["Prepaid", "Postpaid", "Hybrid"]
+		},
+		"StateService": {
+			"description": "",
+			"type": "string",
+			"enum": ["Active", "Inactive", "Failed", "Being_deployed"]
+		},
+		"Role": {
+			"description": "",
+			"type": "string",
+			"enum": ["tutor", "customer"]
+		},
+		"MarketSegmentType": {
+			"description": "",
+			"type": "string",
+			"enum": ["retail", "business", "partnerShip"]
+		},
+		"ErrorDetail": {
+			"description": "",
+			"required": ["code", "message"],
+			"type": "object",
+			"properties": {
+				"code": {
+					"description": "",
+					"type": "integer",
+					"format": "int32"
+				},
+				"message": {
+					"description": "",
+					"type": "string"
+				},
+				"description": {
+					"description": "",
+					"type": "string"
+				},
+				"infoURL": {
+					"description": "",
+					"type": "string"
+				}
+			}
+		},
+		"Error": {
+			"description": "",
+			"required": ["code", "message"],
+			"type": "object",
+			"properties": {
+				"code": {
+					"description": "",
+					"type": "integer",
+					"format": "int32"
+				},
+				"message": {
+					"description": "",
+					"type": "string"
+				},
+				"description": {
+					"description": "",
+					"type": "string"
+				},
+				"infoURL": {
+					"description": "",
+					"type": "string"
+				},
+				"details": {
+					"description": "",
+					"type": "array",
+					"items": {
+						"$ref": "#/definitions/ErrorDetail"
+					}
+				}
+			}
+		},
+		"ProductOfferingRef": {
+			"description": "",
+			"type": "object",
+			"properties": {
+				"id": {
+					"description": "",
+					"type": "string"
+				}
+			}
+		},
+		"Product": {
+			"description": "",
+			"required": ["status"],
+			"type": "object",
+			"properties": {
+				"id": {
+					"description": "",
+					"type": "string"
+				},
+				"ratingType": {
+					"description": "",
+					"$ref": "#/definitions/ProductRatingType"
+				},
+				"name": {
+					"description": "",
+					"type": "string"
+				},
+				"description": {
+					"description": "",
+					"type": "string"
+				},
+				"status": {
+					"description": "",
+					"$ref": "#/definitions/State"
+				},
+				"isCustomerVisible": {
+					"description": "",
+					"type": "boolean"
+				},
+				"isBundle": {
+					"description": "",
+					"type": "boolean"
+				},
+				"startDate": {
+					"description": "",
+					"type": "string",
+					"format": "date-time"
+				},
+				"orderDate": {
+					"description": "",
+					"type": "string",
+					"format": "date-time"
+				},
+				"terminationDate": {
+					"description": "",
+					"type": "string",
+					"format": "date-time"
+				},
+				"productOffering": {
+					"description": "",
+					"$ref": "#/definitions/ProductOffering"
+				},
+				"productSpecification": {
+					"description": "",
+					"$ref": "#/definitions/ProductSpecification"
+				},
+				"productCharacteristic": {
+					"description": "",
+					"type": "array",
+					"items": {
+						"$ref": "#/definitions/ProductCharacteristic"
+					}
+				},
+				"transferCreditCharacteristic": {
+					"description": "",
+					"type": "array",
+					"items": {
+						"$ref": "#/definitions/TransferCreditCharacteristic"
+					}
+				},
+				"productRelationship": {
+					"description": "",
+					"type": "array",
+					"items": {
+						"$ref": "#/definitions/ProductRelationship"
+					}
+				},
+				"billingAccount": {
+					"description": "",
+					"type": "array",
+					"items": {
+						"$ref": "#/definitions/BillingAccount"
+					}
+				},
+				"relatedParty": {
+					"description": "",
+					"type": "array",
+					"items": {
+						"$ref": "#/definitions/RelatedParty"
+					}
+				},
+				"realizingService": {
+					"description": "",
+					"type": "array",
+					"items": {
+						"$ref": "#/definitions/RealizingService"
+					}
+				},
+				"productPrice": {
+					"description": "",
+					"type": "array",
+					"items": {
+						"$ref": "#/definitions/ProductPrice"
+					}
+				},
+				"agreement": {
+					"description": "",
+					"type": "array",
+					"items": {
+						"$ref": "#/definitions/Agreement"
+					}
+				}
+			}
+		},
+		"ProductSpecification": {
+			"description": "",
+			"type": "object",
+			"properties": {
+				"id": {
+					"description": "",
+					"type": "string"
+				}
+			}
+		},
+		"BillingAccount": {
+			"description": "",
+			"type": "object",
+			"properties": {
+				"id": {
+					"description": "",
+					"type": "string"
+				},
+				"name": {
+					"description": "",
+					"type": "string"
+				}
+			}
+		},
+		"RealizingService": {
+			"description": "",
+			"type": "object",
+			"properties": {
+				"id": {
+					"description": "",
+					"type": "string"
+				},
+				"status": {
+					"description": "",
+					"$ref": "#/definitions/StateService"
+				},
+				"validFor": {
+					"description": "",
+					"$ref": "#/definitions/TimePeriod"
+				}
+			}
+		},
+		"RealizingResource": {
+			"description": "",
+			"type": "object",
+			"properties": {
+				"id": {
+					"description": "",
+					"type": "string"
+				},
+				"href": {
+					"description": "",
+					"type": "string"
+				}
+			}
+		},
+		"ProductOffering": {
+			"description": "",
+			"type": "object",
+			"properties": {
+				"id": {
+					"description": "",
+					"type": "string"
+				},
+				"category": {
+					"description": "",
+					"type": "string"
+				},
+				"name": {
+					"description": "",
+					"type": "string"
+				}
+			}
+		},
+		"Price": {
+			"description": "",
+			"type": "object",
+			"properties": {
+				"amount": {
+					"description": "",
+					"type": "number",
+					"format": "float"
+				},
+				"currency": {
+					"description": "",
+					"type": "string"
+				}
+			}
+		},
+		"ProductPrice": {
+			"description": "",
+			"required": ["price", "validFor"],
+			"type": "object",
+			"properties": {
+				"name": {
+					"description": "",
+					"type": "string"
+				},
+				"description": {
+					"description": "",
+					"type": "string"
+				},
+				"priceType": {
+					"description": "",
+					"type": "string"
+				},
+				"recurringChargePeriod": {
+					"description": "",
+					"type": "string"
+				},
+				"unitOfMeasure": {
+					"description": "",
+					"type": "string"
+				},
+				"price": {
+					"description": "",
+					"$ref": "#/definitions/Price"
+				},
+				"validFor": {
+					"description": "",
+					"$ref": "#/definitions/TimePeriod"
+				}
+			}
+		},
+		"ProductRelationship": {
+			"description": "",
+			"required": ["product"],
+			"type": "object",
+			"properties": {
+				"type": {
+					"description": "",
+					"$ref": "#/definitions/ProductRelationshipType"
+				},
+				"product": {
+					"description": "",
+					"$ref": "#/definitions/ProductRef"
+				}
+			}
+		},
+		"ProductRef": {
+			"description": "",
+			"type": "object",
+			"properties": {
+				"productOffering": {
+					"description": "",
+					"$ref": "#/definitions/ProductOfferingRef"
+				},
+				"id": {
+					"description": "",
+					"type": "string"
+				}
+			}
+		},
+		"ProductCharacteristic": {
+			"description": "",
+			"type": "object",
+			"properties": {
+				"name": {
+					"description": "",
+					"type": "string"
+				},
+				"value": {
+					"description": "",
+					"type": "string"
+				}
+			}
+		},
+		"Agreement": {
+			"description": "",
+			"type": "object",
+			"properties": {
+				"id": {
+					"description": "",
+					"type": "string"
+				}
+			}
+		},
+		"RelatedParty": {
+			"description": "",
+			"type": "object",
+			"properties": {
+				"id": {
+					"description": "",
+					"type": "string"
+				},
+				"role": {
+					"description": "",
+					"$ref": "#/definitions/Role"
+				}
+			}
+		},
+		"TimePeriod": {
+			"description": "",
+			"type": "object",
+			"properties": {
+				"startDateTime": {
+					"description": "",
+					"type": "string",
+					"format": "date-time"
+				},
+				"endDateTime": {
+					"description": "",
+					"type": "string",
+					"format": "date-time"
+				}
+			}
+		},
+		"Hub": {
+			"description": "",
+			"type": "object",
+			"properties": {
+				"id": {
+					"description": "",
+					"type": "string"
+				},
+				"callback": {
+					"description": "",
+					"type": "string"
+				},
+				"query": {
+					"description": "",
+					"type": "string"
+				}
+			}
+		},
+		"TransferCreditCharacteristic": {
+			"description": "",
+			"allOf": [{
+					"$ref": "#/definitions/ProductCharacteristic"
+				}, {
+					"required": ["targetPublicKey"],
+					"type": "object",
+					"properties": {
+						"targetPublicKey": {
+							"description": "",
+							"type": "string"
+						}
+					}
+				}
+			]
+		}
+	}
+}

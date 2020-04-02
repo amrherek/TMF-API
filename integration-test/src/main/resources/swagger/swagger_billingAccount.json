@@ -1,0 +1,1027 @@
+{
+	"swagger": "2.0",
+	"info": {
+		"description": "",
+		"version": "0.1.0_release",
+		"title": "API Account"
+	},
+	"host": "api.orange.com",
+	"basePath": "/",
+	"schemes": ["http"],
+	"consumes": ["application/json;charset=utf-8"],
+	"produces": ["application/json;charset=utf-8"],
+	"tags": [{
+			"name": "PartyAccount",
+			"description": ""
+		}, {
+			"name": "BillingAccount",
+			"description": ""
+		}, {
+			"name": "SettlementAccount",
+			"description": ""
+		}, {
+			"name": "FinancialAccount",
+			"description": ""
+		}, {
+			"name": "BillingCycleSpecification",
+			"description": ""
+		}, {
+			"name": "BillFormat",
+			"description": ""
+		}, {
+			"name": "BillPresentationMedia",
+			"description": ""
+		}
+	],
+	"paths": {
+		"/billingAccount": {
+			"get": {
+				"tags": ["BillingAccount"],
+				"operationId": "billingAccountFind",
+				"summary": "List billing accounts",
+				"description": "This operation list billing account entities. Attribute selection is enabled for all first level attributes. Filtering may be available depending on the compliance level supported by an implementation.",
+				"deprecated": false,
+				"parameters": [{
+						"name": "publicKey",
+						"required": false,
+						"in": "query",
+						"description": "MSISDN",
+						"type": "string"
+					}, {
+						"name": "relatedParty.id",
+						"required": false,
+						"in": "query",
+						"description": "Party ID",
+						"type": "string"
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "Success",
+						"schema": {
+							"type": "array",
+							"items": {
+								"$ref": "#/definitions/BillingAccount"
+							}
+						}
+					},
+					"400": {
+						"description": "Bad Request\n\nList of supported error codes:\n- 20: Invalid URL parameter value\n- 21: Missing body\n- 22: Invalid body\n- 23: Missing body field\n- 24: Invalid body field\n- 25: Missing header\n- 26: Invalid header value\n- 27: Missing query-string parameter\n- 28: Invalid query-string parameter value",
+						"schema": {
+							"$ref": "#/definitions/ZError"
+						}
+					},
+					"401": {
+						"description": "Unauthorized\n\nList of supported error codes:\n- 40: Missing credentials\n- 41: Invalid credentials\n- 42: Expired credentials",
+						"schema": {
+							"$ref": "#/definitions/ZError"
+						}
+					},
+					"403": {
+						"description": "Forbidden\n\nList of supported error codes:\n- 50: Access denied\n- 51: Forbidden requester\n- 52: Forbidden user\n- 53: Too many requests",
+						"schema": {
+							"$ref": "#/definitions/ZError"
+						}
+					},
+					"404": {
+						"description": "Not Found\n\nList of supported error codes:\n- 60: Resource not found",
+						"schema": {
+							"$ref": "#/definitions/ZError"
+						}
+					},
+					"422": {
+						"description": "Unprocessable entity\n\nFunctional error",
+						"schema": {
+							"$ref": "#/definitions/ZError"
+						}
+					},
+					"500": {
+						"description": "Internal Server Error\n\nList of supported error codes:\n- 1: Internal error",
+						"schema": {
+							"$ref": "#/definitions/ZError"
+						}
+					},
+					"503": {
+						"description": "Service Unavailable\n\nList of supported error codes:\n- 5: The service is temporarily unavailable\n- 6: Orange API is over capacity, retry later !",
+						"schema": {
+							"$ref": "#/definitions/ZError"
+						}
+					}
+				}
+			}
+		},
+		"/billingAccount/{id}": {
+			"get": {
+				"tags": ["BillingAccount"],
+				"operationId": "billingAccountGet",
+				"summary": "Retrieve a billing account",
+				"description": "This operation retrieves a billing account entity. Attribute selection is enabled for all first level attributes. Filtering on sub-resources may be available depending on the compliance level supported by an implementation.",
+				"deprecated": false,
+				"parameters": [{
+						"name": "id",
+						"in": "path",
+						"required": true,
+						"type": "string",
+						"description": "Unique identifier of the billing account"
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "Success",
+						"schema": {
+							"$ref": "#/definitions/BillingAccount"
+						}
+					},
+					"400": {
+						"description": "Bad Request\n\nList of supported error codes:\n- 20: Invalid URL parameter value\n- 21: Missing body\n- 22: Invalid body\n- 23: Missing body field\n- 24: Invalid body field\n- 25: Missing header\n- 26: Invalid header value\n- 27: Missing query-string parameter\n- 28: Invalid query-string parameter value",
+						"schema": {
+							"$ref": "#/definitions/ZError"
+						}
+					},
+					"401": {
+						"description": "Unauthorized\n\nList of supported error codes:\n- 40: Missing credentials\n- 41: Invalid credentials\n- 42: Expired credentials",
+						"schema": {
+							"$ref": "#/definitions/ZError"
+						}
+					},
+					"403": {
+						"description": "Forbidden\n\nList of supported error codes:\n- 50: Access denied\n- 51: Forbidden requester\n- 52: Forbidden user\n- 53: Too many requests",
+						"schema": {
+							"$ref": "#/definitions/ZError"
+						}
+					},
+					"404": {
+						"description": "Not Found\n\nList of supported error codes:\n- 60: Resource not found",
+						"schema": {
+							"$ref": "#/definitions/ZError"
+						}
+					},
+					"422": {
+						"description": "Unprocessable entity\n\nFunctional error",
+						"schema": {
+							"$ref": "#/definitions/ZError"
+						}
+					},
+					"500": {
+						"description": "Internal Server Error\n\nList of supported error codes:\n- 1: Internal error",
+						"schema": {
+							"$ref": "#/definitions/ZError"
+						}
+					},
+					"503": {
+						"description": "Service Unavailable\n\nList of supported error codes:\n- 5: The service is temporarily unavailable\n- 6: Orange API is over capacity, retry later !",
+						"schema": {
+							"$ref": "#/definitions/ZError"
+						}
+					}
+				}
+			}
+		}
+	},
+	"definitions": {
+		"StateValues": {
+			"description": "",
+			"type": "string",
+			"enum": ["active", "inactive", "closed"]
+		},
+		"ZErrorDetail": {
+			"description": "",
+			"required": ["code", "message"],
+			"type": "object",
+			"properties": {
+				"code": {
+					"description": "",
+					"type": "integer",
+					"format": "int32"
+				},
+				"message": {
+					"description": "",
+					"type": "string"
+				},
+				"description": {
+					"description": "",
+					"type": "string"
+				},
+				"infoURL": {
+					"description": "",
+					"type": "string"
+				}
+			}
+		},
+		"ZError": {
+			"description": "",
+			"required": ["code", "message"],
+			"type": "object",
+			"properties": {
+				"code": {
+					"description": "",
+					"type": "integer",
+					"format": "int32"
+				},
+				"message": {
+					"description": "",
+					"type": "string"
+				},
+				"description": {
+					"description": "",
+					"type": "string"
+				},
+				"infoURL": {
+					"description": "",
+					"type": "string"
+				},
+				"details": {
+					"description": "",
+					"type": "array",
+					"items": {
+						"$ref": "#/definitions/ZErrorDetail"
+					}
+				}
+			}
+		},
+		"PartyAccount": {
+			"description": "Account used for billing or for settlement purposes concerning a given party (an organization or an individual).",
+			"type": "object",
+			"properties": {
+				"id": {
+					"description": "Unique identifier of the account",
+					"type": "string"
+				},
+				"href": {
+					"description": "Unique reference of the account",
+					"type": "string"
+				},
+				"type": {
+					"description": "A categorization of an account, such as individual, joint, and so forth, whose instances share some of the same characteristics",
+					"type": "string"
+				},
+				"name": {
+					"description": "Name of the account",
+					"type": "string"
+				},
+				"state": {
+					"description": "Contains the lifecycle state such as: Active, Closed, Suspended and so on",
+					"$ref": "#/definitions/StateValues"
+				},
+				"lastModified": {
+					"description": "Date of last modification of the account",
+					"type": "string",
+					"format": "date-time"
+				},
+				"description": {
+					"description": "Detailed description of the account",
+					"type": "string"
+				},
+				"creditLimit": {
+					"description": "The maximum amount of money that may be charged on an account",
+					"$ref": "#/definitions/Money"
+				},
+				"paymentStatus": {
+					"description": "Payment status  for this account",
+					"type": "string"
+				},
+				"billStructure": {
+					"description": "The structure of the bill for party accounts (billling or settlement)",
+					"$ref": "#/definitions/BillStructure"
+				},
+				"financialAccount": {
+					"description": "A financial account reference. An account of money owed by a party to another entity in exchange for goods or services that have been delivered or used. An account receivable aggregates the amounts of one or more party accounts (billing or settlement) owned by a given party.",
+					"$ref": "#/definitions/FinancialAccountRef"
+				},
+				"paymentPlan": {
+					"description": "A list of payment plans. Defines a plan for payment (when a party wants to spread his payments)",
+					"type": "array",
+					"items": {
+						"$ref": "#/definitions/PaymentPlan"
+					}
+				},
+				"defaultPaymentMethod": {
+					"description": "A payment method reference. A payment method defines a specific mean of payment (e.g direct debit with all details associated).",
+					"$ref": "#/definitions/PaymentMethodRef"
+				},
+				"accountBalance": {
+					"description": "A list of account balances. Balances linked to the account.",
+					"type": "array",
+					"items": {
+						"$ref": "#/definitions/AccountBalance"
+					}
+				},
+				"accountRelationship": {
+					"description": "A list of account relationships. Significant connection between accounts",
+					"type": "array",
+					"items": {
+						"$ref": "#/definitions/AccountRelationship"
+					}
+				},
+				"relatedParty": {
+					"description": "A list of related party references. A related party defines party or party role linked to a specific entity.",
+					"type": "array",
+					"items": {
+						"$ref": "#/definitions/RelatedPartyRef"
+					}
+				},
+				"contact": {
+					"description": "A list of contacts. An individual or an organization used as a contact point for a given account and accessed via some contact medium",
+					"type": "array",
+					"items": {
+						"$ref": "#/definitions/Contact"
+					}
+				},
+				"taxExemption": {
+					"description": "A list of account tax exemptions. Proof of freedom from taxes imposed by a taxing jurisdiction.",
+					"type": "array",
+					"items": {
+						"$ref": "#/definitions/AccountTaxExemption"
+					}
+				}
+			}
+		},
+		"BillStructure": {
+			"description": "The structure of the bill for party accounts (billling or settlement).",
+			"type": "object",
+			"properties": {
+				"cycleSpecification": {
+					"description": "A billing cycle specification reference. A description of when to initiate a billing cycle and the various sub steps of a billing cycle",
+					"$ref": "#/definitions/BillingCycleSpecificationRef"
+				}
+			}
+		},
+		"FinancialAccountRef": {
+			"description": "AccountReceivable reference. An account of money owed by a party to another entity in exchange for goods or services that have been delivered or used. An account receivable aggregates the amounts of one or more party accounts (billing or settlement) owned by a given party.",
+			"type": "object",
+			"properties": {
+				"id": {
+					"description": "Unique identifier of the account",
+					"type": "string"
+				},
+				"href": {
+					"description": "Reference of the account",
+					"type": "string"
+				},
+				"name": {
+					"description": "Name of the account",
+					"type": "string"
+				}
+			}
+		},
+		"PaymentPlan": {
+			"description": "Defines a plan for payment (when a party wants to spread his payments)",
+			"required": ["paymentMethod"],
+			"type": "object",
+			"properties": {
+				"numberOfPayments": {
+					"description": "Number of payments used to spread the global payment",
+					"type": "integer",
+					"format": "int32"
+				},
+				"paymentFrequency": {
+					"description": "Frequency of the payments, such as monthly and bimonthly",
+					"type": "string"
+				},
+				"priority": {
+					"description": "Priority of the payment plan",
+					"type": "integer",
+					"format": "int32"
+				},
+				"status": {
+					"description": "Status of the payment plan (effective, ineffective)",
+					"type": "string"
+				},
+				"totalAmount": {
+					"description": "Amount paid",
+					"$ref": "#/definitions/Money"
+				},
+				"type": {
+					"description": "Type of payment plan",
+					"type": "string"
+				},
+				"validFor": {
+					"description": "Validity period of the payment plan",
+					"$ref": "#/definitions/TimePeriod"
+				},
+				"paymentMethod": {
+					"description": "A payment method reference. A payment method defines a specific mean of payment (e.g direct debit with all details associated)",
+					"$ref": "#/definitions/PaymentMethodRef"
+				}
+			}
+		},
+		"PaymentMethodRef": {
+			"description": "PaymentMethod reference. A payment method defines a specific mean of payment (e.g direct debit with all details associated).",
+			"type": "object",
+			"properties": {
+				"name": {
+					"description": "Name of the payment mean",
+					"type": "string"
+				}
+			}
+		},
+		"AccountBalance": {
+			"description": "Balances linked to the account.",
+			"type": "object",
+			"properties": {
+				"type": {
+					"description": "Type of the balance : deposit balance, disputed balance, loyalty balance, receivable balance...",
+					"type": "string"
+				},
+				"amount": {
+					"description": "Balance amount",
+					"$ref": "#/definitions/Money"
+				},
+				"validFor": {
+					"description": "Balance validity period",
+					"$ref": "#/definitions/TimePeriod"
+				}
+			}
+		},
+		"AccountRelationship": {
+			"description": "Significant connection between accounts.",
+			"required": ["account"],
+			"type": "object",
+			"properties": {
+				"relationshipType": {
+					"description": "Type of relationship",
+					"type": "string"
+				},
+				"validFor": {
+					"description": "Validity period of that relationship",
+					"$ref": "#/definitions/TimePeriod"
+				},
+				"account": {
+					"description": "A list of account references",
+					"$ref": "#/definitions/AccountRef"
+				}
+			}
+		},
+		"RelatedPartyRef": {
+			"description": "RelatedParty reference. A related party defines party or party role linked to a specific entity.",
+			"type": "object",
+			"properties": {
+				"id": {
+					"description": "Unique identifier of a related party",
+					"type": "string"
+				},
+				"href": {
+					"description": "Reference of a related party",
+					"type": "string"
+				},
+				"name": {
+					"description": "Name of a related party",
+					"type": "string"
+				},
+				"role": {
+					"description": "Role payed by the related party",
+					"type": "string"
+				},
+				"validFor": {
+					"description": "Validity period of the related party",
+					"$ref": "#/definitions/TimePeriod"
+				}
+			}
+		},
+		"Contact": {
+			"description": "An individual or an organization used as a contact point for a given account and accessed via some contact medium",
+			"type": "object",
+			"properties": {
+				"contactName": {
+					"description": "A displayable name for that contact",
+					"type": "string"
+				},
+				"contactType": {
+					"description": "Type of contact (primary, secondary...)",
+					"type": "string"
+				},
+				"partyRoleType": {
+					"description": "Identifies what kind of party role type is linked to the contact (a customer account manager...)",
+					"type": "string"
+				},
+				"validFor": {
+					"description": "Validity period of that contact",
+					"$ref": "#/definitions/TimePeriod"
+				},
+				"contactMedium": {
+					"description": "A list of contact mediums. Indicates the contact medium that could be used to contact the party.",
+					"type": "array",
+					"items": {
+						"$ref": "#/definitions/ContactMedium"
+					}
+				},
+				"relatedParty": {
+					"description": "A related party reference. A related party defines party or party role linked to a specific entity",
+					"$ref": "#/definitions/RelatedPartyRef"
+				}
+			}
+		},
+		"AccountTaxExemption": {
+			"description": "Proof of freedom from taxes imposed by a taxing jurisdiction",
+			"type": "object",
+			"properties": {
+				"certificateNumber": {
+					"description": "Identifier of a document that shows proof of exemption from taxes for the taxing jurisdiction",
+					"type": "string"
+				},
+				"issuingJurisdiction": {
+					"description": "Name of the taxing jurisdiction for which taxes are exempt",
+					"type": "string"
+				},
+				"reason": {
+					"description": "Reason of the tax exemption",
+					"type": "string"
+				},
+				"validFor": {
+					"description": "Period for which the exemption is valid",
+					"$ref": "#/definitions/TimePeriod"
+				}
+			}
+		},
+		"TimePeriod": {
+			"description": "A time period between a start and an end date",
+			"type": "object",
+			"properties": {
+				"startDateTime": {
+					"description": "",
+					"type": "string",
+					"format": "date-time"
+				},
+				"endDateTime": {
+					"description": "",
+					"type": "string",
+					"format": "date-time"
+				}
+			}
+		},
+		"AccountRef": {
+			"description": "Account reference. A account may be a party account or an account receivable.",
+			"type": "object",
+			"properties": {
+				"id": {
+					"description": "Unique identifier of the account",
+					"type": "string"
+				},
+				"href": {
+					"description": "Reference of the account",
+					"type": "string"
+				},
+				"name": {
+					"description": "Name of the account",
+					"type": "string"
+				},
+				"description": {
+					"description": "Detailed description of the account",
+					"type": "string"
+				}
+			}
+		},
+		"BillFormatRef": {
+			"description": "BillFormat reference. A bill format is a description of the way in which a bill is presented",
+			"type": "object",
+			"properties": {
+				"id": {
+					"description": "Unique identifier of the bill format",
+					"type": "string"
+				},
+				"href": {
+					"description": "Reference of the bill format",
+					"type": "string"
+				},
+				"name": {
+					"description": "A short descriptive name",
+					"type": "string"
+				}
+			}
+		},
+		"BillingCycleSpecificationRef": {
+			"description": "BillingCycleSpecification reference. A description of when to initiate a billing cycle and the various sub steps of a billing cycle",
+			"type": "object",
+			"properties": {
+				"dateShift": {
+					"description": "An offset of a billing/settlement date. The offset is expressed as number of days with regard to the start of the billing/settlement period",
+					"type": "integer",
+					"format": "int32"
+				},
+				"frequency": {
+					"description": "Frequency of the billing cycle (monthly for instance)",
+					"type": "string"
+				}
+			}
+		},
+		"ContactMedium": {
+			"description": "Indicates the contact medium that could be used to contact the party.",
+			"type": "object",
+			"properties": {
+				"preferred": {
+					"description": "If true, indicates that is the preferred contact medium",
+					"type": "boolean"
+				},
+				"type": {
+					"description": "Type of the contact medium, such as: email address, telephone number, postal address",
+					"type": "string"
+				},
+				"validFor": {
+					"description": "The time period that the contact medium is valid for",
+					"$ref": "#/definitions/TimePeriod"
+				},
+				"characteristic": {
+					"description": "A medium characteristic. Describes the contact medium characteristic that could be used to contact a party (an individual or an organization)",
+					"$ref": "#/definitions/MediumCharacteristic"
+				}
+			}
+		},
+		"MediumCharacteristic": {
+			"description": "Describes the contact medium characteristics that could be used to contact a party (an individual or an organization).",
+			"type": "object",
+			"properties": {
+				"type": {
+					"description": "Type of medium (fax, mobile phone...)",
+					"type": "string"
+				},
+				"street1": {
+					"description": "Describes the street",
+					"type": "string"
+				},
+				"street2": {
+					"description": "Complementary street description",
+					"type": "string"
+				},
+				"postCode": {
+					"description": "Postcode",
+					"type": "string"
+				},
+				"city": {
+					"description": "City name",
+					"type": "string"
+				},
+				"stateOrProvince": {
+					"description": "",
+					"type": "string"
+				},
+				"country": {
+					"description": "Country name",
+					"type": "string"
+				},
+				"emailAddress": {
+					"description": "Full email address in standard format",
+					"type": "string"
+				},
+				"faxNumber": {
+					"description": "The fax number of the contact",
+					"type": "string"
+				},
+				"phoneNumber": {
+					"description": "The primary phone number of the contact",
+					"type": "string"
+				}
+			}
+		},
+		"BillPresentationMediaRef": {
+			"description": "PresentationMedia reference. A mean of communicating a bill, supported by the associated bill format. For example, post mail, email, web page.",
+			"type": "object",
+			"properties": {
+				"id": {
+					"description": "Unique identifier of the bill presentation media",
+					"type": "string"
+				},
+				"href": {
+					"description": "Reference of the bill presentation media",
+					"type": "string"
+				},
+				"name": {
+					"description": "A short descriptive name",
+					"type": "string"
+				}
+			}
+		},
+		"BillingAccount": {
+			"description": "A party account used for billing purposes. It includes a description of the bill structure (frequency, presentation media, format and so on).",
+			"required": ["lastCustomerBill"],
+			"type": "object",
+			"properties": {
+				"id": {
+					"description": "Unique identifier of the account",
+					"type": "string"
+				},
+				"state": {
+					"description": "Contains the lifecycle state such as: Active, Closed, Suspended and so on",
+					"$ref": "#/definitions/StateValues"
+				},
+				"billStructure": {
+					"description": "The structure of the bill for party accounts (billling or settlement)",
+					"$ref": "#/definitions/BillStructure"
+				},
+				"defaultPaymentMethod": {
+					"description": "A payment method reference. A payment method defines a specific mean of payment (e.g direct debit with all details associated).",
+					"$ref": "#/definitions/PaymentMethodRef"
+				},
+				"lastCustomerBill": {
+					"description": "",
+					"$ref": "#/definitions/CustomerBill"
+				}
+			}
+		},
+		"SettlementAccount": {
+			"description": "A party account used for settlement purposes. It includes a description of the structure used for the settlement (frequency, presentation media, format and so on).",
+			"type": "object",
+			"properties": {
+				"id": {
+					"description": "Unique identifier of the account",
+					"type": "string"
+				},
+				"href": {
+					"description": "Unique reference of the account",
+					"type": "string"
+				},
+				"type": {
+					"description": "A categorization of an account, such as individual, joint, and so forth, whose instances share some of the same characteristics",
+					"type": "string"
+				},
+				"name": {
+					"description": "Name of the account",
+					"type": "string"
+				},
+				"state": {
+					"description": "Contains the lifecycle state such as: Active, Closed, Suspended and so on",
+					"$ref": "#/definitions/StateValues"
+				},
+				"lastModified": {
+					"description": "Date of last modification of the account",
+					"type": "string",
+					"format": "date-time"
+				},
+				"description": {
+					"description": "Detailed description of the account",
+					"type": "string"
+				},
+				"creditLimit": {
+					"description": "The maximum amount of money that may be charged on an account",
+					"$ref": "#/definitions/Money"
+				},
+				"paymentStatus": {
+					"description": "Payment status  for this account",
+					"type": "string"
+				},
+				"billStructure": {
+					"description": "The structure of the bill for party accounts (billling or settlement)",
+					"$ref": "#/definitions/BillStructure"
+				},
+				"financialAccount": {
+					"description": "A financial account reference. An account of money owed by a party to another entity in exchange for goods or services that have been delivered or used. An account receivable aggregates the amounts of one or more party accounts (billing or settlement) owned by a given party.",
+					"$ref": "#/definitions/FinancialAccountRef"
+				},
+				"paymentPlan": {
+					"description": "A list of payment plans. Defines a plan for payment (when a party wants to spread his payments)",
+					"type": "array",
+					"items": {
+						"$ref": "#/definitions/PaymentPlan"
+					}
+				},
+				"defaultPaymentMethod": {
+					"description": "A payment method reference. A payment method defines a specific mean of payment (e.g direct debit with all details associated).",
+					"$ref": "#/definitions/PaymentMethodRef"
+				},
+				"accountBalance": {
+					"description": "A list of account balances. Balances linked to the account.",
+					"type": "array",
+					"items": {
+						"$ref": "#/definitions/AccountBalance"
+					}
+				},
+				"accountRelationship": {
+					"description": "A list of account relationships. Significant connection between accounts",
+					"type": "array",
+					"items": {
+						"$ref": "#/definitions/AccountRelationship"
+					}
+				},
+				"relatedParty": {
+					"description": "A list of related party references. A related party defines party or party role linked to a specific entity.",
+					"type": "array",
+					"items": {
+						"$ref": "#/definitions/RelatedPartyRef"
+					}
+				},
+				"contact": {
+					"description": "A list of contacts. An individual or an organization used as a contact point for a given account and accessed via some contact medium",
+					"type": "array",
+					"items": {
+						"$ref": "#/definitions/Contact"
+					}
+				},
+				"taxExemption": {
+					"description": "A list of account tax exemptions. Proof of freedom from taxes imposed by a taxing jurisdiction.",
+					"type": "array",
+					"items": {
+						"$ref": "#/definitions/AccountTaxExemption"
+					}
+				}
+			}
+		},
+		"FinancialAccount": {
+			"description": "An account of money owed by a party to another entity in exchange for goods or services that have been delivered or used. A financial (account receivable account/account payable) aggregates the amounts of one or more party accounts (billing or settlement) owned by a given party.",
+			"type": "object",
+			"properties": {
+				"id": {
+					"description": "Unique identifier of the account",
+					"type": "string"
+				},
+				"href": {
+					"description": "Unique reference of the account",
+					"type": "string"
+				},
+				"type": {
+					"description": "A categorization of an account, such as individual, joint, and so forth, whose instances share some of the same characteristics",
+					"type": "string"
+				},
+				"name": {
+					"description": "Name of the account",
+					"type": "string"
+				},
+				"state": {
+					"description": "Contains the lifecycle state such as: Active, Closed, Suspended and so on",
+					"$ref": "#/definitions/StateValues"
+				},
+				"lastModified": {
+					"description": "Date of last modification of the account",
+					"type": "string",
+					"format": "date-time"
+				},
+				"description": {
+					"description": "Detailed description of the account",
+					"type": "string"
+				},
+				"creditLimit": {
+					"description": "The maximum amount of money that may be charged on an account",
+					"$ref": "#/definitions/Money"
+				},
+				"accountBalance": {
+					"description": "A list of account balances. Balances linked to the account.",
+					"type": "array",
+					"items": {
+						"$ref": "#/definitions/AccountBalance"
+					}
+				},
+				"accountRelationship": {
+					"description": "A list of account relationships. Significant connection between accounts",
+					"type": "array",
+					"items": {
+						"$ref": "#/definitions/AccountRelationship"
+					}
+				},
+				"relatedParty": {
+					"description": "A list of related party references. A related party defines party or party role linked to a specific entity.",
+					"type": "array",
+					"items": {
+						"$ref": "#/definitions/RelatedPartyRef"
+					}
+				},
+				"contact": {
+					"description": "A list of contacts. An individual or an organization used as a contact point for a given account and accessed via some contact medium",
+					"type": "array",
+					"items": {
+						"$ref": "#/definitions/Contact"
+					}
+				},
+				"taxExemption": {
+					"description": "A list of account tax exemptions. Proof of freedom from taxes imposed by a taxing jurisdiction.",
+					"type": "array",
+					"items": {
+						"$ref": "#/definitions/AccountTaxExemption"
+					}
+				}
+			}
+		},
+		"BillingCycleSpecification": {
+			"description": "A detailed description of when to initiate a billing cycle and the various sub steps of a billing cycle.",
+			"type": "object",
+			"properties": {
+				"id": {
+					"description": "Unique identifier of the billing cycle specification.",
+					"type": "string"
+				},
+				"href": {
+					"description": "Reference of the billing cycle specification.",
+					"type": "string"
+				},
+				"name": {
+					"description": "A short descriptive name",
+					"type": "string"
+				},
+				"description": {
+					"description": "An explanation regarding this billing cycle specification.",
+					"type": "string"
+				},
+				"billingDateShift": {
+					"description": "An offset of a billing/settlement date. The offset is expressed as number of days with regard to the start of the billing/settlement period.",
+					"type": "integer",
+					"format": "int32"
+				},
+				"billingPeriod": {
+					"description": "A billing time period. It can be recurring, for example: week, month, quarter of year, year .",
+					"type": "string"
+				},
+				"chargeDateOffset": {
+					"description": "An offset of a date through which charges previously received by the billing system will appear on the bill. The offset is expressed as number of days with regard to the start of the BillingPeriod.",
+					"type": "integer",
+					"format": "int32"
+				},
+				"creditDateOffset": {
+					"description": "An offset of a date through which credits previously received by the billing system will appear on the bill. The offset is expressed as number of days with regard to the start of the BillingPeriod.",
+					"type": "integer",
+					"format": "int32"
+				},
+				"frequency": {
+					"description": "Frequency of the billing cycle (monthly for instance)",
+					"type": "string"
+				},
+				"mailingDateOffset": {
+					"description": "An offset of a customer bill mailing date. The offset is expressed as number of days with regard to the start of the BillingPeriod.",
+					"type": "integer",
+					"format": "int32"
+				},
+				"paymentDueDateOffset": {
+					"description": "An offset of a payment due date. The offset is expressed as number of days with regard to the start of the BillingPeriod.",
+					"type": "integer",
+					"format": "int32"
+				},
+				"validPeriod": {
+					"description": "The period for which the billing specification cycle is valid.",
+					"$ref": "#/definitions/TimePeriod"
+				}
+			}
+		},
+		"BillFormat": {
+			"description": "A detailed description of the way in which a bill is presented.",
+			"type": "object",
+			"properties": {
+				"id": {
+					"description": "Unique identifier of the bill format",
+					"type": "string"
+				},
+				"href": {
+					"description": "Reference of the bill format",
+					"type": "string"
+				},
+				"name": {
+					"description": "A short descriptive name",
+					"type": "string"
+				},
+				"description": {
+					"description": "A free short description",
+					"type": "string"
+				}
+			}
+		},
+		"BillPresentationMedia": {
+			"description": "A mean of communicating a bill, supported by the associated bill format. For example, post mail, email, web page.",
+			"type": "object",
+			"properties": {
+				"id": {
+					"description": "Unique identifier of the bill presentation media",
+					"type": "string"
+				},
+				"href": {
+					"description": "Reference of the bill presentation media",
+					"type": "string"
+				},
+				"name": {
+					"description": "A short descriptive name",
+					"type": "string"
+				},
+				"description": {
+					"description": "An explanatory text describing this bill presentation media",
+					"type": "string"
+				}
+			}
+		},
+		"Money": {
+			"description": "A base/value business entity used to represent money",
+			"type": "object",
+			"properties": {
+				"unit": {
+					"description": "Currency code (ISO4217 norm uses 3 letters to define the currency)",
+					"type": "string"
+				},
+				"value": {
+					"description": "A positive floating point number",
+					"type": "number",
+					"format": "float"
+				}
+			}
+		},
+		"CustomerBill": {
+			"description": "",
+			"required": ["billDate", "nextBillDate"],
+			"type": "object",
+			"properties": {
+				"billDate": {
+					"description": "",
+					"type": "string",
+					"format": "date-time"
+				},
+				"nextBillDate": {
+					"description": "",
+					"type": "string",
+					"format": "date-time"
+				}
+			}
+		}
+	}
+}

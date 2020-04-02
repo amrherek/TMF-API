@@ -1,0 +1,259 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions name="SVLBackend"
+	targetNamespace="http://www.orange.com/bscs/SVLBackend/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/"
+	xmlns:tns="http://www.orange.com/bscs/SVLBackend/" xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+	xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" 
+	xmlns:com="http://www.orange.com/BSCS/Interfaces/Common/v1">
+	
+	<wsdl:import location="Common.wsdl" namespace="http://www.orange.com/BSCS/Interfaces/Common/v1"></wsdl:import>
+	
+	<wsdl:types>
+		<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+			targetNamespace="http://www.orange.com/bscs/SVLBackend/"
+			xmlns:comebs="http://www.orange.com/BSCS/Interfaces/Common/v1/Model/EBS">
+			
+			<xsd:import schemaLocation="Common.xsd" namespace="http://www.orange.com/BSCS/Interfaces/Common/v1/Model/EBS"></xsd:import>
+
+			<xsd:element name="execute" type="tns:ExecuteRequest"></xsd:element>
+			<xsd:element name="executeResponse" type="tns:ExecuteResponseMessage"></xsd:element>
+
+			<xsd:complexType name="ExecuteRequest">
+				<xsd:sequence>
+					<xsd:element name="Local_ApiClientRequest" type="comebs:HeaderViewForLocalApiClientRequest" minOccurs="0"></xsd:element>
+					<xsd:element name="operation" type="xsd:string"></xsd:element>
+					<xsd:element name="svlInput" type="xsd:string"></xsd:element>
+				</xsd:sequence>
+			</xsd:complexType>
+
+			<xsd:complexType name="ExecuteResponseMessage">
+				<xsd:sequence>
+					<xsd:element name="Local_ApiClientResponse" type="comebs:HeaderViewForLocalApiClientResponse" minOccurs="0"></xsd:element>
+					<xsd:element name="svlOutput" type="xsd:string"></xsd:element>
+				</xsd:sequence>
+			</xsd:complexType>
+			<xsd:element name="executeFault">
+				<xsd:complexType>
+					<xsd:sequence>
+						<xsd:element name="executeFault" type="comebs:FaultViewForFaultMessage">
+						</xsd:element>
+					</xsd:sequence>
+				</xsd:complexType>
+			</xsd:element>
+
+
+			<xsd:element name="getCommands" type="tns:GetCommandRequest"></xsd:element>
+			<xsd:element name="getCommandsResponse" type="tns:GetCommandResponse"></xsd:element>
+
+			<xsd:complexType name="GetCommandRequest">
+				<xsd:sequence>
+					<xsd:element name="Local_ApiClientRequest" type="comebs:HeaderViewForLocalApiClientRequest" minOccurs="0"></xsd:element>
+					<xsd:element name="componentName" type="xsd:string"></xsd:element>
+					<xsd:element name="componentVersion" type="xsd:string"></xsd:element>
+				</xsd:sequence>
+			</xsd:complexType>
+			<xsd:complexType name="GetCommandResponse">
+				<xsd:sequence>
+					<xsd:element name="Local_ApiClientResponse" type="comebs:HeaderViewForLocalApiClientResponse" minOccurs="0"></xsd:element>
+					<xsd:element name="commandNames" type="xsd:string"
+						nillable="true" maxOccurs="unbounded"></xsd:element>
+				</xsd:sequence>
+			</xsd:complexType>
+
+			<xsd:element name="getInputList" type="tns:GetListRequest"></xsd:element>
+			<xsd:element name="getInputListResponse" type="tns:GetListResponse"></xsd:element>
+
+			<xsd:element name="getOutputList" type="tns:GetListRequest"></xsd:element>
+			<xsd:element name="getOutputListResponse" type="tns:GetListResponse"></xsd:element>
+
+
+			<xsd:complexType name="GetListRequest">
+				<xsd:sequence>
+					<xsd:element name="Local_ApiClientRequest" type="comebs:HeaderViewForLocalApiClientRequest" minOccurs="0"></xsd:element>
+					<xsd:element name="commandName" type="xsd:string"></xsd:element>
+					<xsd:element name="componentName" type="xsd:string"></xsd:element>
+					<xsd:element name="componentVersion" type="xsd:string"></xsd:element>
+				</xsd:sequence>
+			</xsd:complexType>
+
+			<xsd:complexType name="GetListResponse">
+				<xsd:sequence>
+					<xsd:element name="Local_ApiClientResponse" type="comebs:HeaderViewForLocalApiClientResponse" minOccurs="0"></xsd:element>
+					<xsd:element name="parameterList" type="tns:SOAParameterList"
+						nillable="true" minOccurs="0"></xsd:element>
+				</xsd:sequence>
+			</xsd:complexType>
+
+			<xsd:complexType name="SOAParameterList">
+				<xsd:sequence>
+					<xsd:element name="parameter" type="tns:SOAParameterInfo"
+						maxOccurs="unbounded"></xsd:element>
+				</xsd:sequence>
+			</xsd:complexType>
+
+			<xsd:complexType name="SOAParameterInfo">
+				<xsd:sequence>
+					<xsd:element name="subList" type="tns:SOAParameterList"></xsd:element>
+				</xsd:sequence>
+				<xsd:attribute name="name" type="xsd:string"></xsd:attribute>
+				<xsd:attribute name="type" type="xsd:int"></xsd:attribute>
+				<xsd:attribute name="flags" type="xsd:int"></xsd:attribute>
+				<xsd:attribute name="length" type="xsd:short"></xsd:attribute>
+				
+				<xsd:attribute name="mandatory" type="xsd:boolean" use="optional"> </xsd:attribute>
+				<xsd:attribute name="publicKey" type="xsd:boolean" use="optional"> </xsd:attribute>
+				<xsd:attribute name="privateKey" type="xsd:boolean" use="optional"> </xsd:attribute>
+				
+			</xsd:complexType>
+
+		</xsd:schema>
+	</wsdl:types>
+	<wsdl:message name="executeRequest">
+		<wsdl:part name="parameters" element="tns:execute"></wsdl:part>
+	</wsdl:message>
+	<wsdl:message name="executeResponse">
+		<wsdl:part name="parameters" element="tns:executeResponse"></wsdl:part>
+	</wsdl:message>
+	<wsdl:message name="executeFault">
+		<wsdl:part name="parameters" element="tns:executeFault"></wsdl:part>
+	</wsdl:message>
+	<wsdl:message name="executeFault1">
+		<wsdl:part name="parameters" element="tns:executeFault"></wsdl:part>
+	</wsdl:message>
+	<!-- <wsdl:message name="executeFault11">
+		<wsdl:part name="fault1" element="tns:executeFault11"></wsdl:part>
+	</wsdl:message> -->
+
+	<wsdl:message name="getCommandsRequest">
+		<wsdl:part name="parameters" element="tns:getCommands"></wsdl:part>
+	</wsdl:message>
+	<wsdl:message name="getCommandsResponse">
+		<wsdl:part name="parameters" element="tns:getCommandsResponse"></wsdl:part>
+	</wsdl:message>
+
+	<wsdl:message name="getInputListRequest">
+		<wsdl:part name="parameters" element="tns:getInputList"></wsdl:part>
+	</wsdl:message>
+	<wsdl:message name="getInputListResponse">
+		<wsdl:part name="parameters" element="tns:getInputListResponse"></wsdl:part>
+	</wsdl:message>
+
+	<wsdl:message name="getOutputListRequest">
+		<wsdl:part name="parameters" element="tns:getOutputList"></wsdl:part>
+	</wsdl:message>
+	<wsdl:message name="getOutputListResponse">
+		<wsdl:part name="parameters" element="tns:getOutputListResponse"></wsdl:part>
+	</wsdl:message>
+
+
+	<wsdl:portType name="SVLBackendPortType">
+		<wsdl:operation name="execute">
+			<wsdl:input message="tns:executeRequest"></wsdl:input>
+			<wsdl:output message="tns:executeResponse"></wsdl:output>
+			<wsdl:fault name="fault" message="com:SOIExceptionFault"></wsdl:fault>
+			<wsdl:fault name="TechnicalExceptionFault" message="com:TechnicalExceptionFault" />			<wsdl:fault name="InvalidTransactionIDExceptionFault" message="com:InvalidTransactionIDExceptionFault"/>
+			<wsdl:fault name="PoolExceptionFault" message="com:PoolExceptionFault"/>
+			<wsdl:fault name="AuthenticationExceptionFault" message="com:AuthenticationExceptionFault"/>
+		</wsdl:operation>
+		<wsdl:operation name="getCommands">
+			<wsdl:input message="tns:getCommandsRequest"></wsdl:input>
+			<wsdl:output message="tns:getCommandsResponse"></wsdl:output>
+			<wsdl:fault name="fault" message="com:SOIExceptionFault"></wsdl:fault>
+			<wsdl:fault name="InvalidTransactionIDExceptionFault" message="com:InvalidTransactionIDExceptionFault"/>
+			<wsdl:fault name="PoolExceptionFault" message="com:PoolExceptionFault"/>
+			<wsdl:fault name="AuthenticationExceptionFault" message="com:AuthenticationExceptionFault"/>
+		</wsdl:operation>
+		<wsdl:operation name="getInputList">
+			<wsdl:input message="tns:getInputListRequest"></wsdl:input>
+			<wsdl:output message="tns:getInputListResponse"></wsdl:output>
+			<wsdl:fault name="fault" message="com:SOIExceptionFault"></wsdl:fault>
+			<wsdl:fault name="InvalidTransactionIDExceptionFault" message="com:InvalidTransactionIDExceptionFault"/>
+			<wsdl:fault name="PoolExceptionFault" message="com:PoolExceptionFault"/>
+			<wsdl:fault name="AuthenticationExceptionFault" message="com:AuthenticationExceptionFault"/>
+		</wsdl:operation>
+		<wsdl:operation name="getOutputList">
+			<wsdl:input message="tns:getOutputListRequest"></wsdl:input>
+			<wsdl:output message="tns:getOutputListResponse"></wsdl:output>
+			<wsdl:fault name="fault" message="com:SOIExceptionFault"></wsdl:fault>
+			<wsdl:fault name="InvalidTransactionIDExceptionFault" message="com:InvalidTransactionIDExceptionFault"/>
+			<wsdl:fault name="PoolExceptionFault" message="com:PoolExceptionFault"/>
+			<wsdl:fault name="AuthenticationExceptionFault" message="com:AuthenticationExceptionFault"/>
+		</wsdl:operation>
+	</wsdl:portType>
+	<wsdl:binding name="SVLBackendBinding" type="tns:SVLBackendPortType">
+		<soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http" />
+		<wsdl:operation name="execute">
+			<soap:operation soapAction="http://www.orange.com/bscs/SVLBackend/execute" />
+			<wsdl:input>
+  				<soap:header message="com:HeaderViewForLocalApiClientRequestMessage" part="request_header" use="literal"/>
+				<soap:body use="literal" />
+			</wsdl:input>
+			<wsdl:output>
+  				<soap:header message="com:HeaderViewForLocalApiClientResponseMessage" part="response_header" use="literal"/>
+				<soap:body use="literal" />
+			</wsdl:output>
+			<wsdl:fault name="fault">
+				<soap:fault use="literal" name="fault" />
+			</wsdl:fault>
+			<wsdl:fault name="TechnicalExceptionFault"><soap:fault use="literal" name="TechnicalExceptionFault"/></wsdl:fault>
+			<wsdl:fault name="InvalidTransactionIDExceptionFault"><soap:fault use="literal" name="InvalidTransactionIDExceptionFault"/></wsdl:fault>
+			<wsdl:fault name="PoolExceptionFault"><soap:fault use="literal" name="PoolExceptionFault"/></wsdl:fault>
+			<wsdl:fault name="AuthenticationExceptionFault"><soap:fault use="literal" name="AuthenticationExceptionFault"/></wsdl:fault>
+		</wsdl:operation>
+		<wsdl:operation name="getCommands">
+			<soap:operation soapAction="http://www.orange.com/bscs/SVLBackend/getCommands" />
+			<wsdl:input>
+				<soap:header message="com:HeaderViewForLocalApiClientRequestMessage" part="request_header" use="literal"/>
+				<soap:body use="literal" />
+			</wsdl:input>
+			<wsdl:output>
+  				<soap:header message="com:HeaderViewForLocalApiClientResponseMessage" part="response_header" use="literal"/>
+				<soap:body use="literal" />
+			</wsdl:output>
+			<wsdl:fault name="fault">
+				<soap:fault use="literal" name="fault" />
+			</wsdl:fault>
+			<wsdl:fault name="InvalidTransactionIDExceptionFault"><soap:fault use="literal" name="InvalidTransactionIDExceptionFault"/></wsdl:fault>
+			<wsdl:fault name="PoolExceptionFault"><soap:fault use="literal" name="PoolExceptionFault"/></wsdl:fault>
+			<wsdl:fault name="AuthenticationExceptionFault"><soap:fault use="literal" name="AuthenticationExceptionFault"/></wsdl:fault>
+		</wsdl:operation>
+		<wsdl:operation name="getInputList">
+			<soap:operation soapAction="http://www.orange.com/bscs/SVLBackend/getInputList" />
+			<wsdl:input>
+				<soap:header message="com:HeaderViewForLocalApiClientRequestMessage" part="request_header" use="literal"/>
+				<soap:body use="literal" />
+			</wsdl:input>
+			<wsdl:output>
+  				<soap:header message="com:HeaderViewForLocalApiClientResponseMessage" part="response_header" use="literal"/>
+				<soap:body use="literal" />
+			</wsdl:output>
+			<wsdl:fault name="fault">
+				<soap:fault use="literal" name="fault" />
+			</wsdl:fault>
+			<wsdl:fault name="InvalidTransactionIDExceptionFault"><soap:fault use="literal" name="InvalidTransactionIDExceptionFault"/></wsdl:fault>
+			<wsdl:fault name="PoolExceptionFault"><soap:fault use="literal" name="PoolExceptionFault"/></wsdl:fault>
+			<wsdl:fault name="AuthenticationExceptionFault"><soap:fault use="literal" name="AuthenticationExceptionFault"/></wsdl:fault>
+		</wsdl:operation>
+		<wsdl:operation name="getOutputList">
+			<soap:operation soapAction="http://www.orange.com/bscs/SVLBackend/getOutputList" />
+			<wsdl:input>
+  				<soap:header message="com:HeaderViewForLocalApiClientRequestMessage" part="request_header" use="literal"/>
+				<soap:body use="literal" />
+			</wsdl:input>
+			<wsdl:output>
+  				<soap:header message="com:HeaderViewForLocalApiClientResponseMessage" part="response_header" use="literal"/>
+				<soap:body use="literal" />
+			</wsdl:output>
+			<wsdl:fault name="fault">
+				<soap:fault use="literal" name="fault" />
+			</wsdl:fault>
+			<wsdl:fault name="InvalidTransactionIDExceptionFault"><soap:fault use="literal" name="InvalidTransactionIDExceptionFault"/></wsdl:fault>
+			<wsdl:fault name="PoolExceptionFault"><soap:fault use="literal" name="PoolExceptionFault"/></wsdl:fault>
+			<wsdl:fault name="AuthenticationExceptionFault"><soap:fault use="literal" name="AuthenticationExceptionFault"/></wsdl:fault>
+		</wsdl:operation>
+	</wsdl:binding>
+	<wsdl:service name="SVLBackend">
+		<wsdl:port name="SVLBackendPort" binding="tns:SVLBackendBinding">
+			<soap:address location="http://www.orange.com/bscs" />
+		</wsdl:port>
+	</wsdl:service>
+</wsdl:definitions>

@@ -1,0 +1,29 @@
+<!--
+execute (ALLOWED_SERVICES.READ, \{RPCODE_PUB = 73 : java.lang.Long
+\}
+-->
+=> {
+RPCODE = 73 : java.lang.Long
+RP_VSCODE = 1 : java.lang.Long
+LIST_SP_CODE = sub element : com.lhs.ccb.common.soiimpl.NamedValueContainerList
+RPCODE_PUB = FMI_F : java.lang.String
+-[0]SPCODE_PUB = SP_Fi : java.lang.String
+-[0]SPCODE = 63 : java.lang.Long
+-[0]LIST_SN_CODE = sub element : com.lhs.ccb.common.soiimpl.NamedValueContainerList
+-[0]-[0]SERVICE_PARAMERTER_IND = false : java.lang.Boolean
+-[0]-[0]SNCODE_PUB = TNPS : java.lang.String
+-[0]-[0]SNCODE = 999 : java.lang.Long
+-[0]-[1]SERVICE_PARAMERTER_IND = false : java.lang.Boolean
+-[0]-[1]SNCODE_PUB = DIRNU : java.lang.String
+-[0]-[1]SNCODE = 998 : java.lang.Long
+-[0]-[2]SERVICE_PARAMERTER_IND = false : java.lang.Boolean
+-[0]-[2]SNCODE_PUB = RESRE : java.lang.String
+-[0]-[2]SNCODE = 997 : java.lang.Long
+-[1]SPCODE_PUB = P_set : java.lang.String
+-[1]SPCODE = 64 : java.lang.Long
+-[1]LIST_SN_CODE = sub element : com.lhs.ccb.common.soiimpl.NamedValueContainerList
+-[1]-[0]SERVICE_PARAMERTER_IND = false : java.lang.Boolean
+-[1]-[0]SNCODE_PUB = SD36C : java.lang.String
+-[1]-[0]SNCODE = 265 : java.lang.Long
+}
+

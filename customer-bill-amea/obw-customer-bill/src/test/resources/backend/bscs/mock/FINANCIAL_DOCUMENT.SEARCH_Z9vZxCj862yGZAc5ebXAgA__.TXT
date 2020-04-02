@@ -1,0 +1,65 @@
+<!--
+execute (FINANCIAL_DOCUMENT.SEARCH, {
+IGNORE_BU_IND = true : java.lang.Boolean
+CS_ID_PUB = CUST0000000101 : java.lang.String
+DOC_TYPES = sub element : com.lhs.ccb.common.soiimpl.NamedValueContainerList
+-[0]DOC_TYPE = IN : java.lang.String
+REF_DATE_FROM = YYYY-MM-DD: 2000-1-1 : com.lhs.ccb.common.soiimpl.SVLDateImpl
+ORDR_REF_DATE = d : java.lang.Character
+})
+-->
+ => {
+DOCUMENTS = sub element : com.lhs.ccb.common.soiimpl.NamedValueContainerList
+-[0]PAYMENT_MODE_ID = 4 : java.lang.Long
+-[0]ADR_FNAME = Osvaldo : java.lang.String
+-[0]TAKEN_DISCOUNT_AMOUNT_DOC = 0.0BWP : com.lhs.ccb.common.soiimpl.SVLMoneyImpl
+-[0]CS_ID = 47 : java.lang.Long
+-[0]REF_DATE = YYYY-MM-DD: 2015-1-16 : com.lhs.ccb.common.soiimpl.SVLDateImpl
+-[0]GRANTED_DISCOUNT_AMOUNT_DOC = 0.0BWP : com.lhs.ccb.common.soiimpl.SVLMoneyImpl
+-[0]CS_CODE = 1.10000014 : java.lang.String
+-[0]PROPOSED_PAY_METHOD_ID = -3 : java.lang.Long
+-[0]REF_DOC = false : java.lang.Boolean
+-[0]DOC_CREDIT_DEBIT_TYPE = D : java.lang.Character
+-[0]REV_DOCUMENT = false : java.lang.Boolean
+-[0]DOC_TYPE = IN : java.lang.String
+-[0]BILLING_ACCOUNT_ID = 47 : java.lang.Long
+-[0]BU_ID = 3 : java.lang.Long
+-[0]CS_ID_PUB = CUST0000000047 : java.lang.String
+-[0]OPEN_AMOUNT_DOC = 799.0BWP : com.lhs.ccb.common.soiimpl.SVLMoneyImpl
+-[0]DISCOUNT_DATE = YYYY-MM-DD: 2015-1-16 : com.lhs.ccb.common.soiimpl.SVLDateImpl
+-[0]GL_CURRENCY = 43 : java.lang.Long
+-[0]DOCUMENT_CODE = 01166662610115 : java.lang.String
+-[0]DUE_DATE = YYYY-MM-DD: 2015-1-30 : com.lhs.ccb.common.soiimpl.SVLDateImpl
+-[0]ENTRY_DATE = Fri Jan 16 00:00:00 CET 2015 : com.lhs.ccb.common.soiimpl.SVLDateTimeImpl
+-[0]IMAGE_GENERATED = false : java.lang.Boolean
+-[0]DOCUMENT_ID = 4832268 : java.lang.Long
+-[0]DOCUMENT_AMOUNT_DOC = 799.0BWP : com.lhs.ccb.common.soiimpl.SVLMoneyImpl
+-[0]REVERSED = false : java.lang.Boolean
+-[0]ADR_LNAME = Matome : java.lang.String
+-[1]PAYMENT_MODE_ID = 4 : java.lang.Long
+-[1]ADR_FNAME = Osvaldo : java.lang.String
+-[1]TAKEN_DISCOUNT_AMOUNT_DOC = 0.0BWP : com.lhs.ccb.common.soiimpl.SVLMoneyImpl
+-[1]CS_ID = 47 : java.lang.Long
+-[1]REF_DATE = YYYY-MM-DD: 2014-12-16 : com.lhs.ccb.common.soiimpl.SVLDateImpl
+-[1]GRANTED_DISCOUNT_AMOUNT_DOC = 0.0BWP : com.lhs.ccb.common.soiimpl.SVLMoneyImpl
+-[1]CS_CODE = 1.10000014 : java.lang.String
+-[1]PROPOSED_PAY_METHOD_ID = -3 : java.lang.Long
+-[1]REF_DOC = false : java.lang.Boolean
+-[1]DOC_CREDIT_DEBIT_TYPE = D : java.lang.Character
+-[1]REV_DOCUMENT = false : java.lang.Boolean
+-[1]DOC_TYPE = IN : java.lang.String
+-[1]BILLING_ACCOUNT_ID = 47 : java.lang.Long
+-[1]BU_ID = 3 : java.lang.Long
+-[1]CS_ID_PUB = CUST0000000047 : java.lang.String
+-[1]OPEN_AMOUNT_DOC = 0.0BWP : com.lhs.ccb.common.soiimpl.SVLMoneyImpl
+-[1]DISCOUNT_DATE = YYYY-MM-DD: 2014-12-16 : com.lhs.ccb.common.soiimpl.SVLDateImpl
+-[1]GL_CURRENCY = 43 : java.lang.Long
+-[1]DOCUMENT_CODE = 01166280711214 : java.lang.String
+-[1]DUE_DATE = YYYY-MM-DD: 2014-12-30 : com.lhs.ccb.common.soiimpl.SVLDateImpl
+-[1]ENTRY_DATE = Tue Dec 16 00:00:00 CET 2014 : com.lhs.ccb.common.soiimpl.SVLDateTimeImpl
+-[1]IMAGE_GENERATED = false : java.lang.Boolean
+-[1]DOCUMENT_ID = 4790336 : java.lang.Long
+-[1]DOCUMENT_AMOUNT_DOC = 1092.75BWP : com.lhs.ccb.common.soiimpl.SVLMoneyImpl
+-[1]REVERSED = false : java.lang.Boolean
+-[1]ADR_LNAME = Matome : java.lang.String
+}

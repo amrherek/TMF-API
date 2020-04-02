@@ -1,0 +1,36 @@
+[
+    {
+        "id": "CONT0000040109|A|FaFF",
+        "name": "Friends and Family",
+        "status": "Active",
+        "isBundle": false,
+        "startDate": "2017-05-31T08:01:49Z",
+        "orderDate": "2017-05-31T08:01:49Z",
+        "productOffering": {
+            "id": "FaFF",
+            "category": "option",
+            "name": "Friends and Family"
+        },
+        "productSpecification": {
+            "id": "faf"
+        },
+        "productCharacteristic": [
+            {
+                "name": "faf",
+                "value": "26774843725"
+            },
+            {
+                "name": "faf",
+                "value": "26774843726"
+            }
+        ],
+        "productRelationship": [
+            {
+                "type": "isContainedIn",
+                "product": {
+                    "id": "CONT0000040109|C|GeSPH"
+                }
+            }
+        ]
+    }
+]

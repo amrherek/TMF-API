@@ -1,0 +1,16 @@
+server:
+    port: 8082
+spring:
+    application:
+        name: '@project.artifactId@'
+    jpa:
+        database-platform: org.hibernate.dialect.Oracle10gDialect
+        show_sql: false
+    jackson:
+        serialization:
+            WRITE_DATES_AS_TIMESTAMPS: false
+            WRITE_EMPTY_JSON_ARRAYS: false
+            
+api:
+  name: productInventory
+  version: '@project.version@'   

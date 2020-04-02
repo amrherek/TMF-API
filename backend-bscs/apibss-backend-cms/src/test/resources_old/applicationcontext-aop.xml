@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+		xmlns:context="http://www.springframework.org/schema/context"
+		xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+		xmlns:aop="http://www.springframework.org/schema/aop"
+		xsi:schemaLocation="
+			http://www.springframework.org/schema/beans 	http://www.springframework.org/schema/beans/spring-beans.xsd
+			http://www.springframework.org/schema/context	http://www.springframework.org/schema/context/spring-context.xsd
+			http://www.springframework.org/schema/aop		http://www.springframework.org/schema/aop/spring-aop-3.0.xsd
+			http://cxf.apache.org/jaxws 					http://cxf.apache.org/schemas/jaxws.xsd">
+	
+
+	<aop:config proxy-target-class="false">
+		<aop:aspect id="initSOIContext" ref="springAspect">
+			<!-- <aop:pointcut id="isWebService" expression="@target(javax.jws.WebService) "/> -->
+			<!-- <aop:pointcut id="isWebService" expression="execution (* sampleOperation(..)) "/> -->
+			<aop:pointcut id="isWebService" expression="execution(* com.orange.bscs.api.test.ws.*.*(..))"/>
+			<!-- &amp;&amp; args(localApiClientRequest)" /> -->
+			
+			<aop:around pointcut-ref="isWebService"
+					method="doOperation"/>
+		</aop:aspect>
+	</aop:config>
+
+	<bean id="springAspect" class="com.orange.bscs.api.aop.SpringAspect"></bean>
+	
+
+	<!-- Read the application configuration file -->
+	<context:property-placeholder location="classpath:apibscs-default.properties" />
+
+	<import resource="classpath:dao-test.xml" />
+
+	<!--
+		===================
+		 GENERIC ENDPOINTS
+		===================
+	 -->
+	<bean id="sampleServiceImpl" 
+		  class="com.orange.bscs.api.test.ws.SampleServiceImpl">
+	</bean>
+
+
+	<bean id="addressService" 
+		  class="com.orange.bscs.api.test.business.AddressService">
+	</bean>
+		
+</beans>

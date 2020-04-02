@@ -1,0 +1,19 @@
+<!--
+ execute (RATEPLANS.READ, {
+RPCODE_PUB = GeSPH : java.lang.String
+})
+-->
+ => {
+NUM_RP = sub element : com.lhs.ccb.common.soiimpl.NamedValueContainerList
+-[0]RPCODE = 58 : java.lang.Long
+-[0]RP_OCC = true : java.lang.Boolean
+-[0]AV_FROM = YYYY-MM-DD: 1990-1-1 : com.lhs.ccb.common.soiimpl.SVLDateImpl
+-[0]RP_VSCODE = 1 : java.lang.Long
+-[0]SCOPE = B : java.lang.Character
+-[0]RP_DES = Orange Gem Sapphire : java.lang.String
+-[0]PAYMENT_METHOD_IND = P : java.lang.Character
+-[0]RP_SHDES = GeSPH : java.lang.String
+-[0]RPCODE_PUB = GeSPH : java.lang.String
+
+}
+

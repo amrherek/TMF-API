@@ -1,0 +1,62 @@
+<!--
+ execute (CONTRACT.READ, {
+CO_ID_PUB = CONTR0000000111 : java.lang.String
+})
+-->
+ => {
+CS_BILLCYCLE = 04 : java.lang.String
+CS_LAST_BC_DATE = YYYY-MM-DD: 2004-6-14 : com.lhs.ccb.common.soiimpl.SVLDateImpl
+SCCODE_PUB = ISD : java.lang.String
+FIRST_CS_ID_PUB = 0.00000000 : java.lang.String
+RPCODE = 72 : java.lang.Long
+CO_ENTDATE = Thu May 30 12:57:36 CEST 2013 : com.lhs.ccb.common.soiimpl.SVLDateTimeImpl
+CO_ID_PUB = CONTR0000000111 : java.lang.String
+SCCODE = 6 : java.lang.Long
+CS_ID = 101 : java.lang.Long
+CO_MODDATE = Thu May 30 12:57:37 CEST 2013 : com.lhs.ccb.common.soiimpl.SVLDateTimeImpl
+BM_ID = 6 : java.lang.Long
+CURRENCY_ID = 43 : java.lang.Long
+CO_PSTN_DIR = false : java.lang.Boolean
+CO_STATUS = 1 : java.lang.Integer
+SUBM_ID = 8 : java.lang.Long
+CO_SIGNED_DATE = YYYY-MM-DD: 2013-5-30 : com.lhs.ccb.common.soiimpl.SVLDateImpl
+CO_TYPE =  : java.lang.String
+CURRENCY_ID_PUB = EUR : java.lang.String
+FIRST_CS_ID = 382 : java.lang.Long
+PRERATED_TAP_RP = false : java.lang.Boolean
+USERINSTALLATION_ADR = false : java.lang.Boolean
+CO_NONEXPL_SERV_PAYMENT_TYPE = O : java.lang.Character
+CO_EQUIPMENT_STATUS =  : java.lang.String
+CO_OP_DIR = false : java.lang.Boolean
+PLCODE_PUB = DGTLC : java.lang.String
+CS_ID_PUB = CUST0000000101 : java.lang.String
+services = sub element : com.lhs.ccb.common.soiimpl.NamedValueContainerList
+-[0]CO_SN_STATUS = 1 : java.lang.Integer
+-[0]PROFILE_ID = 0 : java.lang.Long
+-[0]SNCODE_PUB = ITEL : java.lang.String
+-[0]CO_SN_PENDING_STATUS = 0 : java.lang.Integer
+-[0]SPCODE_PUB = SP_Fi : java.lang.String
+-[0]SPCODE = 63 : java.lang.Long
+-[0]SNCODE = 25 : java.lang.Long
+-[1]CO_SN_STATUS = 1 : java.lang.Integer
+-[1]PROFILE_ID = 0 : java.lang.Long
+-[1]SNCODE_PUB = Ltpl : java.lang.String
+-[1]CO_SN_PENDING_STATUS = 0 : java.lang.Integer
+-[1]SPCODE_PUB = SP_Fi : java.lang.String
+-[1]SPCODE = 63 : java.lang.Long
+-[1]SNCODE = 264 : java.lang.Long
+CONTRACT_TYPE_ID = 1 : java.lang.Long
+DESCRIPTION =  : java.lang.String
+CO_LAST_STATUS_CHANGE_DATE = Thu May 30 00:00:00 CEST 2013 : com.lhs.ccb.common.soiimpl.SVLDateTimeImpl
+PLCODE = 1007 : java.lang.Long
+CO_TRIAL_END_DATE = YYYY-MM-DD: 2-1-1 : com.lhs.ccb.common.soiimpl.SVLDateImpl
+CO_ID = 111 : java.lang.Long
+CO_LAST_REASON = 6 : java.lang.Long
+BM_ID_PUB = L1PDF : java.lang.String
+CALL_DETAIL = null : unknown
+CO_ARCHIVE = true : java.lang.Boolean
+SUBM_ID_PUB = ISDNi : java.lang.String
+CO_STMEDNO =  : java.lang.String
+RPCODE_PUB = FMI_F : java.lang.String
+}
+

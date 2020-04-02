@@ -1,0 +1,9 @@
+<!--
+execute (PAYMENT_ARRANGEMENTS.READ, {
+FLAG_CURRENT = false : java.lang.Boolean
+CS_ID = 999 : java.lang.Long
+}
+-->
+ => {
+LIST_OF_PAYMENT_ARRANGEMENTS = sub element : com.lhs.ccb.common.soiimpl.NamedValueContainerList
+}

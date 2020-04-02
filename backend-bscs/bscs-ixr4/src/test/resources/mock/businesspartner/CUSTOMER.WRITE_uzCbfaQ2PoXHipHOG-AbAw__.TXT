@@ -1,0 +1,8 @@
+<!--
+execute (CUSTOMER.WRITE, {
+CS_ID_PUB = CUST0000000101 : java.lang.String
+CS_STATUS = a : java.lang.Character
+RS_CODE = 6 : java.lang.Long
+} -->
+ => {
+} 

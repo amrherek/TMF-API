@@ -1,0 +1,22 @@
+<!--
+ execute (PAYMENT_TERMS.READ, {
+})
+-->
+ => {
+paymentterms = sub element : com.lhs.ccb.common.soiimpl.NamedValueContainerList
+-[0]TERM_NAME = Default Term : java.lang.String
+-[0]TERM_DISRATE = 0.0 : java.lang.Double
+-[0]TERM_NET = 0 : java.lang.Integer
+-[0]TERM_DEFAULT = true : java.lang.Boolean
+-[0]TERM_CODE = 1 : java.lang.Long
+-[0]TERM_DISDAYS = 0 : java.lang.Integer
+-[0]TERM_TYPE = N : java.lang.String
+-[1]TERM_NAME = 20 days : java.lang.String
+-[1]TERM_DISRATE = 0.0 : java.lang.Double
+-[1]TERM_NET = 20 : java.lang.Integer
+-[1]TERM_DEFAULT = false : java.lang.Boolean
+-[1]TERM_CODE = 2 : java.lang.Long
+-[1]TERM_DISDAYS = 0 : java.lang.Integer
+-[1]TERM_TYPE = N : java.lang.String
+}
+

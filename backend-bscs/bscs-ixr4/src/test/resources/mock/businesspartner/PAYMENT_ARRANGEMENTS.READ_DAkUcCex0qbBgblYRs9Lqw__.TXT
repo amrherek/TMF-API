@@ -1,0 +1,35 @@
+<!--
+execute (PAYMENT_ARRANGEMENTS.READ, {
+CS_ID_PUB = CUST0000000101 : java.lang.String
+FLAG_CURRENT = false : java.lang.Boolean
+}
+-->
+ => {
+LIST_OF_PAYMENT_ARRANGEMENTS = sub element : com.lhs.ccb.common.soiimpl.NamedValueContainerList
+-[0]CS_ID_PUB = CUST0000000101 : java.lang.String
+-[0]CSP_CCAG_CODE_PUB = EUROCARD : java.lang.String
+-[0]CSP_BANKZIP = 10000 : java.lang.String
+-[0]AUTH_OK = false : java.lang.Boolean
+-[0]CS_ID = 761 : java.lang.Long
+-[0]CSP_PMNT_ID_PUB = R : java.lang.String
+-[0]CSP_BANKNAME = Eurocard : java.lang.String
+-[0]CSP_SEQNO = 3 : java.lang.Long
+-[0]CSP_BANKCITY = Europolis : java.lang.String
+-[0]CSP_ACT_USED = true : java.lang.Boolean
+-[0]CSP_CCVALIDDT = 0630 : java.lang.String
+-[0]CSP_CCAG_CODE = -2 : java.lang.Long
+-[0]CSP_ACCOWNER = John Doe : java.lang.String
+-[0]CSP_ACCNO = 45667898 : java.lang.String
+-[0]CSP_PMNT_ID = -5 : java.lang.Long
+-[1]CSP_SWIFTCODE = 3456789101 : java.lang.String
+-[1]CSP_ACT_USED = false : java.lang.Boolean
+-[1]CS_ID_PUB = CUST0000000101 : java.lang.String
+-[1]AUTH_OK = false : java.lang.Boolean
+-[1]CSP_ACCOWNER = John : java.lang.String
+-[1]CS_ID = 761 : java.lang.Long
+-[1]CSP_PMNT_ID = -3 : java.lang.Long
+-[1]CSP_ACCNO = 1234567891011 : java.lang.String
+-[1]CSP_PMNT_ID_PUB = D : java.lang.String
+-[1]CSP_BANKNAME = Eureka : java.lang.String
+-[1]CSP_SEQNO = 4 : java.lang.Long
+}

@@ -1,0 +1,50 @@
+<!--
+ execute (SERVICES.READ, {
+SPCODE_PUB = GeSPH : java.lang.String
+SNCODE_PUB = FaFF : java.lang.String
+RPCODE_PUB = GeSPH : java.lang.String
+})
+-->
+ => {
+RPCODE = 58 : java.lang.Long
+RP_VSCODE = 1 : java.lang.Long
+SPCODE_PUB = GeSPH : java.lang.String
+SPCODE = 17 : java.lang.Long
+NUM_SV = sub element : com.lhs.ccb.common.soiimpl.NamedValueContainerList
+-[0]ADVIND = A : java.lang.Character
+-[0]PDE_IMPLICIT_IND = false : java.lang.Boolean
+-[0]DEF_PAYMENT_COND_ONETIME_REC_IND = 1 : java.lang.Integer
+-[0]PROIND = Y : java.lang.Character
+-[0]INTERVAL_TYPE = M : java.lang.Character
+-[0]SNCODE = 57 : java.lang.Long
+-[0]SV_TYPE = ￿ : java.lang.Character
+-[0]ACC_GLACCOUNT_MINCOM = 300000 : java.lang.String
+-[0]PAYMENT_COND_CHNG_USG_IND = false : java.lang.Boolean
+-[0]CHARGING_SCHEDULE = B : java.lang.Character
+-[0]ACC_GLACCOUNT = 320200 : java.lang.String
+-[0]SC_SCCODE = 1 : java.lang.Long
+-[0]DEF_TYPE_OF_CONTROL = 2 : java.lang.Integer
+-[0]INTERVAL = 1 : java.lang.Integer
+-[0]SUSIND = true : java.lang.Boolean
+-[0]SV_SHDES = FaFF : java.lang.String
+-[0]CHARGES = sub element : com.lhs.ccb.common.soiimpl.NamedValueContainerList
+-[0]-[0]CHARGE_TYPE_ID = 1 : java.lang.Long
+-[0]-[0]CHARGE_AMOUNT = 0.0BWP : com.lhs.ccb.common.soiimpl.SVLMoneyImpl
+-[0]-[1]CHARGE_TYPE_ID = 3 : java.lang.Long
+-[0]-[1]CHARGE_AMOUNT = 8.93BWP : com.lhs.ccb.common.soiimpl.SVLMoneyImpl
+-[0]-[2]CHARGE_TYPE_ID = 6 : java.lang.Long
+-[0]-[2]CHARGE_AMOUNT = 8.93BWP : com.lhs.ccb.common.soiimpl.SVLMoneyImpl
+-[0]BILLING_IND = true : java.lang.Boolean
+-[0]SNCODE_PUB = FaFF : java.lang.String
+-[0]AMTIND = C : java.lang.Character
+-[0]SV_DES = Friends and Family : java.lang.String
+-[0]DEF_PAYMENT_COND_USG_IND = 1 : java.lang.Integer
+-[0]SRVIND = P : java.lang.Character
+-[0]PREPAID_SUPPORTED_IND = false : java.lang.Boolean
+-[0]SV_CSIND = false : java.lang.Boolean
+-[0]ACC_GLACCOUNT_DISC = 400000 : java.lang.String
+-[0]DEF_TIME_PACKAGE_USG = -9223372036854775808 : java.lang.Long
+RPCODE_PUB = GeSPH : java.lang.String
+
+}
+

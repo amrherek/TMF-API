@@ -1,0 +1,9 @@
+.classpath
+.project
+target
+.settings
+api-resources/src/main/resources/backend/bscs/mock/
+.factorypath
+**/*.log
+
+otn-product-ordering/temp/logs/otn-product-ordering.log

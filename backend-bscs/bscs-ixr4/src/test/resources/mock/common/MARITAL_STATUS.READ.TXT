@@ -1,0 +1,23 @@
+<!--
+ execute (MARITAL_STATUS.READ, {
+CS_ID = 542 : java.lang.Long
+})
+-->
+ => {
+LIST_OF_MARITAL_STATUS = sub element : com.lhs.ccb.common.soiimpl.NamedValueContainerList
+-[0]MAS_CODE_PUB = DIV : java.lang.String
+-[0]MAS_DES = divorced : java.lang.String
+-[0]MAS_CODE = 3 : java.lang.Long
+-[1]MAS_CODE_PUB = MAR : java.lang.String
+-[1]MAS_DES = married : java.lang.String
+-[1]MAS_CODE = 2 : java.lang.Long
+-[2]MAS_CODE_PUB = SING : java.lang.String
+-[2]MAS_DES = single : java.lang.String
+-[2]MAS_CODE = 1 : java.lang.Long
+-[3]MAS_CODE_PUB = WIDOW : java.lang.String
+-[3]MAS_DES = widowed : java.lang.String
+-[3]MAS_CODE = 4 : java.lang.Long
+MAS_CODE_DEF = 1 : java.lang.Long
+MAS_CODE_DEF_PUB = SING : java.lang.String
+}
+

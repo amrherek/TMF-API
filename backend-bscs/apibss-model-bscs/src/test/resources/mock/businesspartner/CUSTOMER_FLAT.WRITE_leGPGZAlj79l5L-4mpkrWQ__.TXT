@@ -1,0 +1,7 @@
+<!--
+execute (CUSTOMER_FLAT.WRITE, {
+CS_ID_PUB = CUST0000000101 : java.lang.String
+}
+-->
+ => {
+}

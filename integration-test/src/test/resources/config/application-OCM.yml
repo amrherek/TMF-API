@@ -1,0 +1,2434 @@
+spring:
+    profiles: OCM
+    jackson:
+        serialization:
+            WRITE_DATES_AS_TIMESTAMPS: false
+            write-enums-using-to-string: true
+apibss:
+    productInventory:
+        msisdn:
+            withContracts: 694412296
+            withoutContracts: 11111111
+            invalid: pony
+            withTutor: 694412296
+        iccId:
+            withContracts: 89237021402390036627
+            withoutContracts: 11111111
+            invalid: pony
+            partial: 8923702140239003662*
+        partyId:
+            withContracts: 1001
+            withoutContracts: 11111111
+            invalid: pony
+        category:
+            withContracts: option
+            withoutContracts:
+            invalid: pony
+        productStatus:
+            withContracts:
+            withoutContracts: Created
+            invalid: pony
+        productWithContracts:
+             - id: '1001'
+               ratingType: Prepaid
+               name: joker chrono
+               status: Active
+               isBundle: true
+               startDate: '2007-08-28T22:00:00Z'
+               orderDate: '2007-08-28T22:00:00Z'
+               productOffering:
+                 id: '4'
+                 category: offer
+                 name: joker chrono
+               productSpecification:
+                 id: offer
+               productCharacteristic:
+               - name: statusReason
+                 value: '1'
+               productRelationship:
+               - type: contains
+                 product:
+                   id: 1001|C|4
+               - type: contains
+                 product:
+                   productOffering:
+                     id: simCard
+               - type: contains
+                 product:
+                   productOffering:
+                     id: mobileCom
+               relatedParty:
+               - id: '1001'
+                 role: customer
+               - role: tutor
+             - id: 1001|A|1
+               name: téléphonie
+               status: Active
+               isBundle: false
+               startDate: '2007-08-28T22:00:00Z'
+               orderDate: '2007-08-28T22:00:00Z'
+               productOffering:
+                 id: '1'
+                 category: includedService
+                 name: téléphonie
+               productSpecification:
+                 id: serviceBSCS
+               productRelationship:
+               - type: isContainedIn
+                 product:
+                   id: 1001|C|4
+             - id: 1001|A|2
+               name: emission de messages courts
+               status: Active
+               isBundle: false
+               startDate: '2007-08-28T22:00:00Z'
+               orderDate: '2007-08-28T22:00:00Z'
+               productOffering:
+                 id: '2'
+                 category: option
+                 name: emission de messages courts
+               productSpecification:
+                 id: serviceBSCS
+               productRelationship:
+               - type: isContainedIn
+                 product:
+                   id: 1001|C|4
+             - id: 1001|A|3
+               name: réception de messages courts
+               status: Active
+               isBundle: false
+               startDate: '2007-08-28T22:00:00Z'
+               orderDate: '2007-08-28T22:00:00Z'
+               productOffering:
+                 id: '3'
+                 category: option
+                 name: réception de messages courts
+               productSpecification:
+                 id: serviceBSCS
+               productRelationship:
+               - type: isContainedIn
+                 product:
+                   id: 1001|C|4
+             - id: 1001|A|12
+               name: transfert d'appel
+               status: Active
+               isBundle: false
+               startDate: '2007-08-28T22:00:00Z'
+               orderDate: '2007-08-28T22:00:00Z'
+               productOffering:
+                 id: '12'
+                 category: includedService
+                 name: transfert d'appel
+               productSpecification:
+                 id: serviceBSCS
+               productRelationship:
+               - type: isContainedIn
+                 product:
+                   id: 1001|C|4
+             - id: 1001|A|13
+               name: mise en attente
+               status: Active
+               isBundle: false
+               startDate: '2007-08-28T22:00:00Z'
+               orderDate: '2007-08-28T22:00:00Z'
+               productOffering:
+                 id: '13'
+                 category: includedService
+                 name: mise en attente
+               productSpecification:
+                 id: serviceBSCS
+               productRelationship:
+               - type: isContainedIn
+                 product:
+                   id: 1001|C|4
+             - id: 1001|A|14
+               name: identification de l'appelant
+               status: Active
+               isBundle: false
+               startDate: '2007-08-28T22:00:00Z'
+               orderDate: '2007-08-28T22:00:00Z'
+               productOffering:
+                 id: '14'
+                 category: option
+                 name: identification de l'appelant
+               productSpecification:
+                 id: serviceBSCS
+               productRelationship:
+               - type: isContainedIn
+                 product:
+                   id: 1001|C|4
+             - id: 1001|A|16
+               name: messagerie vocale standard
+               status: Active
+               isBundle: false
+               startDate: '2007-08-28T22:00:00Z'
+               orderDate: '2007-08-28T22:00:00Z'
+               productOffering:
+                 id: '16'
+                 category: option
+                 name: messagerie vocale standard
+               productSpecification:
+                 id: serviceBSCS
+               productRelationship:
+               - type: isContainedIn
+                 product:
+                   id: 1001|C|4
+             - id: 1001|A|17
+               name: signal d'appel
+               status: Active
+               isBundle: false
+               startDate: '2007-08-28T22:00:00Z'
+               orderDate: '2007-08-28T22:00:00Z'
+               productOffering:
+                 id: '17'
+                 category: includedService
+                 name: signal d'appel
+               productSpecification:
+                 id: serviceBSCS
+               productRelationship:
+               - type: isContainedIn
+                 product:
+                   id: 1001|C|4
+             - id: 1001|A|21
+               name: roaming
+               status: Active
+               isBundle: false
+               startDate: '2007-08-28T22:00:00Z'
+               orderDate: '2007-08-28T22:00:00Z'
+               productOffering:
+                 id: '21'
+                 category: includedService
+                 name: roaming
+               productSpecification:
+                 id: serviceBSCS
+               productRelationship:
+               - type: isContainedIn
+                 product:
+                   id: 1001|C|4
+             - id: 1001|A|25
+               name: portail Orange
+               status: Active
+               isBundle: false
+               startDate: '2007-08-28T22:00:00Z'
+               orderDate: '2007-08-28T22:00:00Z'
+               productOffering:
+                 id: '25'
+                 category: option
+                 name: portail Orange
+               productSpecification:
+                 id: serviceBSCS
+               productRelationship:
+               - type: isContainedIn
+                 product:
+                   id: 1001|C|4
+             - id: 1001|A|26
+               name: gprs
+               status: Active
+               isBundle: false
+               startDate: '2007-08-28T22:00:00Z'
+               orderDate: '2007-08-28T22:00:00Z'
+               productOffering:
+                 id: '26'
+                 category: option
+                 name: gprs
+               productSpecification:
+                 id: serviceBSCS
+               productRelationship:
+               - type: isContainedIn
+                 product:
+                   id: 1001|C|4
+             - id: 1001|A|27
+               name: mms
+               status: Active
+               isBundle: false
+               startDate: '2007-08-28T22:00:00Z'
+               orderDate: '2007-08-28T22:00:00Z'
+               productOffering:
+                 id: '27'
+                 category: option
+                 name: mms
+               productSpecification:
+                 id: serviceBSCS
+               productRelationship:
+               - type: isContainedIn
+                 product:
+                   id: 1001|C|4
+             - id: 1001|A|28
+               name: renvoi d'appel inconditionnel
+               status: Active
+               isBundle: false
+               startDate: '2007-08-28T22:00:00Z'
+               orderDate: '2007-08-28T22:00:00Z'
+               productOffering:
+                 id: '28'
+                 category: option
+                 name: renvoi d'appel inconditionnel
+               productSpecification:
+                 id: serviceBSCS
+               productRelationship:
+               - type: isContainedIn
+                 product:
+                   id: 1001|C|4
+             - id: 1001|A|29
+               name: renvoi d'appel si occupé
+               status: Active
+               isBundle: false
+               startDate: '2007-08-28T22:00:00Z'
+               orderDate: '2007-08-28T22:00:00Z'
+               productOffering:
+                 id: '29'
+                 category: option
+                 name: renvoi d'appel si occupé
+               productSpecification:
+                 id: serviceBSCS
+               productRelationship:
+               - type: isContainedIn
+                 product:
+                   id: 1001|C|4
+             - id: 1001|A|30
+               name: renvoi d'appel si non-réponse
+               status: Active
+               isBundle: false
+               startDate: '2007-08-28T22:00:00Z'
+               orderDate: '2007-08-28T22:00:00Z'
+               productOffering:
+                 id: '30'
+                 category: option
+                 name: renvoi d'appel si non-réponse
+               productSpecification:
+                 id: serviceBSCS
+               productRelationship:
+               - type: isContainedIn
+                 product:
+                   id: 1001|C|4
+             - id: 1001|A|31
+               name: renvoi d'appel si non-trouvé
+               status: Active
+               isBundle: false
+               startDate: '2007-08-28T22:00:00Z'
+               orderDate: '2007-08-28T22:00:00Z'
+               productOffering:
+                 id: '31'
+                 category: option
+                 name: renvoi d'appel si non-trouvé
+               productSpecification:
+                 id: serviceBSCS
+               productRelationship:
+               - type: isContainedIn
+                 product:
+                   id: 1001|C|4
+             - id: 1001|A|34
+               name: appel d'urgence
+               status: Active
+               isBundle: false
+               startDate: '2007-08-28T22:00:00Z'
+               orderDate: '2007-08-28T22:00:00Z'
+               productOffering:
+                 id: '34'
+                 category: includedService
+                 name: appel d'urgence
+               productSpecification:
+                 id: serviceBSCS
+               productRelationship:
+               - type: isContainedIn
+                 product:
+                   id: 1001|C|4
+             - id: 1001|A|35
+               name: téléchargement
+               status: Active
+               isBundle: false
+               startDate: '2007-08-28T22:00:00Z'
+               orderDate: '2007-08-28T22:00:00Z'
+               productOffering:
+                 id: '35'
+                 category: option
+                 name: téléchargement
+               productSpecification:
+                 id: serviceBSCS
+               productRelationship:
+               - type: isContainedIn
+                 product:
+                   id: 1001|C|4
+             - id: 1001|A|36
+               name: internet
+               status: Active
+               isBundle: false
+               startDate: '2007-08-28T22:00:00Z'
+               orderDate: '2007-08-28T22:00:00Z'
+               productOffering:
+                 id: '36'
+                 category: option
+                 name: internet
+               productSpecification:
+                 id: serviceBSCS
+               productRelationship:
+               - type: isContainedIn
+                 product:
+                   id: 1001|C|4
+             - id: 1001|A|38
+               name: services événementiels
+               status: Active
+               isBundle: false
+               startDate: '2007-08-28T22:00:00Z'
+               orderDate: '2007-08-28T22:00:00Z'
+               productOffering:
+                 id: '38'
+                 category: includedService
+                 name: services événementiels
+               productSpecification:
+                 id: serviceBSCS
+               productRelationship:
+               - type: isContainedIn
+                 product:
+                   id: 1001|C|4
+             - id: 1001|C|4
+               name: joker chrono
+               isBundle: true
+               productOffering:
+                 id: '4'
+                 category: package
+                 name: joker chrono
+               productRelationship:
+               - type: isContainedIn
+                 product:
+                   id: '1001'
+               - type: contains
+                 product:
+                   id: 1001|A|1
+               - type: contains
+                 product:
+                   id: 1001|A|2
+               - type: contains
+                 product:
+                   id: 1001|A|3
+               - type: contains
+                 product:
+                   id: 1001|A|12
+               - type: contains
+                 product:
+                   id: 1001|A|13
+               - type: contains
+                 product:
+                   id: 1001|A|14
+               - type: contains
+                 product:
+                   id: 1001|A|16
+               - type: contains
+                 product:
+                   id: 1001|A|17
+               - type: contains
+                 product:
+                   id: 1001|A|21
+               - type: contains
+                 product:
+                   id: 1001|A|25
+               - type: contains
+                 product:
+                   id: 1001|A|26
+               - type: contains
+                 product:
+                   id: 1001|A|27
+               - type: contains
+                 product:
+                   id: 1001|A|28
+               - type: contains
+                 product:
+                   id: 1001|A|29
+               - type: contains
+                 product:
+                   id: 1001|A|30
+               - type: contains
+                 product:
+                   id: 1001|A|31
+               - type: contains
+                 product:
+                   id: 1001|A|34
+               - type: contains
+                 product:
+                   id: 1001|A|35
+               - type: contains
+                 product:
+                   id: 1001|A|36
+               - type: contains
+                 product:
+                   id: 1001|A|38
+             - name: Mobile communication
+               status: Active
+               isBundle: false
+               productOffering:
+                 id: mobileCom
+                 category: includedService
+                 name: Mobile communication
+               productSpecification:
+                 id: accessService
+               productCharacteristic:
+               - name: msisdn
+                 value: '694412296'
+               productRelationship:
+               - type: isContainedIn
+                 product:
+                   id: '1001'
+             - name: Sim card
+               status: Active
+               isBundle: false
+               productOffering:
+                 id: simCard
+                 category: includedService
+                 name: Sim card
+               productSpecification:
+                 id: accessService
+               productCharacteristic:
+               - name: iccId
+                 value: '89237021402390036627'
+               productRelationship:
+               - type: isContainedIn
+                 product:
+                   id: '1001'
+        serviceWithParameter:
+            id: 3772089|A|237
+            name: Forfait Mix PLATINIUM
+            status: Active
+            isBundle: false
+            startDate: '2014-06-30T09:22:59Z'
+            orderDate: '2014-06-30T09:22:59Z'
+            productOffering:
+              id: '237'
+              category: includedService
+              name: Forfait Mix PLATINIUM
+            productSpecification:
+              id: serviceBSCS  
+            productCharacteristic:
+            - name: '64'
+              value: '32000.0'
+            productRelationship:
+            - type: isContainedIn
+              product:
+                id: 3772089|C|48  
+    party:
+        individual:
+            valid:
+                id: 28389267
+                gender: FEMALE
+                nationality: CM
+                maritalStatus: SINGLE
+                birthDate: 2013-12-31
+                title: 2
+                givenName: Rainbow
+                familyName: Dash
+                characteristic:
+                - name: categoryCode
+                  value: 5
+                - name: categoryLabel
+                  value: Employé
+                contactMedium:
+                - type: EMAILADDRESS
+                  medium:
+                      emailAddress: rainboy@pony.com
+                - type: POSTALADDRESS
+                  medium:
+                      city: DOUALA
+                      country: CM
+                      postcode: BP
+                      stateOrProvince: BONANJO
+                individualIdentification:
+                - type: 1
+                  identificationId: '1337'
+            invalidId: pony
+            unknownId: 42424242424242
+            updatableId: 1001
+            withId:
+              id: '8181097'
+              gender: female
+              placeOfBirth: MAYO-KANI
+              birthDate: '1979-03-01'
+              title: '3'
+              givenName: BOUBA
+              familyName: KHALIMATOU
+              characteristic:
+              - name: occupation
+                value: MENAGERE
+              - name: categoryCode
+                value: '7'
+              - name: categoryLabel
+                value: Prépayé
+              contactMedium:
+              - type: postalAddress
+                medium:
+                  city: BERTOUA
+                  country: CM
+                  postcode: NNNNNNNNN
+                  stateOrProvince: NKOLBIKON
+                  streetOne: EST
+                  number: '1'
+              individualIdentification:
+              - expirationDate: '2021-09-06'
+                type: '1'
+                identificationId: '112864364'
+                issuingDate: '2011-09-06'
+                issuingPlace: ES01
+            minor:
+                id: 28389278
+                gender: FEMALE
+                nationality: CM
+                maritalStatus: SINGLE
+                birthDate: 2014-01-01
+                title: 3
+                givenName: Bloom
+                familyName: Apple
+                characteristic:
+                - name: categoryCode
+                  value: 7
+                - name: categoryLabel
+                  value: Prépayé
+                contactMedium:
+                - type: EMAILADDRESS
+                  medium:
+                      emailAddress: bloom@apple.pony
+                - type: POSTALADDRESS
+                  medium:
+                      city: PonyVille
+                      country: CM
+                      postcode: 44444
+                      stateOrProvince: Fermes
+                      streetOne: 1 rue de des pommes
+            tutor:
+                birthDate: 1980-05-01
+                givenName: Jack
+                familyName: Apple
+                individualIdentification:
+                - expirationDate: 2050-08-01
+                  type: Cutie mark
+                  identificationId: '1234'
+                  issuingPlace: ponyville
+
+            validTutorId: 28210585
+            invalidTutorId: -1337
+            unknownTutorId: 42424242424242
+            updatableTutorId: 1001
+    customerBill:
+        id: 
+          valid: '15149452'
+          invalid: 0
+          badFormat: unknown
+        msisdn: 
+          valid: '699511878'
+          invalid: 699511877
+          badFormat: unknown
+        partyId: 
+          valid: '2952609'
+          invalid: 999999
+          badFormat: unknown
+          largeAccount: 2985201
+        date: '2015-12-01'
+        bills:   
+        - id: '15149452'
+          state: validated
+          billDate: '2016-01-01T00:00:00Z'
+          amountDue:
+            unit: XAF
+            value: 24000
+          paymentDueDate: '2016-01-22T00:00:00Z'
+          remainingAmount:
+            unit: XAF
+            value: 23999.08
+          relatedParty:
+          - id: '2952609'
+        - id: '14925991'
+          state: settled
+          billDate: '2015-12-01T00:00:00Z'
+          amountDue:
+            unit: XAF
+            value: 24000
+          paymentDueDate: '2015-12-22T00:00:00Z'
+          remainingAmount:
+            unit: XAF
+            value: 0
+          appliedPayment:
+          - appliedAmount:
+              unit: XAF
+              value: 24000
+            payment:
+              id: '119363892'
+              paymentDate: '2015-12-16T00:00:00Z'
+          relatedParty:
+          - id: '2952609'
+        - id: '14566155'
+          state: settled
+          billDate: '2015-11-01T00:00:00Z'
+          amountDue:
+            unit: XAF
+            value: 24000
+          paymentDueDate: '2015-11-22T00:00:00Z'
+          remainingAmount:
+            unit: XAF
+            value: 0
+          appliedPayment:
+          - appliedAmount:
+              unit: XAF
+              value: 24000
+            payment:
+              id: '117294148'
+              paymentDate: '2015-11-14T00:00:00Z'
+          relatedParty:
+          - id: '2952609'
+productOrdering:
+    publicKey:
+        validMsisdn: 694412296
+    activateOffer:
+        validProductId: 28210620
+        updatableProductId: 214173
+        terminatedProductId: 28189002
+        invalidProductId: 111111111111
+        validRelatedIndividual:
+            id: 1019
+            familyName: Dash
+            givenName: Rainbow
+    simSwap:
+        validIccId: 89624020305101027910
+        invalidIccId: 11111111111
+        terminatedIccId: 89237021504196385056
+        validProductId: 2949976
+        invalidProductId: 111111111111
+        badFormatProductId: unknown
+        beforeSimSwap:
+            productOffering:
+              id: simCard
+            productCharacteristic:
+            - name: iccId
+              value: 00000
+            productRelationship:
+            - type: isContainedIn
+              product:
+                id: 00000
+        afterSimSwap:
+            productOffering:
+              id: simCard
+            productCharacteristic:
+            - name: iccId
+              value: 1111111
+            productRelationship:
+            - type: isContainedIn
+              product:
+                id: 00000
+    service:
+        validProductId: 2949690
+        invalidProductId: 111111111111
+        terminatedProductId: 2990143        
+        invalidServiceId: 111111111111
+        badServiceId: 18
+        invalidServicePackageId: 111111111111
+        badServicePackageId: 120        
+        validServiceIdActivate: 29 
+        validServiceIdAdd: 6        
+        validServicePackageIdAdd: 28
+        validServiceIdWithparametersModify: 235
+        validParameterId: 62
+        invalidParameterId: 99999
+        validParameterValue: 8000.0
+        invalidParameterValue: unknown
+        validServiceIdWithparametersAdd: 222
+        validServicePackageIdWithparameters: 42
+    um13:
+        validProduct:
+            id: 1001
+        validProductOffering:
+            id: 21
+        invalidProduct:
+            id: 1
+        initialProductOffering:
+            id: 4
+productCatalog:
+    offerProductOfferingId:
+        valid: 36
+        invalid: 11111111 
+    productOffering:
+        valid: 184
+        invalid: 11111111
+        badFormat: unknown
+    productOfferingsForMigration: []
+    productOfferingsForCompatibility:
+        - id: '6'
+          name: blocage des appels entrants
+          isBundle: false
+          category:
+          - name: option
+          bundledProductOffering:
+          - id: '28'
+          productSpecification:
+            id: serviceBSCS
+          productOfferingPrice:
+          - priceType: punctual
+            price:
+              taxIncludedAmount: 0
+              currencyCode: XAF
+          - priceType: recurring
+            recurringChargePeriod: 1 month
+            price:
+              taxIncludedAmount: 0
+              currencyCode: XAF
+        - id: '8'
+          name: blocage des appels sortants
+          isBundle: false
+          category:
+          - name: option
+          bundledProductOffering:
+          - id: '28'
+          productSpecification:
+            id: serviceBSCS
+          productOfferingPrice:
+          - priceType: punctual
+            price:
+              taxIncludedAmount: 0
+              currencyCode: XAF
+          - priceType: recurring
+            recurringChargePeriod: 1 month
+            price:
+              taxIncludedAmount: 0
+              currencyCode: XAF
+        - id: '9'
+          name: blocage app.entrant en roam.
+          isBundle: false
+          category:
+          - name: option
+          bundledProductOffering:
+          - id: '28'
+          productSpecification:
+            id: serviceBSCS
+          productOfferingPrice:
+          - priceType: punctual
+            price:
+              taxIncludedAmount: 0
+              currencyCode: XAF
+          - priceType: recurring
+            recurringChargePeriod: 1 month
+            price:
+              taxIncludedAmount: 0
+              currencyCode: XAF
+        - id: '10'
+          name: blocage app.internat.sortants
+          isBundle: false
+          category:
+          - name: option
+          bundledProductOffering:
+          - id: '28'
+          productSpecification:
+            id: serviceBSCS
+          productOfferingPrice:
+          - priceType: punctual
+            price:
+              taxIncludedAmount: 0
+              currencyCode: XAF
+          - priceType: recurring
+            recurringChargePeriod: 1 month
+            price:
+              taxIncludedAmount: 0
+              currencyCode: XAF
+        - id: '11'
+          name: en roaming limit.app.vers came
+          isBundle: false
+          category:
+          - name: option
+          bundledProductOffering:
+          - id: '28'
+          productSpecification:
+            id: serviceBSCS
+          productOfferingPrice:
+          - priceType: punctual
+            price:
+              taxIncludedAmount: 0
+              currencyCode: XAF
+          - priceType: recurring
+            recurringChargePeriod: 1 month
+            price:
+              taxIncludedAmount: 0
+              currencyCode: XAF
+        - id: '15'
+          name: numéro masqué
+          isBundle: false
+          category:
+          - name: option
+          bundledProductOffering:
+          - id: '28'
+          productSpecification:
+            id: serviceBSCS
+          productOfferingPrice:
+          - priceType: punctual
+            price:
+              taxIncludedAmount: 0
+              currencyCode: XAF
+          - priceType: recurring
+            recurringChargePeriod: 1 month
+            price:
+              taxIncludedAmount: 0
+              currencyCode: XAF
+        - id: '19'
+          name: facturation détaillée
+          isBundle: false
+          category:
+          - name: option
+          bundledProductOffering:
+          - id: '28'
+          productSpecification:
+            id: serviceBSCS
+          productOfferingPrice:
+          - priceType: punctual
+            price:
+              taxIncludedAmount: 0
+              currencyCode: XAF
+          - priceType: recurring
+            recurringChargePeriod: 1 month
+            price:
+              taxIncludedAmount: 0
+              currencyCode: XAF
+        - id: '21'
+          name: roaming
+          isBundle: false
+          category:
+          - name: option
+          bundledProductOffering:
+          - id: '28'
+          productSpecification:
+            id: serviceBSCS
+          productOfferingPrice:
+          - priceType: punctual
+            price:
+              taxIncludedAmount: 0
+              currencyCode: XAF
+          - priceType: recurring
+            recurringChargePeriod: 1 month
+            price:
+              taxIncludedAmount: 0
+              currencyCode: XAF
+        - id: '28'
+          name: renvoi d'appel inconditionnel
+          isBundle: false
+          category:
+          - name: option
+          bundledProductOffering:
+          - id: '28'
+          productSpecification:
+            id: serviceBSCS
+          productOfferingPrice:
+          - priceType: punctual
+            price:
+              taxIncludedAmount: 0
+              currencyCode: XAF
+          - priceType: recurring
+            recurringChargePeriod: 1 month
+            price:
+              taxIncludedAmount: 0
+              currencyCode: XAF
+        - id: '29'
+          name: renvoi d'appel si occupé
+          isBundle: false
+          category:
+          - name: option
+          bundledProductOffering:
+          - id: '28'
+          productSpecification:
+            id: serviceBSCS
+          productOfferingPrice:
+          - priceType: punctual
+            price:
+              taxIncludedAmount: 0
+              currencyCode: XAF
+          - priceType: recurring
+            recurringChargePeriod: 1 month
+            price:
+              taxIncludedAmount: 0
+              currencyCode: XAF
+        - id: '30'
+          name: renvoi d'appel si non-réponse
+          isBundle: false
+          category:
+          - name: option
+          bundledProductOffering:
+          - id: '28'
+          productSpecification:
+            id: serviceBSCS
+          productOfferingPrice:
+          - priceType: punctual
+            price:
+              taxIncludedAmount: 0
+              currencyCode: XAF
+          - priceType: recurring
+            recurringChargePeriod: 1 month
+            price:
+              taxIncludedAmount: 0
+              currencyCode: XAF
+        - id: '31'
+          name: renvoi d'appel si non-trouvé
+          isBundle: false
+          category:
+          - name: option
+          bundledProductOffering:
+          - id: '28'
+          productSpecification:
+            id: serviceBSCS
+          productOfferingPrice:
+          - priceType: punctual
+            price:
+              taxIncludedAmount: 0
+              currencyCode: XAF
+          - priceType: recurring
+            recurringChargePeriod: 1 month
+            price:
+              taxIncludedAmount: 0
+              currencyCode: XAF
+        - id: '42'
+          name: numéro argent
+          isBundle: false
+          category:
+          - name: option
+          bundledProductOffering:
+          - id: '28'
+          productSpecification:
+            id: serviceBSCS
+          productOfferingPrice:
+          - priceType: punctual
+            price:
+              taxIncludedAmount: 8385.74
+              currencyCode: XAF
+          - priceType: recurring
+            recurringChargePeriod: 1 month
+            price:
+              taxIncludedAmount: 0
+              currencyCode: XAF
+        - id: '43'
+          name: numéro or
+          isBundle: false
+          category:
+          - name: option
+          bundledProductOffering:
+          - id: '28'
+          productSpecification:
+            id: serviceBSCS
+          productOfferingPrice:
+          - priceType: punctual
+            price:
+              taxIncludedAmount: 16771.48
+              currencyCode: XAF
+          - priceType: recurring
+            recurringChargePeriod: 1 month
+            price:
+              taxIncludedAmount: 0
+              currencyCode: XAF
+        - id: '44'
+          name: numéro platine
+          isBundle: false
+          category:
+          - name: option
+          bundledProductOffering:
+          - id: '28'
+          productSpecification:
+            id: serviceBSCS
+          productOfferingPrice:
+          - priceType: punctual
+            price:
+              taxIncludedAmount: 25157.23
+              currencyCode: XAF
+          - priceType: recurring
+            recurringChargePeriod: 1 month
+            price:
+              taxIncludedAmount: 0
+              currencyCode: XAF
+        - id: '72'
+          name: facture électronique
+          isBundle: false
+          category:
+          - name: option
+          bundledProductOffering:
+          - id: '28'
+          productSpecification:
+            id: serviceBSCS
+          productOfferingPrice:
+          - priceType: punctual
+            price:
+              taxIncludedAmount: 0
+              currencyCode: XAF
+          - priceType: recurring
+            recurringChargePeriod: 1 month
+            price:
+              taxIncludedAmount: 0
+              currencyCode: XAF
+        - id: '74'
+          name: limit.appel sortant à 1 liste
+          isBundle: false
+          category:
+          - name: option
+          bundledProductOffering:
+          - id: '28'
+          productSpecification:
+            id: serviceBSCS
+          productOfferingPrice:
+          - priceType: punctual
+            price:
+              taxIncludedAmount: 0
+              currencyCode: XAF
+          - priceType: recurring
+            recurringChargePeriod: 1 month
+            price:
+              taxIncludedAmount: 2096.436
+              currencyCode: XAF
+          - priceType: operation
+            price:
+              taxIncludedAmount: 2096.436
+              currencyCode: XAF
+        - id: '220'
+          name: push email GP
+          isBundle: false
+          category:
+          - name: option
+          bundledProductOffering:
+          - id: '28'
+          productSpecification:
+            id: serviceBSCS
+          productOfferingPrice:
+          - priceType: punctual
+            price:
+              taxIncludedAmount: 4193
+              currencyCode: XAF
+          - priceType: recurring
+            recurringChargePeriod: 1 month
+            price:
+              taxIncludedAmount: 4193
+              currencyCode: XAF
+        - id: '223'
+          name: Remise
+          isBundle: false
+          category:
+          - name: option
+          bundledProductOffering:
+          - id: '28'
+          productSpecification:
+            id: serviceBSCS
+          productOfferingPrice:
+          - priceType: punctual
+            price:
+              taxIncludedAmount: 0
+              currencyCode: XAF
+          - priceType: recurring
+            recurringChargePeriod: 1 month
+            price:
+              taxIncludedAmount: 0
+              currencyCode: XAF
+        - id: '226'
+          name: BlackBerry Smartphone
+          isBundle: false
+          category:
+          - name: option
+          bundledProductOffering:
+          - id: '28'
+          productSpecification:
+            id: serviceBSCS
+          productOfferingPrice:
+          - priceType: punctual
+            price:
+              taxIncludedAmount: 0
+              currencyCode: XAF
+          - priceType: recurring
+            recurringChargePeriod: 1 month
+            price:
+              taxIncludedAmount: 0
+              currencyCode: XAF
+        - id: '230'
+          name: Blackberry Internet Service
+          isBundle: false
+          category:
+          - name: option
+          bundledProductOffering:
+          - id: '28'
+          productSpecification:
+            id: serviceBSCS
+          productOfferingPrice:
+          - priceType: punctual
+            price:
+              taxIncludedAmount: 0
+              currencyCode: XAF
+          - priceType: recurring
+            recurringChargePeriod: 1 month
+            price:
+              taxIncludedAmount: 8385.745
+              currencyCode: XAF
+        - id: '231'
+          name: Blackberry Enterprise Server
+          isBundle: false
+          category:
+          - name: option
+          bundledProductOffering:
+          - id: '28'
+          productSpecification:
+            id: serviceBSCS
+          productOfferingPrice:
+          - priceType: punctual
+            price:
+              taxIncludedAmount: 0
+              currencyCode: XAF
+          - priceType: recurring
+            recurringChargePeriod: 1 month
+            price:
+              taxIncludedAmount: 8385.75
+              currencyCode: XAF
+        - id: '232'
+          name: Business Everywhere(au volume)
+          isBundle: false
+          category:
+          - name: option
+          bundledProductOffering:
+          - id: '28'
+          productSpecification:
+            id: serviceBSCS
+          productOfferingPrice:
+          - priceType: punctual
+            price:
+              taxIncludedAmount: 0
+              currencyCode: XAF
+          - priceType: recurring
+            recurringChargePeriod: 1 month
+            price:
+              taxIncludedAmount: 8385.744
+              currencyCode: XAF
+        - id: '233'
+          name: Business Everywhere(illimité)
+          isBundle: false
+          category:
+          - name: option
+          bundledProductOffering:
+          - id: '28'
+          productSpecification:
+            id: serviceBSCS
+          productOfferingPrice:
+          - priceType: punctual
+            price:
+              taxIncludedAmount: 0
+              currencyCode: XAF
+          - priceType: recurring
+            recurringChargePeriod: 1 month
+            price:
+              taxIncludedAmount: 16771.488
+              currencyCode: XAF
+        - id: '239'
+          name: blocage appels voix sortants
+          isBundle: false
+          category:
+          - name: option
+          bundledProductOffering:
+          - id: '28'
+          productSpecification:
+            id: serviceBSCS
+          productOfferingPrice:
+          - priceType: punctual
+            price:
+              taxIncludedAmount: 0
+              currencyCode: XAF
+          - priceType: recurring
+            recurringChargePeriod: 1 month
+            price:
+              taxIncludedAmount: 0
+              currencyCode: XAF
+        - id: '243'
+          name: leasing Samsung Galaxy S4
+          isBundle: false
+          category:
+          - name: option
+          bundledProductOffering:
+          - id: '28'
+          productSpecification:
+            id: serviceBSCS
+          productOfferingPrice:
+          - priceType: punctual
+            price:
+              taxIncludedAmount: 0
+              currencyCode: XAF
+          - priceType: recurring
+            recurringChargePeriod: 1 month
+            price:
+              taxIncludedAmount: 31781.97
+              currencyCode: XAF
+        - id: '244'
+          name: booking conferencing
+          isBundle: false
+          category:
+          - name: option
+          bundledProductOffering:
+          - id: '28'
+          productSpecification:
+            id: serviceBSCS
+          productOfferingPrice:
+          - priceType: punctual
+            price:
+              taxIncludedAmount: 0
+              currencyCode: XAF
+          - priceType: recurring
+            recurringChargePeriod: 1 month
+            price:
+              taxIncludedAmount: 41928.723
+              currencyCode: XAF
+        - id: '245'
+          name: leasing iphone
+          isBundle: false
+          category:
+          - name: option
+          bundledProductOffering:
+          - id: '28'
+          productSpecification:
+            id: serviceBSCS
+          productOfferingPrice:
+          - priceType: punctual
+            price:
+              taxIncludedAmount: 0
+              currencyCode: XAF
+          - priceType: recurring
+            recurringChargePeriod: 1 month
+            price:
+              taxIncludedAmount: 0
+              currencyCode: XAF
+        - id: '247'
+          name: blocage appels voix entrants
+          isBundle: false
+          category:
+          - name: option
+          bundledProductOffering:
+          - id: '28'
+          productSpecification:
+            id: serviceBSCS
+          productOfferingPrice:
+          - priceType: punctual
+            price:
+              taxIncludedAmount: 0
+              currencyCode: XAF
+          - priceType: recurring
+            recurringChargePeriod: 1 month
+            price:
+              taxIncludedAmount: 0
+              currencyCode: XAF
+        - id: '250'
+          name: leasing GS5 12mois+ticket
+          isBundle: false
+          category:
+          - name: option
+          bundledProductOffering:
+          - id: '28'
+          productSpecification:
+            id: serviceBSCS
+          productOfferingPrice:
+          - priceType: punctual
+            price:
+              taxIncludedAmount: 83857.445
+              currencyCode: XAF
+          - priceType: recurring
+            recurringChargePeriod: 1 month
+            price:
+              taxIncludedAmount: 28427.674
+              currencyCode: XAF
+        - id: '251'
+          name: leasing GS5 12mois
+          isBundle: false
+          category:
+          - name: option
+          bundledProductOffering:
+          - id: '28'
+          productSpecification:
+            id: serviceBSCS
+          productOfferingPrice:
+          - priceType: punctual
+            price:
+              taxIncludedAmount: 0
+              currencyCode: XAF
+          - priceType: recurring
+            recurringChargePeriod: 1 month
+            price:
+              taxIncludedAmount: 35974.844
+              currencyCode: XAF
+        - id: '252'
+          name: leasing GS5 24mois+ticket
+          isBundle: false
+          category:
+          - name: option
+          bundledProductOffering:
+          - id: '28'
+          productSpecification:
+            id: serviceBSCS
+          productOfferingPrice:
+          - priceType: punctual
+            price:
+              taxIncludedAmount: 83857.445
+              currencyCode: XAF
+          - priceType: recurring
+            recurringChargePeriod: 1 month
+            price:
+              taxIncludedAmount: 17526.205
+              currencyCode: XAF
+        - id: '253'
+          name: leasing GS5 24mois
+          isBundle: false
+          category:
+          - name: option
+          bundledProductOffering:
+          - id: '28'
+          productSpecification:
+            id: serviceBSCS
+          productOfferingPrice:
+          - priceType: punctual
+            price:
+              taxIncludedAmount: 0
+              currencyCode: XAF
+          - priceType: recurring
+            recurringChargePeriod: 1 month
+            price:
+              taxIncludedAmount: 20880.504
+              currencyCode: XAF
+        - id: '258'
+          name: forfait andro S4
+          isBundle: false
+          category:
+          - name: option
+          bundledProductOffering:
+          - id: '28'
+          productSpecification:
+            id: serviceBSCS
+          productOfferingPrice:
+          - priceType: punctual
+            price:
+              taxIncludedAmount: 83857.445
+              currencyCode: XAF
+          - priceType: recurring
+            recurringChargePeriod: 1 month
+            price:
+              taxIncludedAmount: 12578.616
+              currencyCode: XAF
+        - id: '262'
+          name: monthly package gs5 12mois
+          isBundle: false
+          category:
+          - name: option
+          bundledProductOffering:
+          - id: '28'
+          productSpecification:
+            id: serviceBSCS
+          productOfferingPrice:
+          - priceType: punctual
+            price:
+              taxIncludedAmount: 0
+              currencyCode: XAF
+          - priceType: recurring
+            recurringChargePeriod: 1 month
+            price:
+              taxIncludedAmount: 39329.14
+              currencyCode: XAF
+        - id: '263'
+          name: monthly package gs5 24mois
+          isBundle: false
+          category:
+          - name: option
+          bundledProductOffering:
+          - id: '28'
+          productSpecification:
+            id: serviceBSCS
+          productOfferingPrice:
+          - priceType: punctual
+            price:
+              taxIncludedAmount: 0
+              currencyCode: XAF
+          - priceType: recurring
+            recurringChargePeriod: 1 month
+            price:
+              taxIncludedAmount: 25073.375
+              currencyCode: XAF
+        - id: '276'
+          name: Forfait data B2B  300 Mo
+          isBundle: false
+          category:
+          - name: option
+          bundledProductOffering:
+          - id: '28'
+          productSpecification:
+            id: serviceBSCS
+          productOfferingPrice:
+          - priceType: punctual
+            price:
+              taxIncludedAmount: 0
+              currencyCode: XAF
+          - priceType: recurring
+            recurringChargePeriod: 1 month
+            price:
+              taxIncludedAmount: 0
+              currencyCode: XAF
+        - id: '277'
+          name: tarif intra-flotte zero
+          isBundle: false
+          category:
+          - name: option
+          bundledProductOffering:
+          - id: '28'
+          productSpecification:
+            id: serviceBSCS
+          productOfferingPrice:
+          - priceType: punctual
+            price:
+              taxIncludedAmount: 0
+              currencyCode: XAF
+          - priceType: recurring
+            recurringChargePeriod: 1 month
+            price:
+              taxIncludedAmount: 838.5744
+              currencyCode: XAF
+        - id: '337'
+          name: services de conciergerie
+          isBundle: false
+          category:
+          - name: option
+          bundledProductOffering:
+          - id: '28'
+          productSpecification:
+            id: serviceBSCS
+          productOfferingPrice:
+          - priceType: punctual
+            price:
+              taxIncludedAmount: 0
+              currencyCode: XAF
+          - priceType: recurring
+            recurringChargePeriod: 1 month
+            price:
+              taxIncludedAmount: 1677.1488
+              currencyCode: XAF
+        - id: '16'
+          name: messagerie vocale standard
+          isBundle: false
+          category:
+          - name: option
+          bundledProductOffering:
+          - id: '29'
+          productSpecification:
+            id: serviceBSCS
+          productOfferingPrice:
+          - priceType: punctual
+            price:
+              taxIncludedAmount: 0
+              currencyCode: XAF
+          - priceType: recurring
+            recurringChargePeriod: 1 month
+            price:
+              taxIncludedAmount: 0
+              currencyCode: XAF
+        - id: '22'
+          name: data
+          isBundle: false
+          category:
+          - name: option
+          bundledProductOffering:
+          - id: '30'
+          productSpecification:
+            id: serviceBSCS
+          productOfferingPrice:
+          - priceType: punctual
+            price:
+              taxIncludedAmount: 0
+              currencyCode: XAF
+          - priceType: recurring
+            recurringChargePeriod: 1 month
+            price:
+              taxIncludedAmount: 0
+              currencyCode: XAF
+        - id: '23'
+          name: fax
+          isBundle: false
+          category:
+          - name: option
+          bundledProductOffering:
+          - id: '30'
+          productSpecification:
+            id: serviceBSCS
+          productOfferingPrice:
+          - priceType: punctual
+            price:
+              taxIncludedAmount: 0
+              currencyCode: XAF
+          - priceType: recurring
+            recurringChargePeriod: 1 month
+            price:
+              taxIncludedAmount: 0
+              currencyCode: XAF
+        - id: '33'
+          name: messagerie vocale pro
+          isBundle: false
+          category:
+          - name: option
+          bundledProductOffering:
+          - id: '30'
+          productSpecification:
+            id: serviceBSCS
+          productOfferingPrice:
+          - priceType: punctual
+            price:
+              taxIncludedAmount: 0
+              currencyCode: XAF
+          - priceType: recurring
+            recurringChargePeriod: 1 month
+            price:
+              taxIncludedAmount: 0
+              currencyCode: XAF
+        - id: '167'
+          name: messagerie fax
+          isBundle: false
+          category:
+          - name: option
+          bundledProductOffering:
+          - id: '30'
+          productSpecification:
+            id: serviceBSCS
+          productOfferingPrice:
+          - priceType: punctual
+            price:
+              taxIncludedAmount: 0
+              currencyCode: XAF
+          - priceType: recurring
+            recurringChargePeriod: 1 month
+            price:
+              taxIncludedAmount: 0
+              currencyCode: XAF
+        - id: '222'
+          name: Intra-Flotte
+          isBundle: false
+          category:
+          - name: option
+          bundledProductOffering:
+          - id: '42'
+          productSpecification:
+            id: serviceBSCS
+          productOfferingPrice:
+          - priceType: punctual
+            price:
+              taxIncludedAmount: 0
+              currencyCode: XAF
+          - priceType: recurring
+            recurringChargePeriod: 1 month
+            price:
+              taxIncludedAmount: 0
+              currencyCode: XAF
+        - id: '25'
+          name: portail Orange
+          isBundle: false
+          category:
+          - name: option
+          bundledProductOffering:
+          - id: '44'
+          productSpecification:
+            id: serviceBSCS
+          productOfferingPrice:
+          - priceType: punctual
+            price:
+              taxIncludedAmount: 0
+              currencyCode: XAF
+          - priceType: recurring
+            recurringChargePeriod: 1 month
+            price:
+              taxIncludedAmount: 0
+              currencyCode: XAF
+        - id: '26'
+          name: gprs
+          isBundle: false
+          category:
+          - name: option
+          bundledProductOffering:
+          - id: '44'
+          productSpecification:
+            id: serviceBSCS
+          productOfferingPrice:
+          - priceType: punctual
+            price:
+              taxIncludedAmount: 0
+              currencyCode: XAF
+          - priceType: recurring
+            recurringChargePeriod: 1 month
+            price:
+              taxIncludedAmount: 0
+              currencyCode: XAF
+        - id: '27'
+          name: mms
+          isBundle: false
+          category:
+          - name: option
+          bundledProductOffering:
+          - id: '44'
+          productSpecification:
+            id: serviceBSCS
+          productOfferingPrice:
+          - priceType: punctual
+            price:
+              taxIncludedAmount: 0
+              currencyCode: XAF
+          - priceType: recurring
+            recurringChargePeriod: 1 month
+            price:
+              taxIncludedAmount: 0
+              currencyCode: XAF
+        - id: '35'
+          name: téléchargement
+          isBundle: false
+          category:
+          - name: option
+          bundledProductOffering:
+          - id: '44'
+          productSpecification:
+            id: serviceBSCS
+          productOfferingPrice:
+          - priceType: punctual
+            price:
+              taxIncludedAmount: 0
+              currencyCode: XAF
+          - priceType: recurring
+            recurringChargePeriod: 1 month
+            price:
+              taxIncludedAmount: 0
+              currencyCode: XAF
+        - id: '36'
+          name: internet
+          isBundle: false
+          category:
+          - name: option
+          bundledProductOffering:
+          - id: '44'
+          productSpecification:
+            id: serviceBSCS
+          productOfferingPrice:
+          - priceType: punctual
+            price:
+              taxIncludedAmount: 0
+              currencyCode: XAF
+          - priceType: recurring
+            recurringChargePeriod: 1 month
+            price:
+              taxIncludedAmount: 0
+              currencyCode: XAF
+        - id: '279'
+          name: leasing smartphone
+          isBundle: false
+          category:
+          - name: option
+          bundledProductOffering:
+          - id: '131'
+          productSpecification:
+            id: serviceBSCS
+          productOfferingPrice:
+          - priceType: punctual
+            price:
+              taxIncludedAmount: 0
+              currencyCode: XAF
+          - priceType: recurring
+            recurringChargePeriod: 1 month
+            price:
+              taxIncludedAmount: 0
+              currencyCode: XAF
+        - id: '280'
+          name: leasing smartphone + 1Go
+          isBundle: false
+          category:
+          - name: option
+          bundledProductOffering:
+          - id: '131'
+          productSpecification:
+            id: serviceBSCS
+          productOfferingPrice:
+          - priceType: punctual
+            price:
+              taxIncludedAmount: 0
+              currencyCode: XAF
+          - priceType: recurring
+            recurringChargePeriod: 1 month
+            price:
+              taxIncludedAmount: 0
+              currencyCode: XAF
+        - id: '282'
+          name: Bundle Smartphone 1Go mix
+          isBundle: false
+          category:
+          - name: option
+          bundledProductOffering:
+          - id: '131'
+          productSpecification:
+            id: serviceBSCS
+          productOfferingPrice:
+          - priceType: punctual
+            price:
+              taxIncludedAmount: 0
+              currencyCode: XAF
+          - priceType: recurring
+            recurringChargePeriod: 1 month
+            price:
+              taxIncludedAmount: 0
+              currencyCode: XAF
+        - id: '290'
+          name: service supplementaire 3G
+          isBundle: false
+          category:
+          - name: option
+          bundledProductOffering:
+          - id: '135'
+          productSpecification:
+            id: serviceBSCS
+          productOfferingPrice:
+          - priceType: punctual
+            price:
+              taxIncludedAmount: 0
+              currencyCode: XAF
+          - priceType: recurring
+            recurringChargePeriod: 1 month
+            price:
+              taxIncludedAmount: 0
+              currencyCode: XAF
+        - id: '293'
+          name: Pass mois mix
+          isBundle: false
+          category:
+          - name: option
+          bundledProductOffering:
+          - id: '135'
+          productSpecification:
+            id: serviceBSCS
+          productOfferingPrice:
+          - priceType: punctual
+            price:
+              taxIncludedAmount: 0
+              currencyCode: XAF
+          - priceType: recurring
+            recurringChargePeriod: 1 month
+            price:
+              taxIncludedAmount: 4192.87
+              currencyCode: XAF
+        - id: '296'
+          name: Pass mois plus mix
+          isBundle: false
+          category:
+          - name: option
+          bundledProductOffering:
+          - id: '135'
+          productSpecification:
+            id: serviceBSCS
+          productOfferingPrice:
+          - priceType: punctual
+            price:
+              taxIncludedAmount: 0
+              currencyCode: XAF
+          - priceType: recurring
+            recurringChargePeriod: 1 month
+            price:
+              taxIncludedAmount: 6708.6
+              currencyCode: XAF
+        - id: '299'
+          name: Pass intense plus mix
+          isBundle: false
+          category:
+          - name: option
+          bundledProductOffering:
+          - id: '135'
+          productSpecification:
+            id: serviceBSCS
+          productOfferingPrice:
+          - priceType: punctual
+            price:
+              taxIncludedAmount: 0
+              currencyCode: XAF
+          - priceType: recurring
+            recurringChargePeriod: 1 month
+            price:
+              taxIncludedAmount: 20964.36
+              currencyCode: XAF
+        - id: '302'
+          name: Pass Premium mix
+          isBundle: false
+          category:
+          - name: option
+          bundledProductOffering:
+          - id: '135'
+          productSpecification:
+            id: serviceBSCS
+          productOfferingPrice:
+          - priceType: punctual
+            price:
+              taxIncludedAmount: 0
+              currencyCode: XAF
+          - priceType: recurring
+            recurringChargePeriod: 1 month
+            price:
+              taxIncludedAmount: 37735.85
+              currencyCode: XAF
+        - id: '305'
+          name: Pass mois plus plus mix
+          isBundle: false
+          category:
+          - name: option
+          bundledProductOffering:
+          - id: '135'
+          productSpecification:
+            id: serviceBSCS
+          productOfferingPrice:
+          - priceType: punctual
+            price:
+              taxIncludedAmount: 0
+              currencyCode: XAF
+          - priceType: recurring
+            recurringChargePeriod: 1 month
+            price:
+              taxIncludedAmount: 8385.74
+              currencyCode: XAF
+        - id: '315'
+          name: Pass Premium plus mix
+          isBundle: false
+          category:
+          - name: option
+          bundledProductOffering:
+          - id: '135'
+          productSpecification:
+            id: serviceBSCS
+          productOfferingPrice:
+          - priceType: punctual
+            price:
+              taxIncludedAmount: 0
+              currencyCode: XAF
+          - priceType: recurring
+            recurringChargePeriod: 1 month
+            price:
+              taxIncludedAmount: 41928.72
+              currencyCode: XAF
+        - id: '318'
+          name: Pass Gold mix
+          isBundle: false
+          category:
+          - name: option
+          bundledProductOffering:
+          - id: '135'
+          productSpecification:
+            id: serviceBSCS
+          productOfferingPrice:
+          - priceType: punctual
+            price:
+              taxIncludedAmount: 0
+              currencyCode: XAF
+          - priceType: recurring
+            recurringChargePeriod: 1 month
+            price:
+              taxIncludedAmount: 62893.08
+              currencyCode: XAF
+        - id: '321'
+          name: Pass Max mix
+          isBundle: false
+          category:
+          - name: option
+          bundledProductOffering:
+          - id: '135'
+          productSpecification:
+            id: serviceBSCS
+          productOfferingPrice:
+          - priceType: punctual
+            price:
+              taxIncludedAmount: 0
+              currencyCode: XAF
+          - priceType: recurring
+            recurringChargePeriod: 1 month
+            price:
+              taxIncludedAmount: 33542.98
+              currencyCode: XAF
+        - id: '324'
+          name: Pass Intense mix
+          isBundle: false
+          category:
+          - name: option
+          bundledProductOffering:
+          - id: '135'
+          productSpecification:
+            id: serviceBSCS
+          productOfferingPrice:
+          - priceType: punctual
+            price:
+              taxIncludedAmount: 0
+              currencyCode: XAF
+          - priceType: recurring
+            recurringChargePeriod: 1 month
+            price:
+              taxIncludedAmount: 12578.62
+              currencyCode: XAF
+        - id: '341'
+          name: Pass 20K mix
+          isBundle: false
+          category:
+          - name: option
+          bundledProductOffering:
+          - id: '135'
+          productSpecification:
+            id: serviceBSCS
+          productOfferingPrice:
+          - priceType: punctual
+            price:
+              taxIncludedAmount: 0
+              currencyCode: XAF
+          - priceType: recurring
+            recurringChargePeriod: 1 month
+            price:
+              taxIncludedAmount: 16771.49
+              currencyCode: XAF
+        - id: '290'
+          name: service supplementaire 3G
+          isBundle: false
+          category:
+          - name: option
+          bundledProductOffering:
+          - id: '135'
+          productSpecification:
+            id: serviceBSCS
+          productOfferingPrice:
+          - priceType: punctual
+            price:
+              taxIncludedAmount: 0
+              currencyCode: XAF
+          - priceType: recurring
+            recurringChargePeriod: 1 month
+            price:
+              taxIncludedAmount: 0
+              currencyCode: XAF
+        - id: '293'
+          name: Pass mois mix
+          isBundle: false
+          category:
+          - name: option
+          bundledProductOffering:
+          - id: '135'
+          productSpecification:
+            id: serviceBSCS
+          productOfferingPrice:
+          - priceType: punctual
+            price:
+              taxIncludedAmount: 0
+              currencyCode: XAF
+          - priceType: recurring
+            recurringChargePeriod: 1 month
+            price:
+              taxIncludedAmount: 4192.87
+              currencyCode: XAF
+        - id: '296'
+          name: Pass mois plus mix
+          isBundle: false
+          category:
+          - name: option
+          bundledProductOffering:
+          - id: '135'
+          productSpecification:
+            id: serviceBSCS
+          productOfferingPrice:
+          - priceType: punctual
+            price:
+              taxIncludedAmount: 0
+              currencyCode: XAF
+          - priceType: recurring
+            recurringChargePeriod: 1 month
+            price:
+              taxIncludedAmount: 6708.6
+              currencyCode: XAF
+        - id: '299'
+          name: Pass intense plus mix
+          isBundle: false
+          category:
+          - name: option
+          bundledProductOffering:
+          - id: '135'
+          productSpecification:
+            id: serviceBSCS
+          productOfferingPrice:
+          - priceType: punctual
+            price:
+              taxIncludedAmount: 0
+              currencyCode: XAF
+          - priceType: recurring
+            recurringChargePeriod: 1 month
+            price:
+              taxIncludedAmount: 20964.36
+              currencyCode: XAF
+        - id: '302'
+          name: Pass Premium mix
+          isBundle: false
+          category:
+          - name: option
+          bundledProductOffering:
+          - id: '135'
+          productSpecification:
+            id: serviceBSCS
+          productOfferingPrice:
+          - priceType: punctual
+            price:
+              taxIncludedAmount: 0
+              currencyCode: XAF
+          - priceType: recurring
+            recurringChargePeriod: 1 month
+            price:
+              taxIncludedAmount: 37735.85
+              currencyCode: XAF
+        - id: '305'
+          name: Pass mois plus plus mix
+          isBundle: false
+          category:
+          - name: option
+          bundledProductOffering:
+          - id: '135'
+          productSpecification:
+            id: serviceBSCS
+          productOfferingPrice:
+          - priceType: punctual
+            price:
+              taxIncludedAmount: 0
+              currencyCode: XAF
+          - priceType: recurring
+            recurringChargePeriod: 1 month
+            price:
+              taxIncludedAmount: 8385.74
+              currencyCode: XAF
+        - id: '315'
+          name: Pass Premium plus mix
+          isBundle: false
+          category:
+          - name: option
+          bundledProductOffering:
+          - id: '135'
+          productSpecification:
+            id: serviceBSCS
+          productOfferingPrice:
+          - priceType: punctual
+            price:
+              taxIncludedAmount: 0
+              currencyCode: XAF
+          - priceType: recurring
+            recurringChargePeriod: 1 month
+            price:
+              taxIncludedAmount: 41928.72
+              currencyCode: XAF
+        - id: '318'
+          name: Pass Gold mix
+          isBundle: false
+          category:
+          - name: option
+          bundledProductOffering:
+          - id: '135'
+          productSpecification:
+            id: serviceBSCS
+          productOfferingPrice:
+          - priceType: punctual
+            price:
+              taxIncludedAmount: 0
+              currencyCode: XAF
+          - priceType: recurring
+            recurringChargePeriod: 1 month
+            price:
+              taxIncludedAmount: 62893.08
+              currencyCode: XAF
+        - id: '321'
+          name: Pass Max mix
+          isBundle: false
+          category:
+          - name: option
+          bundledProductOffering:
+          - id: '135'
+          productSpecification:
+            id: serviceBSCS
+          productOfferingPrice:
+          - priceType: punctual
+            price:
+              taxIncludedAmount: 0
+              currencyCode: XAF
+          - priceType: recurring
+            recurringChargePeriod: 1 month
+            price:
+              taxIncludedAmount: 33542.98
+              currencyCode: XAF
+        - id: '324'
+          name: Pass Intense mix
+          isBundle: false
+          category:
+          - name: option
+          bundledProductOffering:
+          - id: '135'
+          productSpecification:
+            id: serviceBSCS
+          productOfferingPrice:
+          - priceType: punctual
+            price:
+              taxIncludedAmount: 0
+              currencyCode: XAF
+          - priceType: recurring
+            recurringChargePeriod: 1 month
+            price:
+              taxIncludedAmount: 12578.62
+              currencyCode: XAF
+        - id: '341'
+          name: Pass 20K mix
+          isBundle: false
+          category:
+          - name: option
+          bundledProductOffering:
+          - id: '135'
+          productSpecification:
+            id: serviceBSCS
+          productOfferingPrice:
+          - priceType: punctual
+            price:
+              taxIncludedAmount: 0
+              currencyCode: XAF
+          - priceType: recurring
+            recurringChargePeriod: 1 month
+            price:
+              taxIncludedAmount: 16771.49
+              currencyCode: XAF
+        - id: '325'
+          name: Cloudpro nom domaine inter
+          isBundle: false
+          category:
+          - name: option
+          bundledProductOffering:
+          - id: '137'
+          productSpecification:
+            id: serviceBSCS
+          productOfferingPrice:
+          - priceType: punctual
+            price:
+              taxIncludedAmount: 0
+              currencyCode: XAF
+          - priceType: recurring
+            recurringChargePeriod: 1 month
+            price:
+              taxIncludedAmount: 0
+              currencyCode: XAF
+        - id: '326'
+          name: Cloudpro nom domaine natio
+          isBundle: false
+          category:
+          - name: option
+          bundledProductOffering:
+          - id: '137'
+          productSpecification:
+            id: serviceBSCS
+          productOfferingPrice:
+          - priceType: punctual
+            price:
+              taxIncludedAmount: 0
+              currencyCode: XAF
+          - priceType: recurring
+            recurringChargePeriod: 1 month
+            price:
+              taxIncludedAmount: 0
+              currencyCode: XAF
+        - id: '327'
+          name: My office
+          isBundle: false
+          category:
+          - name: option
+          bundledProductOffering:
+          - id: '137'
+          productSpecification:
+            id: serviceBSCS
+          productOfferingPrice:
+          - priceType: punctual
+            price:
+              taxIncludedAmount: 0
+              currencyCode: XAF
+          - priceType: recurring
+            recurringChargePeriod: 1 month
+            price:
+              taxIncludedAmount: 0
+              currencyCode: XAF
+        - id: '328'
+          name: Business Card
+          isBundle: false
+          category:
+          - name: option
+          bundledProductOffering:
+          - id: '137'
+          productSpecification:
+            id: serviceBSCS
+          productOfferingPrice:
+          - priceType: punctual
+            price:
+              taxIncludedAmount: 0
+              currencyCode: XAF
+          - priceType: recurring
+            recurringChargePeriod: 1 month
+            price:
+              taxIncludedAmount: 0
+              currencyCode: XAF
+        - id: '329'
+          name: Vitrine
+          isBundle: false
+          category:
+          - name: option
+          bundledProductOffering:
+          - id: '137'
+          productSpecification:
+            id: serviceBSCS
+          productOfferingPrice:
+          - priceType: punctual
+            price:
+              taxIncludedAmount: 0
+              currencyCode: XAF
+          - priceType: recurring
+            recurringChargePeriod: 1 month
+            price:
+              taxIncludedAmount: 0
+              currencyCode: XAF
+        - id: '330'
+          name: Assistance
+          isBundle: false
+          category:
+          - name: option
+          bundledProductOffering:
+          - id: '137'
+          productSpecification:
+            id: serviceBSCS
+          productOfferingPrice:
+          - priceType: punctual
+            price:
+              taxIncludedAmount: 0
+              currencyCode: XAF
+          - priceType: recurring
+            recurringChargePeriod: 1 month
+            price:
+              taxIncludedAmount: 0
+              currencyCode: XAF
+        - id: '331'
+          name: Orange Drive
+          isBundle: false
+          category:
+          - name: option
+          bundledProductOffering:
+          - id: '137'
+          productSpecification:
+            id: serviceBSCS
+          productOfferingPrice:
+          - priceType: punctual
+            price:
+              taxIncludedAmount: 0
+              currencyCode: XAF
+          - priceType: recurring
+            recurringChargePeriod: 1 month
+            price:
+              taxIncludedAmount: 0
+              currencyCode: XAF
+        - id: '345'
+          name: Roaming LTE
+          isBundle: false
+          category:
+          - name: option
+          bundledProductOffering:
+          - id: '141'
+          productSpecification:
+            id: serviceBSCS
+          productOfferingPrice:
+          - priceType: punctual
+            price:
+              taxIncludedAmount: 0
+              currencyCode: XAF
+          - priceType: recurring
+            recurringChargePeriod: 1 month
+            price:
+              taxIncludedAmount: 0
+              currencyCode: XAF
+        - id: '346'
+          name: lte
+          isBundle: false
+          category:
+          - name: option
+          bundledProductOffering:
+          - id: '141'
+          productSpecification:
+            id: serviceBSCS
+          productOfferingPrice:
+          - priceType: punctual
+            price:
+              taxIncludedAmount: 0
+              currencyCode: XAF
+          - priceType: recurring
+            recurringChargePeriod: 1 month
+            price:
+              taxIncludedAmount: 0
+              currencyCode: XAF            
+    productOfferingForConfiguration:  
+        id: '184'
+        name: Orange Modul'O
+        isBundle: false      
+        productSpecification:
+          id: serviceBSCS
+          productSpecCharacteristic:
+          - name: '48'
+            configurable: true
+            valueType: freeValue
+            maxOccurrence: 1
+            productSpecCharacteristicValue:
+            - valueType: number
+              format: '999999'
+            description: Recharge Modul'O   
+billingAccount:
+      billingAccountId:
+        valid: 21798339
+        invalid: 9999999
+        badFormat: unknown
+      msisdn:
+        valid: 699656994
+        invalid: 123456789
+        badFormat: unknown
+      partyId:
+        valid: 21798339
+        invalid: 123456789
+        badFormat: unknown
+      valid:
+        - id: '21798339'
+          state: active
+          billStructure:
+            cycleSpecification:
+              dateShift: 1
+              frequency: 1 month
+          defaultPaymentMethod:
+            name: Paiement en especes
+          lastCustomerBill:
+            billDate: '2016-01-01T00:00:00Z'
+            nextBillDate: '2016-02-01T00:00:00Z'
+eligibility:
+    msisdnValid: 694412296
+    msisdnInvalid: pony
+    msisdnUnknown: 4242424242
+    productOfferingId: 8
+    eligibleOptions:
+        - productOfferingId: '6'
+          productOfferingName: blocage des appels entrants
+          canBeSubscribed: true
+          price:
+            currencyCode: XAF
+            taxIncludedAmount: 0
+          productSpecification:
+            id: serviceBSCS
+        - productOfferingId: '8'
+          productOfferingName: blocage des appels sortants
+          canBeSubscribed: true
+          price:
+            currencyCode: XAF
+            taxIncludedAmount: 0
+          productSpecification:
+            id: serviceBSCS
+        - productOfferingId: '249'
+          productOfferingName: GS5 3 mois internet 1 GO
+          canBeSubscribed: true
+          price:
+            currencyCode: XAF
+            taxIncludedAmount: 0
+          productSpecification:
+            id: serviceBSCS
+    eligibleOptionsFiltered:
+        - productOfferingId: '8'
+          productOfferingName: blocage des appels sortants
+          canBeSubscribed: true
+          price:
+            currencyCode: XAF
+            taxIncludedAmount: 0
+          productSpecification:
+            id: serviceBSCS  
+    eligibleContract: {}
+bucketBalance:
+    msisdn:
+        prepaid: 555706910221
+        postpaid: 555706910221
+        invalid: 11111111

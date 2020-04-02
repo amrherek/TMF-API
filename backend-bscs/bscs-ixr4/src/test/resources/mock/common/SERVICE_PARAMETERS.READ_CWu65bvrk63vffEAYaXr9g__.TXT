@@ -1,0 +1,40 @@
+<!--
+SERVICE_PARAMETERS.READ, {
+SNCODE_PUB = Email : java.lang.String
+}
+-->
+=> {
+NUM_SERV = sub element : com.lhs.ccb.common.soiimpl.NamedValueContainerList
+-[0]SCCODE_PUB = INT : java.lang.String
+-[0]SNCODE_PUB = Email : java.lang.String
+-[0]SCCODE = 10 : java.lang.Long
+-[0]NUM_PARAM = sub element : com.lhs.ccb.common.soiimpl.NamedValueContainerList
+-[0]-[0]NET_IND = false : java.lang.Boolean
+-[0]-[0]MANDATORY_VALUE = false : java.lang.Boolean
+-[0]-[0]MULT_VALUE_IND = false : java.lang.Boolean
+-[0]-[0]NUM_CH_PRM = sub element : com.lhs.ccb.common.soiimpl.NamedValueContainerList
+-[0]-[0]PRM_ID_PUB = email : java.lang.String
+-[0]-[0]RESOURCELIKE = N : java.lang.String
+-[0]-[0]RESPONSE_PRM_IND = false : java.lang.Boolean
+-[0]-[0]PRM_ID = 98 : java.lang.Long
+-[0]-[0]PRM_DES = email : java.lang.String
+-[0]-[0]MAX_VALUES = 1 : java.lang.Integer
+-[0]-[0]OVERRIDE_IND = true : java.lang.Boolean
+-[0]-[0]PORT_IND = false : java.lang.Boolean
+-[0]-[0]MIN_VALUES = 1 : java.lang.Integer
+-[0]-[0]RATING_IND = false : java.lang.Boolean
+-[0]-[0]PRED_DEPENDENT = false : java.lang.Boolean
+-[0]-[0]N_VALUES = sub element : com.lhs.ccb.common.soiimpl.NamedValueContainerList
+-[0]-[0]-[0]VALUE_DES = VALUE_DES : java.lang.String
+-[0]-[0]-[0]VALUE = DES : java.lang.String
+-[0]-[0]-[1]VALUE_DES = Max value : java.lang.String
+-[0]-[0]-[1]VALUE =  : java.lang.String
+-[0]-[0]DATA_TYPE = ST : java.lang.String
+-[0]-[0]NUM_ACTION = sub element : com.lhs.ccb.common.soiimpl.NamedValueContainerList
+-[0]-[0]-[0]ACTION_ID = 1 : java.lang.Long
+-[0]-[0]-[1]ACTION_ID = 32 : java.lang.Long
+-[0]-[0]TYPE = DF : java.lang.String
+-[0]-[0]PRM_NO = 1 : java.lang.Long
+-[0]SNCODE = 278 : java.lang.Long
+-[0]TEMPL_IND = false : java.lang.Boolean
+}

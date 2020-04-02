@@ -1,0 +1,18 @@
+server:
+    port: 8062
+management:
+    context-path: /manage
+
+spring:
+    application:
+        name: obw-billing-account
+    cloud:
+        config:
+            enabled: false
+            discovery:  
+                enabled: false
+eureka:
+  client:
+    enabled: false
+bscs:
+    provider: file

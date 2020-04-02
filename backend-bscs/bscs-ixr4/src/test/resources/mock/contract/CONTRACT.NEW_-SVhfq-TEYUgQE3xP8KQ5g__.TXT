@@ -1,0 +1,53 @@
+<!--
+ execute (CONTRACT.NEW, {
+CS_ID_PUB = CUST0000000101 : java.lang.String
+SCCODE_PUB = ISD : java.lang.String
+SUBM_ID = 8 : java.lang.Long
+CO_ARCHIVE = true : java.lang.Boolean
+PLCODE = 1007 : java.lang.Long
+AUTO_ASSIGN_CORE_SERV = false : java.lang.Boolean
+RPCODE_PUB = FMI_F : java.lang.String
+})
+-->
+ => {
+SCCODE_PUB = ISD : java.lang.String
+RPCODE = 72 : java.lang.Long
+FIRST_CS_ID_PUB = 0.00000000 : java.lang.String
+CO_ID_PUB = CONTR0000000111 : java.lang.String
+CO_ENTDATE = Thu Jun 14 12:06:22 CEST 2012 : com.lhs.ccb.common.soiimpl.SVLDateTimeImpl
+SCCODE = 6 : java.lang.Long
+CS_ID = 101 : java.lang.Long
+CO_MODDATE = Thu Jun 14 12:12:26 CEST 2012 : com.lhs.ccb.common.soiimpl.SVLDateTimeImpl
+BM_ID = 6 : java.lang.Long
+CURRENCY_ID = 43 : java.lang.Long
+CO_ACTIVATED = Thu Jun 14 12:06:22 CEST 2012 : com.lhs.ccb.common.soiimpl.SVLDateTimeImpl
+CO_PSTN_DIR = false : java.lang.Boolean
+CO_STATUS = 2 : java.lang.Integer
+SUBM_ID = 8 : java.lang.Long
+CO_SIGNED_DATE = YYYY-MM-DD: 2012-6-14 : com.lhs.ccb.common.soiimpl.SVLDateImpl
+CO_TYPE =  : java.lang.String
+CURRENCY_ID_PUB = EUR : java.lang.String
+PRERATED_TAP_RP = false : java.lang.Boolean
+FIRST_CS_ID = 382 : java.lang.Long
+USERINSTALLATION_ADR = false : java.lang.Boolean
+CO_NONEXPL_SERV_PAYMENT_TYPE = O : java.lang.Character
+CO_EQUIPMENT_STATUS =  : java.lang.String
+CO_OP_DIR = false : java.lang.Boolean
+PLCODE_PUB = EUR01 : java.lang.String
+CS_ID_PUB = CUST0000000101 : java.lang.String
+services = sub element : com.lhs.ccb.common.soiimpl.NamedValueContainerList
+CONTRACT_TYPE_ID = 1 : java.lang.Long
+DESCRIPTION =  : java.lang.String
+PLCODE = 1001 : java.lang.Long
+CO_LAST_STATUS_CHANGE_DATE = Thu Jun 14 12:06:22 CEST 2012 : com.lhs.ccb.common.soiimpl.SVLDateTimeImpl
+CO_TRIAL_END_DATE = YYYY-MM-DD: 2-1-1 : com.lhs.ccb.common.soiimpl.SVLDateImpl
+CO_ID = 111 : java.lang.Long
+BM_ID_PUB = L1PDF : java.lang.String
+CO_LAST_REASON = 1 : java.lang.Long
+CALL_DETAIL = R : java.lang.Character
+CO_ARCHIVE = false : java.lang.Boolean
+SUBM_ID_PUB = ISDNi : java.lang.String
+CO_STMEDNO =  : java.lang.String
+RPCODE_PUB = FMI_F : java.lang.String
+}
+

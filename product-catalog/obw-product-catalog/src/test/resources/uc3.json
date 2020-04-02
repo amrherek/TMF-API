@@ -1,0 +1,172 @@
+[{
+		"id": "R4GLT",
+		"name": "4G LTE Roaming",
+		"isBundle": false,
+		"category": [{
+				"name": "option"
+			}
+		],
+		"bundledProductOffering": [{
+				"id": "GeSPH"
+			}
+		],
+		"productSpecification": {
+			"id": "serviceBSCS"
+		},
+		"productOfferingPrice": [{
+				"priceType": "punctual",
+				"price": {
+					"taxIncludedAmount": 0.0,
+					"currencyCode": "BWP"
+				}
+			}, {
+				"priceType": "recurring",
+				"recurringChargePeriod": "1 month",
+				"price": {
+					"taxIncludedAmount": 0.0,
+					"currencyCode": "BWP"
+				}
+			}
+		]
+	}, {
+		"id": "S4GLT",
+		"name": "4G LTE subscription",
+		"isBundle": false,
+		"category": [{
+				"name": "option"
+			}
+		],
+		"bundledProductOffering": [{
+				"id": "GeSPH"
+			}
+		],
+		"productSpecification": {
+			"id": "serviceBSCS"
+		},
+		"productOfferingPrice": [{
+				"priceType": "punctual",
+				"price": {
+					"taxIncludedAmount": 0.0,
+					"currencyCode": "BWP"
+				}
+			}, {
+				"priceType": "recurring",
+				"recurringChargePeriod": "1 month",
+				"price": {
+					"taxIncludedAmount": 0.0,
+					"currencyCode": "BWP"
+				}
+			}
+		]
+	}, {
+		"id": "BAGP",
+		"name": "Barring GPRS",
+		"isBundle": false,
+		"category": [{
+				"name": "option"
+			}
+		],
+		"bundledProductOffering": [{
+				"id": "GeSPH"
+			}
+		],
+		"productSpecification": {
+			"id": "serviceBSCS"
+		},
+		"productOfferingPrice": [{
+				"priceType": "punctual",
+				"price": {
+					"taxIncludedAmount": 0.0,
+					"currencyCode": "BWP"
+				}
+			}, {
+				"priceType": "recurring",
+				"recurringChargePeriod": "1 month",
+				"price": {
+					"taxIncludedAmount": 0.0,
+					"currencyCode": "BWP"
+				}
+			}
+		]
+	}, {
+		"id": "440",
+		"name": "All Access internet-1month",
+		"category": [{
+				"name": "option"
+			}
+		],
+		"productSpecification": {
+			"id": "bundleData"
+		}
+	}, {
+		"id": "426",
+		"name": "My Music-1day",
+		"category": [{
+				"name": "option"
+			}
+		],
+		"productSpecification": {
+			"id": "bundleData"
+		}
+	}, {
+		"id": "407",
+		"name": "CallHome Offer–Zimbabwe",
+		"category": [{
+				"name": "option"
+			}
+		],
+		"productSpecification": {
+			"id": "bundleData"
+		}
+	}, {
+		"id": "PostData_Bundle_50MB",
+		"name": "PostData Bundle-50MB",
+		"category": [{
+				"name": "option"
+			}
+		],
+		"productSpecification": {
+			"id": "bundleData"
+		}
+	}, {
+		"id": "290",
+		"name": "Prepaid Data Bundle-10MB",
+		"category": [{
+				"name": "option"
+			}
+		],
+		"productSpecification": {
+			"id": "bundleData"
+		}
+	}, {
+		"id": "98",
+		"name": "Youth offer individual price plan",
+		"category": [{
+				"name": "option"
+			}
+		],
+		"productSpecification": {
+			"id": "bundleData"
+		}
+	}, {
+		"id": "439",
+		"name": "All Access internet-2weeks",
+		"category": [{
+				"name": "option"
+			}
+		],
+		"productSpecification": {
+			"id": "bundleData"
+		}
+	}, {
+		"id": "386",
+		"name": "Prepaid Voice Bundle-1day",
+		"category": [{
+				"name": "option"
+			}
+		],
+		"productSpecification": {
+			"id": "bundleData"
+		}
+	}
+]

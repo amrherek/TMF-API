@@ -1,0 +1,31 @@
+<!--
+ execute (CONTRACT_SERVICES.READ, {
+SNCODE_PUB = FaFF : java.lang.String
+CO_ID_PUB = CONT0000040109 : java.lang.String
+})
+-->
+ => {
+services = sub element : com.lhs.ccb.common.soiimpl.NamedValueContainerList
+-[0]ORIG_ACC = 8.93 : java.lang.Double
+-[0]PROFILE_ID = 0 : java.lang.Long
+-[0]COS_CURRENCY_PUB = BWP : java.lang.String
+-[0]SNCODE_PUB = FaFF : java.lang.String
+-[0]COS_CURRENCY = 43 : java.lang.Long
+-[0]CALC_ACC = 8.93 : java.lang.Double
+-[0]COS_STATUS_DATE = Wed May 31 10:01:49 CEST 2017 : com.lhs.ccb.common.soiimpl.SVLDateTimeImpl
+-[0]SNCODE = 57 : java.lang.Long
+-[0]CHARGING_SCHEDULE = B : java.lang.Character
+-[0]SPCODE_PUB = GeSPH : java.lang.String
+-[0]SPCODE = 17 : java.lang.Long
+-[0]CS_PAYMENT_CONDITION_USG_IND = 1 : java.lang.Integer
+-[0]COS_LAST_ACT_DATE = Wed May 31 10:01:49 CEST 2017 : com.lhs.ccb.common.soiimpl.SVLDateTimeImpl
+-[0]COS_STATUS = 2 : java.lang.Integer
+-[0]CALC_SUB = 0.0 : java.lang.Double
+-[0]CALC_ADVANCE_ACC = 8.93 : java.lang.Double
+-[0]USER_REASON = 1 : java.lang.Long
+-[0]CS_PAYMENT_CONDITION_ONETIME_REC = 1 : java.lang.Integer
+CO_ID_PUB = CONT0000040109 : java.lang.String
+CO_ID = 40109 : java.lang.Long
+
+}
+

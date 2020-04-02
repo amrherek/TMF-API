@@ -1,0 +1,23 @@
+[{
+		"publicKey" : {
+			"id" : "555706910221",
+			"name" : "msisdn"
+		},
+		"buckets": [{
+				"id": "680",
+				"name": "Main balance",
+				"usageType": "money",
+				"validFor": {
+					"startDateTime": "2017-03-07T23:00:00Z",
+					"endDateTime": "2019-03-16T02:02:14Z"
+				},
+				"bucketBalances": [{
+						"unit": "BWP",
+						"remainingValue": 100.0,
+						"lastUpdateDate":"2017-03-09T03:02:14Z"
+					}
+				]
+			}
+		]
+	}
+]

@@ -1,0 +1,30 @@
+<beans  xmlns="http://www.springframework.org/schema/beans" 
+		xmlns:cache="http://www.springframework.org/schema/cache"
+		xmlns:context="http://www.springframework.org/schema/context"
+		xmlns:p="http://www.springframework.org/schema/p"
+		xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+		xsi:schemaLocation="
+			http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+			http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd
+			http://www.springframework.org/schema/cache http://www.springframework.org/schema/cache/spring-cache.xsd">
+
+
+	<!-- (The implicitly registered post-processors include 
+		AutowiredAnnotationBeanPostProcessor,
+		CommonAnnotationBeanPostProcessor,
+		PersistenceAnnotationBeanPostProcessor
+		RequiredAnnotationBeanPostProcessor.) -->
+		
+	<context:annotation-config />
+	
+	<!--  register @Repository, @Component, @Service beans -->
+	<context:component-scan base-package="com.orange.bscs" />
+	
+	<!--  apply Cache on bean/method having @Cachable annotation (like ReferentialDAOImpl)  -->
+	<cache:annotation-driven />
+
+	<bean id="cacheManager" class="org.springframework.cache.ehcache.EhCacheCacheManager" p:cache-manager-ref="ehcacheManager"/>
+	<!-- Ehcache library setup -->
+	<bean id="ehcacheManager" class="org.springframework.cache.ehcache.EhCacheManagerFactoryBean"/>
+
+</beans>

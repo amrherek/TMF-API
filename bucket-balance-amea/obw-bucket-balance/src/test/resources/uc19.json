@@ -1,0 +1,45 @@
+[{
+		"publicKey" : {
+			"id" : "555706910221",
+			"name" : "msisdn"
+		},
+		"buckets": [{
+				"id": "680",
+				"name": "Credit Limit",
+				"validFor": {
+					"startDateTime": "2017-03-07T23:00:00Z",
+					"endDateTime": "2019-03-16T02:02:14Z"
+				},
+				"bucketBalances": [{
+						"remainingValue": 1000.0,
+						"lastUpdateDate":"2017-03-09T03:02:14Z"
+					}
+				]
+			}, {
+				"id": "681",
+				"name": "Local Currency",
+				"validFor": {
+					"startDateTime": "2017-03-08T23:00:00Z",
+					"endDateTime": "2017-03-08T23:00:00Z"
+				},
+				"bucketBalances": [{
+						"remainingValue": 0.0,
+						"lastUpdateDate":"2017-03-09T03:02:14Z"
+					}
+				]
+			}, {
+				"id": "683",
+				"name": "Voice1",
+				"validFor": {
+					"startDateTime": "2017-03-09T02:02:14Z",
+					"endDateTime": "2017-03-16T02:02:14Z"
+				},
+				"bucketBalances": [{
+						"remainingValue": 3000.0,
+						"lastUpdateDate":"2017-03-09T03:02:14Z"
+					}
+				]
+			}
+		]
+	}
+]

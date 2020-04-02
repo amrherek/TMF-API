@@ -1,0 +1,29 @@
+<!--
+ execute (BILLING_ACCOUNT_ASSIGNMENT.READ, {
+CO_ID_PUB = CONT0000000036 : java.lang.String
+})
+-->
+ => {
+RESULT_LIST = sub element : com.lhs.ccb.common.soiimpl.NamedValueContainerList
+-[0]CS_ID_PUB = CUST0000000047 : java.lang.String
+-[0]PAYMENT_RESP_ADR_LNAME = Matome : java.lang.String
+-[0]PAYMENT_RESP_CS_CODE = 1.10000014 : java.lang.String
+-[0]ADR_FNAME = Osvaldo : java.lang.String
+-[0]CO_ID_PUB = CONT0000000036 : java.lang.String
+-[0]ASSIGNMENT_TYPE = I : java.lang.Character
+-[0]BILLING_ACCOUNT_NAME = PBA_47 : java.lang.String
+-[0]CS_ID = 47 : java.lang.Long
+-[0]PAYMENT_RESP_ADR_FNAME = Osvaldo : java.lang.String
+-[0]CS_CODE = 1.10000014 : java.lang.String
+-[0]ADR_NAME =  : java.lang.String
+-[0]CO_ID = 36 : java.lang.Long
+-[0]PAYMENT_RESP_CS_ID = 47 : java.lang.Long
+-[0]PAYMENT_RESP_CS_ID_PUB = CUST0000000047 : java.lang.String
+-[0]PAYMENT_RESP_ADR_NAME =  : java.lang.String
+-[0]BILLING_ACCOUNT_CODE = BA0000000047 : java.lang.String
+-[0]ADR_LNAME = Matome : java.lang.String
+-[0]MAIN_DIRNUM = 26772105013 : java.lang.String
+-[0]BILLING_ACCOUNT_ID = 47 : java.lang.Long
+
+}
+

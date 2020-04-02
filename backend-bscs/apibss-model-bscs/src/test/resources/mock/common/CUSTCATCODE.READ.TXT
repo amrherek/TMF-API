@@ -1,0 +1,22 @@
+<!--
+CUSTCATCODE.READ {
+}
+=> {
+  CUSTCAT_CODE_DEF     =  : java.lang.Long
+  CUSTCAT_CODE_DEF_PUB =  : java.lang.String
+  LIST_OF_CUSTOMER_CATEGORIES = sub element : com.lhs.ccb.common.soiimpl.NamedVa
+lueContainerList
+ -[0]CUSTCAT_CODE         =  : java.lang.Long
+ -[0]CUSTCAT_CODE_PUB     =  : java.lang.String
+*-[0]CUSTCAT_DES          =  : java.lang.String
+}
+-->
+ => {
+LIST_OF_CUSTOMER_CATEGORIES = sub element : com.lhs.ccb.common.soiimpl.NamedValueContainerList
+-[0]CUSTCAT_CODE = 1 : java.lang.Long
+-[0]CUSTCAT_CODE_PUB = C : java.lang.String
+-[0]CUSTCAT_DES = CUSTOMER : java.lang.String
+-[1]CUSTCAT_CODE = 2 : java.lang.Long
+-[1]CUSTCAT_CODE_PUB = D : java.lang.String
+-[1]CUSTCAT_DES = DEALER : java.lang.String
+}

@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ehcache xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://ehcache.org/ehcache.xsd">
+    <defaultCache eternal="true" maxElementsInMemory="1000" overflowToDisk="false" />
+    <cache name="commandCache" eternal="false" maxElementsInMemory="1000" overflowToDisk="false" timeToLiveSeconds="300" />
+    <!-- 
+    <cache name="messageCache" maxElementsInMemory="10" eternal="true" overflowToDisk="false" />
+    <cache name="messagesCache" maxElementsInMemory="10" eternal="true" overflowToDisk="false" />
+     -->
+    <cache name="CachedBusiness" eternal="false" maxElementsInMemory="1000" overflowToDisk="false" timeToLiveSeconds="300" />
+
+    <cache name="CachedEntriesBusiness" eternal="false" maxElementsInMemory="1000" overflowToDisk="false" timeToLiveSeconds="300" />
+    <cache name="CachedEntriesBusiness_all" eternal="false" maxElementsInMemory="1000" overflowToDisk="false" timeToLiveSeconds="300" />
+</ehcache>

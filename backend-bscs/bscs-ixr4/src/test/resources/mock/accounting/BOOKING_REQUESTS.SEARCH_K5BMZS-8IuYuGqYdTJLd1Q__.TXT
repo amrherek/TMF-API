@@ -1,0 +1,52 @@
+<!--
+ execute (BOOKING_REQUESTS.SEARCH, {
+CS_ID = 101 : java.lang.Long
+})
+-->
+ => {
+SEARCH_IS_COMPLETE = true : java.lang.Boolean
+bookingrequests = sub element : com.lhs.ccb.common.soiimpl.NamedValueContainerList
+-[0]CS_ID = 101 : java.lang.Long
+-[0]CS_ID_PUB = CUST0000000101 : java.lang.String
+-[0]CO_ID = 111 : java.lang.Long
+-[0]CO_ID_PUB = CONTR0000000111 : java.lang.String
+-[0]BILLING_ACCOUNT_ID = 100 : java.lang.Long
+-[0]SEQNO = 478 : java.lang.Long
+-[0]RPCODE = 20 : java.lang.Long
+-[0]RP_VSCODE = 5 : java.lang.Long
+-[0]SERV_CAT_CODE = NORMAL : java.lang.String
+-[0]VALID_FROM = YYYY-MM-DD: 2013-6-5 : com.lhs.ccb.common.soiimpl.SVLDateImpl
+-[0]GLCODE = 100300 : java.lang.String
+-[0]REMARK = Administration Charge : java.lang.String
+-[0]SERV_TYPE = ALL : java.lang.String
+-[0]AMOUNT = 12.0EUR : com.lhs.ccb.common.soiimpl.SVLMoneyImpl
+-[0]SNCODE = 52 : java.lang.Long
+-[0]EVENT_CODE = 151 : java.lang.Long
+-[0]NUM_PERIODS = 1 : java.lang.Integer
+-[0]SERV_CODE = NORMAL : java.lang.String
+-[0]FEE_CLASS = 3 : java.lang.Integer
+-[0]SPCODE = 4 : java.lang.Long
+-[0]JOBCOST = 5 : java.lang.Long
+-[0]TYPE = N : java.lang.Character
+-[1]CS_ID = 101 : java.lang.Long
+-[1]CS_ID_PUB = CUST0000000101 : java.lang.String
+-[1]BILLING_ACCOUNT_ID = 100 : java.lang.Long
+-[1]SEQNO = 479 : java.lang.Long
+-[1]RPCODE = 20 : java.lang.Long
+-[1]RP_VSCODE = 5 : java.lang.Long
+-[1]SERV_CAT_CODE = NORMAL : java.lang.String
+-[1]VALID_FROM = YYYY-MM-DD: 2013-6-5 : com.lhs.ccb.common.soiimpl.SVLDateImpl
+-[1]GLCODE = 100300 : java.lang.String
+-[1]REMARK = Customer Charge : java.lang.String
+-[1]SERV_TYPE = ALL : java.lang.String
+-[1]AMOUNT = 24.0EUR : com.lhs.ccb.common.soiimpl.SVLMoneyImpl
+-[1]SNCODE = 64 : java.lang.Long
+-[1]EVENT_CODE = 151 : java.lang.Long
+-[1]NUM_PERIODS = 1 : java.lang.Integer
+-[1]SERV_CODE = NORMAL : java.lang.String
+-[1]FEE_CLASS = 3 : java.lang.Integer
+-[1]SPCODE = 4 : java.lang.Long
+-[1]JOBCOST = 5 : java.lang.Long
+-[1]TYPE = N : java.lang.Character
+}
+

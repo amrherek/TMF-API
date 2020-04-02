@@ -1,0 +1,65 @@
+<!--
+ execute (SERVICES.READ, {
+RP_VSCODE = 1 : java.lang.Long
+SPCODE_PUB = GeSPH : java.lang.String
+SNCODE_PUB = BAGP : java.lang.String
+RPCODE_PUB = GeSPH : java.lang.String
+})
+-->
+ => {
+RPCODE = 58 : java.lang.Long
+RP_VSCODE = 1 : java.lang.Long
+SPCODE_PUB = GeSPH : java.lang.String
+SPCODE = 17 : java.lang.Long
+NUM_SV = sub element : com.lhs.ccb.common.soiimpl.NamedValueContainerList
+-[0]SERVICE_PARAMERTER_IND = false : java.lang.Boolean
+-[0]ADVIND = P : java.lang.Character
+-[0]VPN_INTERNAL_ACCESS_IND = false : java.lang.Boolean
+-[0]PDE_IMPLICIT_IND = false : java.lang.Boolean
+-[0]DEF_PAYMENT_COND_ONETIME_REC_IND = 1 : java.lang.Integer
+-[0]VPN_ADMINISTRATOR_IND = false : java.lang.Boolean
+-[0]PROIND = N : java.lang.Character
+-[0]INTERVAL_TYPE = M : java.lang.Character
+-[0]SNCODE = 69 : java.lang.Long
+-[0]SC_SNIND = E : java.lang.Character
+-[0]SV_TYPE = ￿ : java.lang.Character
+-[0]VPN_OWNER_CONTRACT_IND = false : java.lang.Boolean
+-[0]ACC_GLACCOUNT_MINCOM = 300000 : java.lang.String
+-[0]PAYMENT_COND_CHNG_USG_IND = false : java.lang.Boolean
+-[0]CHARGING_SCHEDULE = B : java.lang.Character
+-[0]VPN_EXTERNAL_ACCESS_IND = false : java.lang.Boolean
+-[0]ACC_GLACCOUNT = 320200 : java.lang.String
+-[0]VPN = false : java.lang.Boolean
+-[0]SV_RCOTYPE = true : java.lang.Boolean
+-[0]SC_SCCODE = 1 : java.lang.Long
+-[0]VAS_MAPPING = false : java.lang.Boolean
+-[0]DEF_TYPE_OF_CONTROL = 2 : java.lang.Integer
+-[0]PAM_REC_CHARGE_IND = false : java.lang.Boolean
+-[0]INTERVAL = 1 : java.lang.Integer
+-[0]SUSIND = false : java.lang.Boolean
+-[0]SV_SHDES = BAGP : java.lang.String
+-[0]CHARGES = sub element : com.lhs.ccb.common.soiimpl.NamedValueContainerList
+-[0]-[0]CHARGE_TYPE_ID = 1 : java.lang.Long
+-[0]-[0]CHARGE_AMOUNT = 0.0BWP : com.lhs.ccb.common.soiimpl.SVLMoneyImpl
+-[0]-[1]CHARGE_TYPE_ID = 3 : java.lang.Long
+-[0]-[1]CHARGE_AMOUNT = 0.0BWP : com.lhs.ccb.common.soiimpl.SVLMoneyImpl
+-[0]SV_MCOTYPE = true : java.lang.Boolean
+-[0]BILLING_IND = true : java.lang.Boolean
+-[0]VPN_USER_CONTRACT_IND = false : java.lang.Boolean
+-[0]SNCODE_PUB = BAGP : java.lang.String
+-[0]AMTIND = C : java.lang.Character
+-[0]GPRS = false : java.lang.Boolean
+-[0]SUIP = false : java.lang.Boolean
+-[0]SV_ALCOTYPE = false : java.lang.Boolean
+-[0]DEF_PAYMENT_COND_USG_IND = 1 : java.lang.Integer
+-[0]SV_DES = Barring GPRS : java.lang.String
+-[0]SRVIND = P : java.lang.Character
+-[0]SV_NET_PROV_REQ = true : java.lang.Boolean
+-[0]PREPAID_SUPPORTED_IND = false : java.lang.Boolean
+-[0]SV_CSIND = false : java.lang.Boolean
+-[0]DEF_TIME_PACKAGE_USG = -9223372036854775808 : java.lang.Long
+-[0]ACC_GLACCOUNT_DISC = 400000 : java.lang.String
+RPCODE_PUB = GeSPH : java.lang.String
+
+}
+

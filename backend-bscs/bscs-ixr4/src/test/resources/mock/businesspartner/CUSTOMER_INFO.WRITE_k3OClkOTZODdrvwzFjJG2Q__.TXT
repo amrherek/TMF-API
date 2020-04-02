@@ -1,0 +1,10 @@
+<!--
+execute (CUSTOMER_INFO.WRITE, {
+CHECK20 = true : java.lang.Boolean
+COMBO20 = A : java.lang.String
+CS_ID = 101 : java.lang.Long
+TEXT30 = Texte 30 : java.lang.String
+}
+-->
+ => {
+}

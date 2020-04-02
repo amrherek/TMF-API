@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions name="sampleService" 
+	targetNamespace="http://www.example.org/sampleService/" 
+	xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" 
+	xmlns:tns="http://www.example.org/sampleService/" 
+	xmlns:xsd="http://www.w3.org/2001/XMLSchema" 
+	xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" 
+	xmlns:ns1="http://www.orange.com/BSCS/Interfaces/Common/v1/Model/EBS">
+  <wsdl:import namespace="http://www.orange.com/BSCS/Interfaces/Common/v1" 
+  				location="Common.wsdl"/>
+    <wsdl:types>
+    <schema xmlns="http://www.w3.org/2001/XMLSchema" xmlns:xsd="http://www.w3.org/2001/XMLSchema" targetNamespace="http://www.example.org/sampleService/">
+		<import namespace="http://www.orange.com/BSCS/Interfaces/Common/v1/Model/EBS" schemaLocation="Common.xsd" />
+        <element name="sampleOperation" type="tns:sampleOperationMessage" />
+		<complexType name="sampleOperationMessage">
+			<sequence>
+				<element name="Local_ApiClientRequest" type="ns1:HeaderViewForLocalApiClientRequest">
+					</element>
+				<element name="in" type="xsd:string" />
+				</sequence>
+		</complexType>
+
+	<element name="sampleOperationResponse" type="tns:sampleOperationResponseMessage" />
+	<complexType name="sampleOperationResponseMessage">
+		<sequence>
+                    <element name="Local_ApiClientResponse" type="ns1:HeaderViewForLocalApiClientResponse"></element>
+                    <element name="out" type="xsd:string"></element>
+		</sequence>
+	</complexType>
+    </schema>
+	</wsdl:types>
+    <wsdl:message name="sampleOperationRequest">
+    	<wsdl:part name="parameters" element="tns:sampleOperation"></wsdl:part>
+    </wsdl:message>
+    <wsdl:message name="sampleOperationResponse">
+    	<wsdl:part name="parameters" element="tns:sampleOperationResponse"></wsdl:part>
+    </wsdl:message>
+    <wsdl:portType name="SampleService">
+    	<wsdl:operation name="sampleOperation">
+    		<wsdl:input message="tns:sampleOperationRequest"></wsdl:input>
+    		<wsdl:output message="tns:sampleOperationResponse"></wsdl:output>
+    	</wsdl:operation>
+    </wsdl:portType>
+    <wsdl:binding name="SampleServiceBinding"
+    	type="tns:SampleService">
+    	<soap:binding style="document" transport="http" />
+    	<wsdl:operation name="sampleOperation">
+    		<soap:operation
+    			soapAction="http://www.example.org/sampleService/sampleOperation" />
+    		<wsdl:input>
+    			<soap:body use="literal" />
+    		</wsdl:input>
+    		<wsdl:output>
+    			<soap:body use="literal" />
+    		</wsdl:output>
+    	</wsdl:operation>
+    </wsdl:binding>
+    <wsdl:service name="SampleService">
+		<wsdl:port name="SampleServicePort" binding="tns:SampleServiceBinding">
+			<soap:address location="http://sample.bscs.orange.com" />
+		</wsdl:port>
+	</wsdl:service>
+</wsdl:definitions>

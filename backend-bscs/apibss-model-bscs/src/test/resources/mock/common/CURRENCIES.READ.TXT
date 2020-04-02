@@ -1,0 +1,33 @@
+<!--
+ execute (CURRENCIES.READ, {
+CS_ID = 542 : java.lang.Long
+})
+-->
+ => {
+currencies = sub element : com.lhs.ccb.common.soiimpl.NamedValueContainerList
+-[0]FC_DESC = Euro : java.lang.String
+-[0]CURRENCY_ID_PUB = EUR : java.lang.String
+-[0]CURRENCY_ID = 43 : java.lang.Long
+-[0]POST_DIGITS = 2 : java.lang.Long
+-[0]INVALID_FROM = YYYY-MM-DD: 2-1-1 : com.lhs.ccb.common.soiimpl.SVLDateImpl
+-[0]FC_CODE = EUR : java.lang.String
+-[1]FC_DESC = US Dollar : java.lang.String
+-[1]CURRENCY_ID_PUB = USD : java.lang.String
+-[1]CURRENCY_ID = 19 : java.lang.Long
+-[1]POST_DIGITS = 2 : java.lang.Long
+-[1]INVALID_FROM = YYYY-MM-DD: 2-1-1 : com.lhs.ccb.common.soiimpl.SVLDateImpl
+-[1]FC_CODE = USD : java.lang.String
+-[2]FC_DESC = Special Drawing Rights : java.lang.String
+-[2]CURRENCY_ID_PUB = XDR : java.lang.String
+-[2]CURRENCY_ID = 17 : java.lang.Long
+-[2]POST_DIGITS = 2 : java.lang.Long
+-[2]INVALID_FROM = YYYY-MM-DD: 2-1-1 : com.lhs.ccb.common.soiimpl.SVLDateImpl
+-[2]FC_CODE = XDR : java.lang.String
+-[3]FC_DESC =  : java.lang.String
+-[3]CURRENCY_ID_PUB = XEU : java.lang.String
+-[3]CURRENCY_ID = 7 : java.lang.Long
+-[3]POST_DIGITS = 2 : java.lang.Long
+-[3]INVALID_FROM = YYYY-MM-DD: 2003-12-31 : com.lhs.ccb.common.soiimpl.SVLDateImpl
+-[3]FC_CODE = XEU : java.lang.String
+}
+

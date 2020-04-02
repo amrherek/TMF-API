@@ -1,0 +1,15 @@
+<!--
+ execute (CONTRACT_SERVICES.ADD, {
+services = sub element : com.lhs.ccb.common.soiimpl.NamedValueContainerList
+-[0]PROFILE_ID = 0 : java.lang.Long
+-[0]SNCODE_PUB = ITEL : java.lang.String
+-[0]SPCODE_PUB = SP_Fi : java.lang.String
+-[0]COS_PENDING_STATUS = 2 : java.lang.Integer
+-[0]directory numbers = sub element : com.lhs.ccb.common.soiimpl.NamedValueContainerList
+-[0]-[0]DN_ID = 8797 : java.lang.Long
+-[0]-[0]MAIN_DIRNUM = true : java.lang.Boolean
+CO_ID = 111 : java.lang.Long
+})
+-->
+<!-- Output=Null -->
+

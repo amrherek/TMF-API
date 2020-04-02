@@ -1,0 +1,63 @@
+<!--
+
+Utilise par FIM / WiMax
+
+ execute (ALLOWED_SERVICES.READ, \{RPCODE_PUB = FMI_I : java.lang.String}
+-->
+=> {
+RPCODE = 73 : java.lang.Long
+RPCODE_PUB = FMI_I : java.lang.String
+RP_VSCODE = 3 : java.lang.Long
+LIST_SP_CODE = sub element : com.lhs.ccb.common.soiimpl.NamedValueContainerList
+-[0]SPCODE_PUB = Equip : java.lang.String
+-[0]SPCODE = 74 : java.lang.Long
+-[0]LIST_SN_CODE = sub element : com.lhs.ccb.common.soiimpl.NamedValueContainerList
+-[0]-[0]SERVICE_PARAMERTER_IND = false : java.lang.Boolean
+-[0]-[0]SNCODE_PUB = LocLi : java.lang.String
+-[0]-[0]SNCODE = 281 : java.lang.Long
+-[1]SPCODE_PUB = Pass : java.lang.String
+-[1]SPCODE = 75 : java.lang.Long
+-[1]LIST_SN_CODE = sub element : com.lhs.ccb.common.soiimpl.NamedValueContainerList
+-[1]-[0]SERVICE_PARAMERTER_IND = true : java.lang.Boolean
+-[1]-[0]SNCODE_PUB = In_Do : java.lang.String
+-[1]-[0]SNCODE = 282 : java.lang.Long
+-[1]-[1]SERVICE_PARAMERTER_IND = true : java.lang.Boolean
+-[1]-[1]SNCODE_PUB = Es_Di : java.lang.String
+-[1]-[1]SNCODE = 283 : java.lang.Long
+-[1]-[2]SERVICE_PARAMERTER_IND = true : java.lang.Boolean
+-[1]-[2]SNCODE_PUB = Add_E : java.lang.String
+-[1]-[2]SNCODE = 284 : java.lang.Long
+-[1]-[3]SERVICE_PARAMERTER_IND = false : java.lang.Boolean
+-[1]-[3]SNCODE_PUB = Pss : java.lang.String
+-[1]-[3]SNCODE = 285 : java.lang.Long
+-[2]SPCODE_PUB = BIW : java.lang.String
+-[2]SPCODE = 72 : java.lang.Long
+-[2]LIST_SN_CODE = sub element : com.lhs.ccb.common.soiimpl.NamedValueContainerList
+-[2]-[0]SERVICE_PARAMERTER_IND = true : java.lang.Boolean
+-[2]-[0]SNCODE_PUB = INTER : java.lang.String
+-[2]-[0]SNCODE = 241 : java.lang.Long
+-[2]-[1]SERVICE_PARAMERTER_IND = false : java.lang.Boolean
+-[2]-[1]SNCODE_PUB = I_AA : java.lang.String
+-[2]-[1]SNCODE = 266 : java.lang.Long
+-[2]-[2]SERVICE_PARAMERTER_IND = true : java.lang.Boolean
+-[2]-[2]SNCODE_PUB = I_ill : java.lang.String
+-[2]-[2]SNCODE = 276 : java.lang.Long
+-[2]-[3]SERVICE_PARAMERTER_IND = true : java.lang.Boolean
+-[2]-[3]SNCODE_PUB = I_S&W : java.lang.String
+-[2]-[3]SNCODE = 277 : java.lang.Long
+-[2]-[4]SERVICE_PARAMERTER_IND = false : java.lang.Boolean
+-[2]-[4]SNCODE_PUB = I_Ac : java.lang.String
+-[2]-[4]SNCODE = 286 : java.lang.Long
+-[3]SPCODE_PUB = P&SI : java.lang.String
+-[3]SPCODE = 73 : java.lang.Long
+-[3]LIST_SN_CODE = sub element : com.lhs.ccb.common.soiimpl.NamedValueContainerList
+-[3]-[0]SERVICE_PARAMERTER_IND = true : java.lang.Boolean
+-[3]-[0]SNCODE_PUB = Email : java.lang.String
+-[3]-[0]SNCODE = 278 : java.lang.Long
+-[3]-[1]SERVICE_PARAMERTER_IND = false : java.lang.Boolean
+-[3]-[1]SNCODE_PUB = A-Vir : java.lang.String
+-[3]-[1]SNCODE = 279 : java.lang.Long
+-[3]-[2]SERVICE_PARAMERTER_IND = false : java.lang.Boolean
+-[3]-[2]SNCODE_PUB = A-Spa : java.lang.String
+-[3]-[2]SNCODE = 280 : java.lang.Long
+}

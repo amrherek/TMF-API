@@ -1,0 +1,1342 @@
+spring:
+    profiles: OTN
+apibss:
+    headers: 
+      - name: login
+        value: login 
+      - name: password
+        value: password 
+      - name: platform
+        value: test    
+    productInventory:
+        msisdn:
+            withContracts: 555706910213
+            withoutContracts: 11111111
+            invalid: pony
+            withFaf: 555706910213
+            withoutFaf: 555706910270
+            withTransferData: 555706910213
+            withoutTransferData: 555706910270
+            withTransferCredit: 555706912076
+            withoutTransferCredit: 555706910270
+        iccId:
+            withContracts: 895550591210004045
+            withoutContracts: 11111111
+            invalid: pony
+            partial: 89555059121000404*
+        category:
+            withContracts: option
+            withoutContracts:
+            invalid: pony
+        productStatus:
+            withContracts:
+            withoutContracts: Created
+            invalid: pony
+        productWithContracts:
+          - id: CONTR0000000713
+            ratingType: Prepaid
+            name: Mobile Prepaid
+            status: Active
+            isBundle: true
+            startDate: '2012-06-13T22:31:35Z'
+            orderDate: '2012-06-13T22:31:35Z'
+            productOffering:
+              id: PRMOB
+              category: offer
+              name: Mobile Prepaid
+            productSpecification:
+              id: offer
+            productCharacteristic:
+            - name: statusReason
+              value: '1'
+            productRelationship:
+            - type: contains
+              product:
+                id: CONTR0000000713|C|PPBSE
+            - type: contains
+              product:
+                id: CONTR0000000713|C|OP001
+            - type: contains
+              product:
+                id: CONTR0000000713|C|PPTP
+            - type: contains
+              product:
+                id: CONTR0000000713|C|MRSP
+            - type: contains
+              product:
+                productOffering:
+                  id: simCard
+            - type: contains
+              product:
+                productOffering:
+                  id: mobileCom
+            - type: contains
+              product:
+                productOffering:
+                  id: OPP17_d
+            - type: contains
+              product:
+                productOffering:
+                  id: OPP24_d
+            - type: contains
+              product:
+                productOffering:
+                  id: transferDataService
+            billingAccount:
+            - id: BA0000000453
+            relatedParty:
+            - id: CUST0000000458
+              role: customer
+          - id: CONTR0000000713|A|GTEL
+            name: GSM Telephony
+            status: Active
+            isBundle: false
+            startDate: '2012-06-13T22:31:35Z'
+            orderDate: '2012-06-13T22:31:35Z'
+            productOffering:
+              id: GTEL
+              category: option
+              name: GSM Telephony
+            productSpecification:
+              id: serviceBSCS
+            productRelationship:
+            - type: isContainedIn
+              product:
+                id: CONTR0000000713|C|PPBSE
+          - id: CONTR0000000713|A|MVS
+            name: Voicemail
+            status: Active
+            isBundle: false
+            startDate: '2012-06-13T22:31:35Z'
+            orderDate: '2012-06-13T22:31:35Z'
+            productOffering:
+              id: MVS
+              category: option
+              name: Voicemail
+            productSpecification:
+              id: serviceBSCS
+            productRelationship:
+            - type: isContainedIn
+              product:
+                id: CONTR0000000713|C|OP001
+          - id: CONTR0000000713|A|TNPM
+            name: Talk Now Per Minute
+            status: Active
+            isBundle: false
+            startDate: '2012-06-13T22:31:35Z'
+            orderDate: '2012-06-13T22:31:35Z'
+            productOffering:
+              id: TNPM
+              category: option
+              name: Talk Now Per Minute
+            productSpecification:
+              id: serviceBSCS
+            productRelationship:
+            - type: isContainedIn
+              product:
+                id: CONTR0000000713|C|PPTP
+          - id: CONTR0000000713|A|CUSTC
+            name: Customer Care
+            status: Active
+            isBundle: false
+            startDate: '2012-06-13T22:31:35Z'
+            orderDate: '2012-06-13T22:31:35Z'
+            productOffering:
+              id: CUSTC
+              category: option
+              name: Customer Care
+            productSpecification:
+              id: faf
+            productCharacteristic:
+            - name: faf
+              value: '55566622'
+            - name: faf
+              value: '55522266'
+            productRelationship:
+            - type: isContainedIn
+              product:
+                id: CONTR0000000713|C|OP001
+          - id: CONTR0000000713|A|COINF
+            name: Conso Info
+            status: Active
+            isBundle: false
+            startDate: '2012-06-13T22:31:35Z'
+            orderDate: '2012-06-13T22:31:35Z'
+            productOffering:
+              id: COINF
+              category: option
+              name: Conso Info
+            productSpecification:
+              id: serviceBSCS
+            productRelationship:
+            - type: isContainedIn
+              product:
+                id: CONTR0000000713|C|OP001
+          - id: CONTR0000000713|A|KEY3G
+            name: 3G Key
+            status: Active
+            isBundle: false
+            startDate: '2012-06-13T22:31:35Z'
+            orderDate: '2012-06-13T22:31:35Z'
+            productOffering:
+              id: KEY3G
+              category: option
+              name: 3G Key
+            productSpecification:
+              id: serviceBSCS
+            productRelationship:
+            - type: isContainedIn
+              product:
+                id: CONTR0000000713|C|OP001
+          - id: CONTR0000000713|A|MOBIR
+            name: Mobile recharge
+            status: Active
+            isBundle: false
+            startDate: '2012-06-13T22:31:35Z'
+            orderDate: '2012-06-13T22:31:35Z'
+            productOffering:
+              id: MOBIR
+              category: option
+              name: Mobile recharge
+            productSpecification:
+              id: serviceBSCS
+            productRelationship:
+            - type: isContainedIn
+              product:
+                id: CONTR0000000713|C|MRSP
+          - id: CONTR0000000713|C|MRSP
+            name: Mobile recharge
+            isBundle: true
+            productOffering:
+              id: MRSP
+              category: package
+              name: Mobile recharge
+            productRelationship:
+            - type: isContainedIn
+              product:
+                id: CONTR0000000713
+            - type: contains
+              product:
+                id: CONTR0000000713|A|MOBIR
+          - id: CONTR0000000713|C|PPTP
+            name: Tariff Plan Prepaid
+            isBundle: true
+            productOffering:
+              id: PPTP
+              category: package
+              name: Tariff Plan Prepaid
+            productRelationship:
+            - type: isContainedIn
+              product:
+                id: CONTR0000000713
+            - type: contains
+              product:
+                id: CONTR0000000713|A|TNPM
+          - id: CONTR0000000713|C|OP001
+            name: Options
+            isBundle: true
+            productOffering:
+              id: OP001
+              category: package
+              name: Options
+            productRelationship:
+            - type: isContainedIn
+              product:
+                id: CONTR0000000713
+            - type: contains
+              product:
+                id: CONTR0000000713|A|MVS
+            - type: contains
+              product:
+                id: CONTR0000000713|A|CUSTC
+            - type: contains
+              product:
+                id: CONTR0000000713|A|COINF
+            - type: contains
+              product:
+                id: CONTR0000000713|A|KEY3G
+          - id: CONTR0000000713|C|PPBSE
+            name: Base Prepaid
+            isBundle: true
+            productOffering:
+              id: PPBSE
+              category: package
+              name: Base Prepaid
+            productRelationship:
+            - type: isContainedIn
+              product:
+                id: CONTR0000000713
+            - type: contains
+              product:
+                id: CONTR0000000713|A|GTEL
+          - name: Mobile communication
+            status: Active
+            isBundle: false
+            productOffering:
+              id: mobileCom
+              category: includedService
+              name: Mobile communication
+            productSpecification:
+              id: accessService
+            productCharacteristic:
+            - name: msisdn
+              value: '555706910213'
+            productRelationship:
+            - type: isContainedIn
+              product:
+                id: CONTR0000000713
+          - name: Sim card
+            status: Active
+            isBundle: false
+            productOffering:
+              id: simCard
+              category: includedService
+              name: Sim card
+            productSpecification:
+              id: accessService
+            productCharacteristic:
+            - name: iccId
+              value: '895550591210004045'
+            productRelationship:
+            - type: isContainedIn
+              product:
+                id: CONTR0000000713
+          - name: Facebook 750 Mo à 3dt (30jours)
+            status: Terminated
+            productOffering:
+              id: OPP17_d
+              category: option
+            productSpecification:
+              id: option
+            productRelationship:
+            - type: isContainedIn
+              product:
+                id: CONTR0000000713
+          - name: abonnement 100Mo 1j
+            status: Active
+            terminationDate: '2016-06-27T12:00:00Z'
+            productOffering:
+              id: OPP24_d
+              category: option
+            productSpecification:
+              id: option
+            productRelationship:
+            - type: isContainedIn
+              product:
+                id: CONTR0000000713
+          - name: Service transfer data
+            status: Active
+            isBundle: false
+            terminationDate: '2018-12-12T15:50:04Z'
+            productOffering:
+              id: transferDataService
+              category: option
+              name: Service transfer data
+            productSpecification:
+              id: transferData
+            productRelationship:
+            - type: isContainedIn
+              product:
+                id: CONTR0000000713
+        productFaf:
+            - id: CONTR0000000713|A|CUSTC
+              name: Customer Care
+              status: Active
+              isBundle: false
+              startDate: '2012-06-13T22:31:35Z'
+              orderDate: '2012-06-13T22:31:35Z'
+              productOffering:
+                id: CUSTC
+                category: option
+                name: Customer Care
+              productSpecification:
+                id: faf  
+              productCharacteristic:
+              - name: faf
+                value: '55566622'
+              - name: faf
+                value: '55522266'
+              productRelationship:
+              - type: isContainedIn
+                product:
+                  id: CONTR0000000713|C|OP001
+        serviceWithParameter:
+              id: CONTR0000001224|A|MOBIR
+              name: Mobile recharge
+              status: Active
+              isBundle: false
+              startDate: '2017-06-06T14:01:23Z'
+              orderDate: '2017-06-06T14:01:23Z'
+              productOffering:
+                id: MOBIR
+                category: option
+                name: Mobile recharge
+              productSpecification:
+                id: serviceBSCS  
+              productCharacteristic:
+              - name: Mob Rechar
+                value: '2,000'
+              productRelationship:
+              - type: isContainedIn
+                product:
+                  id: CONTR0000001224|C|MRSP
+        productTransferData:
+          - name: Service transfer data
+            status: Active
+            isBundle: false
+            terminationDate: '2018-12-12T15:50:04Z'
+            productOffering:
+              id: transferDataService
+              category: option
+              name: Service transfer data
+            productSpecification:
+              id: transferData
+            productRelationship:
+            - type: isContainedIn
+              product:
+                id: CONTR0000000713   
+        productTransferCredit:
+          - id: CONTR0000001706|A|POSTP
+            name: Postpaid Tarif Plan
+            status: Active
+            isBundle: false
+            startDate: '2013-10-18T09:42:39Z'
+            orderDate: '2013-10-18T09:42:39Z'
+            productOffering:
+              id: POSTP
+              category: option
+              name: Postpaid Tarif Plan
+            productSpecification:
+              id: transferCreditPostpaid
+            transferCreditCharacteristic:
+            - name: volume
+              value: '100'
+              targetPublicKey: '55512346'
+            productRelationship:
+            - type: isContainedIn
+              product:
+                id: CONTR0000001706|C|POBSE                     
+    party:
+        individual:
+            valid:
+                id: CUST0000000032
+                nationality: DE
+                maritalStatus: single
+                title: '1'
+                givenName: Peter
+                familyName: Mueller
+                characteristic:
+                - name: categoryCode
+                  value: 5
+                - name: categoryLabel
+                  value: Customer WiseE
+                contactMedium:
+                - type: emailAddress
+                  medium:
+                    emailAddress: demolhs@hotmail.de
+                - type: postalAddress
+                  medium:
+                    city: Frankfurt
+                    country: DE
+                    postcode: '99999'
+                    streetOne: Dieselstr.
+                    number: '10'
+            unknownId: pony
+            updatableId: CUST0000001390
+    customerBill:
+        id: 
+          valid: '47'
+          invalid: 0
+          badFormat: unknown
+        msisdn: 
+          valid: '555706910264'
+          invalid: 5550001224
+          badFormat: unknown
+        partyId: 
+          valid: 'CUST0000000135'
+          invalid: CUST0000100057
+          badFormat: unknown
+          largeAccount: CUST0000000116
+        date: '2005-07-26'
+        user:
+          login: 'login'
+          password: 'password'
+          platForm: 'test'
+        billImageFormat: application/pdf
+        billImageSize: 60830
+        bills:
+        - id: '47'
+          state: validated
+          billDate: '2005-08-05T22:00:00Z'
+          amountDue:
+            unit: EUR
+            value: 75.58
+          paymentDueDate: '2005-08-25T22:00:00Z'
+          remainingAmount:
+            unit: EUR
+            value: 40.58
+          appliedPayment:
+          - appliedAmount:
+              unit: EUR
+              value: -20
+            payment:
+              id: '40'
+              paymentDate: '2005-07-17T22:00:00Z'
+          - appliedAmount:
+              unit: EUR
+              value: -2.5
+            payment:
+              id: '39'
+              paymentDate: '2005-07-17T22:00:00Z'
+          - appliedAmount:
+              unit: EUR
+              value: -2.5
+            payment:
+              id: '38'
+              paymentDate: '2005-07-17T22:00:00Z'
+          - appliedAmount:
+              unit: EUR
+              value: 30
+            payment:
+              id: '31'
+              paymentDate: '2005-07-17T22:00:00Z'
+          - appliedAmount:
+              unit: EUR
+              value: 5
+            payment:
+              id: '30'
+              paymentDate: '2005-07-17T22:00:00Z'
+          - appliedAmount:
+              unit: EUR
+              value: 15
+            payment:
+              id: '29'
+              paymentDate: '2005-07-17T22:00:00Z'
+          - appliedAmount:
+              unit: EUR
+              value: 10
+            payment:
+              id: '28'
+              paymentDate: '2005-07-17T22:00:00Z'
+          relatedParty:
+          - id: CUST0000000135
+          billDocument:
+          - mimeType: application/pdf
+            sizeUnit: bytes
+            size: 60830
+        - id: '46'
+          state: validated
+          billDate: '2005-08-02T22:00:00Z'
+          amountDue:
+            unit: EUR
+            value: 55.97
+          paymentDueDate: '2005-08-22T22:00:00Z'
+          remainingAmount:
+            unit: EUR
+            value: 55.97
+          appliedPayment:
+          - appliedAmount:
+              unit: EUR
+              value: -55.97
+            payment:
+              id: '33'
+              paymentDate: '2005-07-17T22:00:00Z'
+          - appliedAmount:
+              unit: EUR
+              value: 55.97
+            payment:
+              id: '26'
+              paymentDate: '2005-07-17T22:00:00Z'
+          relatedParty:
+          - id: CUST0000000135
+          billDocument:
+          - mimeType: application/pdf
+            sizeUnit: bytes
+            size: 60830
+        - id: '45'
+          state: settled
+          billDate: '2005-07-28T22:00:00Z'
+          amountDue:
+            unit: EUR
+            value: 80.38
+          paymentDueDate: '2005-08-17T22:00:00Z'
+          remainingAmount:
+            unit: EUR
+            value: 0
+          appliedPayment:
+          - appliedAmount:
+              unit: EUR
+              value: 25.98
+            payment:
+              id: '49'
+              paymentDate: '2005-07-17T22:00:00Z'
+          - appliedAmount:
+              unit: EUR
+              value: 40
+            payment:
+              id: '47'
+              paymentDate: '2005-07-17T22:00:00Z'
+          - appliedAmount:
+              unit: EUR
+              value: -8
+            payment:
+              id: '37'
+              paymentDate: '2005-07-17T22:00:00Z'
+          - appliedAmount:
+              unit: EUR
+              value: 14.4
+            payment:
+              id: '36'
+              paymentDate: '2005-07-17T22:00:00Z'
+          - appliedAmount:
+              unit: EUR
+              value: 8
+            payment:
+              id: '35'
+              paymentDate: '2005-07-17T22:00:00Z'
+          - appliedAmount:
+              unit: EUR
+              value: -80.38
+            payment:
+              id: '32'
+              paymentDate: '2005-07-17T22:00:00Z'
+          - appliedAmount:
+              unit: EUR
+              value: 80.38
+            payment:
+              id: '25'
+              paymentDate: '2005-07-17T22:00:00Z'
+          relatedParty:
+          - id: CUST0000000135
+          billDocument:
+          - mimeType: application/pdf
+            sizeUnit: bytes
+            size: 60830
+        - id: '44'
+          state: settled
+          billDate: '2005-07-26T22:00:00Z'
+          amountDue:
+            unit: EUR
+            value: 100.38
+          paymentDueDate: '2005-08-15T22:00:00Z'
+          remainingAmount:
+            unit: EUR
+            value: 0
+          appliedPayment:
+          - appliedAmount:
+              unit: EUR
+              value: 50.38
+            payment:
+              id: '27'
+              paymentDate: '2005-07-17T22:00:00Z'
+          - appliedAmount:
+              unit: EUR
+              value: 50
+            payment:
+              id: '23'
+              paymentDate: '2005-07-17T22:00:00Z'
+          relatedParty:
+          - id: CUST0000000135
+          billDocument:
+          - mimeType: application/pdf
+            sizeUnit: bytes
+            size: 60830
+        - id: '20'
+          state: settled
+          billDate: '2005-07-24T22:00:00Z'
+          amountDue:
+            unit: EUR
+            value: 23.74
+          paymentDueDate: '2005-08-13T22:00:00Z'
+          remainingAmount:
+            unit: EUR
+            value: 0
+          appliedPayment:
+          - appliedAmount:
+              unit: EUR
+              value: 3.74
+            payment:
+              id: '24'
+              paymentDate: '2005-07-17T22:00:00Z'
+          - appliedAmount:
+              unit: EUR
+              value: 20
+            payment:
+              id: '23'
+              paymentDate: '2005-07-17T22:00:00Z'
+          relatedParty:
+          - id: CUST0000000135
+          billDocument:
+          - mimeType: application/pdf
+            sizeUnit: bytes
+            size: 60830
+billingAccount:
+      billingAccountId:
+        valid: BA0000000056
+        invalid: BA111111111111
+        badFormat: unknown
+      msisdn:
+        valid: 5550001223
+        invalid: 123456789
+        badFormat: unknown
+      partyId:
+        valid: CUST0000000056
+        invalid: CUST123456789
+        badFormat: unknown
+        withSeveralBillingAccounts: CUST0000000954
+      valid:
+        - id: BA0000000056
+          state: active
+          billStructure:
+            cycleSpecification:
+              dateShift: 1
+              frequency: 1 month
+          defaultPaymentMethod:
+            name: Cash
+          lastCustomerBill:
+            billDate: 2004-06-01T00:00:00Z
+            nextBillDate: 2004-07-01T00:00:00Z
+      several:
+        - id: BA0000001065
+          state: active
+          billStructure:
+            cycleSpecification:
+              frequency: 1 month
+          defaultPaymentMethod:
+            name: Cash
+        - id: BA0000001066
+          state: active
+          billStructure:
+            cycleSpecification:
+              frequency: 1 month
+          defaultPaymentMethod:
+            name: Cash
+productOrdering:
+    activateOffer:
+        validProductId: CONTR0000000051
+        updatableProductId: CONTR0000000141
+        terminatedProductId: CONTR0000001550
+        invalidProductId: 111111111111
+        validRelatedIndividual:
+            id: CUST0000000051
+            familyName: Dash
+            givenName: Rainbow
+    simSwap:
+        validIccId: 895550591210006131
+        invalidIccId: 11111111111
+        terminatedIccId: 895550591210010430
+        validProductId: CONTR0000001385
+        invalidProductId: 111111111111
+        beforeSimSwap:
+            productOffering:
+              id: simCard
+            productCharacteristic:
+            - name: iccId
+              value: 00000
+            productRelationship:
+            - type: isContainedIn
+              product:
+                id: 00000
+        afterSimSwap:
+            productOffering:
+              id: simCard
+            productCharacteristic:
+            - name: iccId
+              value: 1111111
+            productRelationship:
+            - type: isContainedIn
+              product:
+                id: 00000
+    friendAndFamily:
+        validProduct:
+            productSpecification:
+                id: faf
+            productCharacteristic:
+                - name: faf
+                  value: 0777777777
+        invalidProduct:
+            id: pony
+            productCharacteristic:
+                - name: XC345
+                  value: pony
+            productRelationship:
+                - type: isContainedIn
+                  product:
+                      id: pony
+            productSpecification:
+                id: bad
+    um13:
+        validProduct:
+            id: CUST0000000052
+        validProductOffering:
+            id: id8976
+        invalidProduct:
+            id: pony
+            productCharacteristic:
+                - name: XC345
+                  value: pony
+            productRelationship:
+                - type: isContainedIn
+                  product:
+                      id: pony
+    um7:
+        validProduct:
+            productOffering:
+                id: OPT8976
+            productRelationship:
+                - type: isContainedIn
+                  product:
+                      id: CONT0000102495
+        validProductOffering:
+            id: OPT8976
+        invalidProduct:
+            id: pony
+            productCharacteristic:
+                - name: XC345
+                  value: pony
+            productRelationship:
+                - type: isContainedIn
+                  product:
+                      id: pony
+    emergencyCredit:
+        validProductOffering:
+            id: 1
+    publicKey:
+        validMsisdn: 555706910221
+        invalidMsisdn: 1234
+    
+    service:
+        validProductId: CONTR0000000771
+        invalidProductId: 111111111111
+        terminatedProductId: CONTR0000002781        
+        invalidServiceId: 111111111111
+        badServiceId: TNPM
+        invalidServicePackageId: 111111111111
+        badServicePackageId: PPTP        
+        validServiceIdActivate: MVS 
+        validServiceIdAdd: COINF        
+        validServicePackageIdAdd: OP001
+        validServiceIdWithparametersModify: FAF2
+        validParameterId: IP1
+        invalidParameterId: unknown
+        validParameterValue: 2160000000
+        invalidParameterValue: unknown
+        validServiceIdWithparametersAdd: FAF1
+        validServicePackageIdWithparameters: OP001
+        
+productCatalog:
+    offerProductOfferingId:
+        valid: PRMOB
+        invalid: 11111111
+    productOffering:
+        valid: CBOC
+        invalid: unknown
+    productOfferingsForMigration: []
+    productOfferingsForCompatibility:
+        - id: TNPS
+          name: Talk Now Per Second
+          isBundle: false
+          category:
+          - name: option
+          bundledProductOffering:
+          - id: PPTP
+          productSpecification:
+            id: serviceBSCS
+          productOfferingPrice:
+          - priceType: punctual
+            price:
+              taxIncludedAmount: 0
+              currencyCode: EUR
+          - priceType: recurring
+            recurringChargePeriod: 1 month
+            price:
+              taxIncludedAmount: 0
+              currencyCode: EUR
+        - id: TNPM
+          name: Talk Now Per Minute
+          isBundle: false
+          category:
+          - name: option
+          bundledProductOffering:
+          - id: PPTP
+          productSpecification:
+            id: serviceBSCS
+          productOfferingPrice:
+          - priceType: punctual
+            price:
+              taxIncludedAmount: 0
+              currencyCode: EUR
+          - priceType: recurring
+            recurringChargePeriod: 1 month
+            price:
+              taxIncludedAmount: 0
+              currencyCode: EUR
+        - id: MOBIR
+          name: Mobile recharge
+          isBundle: false
+          category:
+          - name: option
+          bundledProductOffering:
+          - id: MRSP
+          productSpecification:
+            id: serviceBSCS
+          productOfferingPrice:
+          - priceType: punctual
+            price:
+              taxIncludedAmount: 0
+              currencyCode: EUR
+          - priceType: recurring
+            recurringChargePeriod: 1 month
+            price:
+              taxIncludedAmount: 0
+              currencyCode: EUR
+        - id: GTEL
+          name: GSM Telephony
+          isBundle: false
+          category:
+          - name: option
+          bundledProductOffering:
+          - id: PPBSE
+          productSpecification:
+            id: serviceBSCS
+          productOfferingPrice:
+          - priceType: punctual
+            price:
+              taxIncludedAmount: 0
+              currencyCode: EUR
+          - priceType: recurring
+            recurringChargePeriod: 1 month
+            price:
+              taxIncludedAmount: 0
+              currencyCode: EUR
+          - priceType: usage
+        - id: MVS
+          name: Voicemail
+          isBundle: false
+          category:
+          - name: option
+          bundledProductOffering:
+          - id: OP001
+          productSpecification:
+            id: serviceBSCS
+          productOfferingPrice:
+          - priceType: punctual
+            price:
+              taxIncludedAmount: 0
+              currencyCode: EUR
+          - priceType: recurring
+            recurringChargePeriod: 1 month
+            price:
+              taxIncludedAmount: 0
+              currencyCode: EUR
+          - priceType: usage
+        - id: CUSTC
+          name: Customer Care
+          isBundle: false
+          category:
+          - name: option
+          bundledProductOffering:
+          - id: OP001
+          productSpecification:
+            id: serviceBSCS
+          productOfferingPrice:
+          - priceType: punctual
+            price:
+              taxIncludedAmount: 0
+              currencyCode: EUR
+          - priceType: recurring
+            recurringChargePeriod: 1 month
+            price:
+              taxIncludedAmount: 0
+              currencyCode: EUR
+        - id: COINF
+          name: Conso Info
+          isBundle: false
+          category:
+          - name: option
+          bundledProductOffering:
+          - id: OP001
+          productSpecification:
+            id: serviceBSCS
+          productOfferingPrice:
+          - priceType: punctual
+            price:
+              taxIncludedAmount: 0
+              currencyCode: EUR
+          - priceType: recurring
+            recurringChargePeriod: 1 month
+            price:
+              taxIncludedAmount: 0
+              currencyCode: EUR
+        - id: KEY3G
+          name: 3G Key
+          isBundle: false
+          category:
+          - name: option
+          bundledProductOffering:
+          - id: OP001
+          productSpecification:
+            id: serviceBSCS
+          productOfferingPrice:
+          - priceType: punctual
+            price:
+              taxIncludedAmount: 0
+              currencyCode: EUR
+          - priceType: recurring
+            recurringChargePeriod: 1 month
+            price:
+              taxIncludedAmount: 0
+              currencyCode: EUR
+    productOfferingsForFafConfiguration:
+      - id: CUSTC
+        name: illimité 3 N°
+        isBundle: false
+        category:
+        - name: option
+        productSpecification:
+          id: faf
+          productSpecCharacteristic:
+          - name: faf
+            configurable: true
+            configurationLimit: "3 update per month"
+            valueType: freeValue
+            maxOccurrence: 3
+            productSpecCharacteristicValue:
+            - description: msisdn
+              valueType: string
+        productOfferingPrice:
+        - name: notFreeUpdate
+          priceType: operation
+          price:
+            taxIncludedAmount: 3
+            currencyCode: TND
+          productOfferPriceAlteration:
+            name: freeUpdate
+            priceType: operation
+            priceCondition: "1 free update per month"
+            price:
+              percentage: 100    
+    productOfferingForConfiguration:
+      id: CBOC
+      name: USER outgoing call barring
+      isBundle: false
+      productSpecification:
+        id: serviceBSCS
+        productSpecCharacteristic:
+        - name: GSM11
+          configurable: true
+          valueType: listBox
+          maxOccurrence: 1
+          productSpecCharacteristicValue:
+          - value: S
+            description: by Subscriber using password
+            valueType: string
+          - value: O
+            description: by Operator
+            valueType: string
+          description: Control of Barring Services
+        - name: GSM12
+          configurable: true
+          valueType: freeValue
+          maxOccurrence: 1
+          productSpecCharacteristicValue:
+          - valueType: string
+          description: Password
+        - name: GSM13
+          configurable: true
+          valueType: listBox
+          maxOccurrence: 1
+          productSpecCharacteristicValue:
+          - value: Y
+            description: 'Yes'
+            valueType: string
+          - value: N
+            description: 'No'
+            valueType: string
+          description: Reset
+        - name: GSM46
+          configurable: true
+          maxOccurrence: 1
+          description: Basic Service Group            
+bucketBalance:
+    msisdn:
+        prepaid: 555706910221
+        postpaid: 555706910221
+        invalid: 11111111
+    prepaidUsageReports:
+      - publicKey:
+          id: '555706910221'
+          name: msisdn
+        buckets:
+        - id: option1
+          name: option1
+          description: volume option1 - 1
+          validFor:
+            startDateTime: '2010-01-01T00:00:00Z'
+            endDateTime: '2028-07-01T00:00:00Z'
+          bucketBalances:
+          - unit: volume
+            usedValue: 2
+            maxValue: 19
+            remainingValue: 17
+        - id: option2
+          name: option2
+          description: autre option2 - 2
+          usageType: money
+          validFor:
+            startDateTime: '2017-01-01T00:00:00Z'
+            endDateTime: '2028-01-01T00:00:00Z'
+          bucketBalances:
+          - unit: TND
+            usedValue: 2.8
+            maxValue: 4
+            remainingValue: 1.2
+        - id: option3
+          name: option3
+          description: unlimited option
+          validFor:
+            startDateTime: '2016-01-01T00:00:00Z'
+            endDateTime: '2028-01-01T00:00:00Z'
+          bucketBalances:
+          - unit: unit
+            usedValue: 256
+            maxValue: 0
+            remainingValue: 0         
+        bucketCounters:
+        - cumulationType: debt
+          totalTaxIncludedAmount: 0.38
+          currency: TND          
+    postpaidUsageReports:
+      - publicKey:
+          id: '555706910221'
+          name: msisdn
+        bucketCounters:
+        - cumulationType: total
+          totalTaxIncludedAmount: 12
+          totalDutyFreeAmount: 10
+          taxAmount: 2
+          currency: TND
+        - cumulationType: included
+          totalTaxIncludedAmount: 6
+          totalDutyFreeAmount: 50
+          taxAmount: -44
+          currency: TND
+        - cumulationType: outOf
+          totalTaxIncludedAmount: 3.2
+          totalDutyFreeAmount: 2
+          taxAmount: 1.2
+          currency: TND
+        - cumulationType: report
+          totalTaxIncludedAmount: 23
+          totalDutyFreeAmount: 21
+          taxAmount: 2
+          currency: TND
+        buckets:
+        - id: option1
+          name: option1
+          description: volume option1 - 1
+          usageType: data
+          validFor:
+            startDateTime: '2010-01-01T00:00:00Z'
+            endDateTime: '2028-07-01T00:00:00Z'
+          bucketBalances:
+          - unit: volume
+            usedValue: 2
+            maxValue: 19
+            remainingValue: 17
+        - id: option2
+          name: option2
+          description: autre option2 - 2
+          usageType: money
+          validFor:
+            startDateTime: '2017-01-01T00:00:00Z'
+            endDateTime: '2028-01-01T00:00:00Z'
+          bucketBalances:
+          - unit: TND
+            usedValue: 2.8
+            maxValue: 4
+            remainingValue: 1.2
+        - id: option3
+          name: option3
+          description: unlimited option
+          usageType: data
+          validFor:
+            startDateTime: '2016-01-01T00:00:00Z'
+            endDateTime: '2028-01-01T00:00:00Z'
+          bucketBalances:
+          - unit: unit
+            usedValue: 256
+            maxValue: 0
+            remainingValue: 0
+    creditBucketBalanceTransactions: 
+      - type: transfer
+        unit: TND
+        targetPublicKey:
+          id: '555123546'
+          name: msisdn
+        value: 0.08
+        date: '2018-01-01T00:00:00Z'
+        channel: canal1
+      - type: transfer
+        unit: TND
+        targetPublicKey:
+          id: '555789456'
+          name: msisdn
+        value: 0.03
+        date: '2017-07-01T00:00:00Z'
+        channel: canal3
+      - type: transfer
+        unit: TND
+        targetPublicKey:
+          id: '555789456'
+          name: msisdn
+        value: 0.02
+        date: '2017-01-01T00:00:00Z'
+        channel: canal2
+eligibility:
+    msisdnValid: 555706910213
+    msisdnInvalid: 11111111
+    msisdnUnknown: 4242424242
+    productOfferingId: OPP52
+    eligibleOptions:
+        - productOfferingId: OPP24
+          productOfferingName: Abonnement 100 Mo 0,4dt (1j)
+          canBeSubscribed: true
+          price:
+            currencyCode: TND
+            taxIncludedAmount: 0.4
+          productSpecification:
+            id: option
+        - productOfferingId: OPP52
+          productOfferingName: 400 Mo + 20 minutes à 1,8dt (15j)
+          canBeSubscribed: true
+          price:
+            currencyCode: TND
+            taxIncludedAmount: 1.8
+          productSpecification:
+            id: option
+        - productOfferingId: OPP23
+          productOfferingName: Abonnement Facebook 3 Go 12dt (30j)
+          canBeSubscribed: true
+          price:
+            currencyCode: TND
+            taxIncludedAmount: 12
+          productSpecification:
+            id: option
+        - productOfferingId: '1'
+          productOfferingName: SOS Credit 2min
+          canBeSubscribed: true
+          price:
+            currencyCode: TND
+            taxIncludedAmount: 0.38
+          productSpecification:
+            id: emergencyVoice
+        - productOfferingId: transferDateFee
+          productOfferingName: TransferData
+          canBeSubscribed: false
+          eligibleCharacteristic:
+          - name: maxVolume
+            productSpecCharacteristicValues:
+            - value: '100'
+          productSpecification:
+            id: transferData            
+    eligibleOptionsFiltered:
+        - productOfferingId: OPP52
+          productOfferingName: 400 Mo + 20 minutes à 1,8dt (15j)
+          canBeSubscribed: true
+          price:
+            currencyCode: TND
+            taxIncludedAmount: 1.8
+          productSpecification:
+            id: option
+    eligibleContract:
+        productOffering:
+        - id: PRE15
+          productOfferingPrice:
+          - price:
+              currencyCode: TND
+              taxIncludedAmount: 1
+        - id: PRE12
+          productOfferingPrice:
+          - price:
+              currencyCode: TND
+              taxIncludedAmount: 1  
+    transferDataEligibleOptions:              
+        - productOfferingId: transferDateFee
+          productOfferingName: TransferData
+          canBeSubscribed: false
+          eligibleCharacteristic:
+          - name: maxVolume
+            productSpecCharacteristicValues:
+            - value: '100'
+          productSpecification:
+            id: transferData    
+    emergencyVoiceEligibleOptions:
+        - productOfferingId: '1'
+          productOfferingName: SOS Credit 2min
+          canBeSubscribed: true
+          price:
+            currencyCode: TND
+            taxIncludedAmount: 0.38
+          productSpecification:
+            id: emergencyVoice                  
+payment:
+    paymentId:
+      valid: '0000000127-0000000097'
+      invalid: '99999'
+    partyId:
+      valid: 'CUST0000000003'
+      invalid: UNKNOWN
+    payments:
+      - correlatorId: 0000000127-0000000097
+        paymentDate: '2014-03-26T15:37:33Z'
+        totalAmount:
+          amount: 24.66
+          units: EUR
+        payer:
+          id: CUST0000000003
+        paymentItem:
+        - totalAmount:
+            amount: 24.77
+            units: EUR
+          item:
+            id: '144'
+      - correlatorId: 0000000123-0000000090
+        paymentDate: '2014-03-06T15:45:28Z'
+        totalAmount:
+          amount: 13
+          units: EUR
+        payer:
+          id: CUST0000000003
+        paymentItem:
+        - totalAmount:
+            amount: 24.77
+            units: EUR
+          item:
+            id: '144'
+      - correlatorId: 0000000112-0000000086
+        paymentDate: '2014-02-11T14:34:57Z'
+        totalAmount:
+          amount: 142.55
+          units: EUR
+        payer:
+          id: CUST0000000003
+        paymentItem:
+        - totalAmount:
+            amount: 142.55
+            units: EUR
+          item:
+            id: '128'
+      - correlatorId: 0000000013-0000000082
+        paymentDate: '2014-02-10T17:10:39Z'
+        totalAmount:
+          amount: 21
+          units: EUR
+        payer:
+          id: CUST0000000003
+        paymentItem:
+        - totalAmount:
+            amount: 21
+            units: EUR
+          item:
+            id: '13'

@@ -1,0 +1,6260 @@
+[
+  {
+    "__PARTY__": "Data for Party tests",
+    "individualIdValid": "CUST0000000063",
+    "individualData": {
+  "id": "CUST0000000063",
+  "gender": "male",
+  "nationality": "VN",
+  "maritalStatus": "single",
+  "birthDate": "1975-04-17",
+  "title": "1",
+  "givenName": "Tuan",
+  "familyName": "Nguyen",
+  "characteristic": [
+    {
+      "name": "categoryCode",
+      "value": "NORMAL"
+    },
+    {
+      "name": "categoryLabel",
+      "value": "Regular Customers"
+    }
+  ],
+  "contactMedium": [
+    {
+      "type": "postalAddress",
+      "medium": {
+        "city": "GABORONE",
+        "country": "BW",
+        "streetOne": "DUMMY",
+        "number": "999"
+      }
+    }
+  ],
+  "individualIdentification": [
+    {
+      "type": "1",
+      "identificationId": "78678678"
+    }
+  ]
+},
+    "individualIdInvalidLong": "12340000000063",
+    "individualIdInvalidAlpha": "PONY0000000063",
+    "individualIdInvalidSpecial": "P¤NY0000000063",
+    "individualUpdatableId": "CUST0000000110",
+    "ppIncoherentTitleGenderTitle": "2",
+    "ppIncoherentTitleGenderGender": "male",
+    "__BUCKET_BALANCE_": "Data for Bucket Balance tests",
+    "bbMsisdnValid": "555706990021",
+    "bbMsisdnInValid": "666706990021",
+    "__PRODUCT_INVENTORY_": "Data for Product inventory tests",
+    "piMsisdnValid": "26774843725",
+    "piIccIdValid": "8926702071400463162F",
+    "piIndividualIdValid": "CUST0001408231",
+    "piProductValid": [
+      {
+        "id": "CONT0001351400",
+        "ratingType": "Prepaid",
+        "name": "Orange Prepaid",
+        "status": "Active",
+        "isBundle": true,
+        "startDate": "2014-08-07T22:00:00Z",
+        "orderDate": "2014-08-07T22:00:00Z",
+        "productOffering": {
+          "id": "PRORN",
+          "category": "offer",
+          "name": "Orange Prepaid"
+        },
+        "productCharacteristic": [
+          {
+            "name": "statusReason",
+            "value": "1"
+          }
+        ],
+        "productRelationship": [
+          {
+            "type": "contains",
+            "product": {
+              "id": "CONT0001351400|C|PRORN"
+            }
+          },
+          {
+            "type": "contains",
+            "product": {
+              "id": "CONT0001351400|C|SUPP"
+            }
+          },
+          {
+            "type": "contains",
+            "product": {
+              "id": "CONT0001351400|C|YZNSP"
+            }
+          },
+          {
+            "type": "contains",
+            "product": {
+              "productOffering": {
+                "id": "includedService"
+              }
+            }
+          }
+        ],
+        "billingAccount": [
+          {
+            "id": "BA0002179461"
+          }
+        ],
+        "relatedParty": [
+          {
+            "id": "CUST0001408231",
+            "role": "customer"
+          }
+        ]
+      }
+    ],
+    "piProductValidFull": [
+      {
+        "id": "CONT0001351400",
+        "ratingType": "Prepaid",
+        "name": "Orange Prepaid",
+        "status": "Active",
+        "isBundle": true,
+        "startDate": "2014-08-07T22:00:00Z",
+        "orderDate": "2014-08-07T22:00:00Z",
+        "productOffering": {
+          "id": "PRORN",
+          "category": "offer",
+          "name": "Orange Prepaid"
+        },
+        "productCharacteristic": [
+          {
+            "name": "statusReason",
+            "value": "1"
+          }
+        ],
+        "productRelationship": [
+          {
+            "type": "contains",
+            "product": {
+              "id": "CONT0001351400|C|PRORN"
+            }
+          },
+          {
+            "type": "contains",
+            "product": {
+              "id": "CONT0001351400|C|SUPP"
+            }
+          },
+          {
+            "type": "contains",
+            "product": {
+              "id": "CONT0001351400|C|YZNSP"
+            }
+          },
+          {
+            "type": "contains",
+            "product": {
+              "productOffering": {
+                "id": "includedService"
+              }
+            }
+          }
+        ],
+        "billingAccount": [
+          {
+            "id": "BA0002179461"
+          }
+        ],
+        "relatedParty": [
+          {
+            "id": "CUST0001408231",
+            "role": "customer"
+          }
+        ]
+      },
+      {
+        "id": "CONT0001351400|A|CFNRE",
+        "name": "Call Forward Not Reachable",
+        "status": "Active",
+        "isBundle": false,
+        "startDate": "2014-08-07T22:00:00Z",
+        "orderDate": "2014-08-07T22:00:00Z",
+        "productOffering": {
+          "id": "CFNRE",
+          "category": "coreService",
+          "name": "Call Forward Not Reachable"
+        },
+        "productRelationship": [
+          {
+            "type": "isContainedIn",
+            "product": {
+              "id": "CONT0001351400|C|PRORN"
+            }
+          }
+        ]
+      },
+      {
+        "id": "CONT0001351400|A|CFU",
+        "name": "Call Forward Unconditional",
+        "status": "Active",
+        "isBundle": false,
+        "startDate": "2014-08-07T22:00:00Z",
+        "orderDate": "2014-08-07T22:00:00Z",
+        "productOffering": {
+          "id": "CFU",
+          "category": "coreService",
+          "name": "Call Forward Unconditional"
+        },
+        "productRelationship": [
+          {
+            "type": "isContainedIn",
+            "product": {
+              "id": "CONT0001351400|C|PRORN"
+            }
+          }
+        ]
+      },
+      {
+        "id": "CONT0001351400|A|CFB",
+        "name": "Call Forward on Busy",
+        "status": "Active",
+        "isBundle": false,
+        "startDate": "2014-08-07T22:00:00Z",
+        "orderDate": "2014-08-07T22:00:00Z",
+        "productOffering": {
+          "id": "CFB",
+          "category": "coreService",
+          "name": "Call Forward on Busy"
+        },
+        "productRelationship": [
+          {
+            "type": "isContainedIn",
+            "product": {
+              "id": "CONT0001351400|C|PRORN"
+            }
+          }
+        ]
+      },
+      {
+        "id": "CONT0001351400|A|CFNRY",
+        "name": "Call Forward on No Reply",
+        "status": "Active",
+        "isBundle": false,
+        "startDate": "2014-08-07T22:00:00Z",
+        "orderDate": "2014-08-07T22:00:00Z",
+        "productOffering": {
+          "id": "CFNRY",
+          "category": "coreService",
+          "name": "Call Forward on No Reply"
+        },
+        "productRelationship": [
+          {
+            "type": "isContainedIn",
+            "product": {
+              "id": "CONT0001351400|C|PRORN"
+            }
+          }
+        ]
+      },
+      {
+        "id": "CONT0001351400|A|CHOLD",
+        "name": "Call Holding",
+        "status": "Active",
+        "isBundle": false,
+        "startDate": "2014-08-07T22:00:00Z",
+        "orderDate": "2014-08-07T22:00:00Z",
+        "productOffering": {
+          "id": "CHOLD",
+          "category": "coreService",
+          "name": "Call Holding"
+        },
+        "productRelationship": [
+          {
+            "type": "isContainedIn",
+            "product": {
+              "id": "CONT0001351400|C|PRORN"
+            }
+          }
+        ]
+      },
+      {
+        "id": "CONT0001351400|A|CWAIT",
+        "name": "Call Waiting",
+        "status": "Active",
+        "isBundle": false,
+        "startDate": "2014-08-07T22:00:00Z",
+        "orderDate": "2014-08-07T22:00:00Z",
+        "productOffering": {
+          "id": "CWAIT",
+          "category": "coreService",
+          "name": "Call Waiting"
+        },
+        "productRelationship": [
+          {
+            "type": "isContainedIn",
+            "product": {
+              "id": "CONT0001351400|C|PRORN"
+            }
+          }
+        ]
+      },
+      {
+        "id": "CONT0001351400|A|CLIP",
+        "name": "Calling Line Ident Present",
+        "status": "Active",
+        "isBundle": false,
+        "startDate": "2014-08-07T22:00:00Z",
+        "orderDate": "2014-08-07T22:00:00Z",
+        "productOffering": {
+          "id": "CLIP",
+          "category": "coreService",
+          "name": "Calling Line Ident Present"
+        },
+        "productRelationship": [
+          {
+            "type": "isContainedIn",
+            "product": {
+              "id": "CONT0001351400|C|PRORN"
+            }
+          }
+        ]
+      },
+      {
+        "id": "CONT0001351400|A|EMGNC",
+        "name": "Emergency Calls",
+        "status": "Active",
+        "isBundle": false,
+        "startDate": "2014-08-07T22:00:00Z",
+        "orderDate": "2014-08-07T22:00:00Z",
+        "productOffering": {
+          "id": "EMGNC",
+          "category": "coreService",
+          "name": "Emergency Calls"
+        },
+        "productRelationship": [
+          {
+            "type": "isContainedIn",
+            "product": {
+              "id": "CONT0001351400|C|PRORN"
+            }
+          }
+        ]
+      },
+      {
+        "id": "CONT0001351400|A|Voice",
+        "name": "GSM Telephony",
+        "status": "Active",
+        "isBundle": false,
+        "startDate": "2014-08-07T22:00:00Z",
+        "orderDate": "2014-08-07T22:00:00Z",
+        "productOffering": {
+          "id": "Voice",
+          "category": "coreService",
+          "name": "GSM Telephony"
+        },
+        "productRelationship": [
+          {
+            "type": "isContainedIn",
+            "product": {
+              "id": "CONT0001351400|C|PRORN"
+            }
+          }
+        ]
+      },
+      {
+        "id": "CONT0001351400|A|MTPY",
+        "name": "Multi-Party Calls",
+        "status": "Active",
+        "isBundle": false,
+        "startDate": "2014-08-07T22:00:00Z",
+        "orderDate": "2014-08-07T22:00:00Z",
+        "productOffering": {
+          "id": "MTPY",
+          "category": "coreService",
+          "name": "Multi-Party Calls"
+        },
+        "productRelationship": [
+          {
+            "type": "isContainedIn",
+            "product": {
+              "id": "CONT0001351400|C|PRORN"
+            }
+          }
+        ]
+      },
+      {
+        "id": "CONT0001351400|A|SMSMO",
+        "name": "Short Message Mobile Orig",
+        "status": "Active",
+        "isBundle": false,
+        "startDate": "2014-08-07T22:00:00Z",
+        "orderDate": "2014-08-07T22:00:00Z",
+        "productOffering": {
+          "id": "SMSMO",
+          "category": "coreService",
+          "name": "Short Message Mobile Orig"
+        },
+        "productRelationship": [
+          {
+            "type": "isContainedIn",
+            "product": {
+              "id": "CONT0001351400|C|PRORN"
+            }
+          }
+        ]
+      },
+      {
+        "id": "CONT0001351400|A|SMSMT",
+        "name": "Short Message Mobile Term",
+        "status": "Active",
+        "isBundle": false,
+        "startDate": "2014-08-07T22:00:00Z",
+        "orderDate": "2014-08-07T22:00:00Z",
+        "productOffering": {
+          "id": "SMSMT",
+          "category": "coreService",
+          "name": "Short Message Mobile Term"
+        },
+        "productRelationship": [
+          {
+            "type": "isContainedIn",
+            "product": {
+              "id": "CONT0001351400|C|PRORN"
+            }
+          }
+        ]
+      },
+      {
+        "id": "CONT0001351400|A|DCF",
+        "name": "Default Call Forwarding",
+        "status": "Active",
+        "isBundle": false,
+        "startDate": "2014-08-07T22:00:00Z",
+        "orderDate": "2014-08-07T22:00:00Z",
+        "productOffering": {
+          "id": "DCF",
+          "category": "coreService",
+          "name": "Default Call Forwarding"
+        },
+        "productRelationship": [
+          {
+            "type": "isContainedIn",
+            "product": {
+              "id": "CONT0001351400|C|PRORN"
+            }
+          }
+        ]
+      },
+      {
+        "id": "CONT0001351400|A|OBR-2",
+        "name": "Op Bar Roaming outside HPLMN",
+        "status": "Active",
+        "isBundle": false,
+        "startDate": "2014-08-07T22:00:00Z",
+        "orderDate": "2014-08-07T22:00:00Z",
+        "productOffering": {
+          "id": "OBR-2",
+          "category": "coreService",
+          "name": "Op Bar Roaming outside HPLMN"
+        },
+        "productRelationship": [
+          {
+            "type": "isContainedIn",
+            "product": {
+              "id": "CONT0001351400|C|PRORN"
+            }
+          }
+        ]
+      },
+      {
+        "id": "CONT0001351400|A|CUG",
+        "name": "Closed User Group",
+        "status": "Active",
+        "isBundle": false,
+        "startDate": "2014-08-07T22:00:00Z",
+        "orderDate": "2014-08-07T22:00:00Z",
+        "productOffering": {
+          "id": "CUG",
+          "category": "service",
+          "name": "Closed User Group"
+        },
+        "productRelationship": [
+          {
+            "type": "isContainedIn",
+            "product": {
+              "id": "CONT0001351400|C|SUPP"
+            }
+          }
+        ]
+      },
+      {
+        "id": "CONT0001351400|A|Yzone",
+        "name": "Yield Zone",
+        "status": "Pending_active",
+        "isBundle": false,
+        "startDate": "2017-03-17T10:51:29Z",
+        "productOffering": {
+          "id": "Yzone",
+          "category": "service",
+          "name": "Yield Zone"
+        },
+        "productRelationship": [
+          {
+            "type": "isContainedIn",
+            "product": {
+              "id": "CONT0001351400|C|YZNSP"
+            }
+          }
+        ]
+      },
+      {
+        "id": "CONT0001351400|A|NRESE",
+        "name": "Non Register Service",
+        "status": "Active",
+        "isBundle": false,
+        "startDate": "2014-08-07T22:00:00Z",
+        "orderDate": "2014-08-07T22:00:00Z",
+        "productOffering": {
+          "id": "NRESE",
+          "category": "coreService",
+          "name": "Non Register Service"
+        },
+        "productRelationship": [
+          {
+            "type": "isContainedIn",
+            "product": {
+              "id": "CONT0001351400|C|PRORN"
+            }
+          }
+        ]
+      },
+      {
+        "id": "CONT0001351400|C|YZNSP",
+        "name": "Yield Zone",
+        "isBundle": true,
+        "productOffering": {
+          "id": "YZNSP",
+          "category": "service",
+          "name": "Yield Zone"
+        },
+        "productRelationship": [
+          {
+            "type": "isContainedIn",
+            "product": {
+              "id": "CONT0001351400"
+            }
+          },
+          {
+            "type": "contains",
+            "product": {
+              "id": "CONT0001351400|A|Yzone"
+            }
+          }
+        ]
+      },
+      {
+        "id": "CONT0001351400|C|SUPP",
+        "name": "Supplementary",
+        "isBundle": true,
+        "productOffering": {
+          "id": "SUPP",
+          "category": "service",
+          "name": "Supplementary"
+        },
+        "productRelationship": [
+          {
+            "type": "isContainedIn",
+            "product": {
+              "id": "CONT0001351400"
+            }
+          },
+          {
+            "type": "contains",
+            "product": {
+              "id": "CONT0001351400|A|CUG"
+            }
+          }
+        ]
+      },
+      {
+        "id": "CONT0001351400|C|PRORN",
+        "name": "Orange Prepaid",
+        "isBundle": true,
+        "productOffering": {
+          "id": "PRORN",
+          "category": "service",
+          "name": "Orange Prepaid"
+        },
+        "productRelationship": [
+          {
+            "type": "isContainedIn",
+            "product": {
+              "id": "CONT0001351400"
+            }
+          },
+          {
+            "type": "contains",
+            "product": {
+              "id": "CONT0001351400|A|CFNRE"
+            }
+          },
+          {
+            "type": "contains",
+            "product": {
+              "id": "CONT0001351400|A|CFU"
+            }
+          },
+          {
+            "type": "contains",
+            "product": {
+              "id": "CONT0001351400|A|CFB"
+            }
+          },
+          {
+            "type": "contains",
+            "product": {
+              "id": "CONT0001351400|A|CFNRY"
+            }
+          },
+          {
+            "type": "contains",
+            "product": {
+              "id": "CONT0001351400|A|CHOLD"
+            }
+          },
+          {
+            "type": "contains",
+            "product": {
+              "id": "CONT0001351400|A|CWAIT"
+            }
+          },
+          {
+            "type": "contains",
+            "product": {
+              "id": "CONT0001351400|A|CLIP"
+            }
+          },
+          {
+            "type": "contains",
+            "product": {
+              "id": "CONT0001351400|A|EMGNC"
+            }
+          },
+          {
+            "type": "contains",
+            "product": {
+              "id": "CONT0001351400|A|Voice"
+            }
+          },
+          {
+            "type": "contains",
+            "product": {
+              "id": "CONT0001351400|A|MTPY"
+            }
+          },
+          {
+            "type": "contains",
+            "product": {
+              "id": "CONT0001351400|A|SMSMO"
+            }
+          },
+          {
+            "type": "contains",
+            "product": {
+              "id": "CONT0001351400|A|SMSMT"
+            }
+          },
+          {
+            "type": "contains",
+            "product": {
+              "id": "CONT0001351400|A|DCF"
+            }
+          },
+          {
+            "type": "contains",
+            "product": {
+              "id": "CONT0001351400|A|OBR-2"
+            }
+          },
+          {
+            "type": "contains",
+            "product": {
+              "id": "CONT0001351400|A|NRESE"
+            }
+          }
+        ]
+      },
+      {
+        "name": "Included service",
+        "isBundle": true,
+        "productOffering": {
+          "id": "includedService",
+          "category": "includedService",
+          "name": "Included service"
+        },
+        "productRelationship": [
+          {
+            "type": "isContainedIn",
+            "product": {
+              "id": "CONT0001351400"
+            }
+          },
+          {
+            "type": "contains",
+            "product": {
+              "productOffering": {
+                "id": "mobileCom"
+              }
+            }
+          },
+          {
+            "type": "contains",
+            "product": {
+              "productOffering": {
+                "id": "simCard"
+              }
+            }
+          }
+        ]
+      },
+      {
+        "name": "Mobile communication",
+        "status": "Active",
+        "isBundle": false,
+        "productOffering": {
+          "id": "mobileCom",
+          "category": "includedService",
+          "name": "Mobile communication"
+        },
+        "productCharacteristic": [
+          {
+            "name": "msisdn",
+            "value": "74843725"
+          }
+        ],
+        "productRelationship": [
+          {
+            "type": "isContainedIn",
+            "product": {
+              "productOffering": {
+                "id": "includedService"
+              }
+            }
+          }
+        ]
+      },
+      {
+        "name": "Sim card",
+        "status": "Active",
+        "isBundle": false,
+        "productOffering": {
+          "id": "simCard",
+          "category": "includedService",
+          "name": "Sim card"
+        },
+        "productCharacteristic": [
+          {
+            "name": "iccId",
+            "value": "8926702071400463162F"
+          }
+        ],
+        "productRelationship": [
+          {
+            "type": "isContainedIn",
+            "product": {
+              "productOffering": {
+                "id": "includedService"
+              }
+            }
+          }
+        ]
+      }
+    ],
+    "piMsisdnInvalid": "666a706990021",
+    "piIccidInvalid": "pony",
+    "piMsisdnUnused": "444",
+	"piProductFiltredIncludedServicesSimcard": [
+  {
+    "name": "Sim card",
+    "status": "Active",
+    "isBundle": false,
+    "productOffering": {
+      "id": "simCard",
+      "category": "includedService",
+      "name": "Sim card"
+    },
+    "productCharacteristic": [
+      {
+        "name": "iccId",
+        "value": "8926702071400463162F"
+      }
+    ],
+    "productRelationship": [
+      {
+        "type": "isContainedIn",
+        "product": {
+          "productOffering": {
+            "id": "includedService"
+          }
+        }
+      }
+    ]
+  }
+],
+    "__PRODUCT_ORDER_": "Data for Product order tests",
+    "poUM17msisdn": "26772105013",
+	"poUM17productId":"CONT0000000036",
+	"poUM17oldIccid": "8926702121401139772F",
+	"poUM17newIccid": "8926702039900062727F",
+	"poUM17Products":[
+	  {
+		"id": "CONT0000000036",
+		"ratingType": "Postpaid",
+		"name": "Orange Gem Smart Phone Diamond",
+		"status": "Active",
+		"isBundle": true,
+		"startDate": "2006-10-25T08:14:00Z",
+		"orderDate": "1999-01-22T15:03:39Z",
+		"productOffering": {
+		  "id": "GeSMD",
+		  "category": "offer",
+		  "name": "Orange Gem Smart Phone Diamond"
+		},
+		"productCharacteristic": [
+		  {
+			"name": "statusReason",
+			"value": "1"
+		  }
+		],
+		"productRelationship": [
+		  {
+			"type": "contains",
+			"product": {
+			  "id": "CONT0000000036|C|OMSP1"
+			}
+		  },
+		  {
+			"type": "contains",
+			"product": {
+			  "id": "CONT0000000036|C|GeSMD"
+			}
+		  },
+		  {
+			"type": "contains",
+			"product": {
+			  "id": "CONT0000000036|C|OPTSP"
+			}
+		  },
+		  {
+			"type": "contains",
+			"product": {
+			  "productOffering": {
+				"id": "includedService"
+			  }
+			}
+		  }
+		],
+		"billingAccount": [
+		  {
+			"id": "BA0000000047"
+		  }
+		],
+		"relatedParty": [
+		  {
+			"id": "CUST0000000047",
+			"role": "customer"
+		  }
+		]
+	  },
+	  {
+		"id": "CONT0000000036|A|CFNRE",
+		"name": "Call Forward Not Reachable",
+		"status": "Active",
+		"isBundle": false,
+		"startDate": "2013-11-20T23:00:10Z",
+		"orderDate": "2013-11-20T23:00:10Z",
+		"productOffering": {
+		  "id": "CFNRE",
+		  "category": "coreService",
+		  "name": "Call Forward Not Reachable"
+		},
+		"productRelationship": [
+		  {
+			"type": "isContainedIn",
+			"product": {
+			  "id": "CONT0000000036|C|OMSP1"
+			}
+		  }
+		]
+	  },
+	  {
+		"id": "CONT0000000036|A|CFU",
+		"name": "Call Forward Unconditional",
+		"status": "Active",
+		"isBundle": false,
+		"startDate": "2013-11-20T23:00:10Z",
+		"orderDate": "2013-11-20T23:00:10Z",
+		"productOffering": {
+		  "id": "CFU",
+		  "category": "coreService",
+		  "name": "Call Forward Unconditional"
+		},
+		"productRelationship": [
+		  {
+			"type": "isContainedIn",
+			"product": {
+			  "id": "CONT0000000036|C|OMSP1"
+			}
+		  }
+		]
+	  },
+	  {
+		"id": "CONT0000000036|A|CFB",
+		"name": "Call Forward on Busy",
+		"status": "Active",
+		"isBundle": false,
+		"startDate": "2013-11-20T23:00:10Z",
+		"orderDate": "2013-11-20T23:00:10Z",
+		"productOffering": {
+		  "id": "CFB",
+		  "category": "coreService",
+		  "name": "Call Forward on Busy"
+		},
+		"productRelationship": [
+		  {
+			"type": "isContainedIn",
+			"product": {
+			  "id": "CONT0000000036|C|OMSP1"
+			}
+		  }
+		]
+	  },
+	  {
+		"id": "CONT0000000036|A|CFNRY",
+		"name": "Call Forward on No Reply",
+		"status": "Active",
+		"isBundle": false,
+		"startDate": "2013-11-20T23:00:10Z",
+		"orderDate": "2013-11-20T23:00:10Z",
+		"productOffering": {
+		  "id": "CFNRY",
+		  "category": "coreService",
+		  "name": "Call Forward on No Reply"
+		},
+		"productRelationship": [
+		  {
+			"type": "isContainedIn",
+			"product": {
+			  "id": "CONT0000000036|C|OMSP1"
+			}
+		  }
+		]
+	  },
+	  {
+		"id": "CONT0000000036|A|CHOLD",
+		"name": "Call Holding",
+		"status": "Active",
+		"isBundle": false,
+		"startDate": "2013-11-20T23:00:10Z",
+		"orderDate": "2013-11-20T23:00:10Z",
+		"productOffering": {
+		  "id": "CHOLD",
+		  "category": "coreService",
+		  "name": "Call Holding"
+		},
+		"productRelationship": [
+		  {
+			"type": "isContainedIn",
+			"product": {
+			  "id": "CONT0000000036|C|OMSP1"
+			}
+		  }
+		]
+	  },
+	  {
+		"id": "CONT0000000036|A|CWAIT",
+		"name": "Call Waiting",
+		"status": "Active",
+		"isBundle": false,
+		"startDate": "2013-11-20T23:00:10Z",
+		"orderDate": "2013-11-20T23:00:10Z",
+		"productOffering": {
+		  "id": "CWAIT",
+		  "category": "coreService",
+		  "name": "Call Waiting"
+		},
+		"productRelationship": [
+		  {
+			"type": "isContainedIn",
+			"product": {
+			  "id": "CONT0000000036|C|OMSP1"
+			}
+		  }
+		]
+	  },
+	  {
+		"id": "CONT0000000036|A|CLIP",
+		"name": "Calling Line Ident Present",
+		"status": "Active",
+		"isBundle": false,
+		"startDate": "2013-11-20T23:00:10Z",
+		"orderDate": "2013-11-20T23:00:10Z",
+		"productOffering": {
+		  "id": "CLIP",
+		  "category": "coreService",
+		  "name": "Calling Line Ident Present"
+		},
+		"productRelationship": [
+		  {
+			"type": "isContainedIn",
+			"product": {
+			  "id": "CONT0000000036|C|OMSP1"
+			}
+		  }
+		]
+	  },
+	  {
+		"id": "CONT0000000036|A|EMGNC",
+		"name": "Emergency Calls",
+		"status": "Active",
+		"isBundle": false,
+		"startDate": "2013-11-20T23:00:10Z",
+		"orderDate": "2013-11-20T23:00:10Z",
+		"productOffering": {
+		  "id": "EMGNC",
+		  "category": "coreService",
+		  "name": "Emergency Calls"
+		},
+		"productRelationship": [
+		  {
+			"type": "isContainedIn",
+			"product": {
+			  "id": "CONT0000000036|C|OMSP1"
+			}
+		  }
+		]
+	  },
+	  {
+		"id": "CONT0000000036|A|Voice",
+		"name": "GSM Telephony",
+		"status": "Active",
+		"isBundle": false,
+		"startDate": "2013-11-20T23:00:10Z",
+		"orderDate": "2013-11-20T23:00:10Z",
+		"productOffering": {
+		  "id": "Voice",
+		  "category": "coreService",
+		  "name": "GSM Telephony"
+		},
+		"productRelationship": [
+		  {
+			"type": "isContainedIn",
+			"product": {
+			  "id": "CONT0000000036|C|OMSP1"
+			}
+		  }
+		]
+	  },
+	  {
+		"id": "CONT0000000036|A|SMSMO",
+		"name": "Short Message Mobile Orig",
+		"status": "Active",
+		"isBundle": false,
+		"startDate": "2013-11-20T23:00:10Z",
+		"orderDate": "2013-11-20T23:00:10Z",
+		"productOffering": {
+		  "id": "SMSMO",
+		  "category": "coreService",
+		  "name": "Short Message Mobile Orig"
+		},
+		"productRelationship": [
+		  {
+			"type": "isContainedIn",
+			"product": {
+			  "id": "CONT0000000036|C|OMSP1"
+			}
+		  }
+		]
+	  },
+	  {
+		"id": "CONT0000000036|A|SMSMT",
+		"name": "Short Message Mobile Term",
+		"status": "Active",
+		"isBundle": false,
+		"startDate": "2013-11-20T23:00:10Z",
+		"orderDate": "2013-11-20T23:00:10Z",
+		"productOffering": {
+		  "id": "SMSMT",
+		  "category": "coreService",
+		  "name": "Short Message Mobile Term"
+		},
+		"productRelationship": [
+		  {
+			"type": "isContainedIn",
+			"product": {
+			  "id": "CONT0000000036|C|OMSP1"
+			}
+		  }
+		]
+	  },
+	  {
+		"id": "CONT0000000036|A|OBO-2",
+		"name": "Op Bar of all OG Int Calls",
+		"status": "Terminated",
+		"isBundle": false,
+		"startDate": "2016-04-03T08:58:59Z",
+		"orderDate": "2016-04-03T08:56:06Z",
+		"productOffering": {
+		  "id": "OBO-2",
+		  "category": "service",
+		  "name": "Op Bar of all OG Int Calls"
+		},
+		"productRelationship": [
+		  {
+			"type": "isContainedIn",
+			"product": {
+			  "id": "CONT0000000036|C|GeSMD"
+			}
+		  }
+		]
+	  },
+	  {
+		"id": "CONT0000000036|A|DCF",
+		"name": "Default Call Forwarding",
+		"status": "Active",
+		"isBundle": false,
+		"startDate": "2013-11-20T23:00:10Z",
+		"orderDate": "2013-11-20T23:00:10Z",
+		"productOffering": {
+		  "id": "DCF",
+		  "category": "service",
+		  "name": "Default Call Forwarding"
+		},
+		"productRelationship": [
+		  {
+			"type": "isContainedIn",
+			"product": {
+			  "id": "CONT0000000036|C|GeSMD"
+			}
+		  }
+		]
+	  },
+	  {
+		"id": "CONT0000000036|A|OBR-1",
+		"name": "Op Bar Roaming inside HPLMN",
+		"status": "Terminated",
+		"isBundle": false,
+		"startDate": "2016-04-03T08:58:59Z",
+		"orderDate": "2016-04-03T08:56:06Z",
+		"productOffering": {
+		  "id": "OBR-1",
+		  "category": "service",
+		  "name": "Op Bar Roaming inside HPLMN"
+		},
+		"productRelationship": [
+		  {
+			"type": "isContainedIn",
+			"product": {
+			  "id": "CONT0000000036|C|GeSMD"
+			}
+		  }
+		]
+	  },
+	  {
+		"id": "CONT0000000036|A|ItemB",
+		"name": "Itemised Bill",
+		"status": "Active",
+		"isBundle": false,
+		"startDate": "2013-11-20T23:00:10Z",
+		"orderDate": "2013-11-20T23:00:10Z",
+		"productOffering": {
+		  "id": "ItemB",
+		  "category": "service",
+		  "name": "Itemised Bill"
+		},
+		"productRelationship": [
+		  {
+			"type": "isContainedIn",
+			"product": {
+			  "id": "CONT0000000036|C|OPTSP"
+			}
+		  }
+		]
+	  },
+	  {
+		"id": "CONT0000000036|A|CrdLs",
+		"name": "Credit Limits",
+		"status": "Active",
+		"isBundle": false,
+		"startDate": "1999-01-22T15:03:39Z",
+		"orderDate": "1999-01-22T15:03:39Z",
+		"productOffering": {
+		  "id": "CrdLs",
+		  "category": "coreService",
+		  "name": "Credit Limits"
+		},
+		"productRelationship": [
+		  {
+			"type": "isContainedIn",
+			"product": {
+			  "id": "CONT0000000036|C|OPTSP"
+			}
+		  }
+		]
+	  },
+	  {
+		"id": "CONT0000000036|A|GPDAT",
+		"name": "GPRS Data",
+		"status": "Active",
+		"isBundle": false,
+		"startDate": "2013-11-20T23:00:10Z",
+		"orderDate": "2013-11-20T23:00:10Z",
+		"productOffering": {
+		  "id": "GPDAT",
+		  "category": "coreService",
+		  "name": "GPRS Data"
+		},
+		"productRelationship": [
+		  {
+			"type": "isContainedIn",
+			"product": {
+			  "id": "CONT0000000036|C|OMSP1"
+			}
+		  }
+		]
+	  },
+	  {
+		"id": "CONT0000000036|A|SUB0",
+		"name": "GPRS Subscription Record 0",
+		"status": "Active",
+		"isBundle": false,
+		"startDate": "2013-11-20T23:00:10Z",
+		"orderDate": "2013-11-20T23:00:10Z",
+		"productOffering": {
+		  "id": "SUB0",
+		  "category": "coreService",
+		  "name": "GPRS Subscription Record 0"
+		},
+		"productRelationship": [
+		  {
+			"type": "isContainedIn",
+			"product": {
+			  "id": "CONT0000000036|C|OMSP1"
+			}
+		  }
+		]
+	  },
+	  {
+		"id": "CONT0000000036|A|MMSGP",
+		"name": "GPRS MMS",
+		"status": "Active",
+		"isBundle": false,
+		"startDate": "2013-11-20T23:00:10Z",
+		"orderDate": "2013-11-20T23:00:10Z",
+		"productOffering": {
+		  "id": "MMSGP",
+		  "category": "coreService",
+		  "name": "GPRS MMS"
+		},
+		"productRelationship": [
+		  {
+			"type": "isContainedIn",
+			"product": {
+			  "id": "CONT0000000036|C|OMSP1"
+			}
+		  }
+		]
+	  },
+	  {
+		"id": "CONT0000000036|A|SHCES",
+		"name": "Contract Expiry Service",
+		"status": "Active",
+		"isBundle": false,
+		"startDate": "1999-01-22T15:03:39Z",
+		"orderDate": "1999-01-22T15:03:39Z",
+		"productOffering": {
+		  "id": "SHCES",
+		  "category": "coreService",
+		  "name": "Contract Expiry Service"
+		},
+		"productRelationship": [
+		  {
+			"type": "isContainedIn",
+			"product": {
+			  "id": "CONT0000000036|C|OMSP1"
+			}
+		  }
+		]
+	  },
+	  {
+		"id": "CONT0000000036|A|CAPSV",
+		"name": "CAP_SERVICE",
+		"status": "Active",
+		"isBundle": false,
+		"startDate": "2016-03-23T16:26:58Z",
+		"orderDate": "2016-03-23T16:26:58Z",
+		"productOffering": {
+		  "id": "CAPSV",
+		  "category": "service",
+		  "name": "CAP_SERVICE"
+		},
+		"productRelationship": [
+		  {
+			"type": "isContainedIn",
+			"product": {
+			  "id": "CONT0000000036|C|GeSMD"
+			}
+		  }
+		]
+	  },
+	  {
+		"id": "CONT0000000036|C|OPTSP",
+		"name": "Optional_SP",
+		"isBundle": true,
+		"productOffering": {
+		  "id": "OPTSP",
+		  "category": "service",
+		  "name": "Optional_SP"
+		},
+		"productRelationship": [
+		  {
+			"type": "isContainedIn",
+			"product": {
+			  "id": "CONT0000000036"
+			}
+		  },
+		  {
+			"type": "contains",
+			"product": {
+			  "id": "CONT0000000036|A|ItemB"
+			}
+		  },
+		  {
+			"type": "contains",
+			"product": {
+			  "id": "CONT0000000036|A|CrdLs"
+			}
+		  }
+		]
+	  },
+	  {
+		"id": "CONT0000000036|C|OMSP1",
+		"name": "Orange_Mandatory_SP1",
+		"isBundle": true,
+		"productOffering": {
+		  "id": "OMSP1",
+		  "category": "service",
+		  "name": "Orange_Mandatory_SP1"
+		},
+		"productRelationship": [
+		  {
+			"type": "isContainedIn",
+			"product": {
+			  "id": "CONT0000000036"
+			}
+		  },
+		  {
+			"type": "contains",
+			"product": {
+			  "id": "CONT0000000036|A|CFNRE"
+			}
+		  },
+		  {
+			"type": "contains",
+			"product": {
+			  "id": "CONT0000000036|A|CFU"
+			}
+		  },
+		  {
+			"type": "contains",
+			"product": {
+			  "id": "CONT0000000036|A|CFB"
+			}
+		  },
+		  {
+			"type": "contains",
+			"product": {
+			  "id": "CONT0000000036|A|CFNRY"
+			}
+		  },
+		  {
+			"type": "contains",
+			"product": {
+			  "id": "CONT0000000036|A|CHOLD"
+			}
+		  },
+		  {
+			"type": "contains",
+			"product": {
+			  "id": "CONT0000000036|A|CWAIT"
+			}
+		  },
+		  {
+			"type": "contains",
+			"product": {
+			  "id": "CONT0000000036|A|CLIP"
+			}
+		  },
+		  {
+			"type": "contains",
+			"product": {
+			  "id": "CONT0000000036|A|EMGNC"
+			}
+		  },
+		  {
+			"type": "contains",
+			"product": {
+			  "id": "CONT0000000036|A|Voice"
+			}
+		  },
+		  {
+			"type": "contains",
+			"product": {
+			  "id": "CONT0000000036|A|SMSMO"
+			}
+		  },
+		  {
+			"type": "contains",
+			"product": {
+			  "id": "CONT0000000036|A|SMSMT"
+			}
+		  },
+		  {
+			"type": "contains",
+			"product": {
+			  "id": "CONT0000000036|A|GPDAT"
+			}
+		  },
+		  {
+			"type": "contains",
+			"product": {
+			  "id": "CONT0000000036|A|SUB0"
+			}
+		  },
+		  {
+			"type": "contains",
+			"product": {
+			  "id": "CONT0000000036|A|MMSGP"
+			}
+		  },
+		  {
+			"type": "contains",
+			"product": {
+			  "id": "CONT0000000036|A|SHCES"
+			}
+		  }
+		]
+	  },
+	  {
+		"id": "CONT0000000036|C|GeSMD",
+		"name": "Orange Gem Smart Phone Diamond",
+		"isBundle": true,
+		"productOffering": {
+		  "id": "GeSMD",
+		  "category": "service",
+		  "name": "Orange Gem Smart Phone Diamond"
+		},
+		"productRelationship": [
+		  {
+			"type": "isContainedIn",
+			"product": {
+			  "id": "CONT0000000036"
+			}
+		  },
+		  {
+			"type": "contains",
+			"product": {
+			  "id": "CONT0000000036|A|OBO-2"
+			}
+		  },
+		  {
+			"type": "contains",
+			"product": {
+			  "id": "CONT0000000036|A|DCF"
+			}
+		  },
+		  {
+			"type": "contains",
+			"product": {
+			  "id": "CONT0000000036|A|OBR-1"
+			}
+		  },
+		  {
+			"type": "contains",
+			"product": {
+			  "id": "CONT0000000036|A|CAPSV"
+			}
+		  }
+		]
+	  },
+	  {
+		"name": "Included service",
+		"isBundle": true,
+		"productOffering": {
+		  "id": "includedService",
+		  "category": "includedService",
+		  "name": "Included service"
+		},
+		"productRelationship": [
+		  {
+			"type": "isContainedIn",
+			"product": {
+			  "id": "CONT0000000036"
+			}
+		  },
+		  {
+			"type": "contains",
+			"product": {
+			  "productOffering": {
+				"id": "mobileCom"
+			  }
+			}
+		  },
+		  {
+			"type": "contains",
+			"product": {
+			  "productOffering": {
+				"id": "simCard"
+			  }
+			}
+		  }
+		]
+	  },
+	  {
+		"name": "Mobile communication",
+		"status": "Active",
+		"isBundle": false,
+		"productOffering": {
+		  "id": "mobileCom",
+		  "category": "includedService",
+		  "name": "Mobile communication"
+		},
+		"productCharacteristic": [
+		  {
+			"name": "msisdn",
+			"value": "72105013"
+		  }
+		],
+		"productRelationship": [
+		  {
+			"type": "isContainedIn",
+			"product": {
+			  "productOffering": {
+				"id": "includedService"
+			  }
+			}
+		  }
+		]
+	  },
+	  {
+		"name": "Sim card",
+		"status": "Active",
+		"isBundle": false,
+		"productOffering": {
+		  "id": "simCard",
+		  "category": "includedService",
+		  "name": "Sim card"
+		},
+		"productCharacteristic": [
+		  {
+			"name": "iccId",
+			"value": "8926702039900062727F"
+		  }
+		],
+		"productRelationship": [
+		  {
+			"type": "isContainedIn",
+			"product": {
+			  "productOffering": {
+				"id": "includedService"
+			  }
+			}
+		  }
+		]
+	  }
+	],
+	"poUM46IndividualId": "CUST0002199889",
+	"poUM46Msisdn": "26772767342",
+	"poUM46ContractId": "CONTR0000003218",
+	"poUM46IndividualIdInvalid": "pony",
+	"poUM46ProductIdInvalid": "pony",
+	"poUM78Msisdn": "26772105013",
+	"poUM78ContractId": "CONT0000000036",
+	"poUM78OptionId": "CFNRE",
+	"poUM78AlreadyAddedOptionId": "CFNRE",
+	"poUM78UnavaiableOptionId": "OPP17_d",
+	"poUM78UnknownOptionId": "NotAnOption",
+	"poUM78DelOptionId": "CFNRE",
+	"poUM78ServicePackageId": "PRORN",
+	"poUM104Msisdn": "26772767342",
+	"poUM104ContractId": "CONT0000140567",
+	"poUM104MsisdnAlreadyAdded": "26772767342",
+	"poUM104ContractIdAlreadyAdded": "CONT0000140567",
+	"poUM104MsisdnUnavaliable": "26772332039",
+	"poUM104ContractIdUnavaliable": "CONTR0000000287",
+	"poUM104MsisdnInvalid": "26772332039",
+	"poUM104ContractIdInvalid": "aaa",
+	"poUM104MsisdnUnkown": "26772332039",
+	"poUM104ContractIdUnkown": "CONTR9900000287",
+	"poUM104MsisdnSuspended": "26772897167",
+	"poUM104ContractIdSuspended": "CONT0000187438",
+	"poUM104MsisdnPending": "26779228964",
+	"poUM104ContractIdPending": "CONTR0000001613",
+	"poUM104MsisdnNoDataCaping": "26772767342",
+	"poUM104ContractIdNoDataCaping": "CONT0000140567",
+	
+	"poUM104ActivateMsisdn": "26772767342",
+	"poUM104ActivateContractId": "CONT0000140567",
+	"poUM104ActivateMsisdnAlreadyAdded": "26772767342",
+	"poUM104ActivateContractIdAlreadyAdded": "CONT0000140567",
+	"poUM104ActivateMsisdnUnavaliable": "26772332039",
+	"poUM104ActivateContractIdUnavaliable": "CONTR0000000287",
+	"poUM104ActivateMsisdnInvalid": "26772332039",
+	"poUM104ActivateContractIdInvalid": "aaa",
+	"poUM104ActivateMsisdnUnkown": "26772332039",
+	"poUM104ActivateContractIdUnkown": "CONTR9900000287",
+	"poUM104ActivateMsisdnSuspended": "26772897167",
+	"poUM104ActivateContractIdSuspended": "CONT0000187438",
+	"poUM104ActivateMsisdnPending": "26779228964",
+	"poUM104ActivateContractIdPending": "CONTR0000001613",
+	"poUM104ActivateMsisdnNoDataCaping": "26772767342",
+	"poUM104ActivateContractIdNoDataCaping": "CONT0000140567",
+	
+	
+	"poUM104DesactivateMsisdnInvalidContract": "26772767342",
+	"poUM104DesactivateContractIdInvalidContract": "Bad contract",
+	"poUM104DesactivateMsisdnUnknownContract": "26772767342",
+	"poUM104DesactivateContractIdUnknownContract": "Bad contract",
+	"poUM104DesactivateMsisdnSuspendedContract": "26772897167",
+	"poUM104DesactivateContractIdSuspendedContract": "CONT0000187438",
+	"poUM104DesactivateMsisdnBadSnCode": "26772897167",
+	"poUM104DesactivateContractIdBadSnCode": "CONT0000187438",
+	"poUM104DesactivateMsisdnOtherThanActive": "26772897167",
+	"poUM104DesactivateContractIdOtherThanActive": "CONT0000187438",
+	
+	"poUM104UpdateCreditLimitContractId": "CONT0000187438",
+	"poUM104UpdateCreditLimitSnCode": "CrdLs",
+	"poUM104UpdateCreditLimitCreditLimitName": "cr",
+	"poUM104UpdateCreditLimitCreditLimitValue": "clv",
+	"poUM104UpdateCreditLimitContractIdInvalid": "CONT0000187438a",
+	"poUM104UpdateCreditLimitContractIdUnknown": "CONT0000187438a",
+	"poUM104UpdateCreditLimitMsisdnSuspended": "26772767342",
+	"poUM104UpdateCreditLimitContractIdSuspended": "CONT0000187438a",
+	"poUM104UpdateCreditLimitSnCodeInvalid": "CrdLs",
+	
+	
+	"poUM104UpdateCreditLimitMsisdnPending": "26772767342",
+	"poUM104UpdateCreditLimitContractIdPending": "CONT0000187438a",
+	
+	
+	"poUM104UpdateCreditLimitContractIdInferiorValue": "CONT0000187438",
+	"poUM104UpdateCreditLimitSnCodeInferiorValue": "CrdLs",
+	"poUM104UpdateCreditLimitCreditLimitNameInferiorValue": "cr",
+	"poUM104UpdateCreditLimitCreditLimitValueInferiorValue": "1",
+	
+	"poUM104CreditLimitTempMsisdn": "26772767342",
+	"poUM104CreditLimitTempContractId": "CONT0000187438",
+	"poUM104CreditLimitTempCreditLimitName": "aa",
+	"poUM104CreditLimitTempCreditLimitValue": "222",
+	"poUM104CreditLimitTempMsisdnAlreadyExisting": "26772767342",
+	"poUM104CreditLimitTempContractIdAlreadyExisting": "CONT0000187438",
+	"poUM104CreditLimitTempMsisdnNotExisting": "26772767342",
+	"poUM104CreditLimitTempContractIdNotExisting": "CONT0000187438",
+	"poUM104CreditLimitTempContractIdInvalid": "aaa",
+	
+	"poUM104CreditLimitTempMsisdnSuspended": "26772767342",
+	"poUM104CreditLimitTempContractIdSuspended": "CONT0000187438",
+	"poUM104CreditLimitTempMsisdnPending": "26772767342",
+	"poUM104CreditLimitTempContractIdPending": "CONT0000187438",
+	
+	"poUM104AddCreditLimitTempMsisdn": "26772767342",
+	"poUM104AddCreditLimitTempContractId": "CONT0000187438",
+	"poUM104AddCreditLimitTempContractIdInvalid": "CONT0000187438a",
+	"poUM104AddCreditLimitTempContractIdUnknown": "CONT9000187438",
+	"poUM104AddCreditLimitTempMsisdnSuspended": "26772767342",
+	"poUM104AddCreditLimitTempContractIdSuspended": "CONT0000187438",
+	"poUM104AddCreditLimitTempMsisdnPending": "26772767342",
+	"poUM104AddCreditLimitTempContractIdPending": "CONT0000187438",
+	
+	
+	"poUM104DesactivateCreditLimitTempMsisdn": "26772767342",
+	"poUM104DesactivateCreditLimitTempContractId": "CONT0000187438",
+	"poUM104DesactivateCreditLimitTempContractIdInvalid": "aaa",
+	"poUM104DesactivateCreditLimitTempContractIdUnknown": "aaa",
+	"poUM104DesactivateCreditLimitTempContractIdSuspended": "CONT0000187438",
+	"poUM104DesactivateCreditLimitTempContractIdPending": "aa",
+	"poUM104DesactivateCreditLimitTempMsisdnInvalidStatus": "a",
+	"poUM104DesactivateCreditLimitTempContractIdInvalidStatus": "a",
+	
+	
+	"poUM104AddCreditLimitMsisdn": "26772767342",
+	"poUM104AddCreditLimitContractId": "CONT0000187438",
+	"poUM104DesactiveCreditLimitMsisdnInactive": "a",
+	"poUM104DesactiveCreditLimitContractIdInactive": "a",
+	"poUM104DesactiveCreditLimitMsisdnActive": "a",
+	"poUM104DesactiveCreditLimitContractIdActive": "a",
+	
+    "__CUSTOMER_BILL__": "Data for Customer Bill tests",
+    "cbMsisdn": "26772105013",
+    "cbResultFull": [
+      {
+        "id": "5736678",
+        "billDate": "2016-05-15T22:00:00Z",
+        "currencyCode": "BWP",
+        "amountDue": 854.96,
+        "paymentDueDate": "2016-05-29T22:00:00Z",
+        "remainingAmount": 854.96,
+        "relatedParty": [
+          {
+            "id": "CUST0000000047"
+          }
+        ]
+      },
+      {
+        "id": "5484346",
+        "billDate": "2016-04-15T22:00:00Z",
+        "currencyCode": "BWP",
+        "amountDue": 857.34,
+        "paymentDueDate": "2016-04-29T22:00:00Z",
+        "remainingAmount": 857.34,
+        "relatedParty": [
+          {
+            "id": "CUST0000000047"
+          }
+        ]
+      },
+      {
+        "id": "5432397",
+        "billDate": "2016-03-15T23:00:00Z",
+        "currencyCode": "BWP",
+        "amountDue": 809.18,
+        "paymentDueDate": "2016-03-29T22:00:00Z",
+        "remainingAmount": 0,
+        "relatedParty": [
+          {
+            "id": "CUST0000000047"
+          }
+        ]
+      },
+      {
+        "id": "5384081",
+        "billDate": "2016-02-15T23:00:00Z",
+        "currencyCode": "BWP",
+        "amountDue": 799.01,
+        "paymentDueDate": "2016-02-29T23:00:00Z",
+        "remainingAmount": 0,
+        "relatedParty": [
+          {
+            "id": "CUST0000000047"
+          }
+        ]
+      },
+      {
+        "id": "5342657",
+        "billDate": "2016-01-15T23:00:00Z",
+        "currencyCode": "BWP",
+        "amountDue": 911.77,
+        "paymentDueDate": "2016-01-29T23:00:00Z",
+        "remainingAmount": 0,
+        "relatedParty": [
+          {
+            "id": "CUST0000000047"
+          }
+        ]
+      },
+      {
+        "id": "5296489",
+        "billDate": "2015-12-15T23:00:00Z",
+        "currencyCode": "BWP",
+        "amountDue": 800.64,
+        "paymentDueDate": "2015-12-29T23:00:00Z",
+        "remainingAmount": 0,
+        "relatedParty": [
+          {
+            "id": "CUST0000000047"
+          }
+        ]
+      },
+      {
+        "id": "5254087",
+        "billDate": "2015-11-15T23:00:00Z",
+        "currencyCode": "BWP",
+        "amountDue": 809.98,
+        "paymentDueDate": "2015-11-29T23:00:00Z",
+        "remainingAmount": 0,
+        "relatedParty": [
+          {
+            "id": "CUST0000000047"
+          }
+        ]
+      },
+      {
+        "id": "5212444",
+        "billDate": "2015-10-15T22:00:00Z",
+        "currencyCode": "BWP",
+        "amountDue": 838.64,
+        "paymentDueDate": "2015-10-29T23:00:00Z",
+        "remainingAmount": 0,
+        "relatedParty": [
+          {
+            "id": "CUST0000000047"
+          }
+        ]
+      },
+      {
+        "id": "5167291",
+        "billDate": "2015-09-15T22:00:00Z",
+        "currencyCode": "BWP",
+        "amountDue": 799,
+        "paymentDueDate": "2015-09-29T22:00:00Z",
+        "remainingAmount": 0,
+        "relatedParty": [
+          {
+            "id": "CUST0000000047"
+          }
+        ]
+      },
+      {
+        "id": "5129220",
+        "billDate": "2015-08-15T22:00:00Z",
+        "currencyCode": "BWP",
+        "amountDue": 799,
+        "paymentDueDate": "2015-08-29T22:00:00Z",
+        "remainingAmount": 0,
+        "relatedParty": [
+          {
+            "id": "CUST0000000047"
+          }
+        ]
+      },
+      {
+        "id": "5080779",
+        "billDate": "2015-07-15T22:00:00Z",
+        "currencyCode": "BWP",
+        "amountDue": 813.86,
+        "paymentDueDate": "2015-07-29T22:00:00Z",
+        "remainingAmount": 0,
+        "relatedParty": [
+          {
+            "id": "CUST0000000047"
+          }
+        ]
+      },
+      {
+        "id": "5039940",
+        "billDate": "2015-06-15T22:00:00Z",
+        "currencyCode": "BWP",
+        "amountDue": 862.13,
+        "paymentDueDate": "2015-06-29T22:00:00Z",
+        "remainingAmount": 0,
+        "relatedParty": [
+          {
+            "id": "CUST0000000047"
+          }
+        ]
+      },
+      {
+        "id": "4998440",
+        "billDate": "2015-05-15T22:00:00Z",
+        "currencyCode": "BWP",
+        "amountDue": 820.52,
+        "paymentDueDate": "2015-05-29T22:00:00Z",
+        "remainingAmount": 0,
+        "relatedParty": [
+          {
+            "id": "CUST0000000047"
+          }
+        ]
+      },
+      {
+        "id": "4956631",
+        "billDate": "2015-04-15T22:00:00Z",
+        "currencyCode": "BWP",
+        "amountDue": 1037.92,
+        "paymentDueDate": "2015-04-29T22:00:00Z",
+        "remainingAmount": 0,
+        "relatedParty": [
+          {
+            "id": "CUST0000000047"
+          }
+        ]
+      },
+      {
+        "id": "4913654",
+        "billDate": "2015-03-15T23:00:00Z",
+        "currencyCode": "BWP",
+        "amountDue": 799,
+        "paymentDueDate": "2015-03-29T22:00:00Z",
+        "remainingAmount": 0,
+        "relatedParty": [
+          {
+            "id": "CUST0000000047"
+          }
+        ]
+      },
+      {
+        "id": "4872216",
+        "billDate": "2015-02-15T23:00:00Z",
+        "currencyCode": "BWP",
+        "amountDue": 799,
+        "paymentDueDate": "2015-03-01T23:00:00Z",
+        "remainingAmount": 0,
+        "relatedParty": [
+          {
+            "id": "CUST0000000047"
+          }
+        ]
+      },
+      {
+        "id": "4832268",
+        "billDate": "2015-01-15T23:00:00Z",
+        "currencyCode": "BWP",
+        "amountDue": 799,
+        "paymentDueDate": "2015-01-29T23:00:00Z",
+        "remainingAmount": 0,
+        "relatedParty": [
+          {
+            "id": "CUST0000000047"
+          }
+        ]
+      },
+      {
+        "id": "4790336",
+        "billDate": "2014-12-15T23:00:00Z",
+        "currencyCode": "BWP",
+        "amountDue": 1092.75,
+        "paymentDueDate": "2014-12-29T23:00:00Z",
+        "remainingAmount": 0,
+        "relatedParty": [
+          {
+            "id": "CUST0000000047"
+          }
+        ]
+      },
+      {
+        "id": "4752871",
+        "billDate": "2014-11-15T23:00:00Z",
+        "currencyCode": "BWP",
+        "amountDue": 887.21,
+        "paymentDueDate": "2014-11-29T23:00:00Z",
+        "remainingAmount": 0,
+        "relatedParty": [
+          {
+            "id": "CUST0000000047"
+          }
+        ]
+      },
+      {
+        "id": "4705671",
+        "billDate": "2014-10-15T22:00:00Z",
+        "currencyCode": "BWP",
+        "amountDue": 862.51,
+        "paymentDueDate": "2014-10-29T23:00:00Z",
+        "remainingAmount": 0,
+        "relatedParty": [
+          {
+            "id": "CUST0000000047"
+          }
+        ]
+      },
+      {
+        "id": "4664615",
+        "billDate": "2014-09-15T22:00:00Z",
+        "currencyCode": "BWP",
+        "amountDue": 802.93,
+        "paymentDueDate": "2014-09-29T22:00:00Z",
+        "remainingAmount": 0,
+        "relatedParty": [
+          {
+            "id": "CUST0000000047"
+          }
+        ]
+      },
+      {
+        "id": "4625347",
+        "billDate": "2014-08-15T22:00:00Z",
+        "currencyCode": "BWP",
+        "amountDue": 957.73,
+        "paymentDueDate": "2014-08-29T22:00:00Z",
+        "remainingAmount": 0,
+        "relatedParty": [
+          {
+            "id": "CUST0000000047"
+          }
+        ]
+      },
+      {
+        "id": "4584078",
+        "billDate": "2014-07-15T22:00:00Z",
+        "currencyCode": "BWP",
+        "amountDue": 1095.95,
+        "paymentDueDate": "2014-07-29T22:00:00Z",
+        "remainingAmount": 0,
+        "relatedParty": [
+          {
+            "id": "CUST0000000047"
+          }
+        ]
+      },
+      {
+        "id": "4545606",
+        "billDate": "2014-06-15T22:00:00Z",
+        "currencyCode": "BWP",
+        "amountDue": 1978.02,
+        "paymentDueDate": "2014-06-29T22:00:00Z",
+        "remainingAmount": 0,
+        "relatedParty": [
+          {
+            "id": "CUST0000000047"
+          }
+        ]
+      },
+      {
+        "id": "4504053",
+        "billDate": "2014-05-15T22:00:00Z",
+        "currencyCode": "BWP",
+        "amountDue": 805.35,
+        "paymentDueDate": "2014-05-29T22:00:00Z",
+        "remainingAmount": 0,
+        "relatedParty": [
+          {
+            "id": "CUST0000000047"
+          }
+        ]
+      },
+      {
+        "id": "4464322",
+        "billDate": "2014-04-15T22:00:00Z",
+        "currencyCode": "BWP",
+        "amountDue": 799,
+        "paymentDueDate": "2014-04-29T22:00:00Z",
+        "remainingAmount": 0,
+        "relatedParty": [
+          {
+            "id": "CUST0000000047"
+          }
+        ]
+      },
+      {
+        "id": "4426077",
+        "billDate": "2014-03-15T23:00:00Z",
+        "currencyCode": "BWP",
+        "amountDue": 822.69,
+        "paymentDueDate": "2014-03-29T23:00:00Z",
+        "remainingAmount": 0,
+        "relatedParty": [
+          {
+            "id": "CUST0000000047"
+          }
+        ]
+      },
+      {
+        "id": "4391034",
+        "billDate": "2014-02-15T23:00:00Z",
+        "currencyCode": "BWP",
+        "amountDue": 800.69,
+        "paymentDueDate": "2014-03-01T23:00:00Z",
+        "remainingAmount": 0,
+        "relatedParty": [
+          {
+            "id": "CUST0000000047"
+          }
+        ]
+      },
+      {
+        "id": "4355588",
+        "billDate": "2014-01-15T23:00:00Z",
+        "currencyCode": "BWP",
+        "amountDue": 1077.86,
+        "paymentDueDate": "2014-01-29T23:00:00Z",
+        "remainingAmount": 0,
+        "relatedParty": [
+          {
+            "id": "CUST0000000047"
+          }
+        ]
+      },
+      {
+        "id": "4317442",
+        "billDate": "2013-12-15T23:00:00Z",
+        "currencyCode": "BWP",
+        "amountDue": 1960.26,
+        "paymentDueDate": "2013-12-29T23:00:00Z",
+        "remainingAmount": 0,
+        "relatedParty": [
+          {
+            "id": "CUST0000000047"
+          }
+        ]
+      },
+      {
+        "id": "4280660",
+        "billDate": "2013-11-15T23:00:00Z",
+        "currencyCode": "BWP",
+        "amountDue": 662.42,
+        "paymentDueDate": "2013-11-29T23:00:00Z",
+        "remainingAmount": 0,
+        "relatedParty": [
+          {
+            "id": "CUST0000000047"
+          }
+        ]
+      },
+      {
+        "id": "4243952",
+        "billDate": "2013-10-15T22:00:00Z",
+        "currencyCode": "BWP",
+        "amountDue": 755.47,
+        "paymentDueDate": "2013-10-29T23:00:00Z",
+        "remainingAmount": 0,
+        "relatedParty": [
+          {
+            "id": "CUST0000000047"
+          }
+        ]
+      },
+      {
+        "id": "4202448",
+        "billDate": "2013-09-15T22:00:00Z",
+        "currencyCode": "BWP",
+        "amountDue": 964.56,
+        "paymentDueDate": "2013-09-29T22:00:00Z",
+        "remainingAmount": 0,
+        "relatedParty": [
+          {
+            "id": "CUST0000000047"
+          }
+        ]
+      },
+      {
+        "id": "4166830",
+        "billDate": "2013-08-15T22:00:00Z",
+        "currencyCode": "BWP",
+        "amountDue": 603.98,
+        "paymentDueDate": "2013-08-29T22:00:00Z",
+        "remainingAmount": 0,
+        "relatedParty": [
+          {
+            "id": "CUST0000000047"
+          }
+        ]
+      },
+      {
+        "id": "4130925",
+        "billDate": "2013-07-15T22:00:00Z",
+        "currencyCode": "BWP",
+        "amountDue": 600.02,
+        "paymentDueDate": "2013-07-29T22:00:00Z",
+        "remainingAmount": 0,
+        "relatedParty": [
+          {
+            "id": "CUST0000000047"
+          }
+        ]
+      },
+      {
+        "id": "4094086",
+        "billDate": "2013-06-15T22:00:00Z",
+        "currencyCode": "BWP",
+        "amountDue": 634.37,
+        "paymentDueDate": "2013-06-29T22:00:00Z",
+        "remainingAmount": 0,
+        "relatedParty": [
+          {
+            "id": "CUST0000000047"
+          }
+        ]
+      },
+      {
+        "id": "4059659",
+        "billDate": "2013-05-15T22:00:00Z",
+        "currencyCode": "BWP",
+        "amountDue": 689.15,
+        "paymentDueDate": "2013-05-29T22:00:00Z",
+        "remainingAmount": 0,
+        "relatedParty": [
+          {
+            "id": "CUST0000000047"
+          }
+        ]
+      },
+      {
+        "id": "4023245",
+        "billDate": "2013-04-15T22:00:00Z",
+        "currencyCode": "BWP",
+        "amountDue": 982.14,
+        "paymentDueDate": "2013-04-29T22:00:00Z",
+        "remainingAmount": 0,
+        "relatedParty": [
+          {
+            "id": "CUST0000000047"
+          }
+        ]
+      },
+      {
+        "id": "3989152",
+        "billDate": "2013-03-15T23:00:00Z",
+        "currencyCode": "BWP",
+        "amountDue": 615.83,
+        "paymentDueDate": "2013-03-29T23:00:00Z",
+        "remainingAmount": 0,
+        "relatedParty": [
+          {
+            "id": "CUST0000000047"
+          }
+        ]
+      },
+      {
+        "id": "3946558",
+        "billDate": "2013-02-15T23:00:00Z",
+        "currencyCode": "BWP",
+        "amountDue": 618.75,
+        "paymentDueDate": "2013-03-01T23:00:00Z",
+        "remainingAmount": 0,
+        "relatedParty": [
+          {
+            "id": "CUST0000000047"
+          }
+        ]
+      },
+      {
+        "id": "3909482",
+        "billDate": "2013-01-15T23:00:00Z",
+        "currencyCode": "BWP",
+        "amountDue": 4.97,
+        "paymentDueDate": "2013-01-29T23:00:00Z",
+        "remainingAmount": 0,
+        "relatedParty": [
+          {
+            "id": "CUST0000000047"
+          }
+        ]
+      },
+      {
+        "id": "3874668",
+        "billDate": "2012-12-15T23:00:00Z",
+        "currencyCode": "BWP",
+        "amountDue": 661.25,
+        "paymentDueDate": "2012-12-29T23:00:00Z",
+        "remainingAmount": 0,
+        "relatedParty": [
+          {
+            "id": "CUST0000000047"
+          }
+        ]
+      },
+      {
+        "id": "3840336",
+        "billDate": "2012-11-15T23:00:00Z",
+        "currencyCode": "BWP",
+        "amountDue": 691.83,
+        "paymentDueDate": "2012-11-29T23:00:00Z",
+        "remainingAmount": 0,
+        "relatedParty": [
+          {
+            "id": "CUST0000000047"
+          }
+        ]
+      },
+      {
+        "id": "3807985",
+        "billDate": "2012-10-15T22:00:00Z",
+        "currencyCode": "BWP",
+        "amountDue": 599,
+        "paymentDueDate": "2012-10-29T23:00:00Z",
+        "remainingAmount": 0,
+        "relatedParty": [
+          {
+            "id": "CUST0000000047"
+          }
+        ]
+      },
+      {
+        "id": "3772342",
+        "billDate": "2012-09-15T22:00:00Z",
+        "currencyCode": "BWP",
+        "amountDue": 602.35,
+        "paymentDueDate": "2012-09-29T22:00:00Z",
+        "remainingAmount": 0,
+        "relatedParty": [
+          {
+            "id": "CUST0000000047"
+          }
+        ]
+      },
+      {
+        "id": "3741445",
+        "billDate": "2012-08-15T22:00:00Z",
+        "currencyCode": "BWP",
+        "amountDue": 599,
+        "paymentDueDate": "2012-08-29T22:00:00Z",
+        "remainingAmount": 0,
+        "relatedParty": [
+          {
+            "id": "CUST0000000047"
+          }
+        ]
+      },
+      {
+        "id": "3705045",
+        "billDate": "2012-07-15T22:00:00Z",
+        "currencyCode": "BWP",
+        "amountDue": 602.52,
+        "paymentDueDate": "2012-07-29T22:00:00Z",
+        "remainingAmount": 0,
+        "relatedParty": [
+          {
+            "id": "CUST0000000047"
+          }
+        ]
+      },
+      {
+        "id": "3660877",
+        "billDate": "2012-06-15T22:00:00Z",
+        "currencyCode": "BWP",
+        "amountDue": 721.89,
+        "paymentDueDate": "2012-06-29T22:00:00Z",
+        "remainingAmount": 0,
+        "relatedParty": [
+          {
+            "id": "CUST0000000047"
+          }
+        ]
+      },
+      {
+        "id": "3629878",
+        "billDate": "2012-05-15T22:00:00Z",
+        "currencyCode": "BWP",
+        "amountDue": 960.77,
+        "paymentDueDate": "2012-05-29T22:00:00Z",
+        "remainingAmount": 0,
+        "relatedParty": [
+          {
+            "id": "CUST0000000047"
+          }
+        ]
+      },
+      {
+        "id": "3596489",
+        "billDate": "2012-04-15T22:00:00Z",
+        "currencyCode": "BWP",
+        "amountDue": 720.94,
+        "paymentDueDate": "2012-04-29T22:00:00Z",
+        "remainingAmount": 0,
+        "relatedParty": [
+          {
+            "id": "CUST0000000047"
+          }
+        ]
+      },
+      {
+        "id": "3564479",
+        "billDate": "2012-03-15T23:00:00Z",
+        "currencyCode": "BWP",
+        "amountDue": 733.04,
+        "paymentDueDate": "2012-03-29T22:00:00Z",
+        "remainingAmount": 0,
+        "relatedParty": [
+          {
+            "id": "CUST0000000047"
+          }
+        ]
+      },
+      {
+        "id": "3530788",
+        "billDate": "2012-02-15T23:00:00Z",
+        "currencyCode": "BWP",
+        "amountDue": 934.6,
+        "paymentDueDate": "2012-02-29T23:00:00Z",
+        "remainingAmount": 0,
+        "relatedParty": [
+          {
+            "id": "CUST0000000047"
+          }
+        ]
+      },
+      {
+        "id": "3498822",
+        "billDate": "2012-01-15T23:00:00Z",
+        "currencyCode": "BWP",
+        "amountDue": 588.58,
+        "paymentDueDate": "2012-01-29T23:00:00Z",
+        "remainingAmount": 0,
+        "relatedParty": [
+          {
+            "id": "CUST0000000047"
+          }
+        ]
+      },
+      {
+        "id": "3469573",
+        "billDate": "2011-12-15T23:00:00Z",
+        "currencyCode": "BWP",
+        "amountDue": 482.1,
+        "paymentDueDate": "2011-12-29T23:00:00Z",
+        "remainingAmount": 0,
+        "relatedParty": [
+          {
+            "id": "CUST0000000047"
+          }
+        ]
+      },
+      {
+        "id": "3427275",
+        "billDate": "2011-11-15T23:00:00Z",
+        "currencyCode": "BWP",
+        "amountDue": 505.63,
+        "paymentDueDate": "2011-11-29T23:00:00Z",
+        "remainingAmount": 0,
+        "relatedParty": [
+          {
+            "id": "CUST0000000047"
+          }
+        ]
+      },
+      {
+        "id": "3395885",
+        "billDate": "2011-10-15T22:00:00Z",
+        "currencyCode": "BWP",
+        "amountDue": 614.26,
+        "paymentDueDate": "2011-10-29T22:00:00Z",
+        "remainingAmount": 0,
+        "relatedParty": [
+          {
+            "id": "CUST0000000047"
+          }
+        ]
+      },
+      {
+        "id": "3364318",
+        "billDate": "2011-09-15T22:00:00Z",
+        "currencyCode": "BWP",
+        "amountDue": 491.74,
+        "paymentDueDate": "2011-09-29T22:00:00Z",
+        "remainingAmount": 0,
+        "relatedParty": [
+          {
+            "id": "CUST0000000047"
+          }
+        ]
+      },
+      {
+        "id": "3332752",
+        "billDate": "2011-08-15T22:00:00Z",
+        "currencyCode": "BWP",
+        "amountDue": 499.71,
+        "paymentDueDate": "2011-08-29T22:00:00Z",
+        "remainingAmount": 0,
+        "relatedParty": [
+          {
+            "id": "CUST0000000047"
+          }
+        ]
+      },
+      {
+        "id": "3302964",
+        "billDate": "2011-07-15T22:00:00Z",
+        "currencyCode": "BWP",
+        "amountDue": 479.02,
+        "paymentDueDate": "2011-07-29T22:00:00Z",
+        "remainingAmount": 0,
+        "relatedParty": [
+          {
+            "id": "CUST0000000047"
+          }
+        ]
+      },
+      {
+        "id": "3273521",
+        "billDate": "2011-06-15T22:00:00Z",
+        "currencyCode": "BWP",
+        "amountDue": 513.77,
+        "paymentDueDate": "2011-06-29T22:00:00Z",
+        "remainingAmount": 0,
+        "relatedParty": [
+          {
+            "id": "CUST0000000047"
+          }
+        ]
+      },
+      {
+        "id": "3243599",
+        "billDate": "2011-05-15T22:00:00Z",
+        "currencyCode": "BWP",
+        "amountDue": 712.96,
+        "paymentDueDate": "2011-05-29T22:00:00Z",
+        "remainingAmount": 0,
+        "relatedParty": [
+          {
+            "id": "CUST0000000047"
+          }
+        ]
+      },
+      {
+        "id": "3212041",
+        "billDate": "2011-04-15T22:00:00Z",
+        "currencyCode": "BWP",
+        "amountDue": 499,
+        "paymentDueDate": "2011-04-29T22:00:00Z",
+        "remainingAmount": 0,
+        "relatedParty": [
+          {
+            "id": "CUST0000000047"
+          }
+        ]
+      },
+      {
+        "id": "3180519",
+        "billDate": "2011-03-15T23:00:00Z",
+        "currencyCode": "BWP",
+        "amountDue": 502.6,
+        "paymentDueDate": "2011-03-29T22:00:00Z",
+        "remainingAmount": 0,
+        "relatedParty": [
+          {
+            "id": "CUST0000000047"
+          }
+        ]
+      },
+      {
+        "id": "3150091",
+        "billDate": "2011-02-15T23:00:00Z",
+        "currencyCode": "BWP",
+        "amountDue": 505.93,
+        "paymentDueDate": "2011-03-01T23:00:00Z",
+        "remainingAmount": 0,
+        "relatedParty": [
+          {
+            "id": "CUST0000000047"
+          }
+        ]
+      },
+      {
+        "id": "3122266",
+        "billDate": "2011-01-15T23:00:00Z",
+        "currencyCode": "BWP",
+        "amountDue": 501.15,
+        "paymentDueDate": "2011-01-29T23:00:00Z",
+        "remainingAmount": 0,
+        "relatedParty": [
+          {
+            "id": "CUST0000000047"
+          }
+        ]
+      },
+      {
+        "id": "3092884",
+        "billDate": "2010-12-15T23:00:00Z",
+        "currencyCode": "BWP",
+        "amountDue": 647.73,
+        "paymentDueDate": "2010-12-29T23:00:00Z",
+        "remainingAmount": 0,
+        "relatedParty": [
+          {
+            "id": "CUST0000000047"
+          }
+        ]
+      },
+      {
+        "id": "3065407",
+        "billDate": "2010-11-15T23:00:00Z",
+        "currencyCode": "BWP",
+        "amountDue": 780.55,
+        "paymentDueDate": "2010-11-29T23:00:00Z",
+        "remainingAmount": 0,
+        "relatedParty": [
+          {
+            "id": "CUST0000000047"
+          }
+        ]
+      },
+      {
+        "id": "3036875",
+        "billDate": "2010-10-15T22:00:00Z",
+        "currencyCode": "BWP",
+        "amountDue": 268.47,
+        "paymentDueDate": "2010-10-29T22:00:00Z",
+        "remainingAmount": 0,
+        "relatedParty": [
+          {
+            "id": "CUST0000000047"
+          }
+        ]
+      },
+      {
+        "id": "3008713",
+        "billDate": "2010-09-15T22:00:00Z",
+        "currencyCode": "BWP",
+        "amountDue": 250.64,
+        "paymentDueDate": "2010-09-29T22:00:00Z",
+        "remainingAmount": 0,
+        "relatedParty": [
+          {
+            "id": "CUST0000000047"
+          }
+        ]
+      },
+      {
+        "id": "2980499",
+        "billDate": "2010-08-15T22:00:00Z",
+        "currencyCode": "BWP",
+        "amountDue": 256.71,
+        "paymentDueDate": "2010-08-29T22:00:00Z",
+        "remainingAmount": 0,
+        "relatedParty": [
+          {
+            "id": "CUST0000000047"
+          }
+        ]
+      },
+      {
+        "id": "2953451",
+        "billDate": "2010-07-15T22:00:00Z",
+        "currencyCode": "BWP",
+        "amountDue": 364.5,
+        "paymentDueDate": "2010-07-29T22:00:00Z",
+        "remainingAmount": 0,
+        "relatedParty": [
+          {
+            "id": "CUST0000000047"
+          }
+        ]
+      },
+      {
+        "id": "2925129",
+        "billDate": "2010-06-15T22:00:00Z",
+        "currencyCode": "BWP",
+        "amountDue": 299.17,
+        "paymentDueDate": "2010-06-29T22:00:00Z",
+        "remainingAmount": 0,
+        "relatedParty": [
+          {
+            "id": "CUST0000000047"
+          }
+        ]
+      },
+      {
+        "id": "2898146",
+        "billDate": "2010-05-15T22:00:00Z",
+        "currencyCode": "BWP",
+        "amountDue": 251.29,
+        "paymentDueDate": "2010-05-29T22:00:00Z",
+        "remainingAmount": 0,
+        "relatedParty": [
+          {
+            "id": "CUST0000000047"
+          }
+        ]
+      },
+      {
+        "id": "2871233",
+        "billDate": "2010-04-15T22:00:00Z",
+        "currencyCode": "BWP",
+        "amountDue": 249.59,
+        "paymentDueDate": "2010-04-29T22:00:00Z",
+        "remainingAmount": 0,
+        "relatedParty": [
+          {
+            "id": "CUST0000000047"
+          }
+        ]
+      },
+      {
+        "id": "2840594",
+        "billDate": "2010-03-15T23:00:00Z",
+        "currencyCode": "BWP",
+        "amountDue": 247.04,
+        "paymentDueDate": "2010-03-29T22:00:00Z",
+        "remainingAmount": 0,
+        "relatedParty": [
+          {
+            "id": "CUST0000000047"
+          }
+        ]
+      },
+      {
+        "id": "2814433",
+        "billDate": "2010-02-15T23:00:00Z",
+        "currencyCode": "BWP",
+        "amountDue": 475.9,
+        "paymentDueDate": "2010-03-01T23:00:00Z",
+        "remainingAmount": 0,
+        "relatedParty": [
+          {
+            "id": "CUST0000000047"
+          }
+        ]
+      },
+      {
+        "id": "2782038",
+        "billDate": "2010-01-15T23:00:00Z",
+        "currencyCode": "BWP",
+        "amountDue": 250,
+        "paymentDueDate": "2010-01-29T23:00:00Z",
+        "remainingAmount": 0,
+        "relatedParty": [
+          {
+            "id": "CUST0000000047"
+          }
+        ]
+      },
+      {
+        "id": "2754796",
+        "billDate": "2009-12-15T23:00:00Z",
+        "currencyCode": "BWP",
+        "amountDue": 253.6,
+        "paymentDueDate": "2009-12-29T23:00:00Z",
+        "remainingAmount": 0,
+        "relatedParty": [
+          {
+            "id": "CUST0000000047"
+          }
+        ]
+      },
+      {
+        "id": "2728008",
+        "billDate": "2009-11-15T23:00:00Z",
+        "currencyCode": "BWP",
+        "amountDue": 250,
+        "paymentDueDate": "2009-11-29T23:00:00Z",
+        "remainingAmount": 0,
+        "relatedParty": [
+          {
+            "id": "CUST0000000047"
+          }
+        ]
+      },
+      {
+        "id": "2702485",
+        "billDate": "2009-10-15T22:00:00Z",
+        "currencyCode": "BWP",
+        "amountDue": 304.28,
+        "paymentDueDate": "2009-10-29T23:00:00Z",
+        "remainingAmount": 0,
+        "relatedParty": [
+          {
+            "id": "CUST0000000047"
+          }
+        ]
+      },
+      {
+        "id": "2677186",
+        "billDate": "2009-09-15T22:00:00Z",
+        "currencyCode": "BWP",
+        "amountDue": 236.07,
+        "paymentDueDate": "2009-09-29T22:00:00Z",
+        "remainingAmount": 0,
+        "relatedParty": [
+          {
+            "id": "CUST0000000047"
+          }
+        ]
+      },
+      {
+        "id": "2652218",
+        "billDate": "2009-08-15T22:00:00Z",
+        "currencyCode": "BWP",
+        "amountDue": 249.49,
+        "paymentDueDate": "2009-08-29T22:00:00Z",
+        "remainingAmount": 0,
+        "relatedParty": [
+          {
+            "id": "CUST0000000047"
+          }
+        ]
+      },
+      {
+        "id": "2628227",
+        "billDate": "2009-07-15T22:00:00Z",
+        "currencyCode": "BWP",
+        "amountDue": 250,
+        "paymentDueDate": "2009-07-29T22:00:00Z",
+        "remainingAmount": 0,
+        "relatedParty": [
+          {
+            "id": "CUST0000000047"
+          }
+        ]
+      },
+      {
+        "id": "2602714",
+        "billDate": "2009-06-15T22:00:00Z",
+        "currencyCode": "BWP",
+        "amountDue": 198.56,
+        "paymentDueDate": "2009-06-29T22:00:00Z",
+        "remainingAmount": 0,
+        "relatedParty": [
+          {
+            "id": "CUST0000000047"
+          }
+        ]
+      },
+      {
+        "id": "2578847",
+        "billDate": "2009-05-15T22:00:00Z",
+        "currencyCode": "BWP",
+        "amountDue": 266.44,
+        "paymentDueDate": "2009-05-29T22:00:00Z",
+        "remainingAmount": 0,
+        "relatedParty": [
+          {
+            "id": "CUST0000000047"
+          }
+        ]
+      },
+      {
+        "id": "2557720",
+        "billDate": "2009-04-15T22:00:00Z",
+        "currencyCode": "BWP",
+        "amountDue": 257.38,
+        "paymentDueDate": "2009-04-29T22:00:00Z",
+        "remainingAmount": 0,
+        "relatedParty": [
+          {
+            "id": "CUST0000000047"
+          }
+        ]
+      },
+      {
+        "id": "2516777",
+        "billDate": "2009-03-15T23:00:00Z",
+        "currencyCode": "BWP",
+        "amountDue": 277.76,
+        "paymentDueDate": "2009-03-29T22:00:00Z",
+        "remainingAmount": 0,
+        "relatedParty": [
+          {
+            "id": "CUST0000000047"
+          }
+        ]
+      },
+      {
+        "id": "2481764",
+        "billDate": "2009-02-15T23:00:00Z",
+        "currencyCode": "BWP",
+        "amountDue": 430.89,
+        "paymentDueDate": "2009-03-01T23:00:00Z",
+        "remainingAmount": 0,
+        "relatedParty": [
+          {
+            "id": "CUST0000000047"
+          }
+        ]
+      },
+      {
+        "id": "2450132",
+        "billDate": "2009-01-15T23:00:00Z",
+        "currencyCode": "BWP",
+        "amountDue": 347.53,
+        "paymentDueDate": "2009-01-29T23:00:00Z",
+        "remainingAmount": 0,
+        "relatedParty": [
+          {
+            "id": "CUST0000000047"
+          }
+        ]
+      },
+      {
+        "id": "2417573",
+        "billDate": "2008-12-15T23:00:00Z",
+        "currencyCode": "BWP",
+        "amountDue": 313.29,
+        "paymentDueDate": "2008-12-29T23:00:00Z",
+        "remainingAmount": 0,
+        "relatedParty": [
+          {
+            "id": "CUST0000000047"
+          }
+        ]
+      },
+      {
+        "id": "2376235",
+        "billDate": "2008-11-15T23:00:00Z",
+        "currencyCode": "BWP",
+        "amountDue": 281.51,
+        "paymentDueDate": "2008-11-29T23:00:00Z",
+        "remainingAmount": 0,
+        "relatedParty": [
+          {
+            "id": "CUST0000000047"
+          }
+        ]
+      },
+      {
+        "id": "2342634",
+        "billDate": "2008-10-15T22:00:00Z",
+        "currencyCode": "BWP",
+        "amountDue": 287.09,
+        "paymentDueDate": "2008-10-29T23:00:00Z",
+        "remainingAmount": 0,
+        "relatedParty": [
+          {
+            "id": "CUST0000000047"
+          }
+        ]
+      },
+      {
+        "id": "2326081",
+        "billDate": "2008-09-15T22:00:00Z",
+        "currencyCode": "BWP",
+        "amountDue": 337.67,
+        "paymentDueDate": "2008-09-29T22:00:00Z",
+        "remainingAmount": 0,
+        "relatedParty": [
+          {
+            "id": "CUST0000000047"
+          }
+        ]
+      },
+      {
+        "id": "2275627",
+        "billDate": "2008-08-15T22:00:00Z",
+        "currencyCode": "BWP",
+        "amountDue": 626.24,
+        "paymentDueDate": "2008-08-29T22:00:00Z",
+        "remainingAmount": 0,
+        "relatedParty": [
+          {
+            "id": "CUST0000000047"
+          }
+        ]
+      },
+      {
+        "id": "2260691",
+        "billDate": "2008-07-15T22:00:00Z",
+        "currencyCode": "BWP",
+        "amountDue": 325.97,
+        "paymentDueDate": "2008-07-29T22:00:00Z",
+        "remainingAmount": 0,
+        "relatedParty": [
+          {
+            "id": "CUST0000000047"
+          }
+        ]
+      },
+      {
+        "id": "2226747",
+        "billDate": "2008-06-15T22:00:00Z",
+        "currencyCode": "BWP",
+        "amountDue": 475.52,
+        "paymentDueDate": "2008-06-29T22:00:00Z",
+        "remainingAmount": 0,
+        "relatedParty": [
+          {
+            "id": "CUST0000000047"
+          }
+        ]
+      },
+      {
+        "id": "2193682",
+        "billDate": "2008-05-15T22:00:00Z",
+        "currencyCode": "BWP",
+        "amountDue": 665.1,
+        "paymentDueDate": "2008-05-29T22:00:00Z",
+        "remainingAmount": 0,
+        "relatedParty": [
+          {
+            "id": "CUST0000000047"
+          }
+        ]
+      },
+      {
+        "id": "2116190",
+        "billDate": "2008-03-15T23:00:00Z",
+        "currencyCode": "BWP",
+        "amountDue": 387.16,
+        "paymentDueDate": "2008-03-29T23:00:00Z",
+        "remainingAmount": 0,
+        "relatedParty": [
+          {
+            "id": "CUST0000000047"
+          }
+        ]
+      },
+      {
+        "id": "2084567",
+        "billDate": "2008-02-15T23:00:00Z",
+        "currencyCode": "BWP",
+        "amountDue": 269.38,
+        "paymentDueDate": "2008-02-29T23:00:00Z",
+        "remainingAmount": 0,
+        "relatedParty": [
+          {
+            "id": "CUST0000000047"
+          }
+        ]
+      },
+      {
+        "id": "2050110",
+        "billDate": "2008-01-15T23:00:00Z",
+        "currencyCode": "BWP",
+        "amountDue": 449.76,
+        "paymentDueDate": "2008-01-29T23:00:00Z",
+        "remainingAmount": 0,
+        "relatedParty": [
+          {
+            "id": "CUST0000000047"
+          }
+        ]
+      },
+      {
+        "id": "2020448",
+        "billDate": "2007-12-15T23:00:00Z",
+        "currencyCode": "BWP",
+        "amountDue": 256.04,
+        "paymentDueDate": "2007-12-29T23:00:00Z",
+        "remainingAmount": 0,
+        "relatedParty": [
+          {
+            "id": "CUST0000000047"
+          }
+        ]
+      },
+      {
+        "id": "1994317",
+        "billDate": "2007-11-15T23:00:00Z",
+        "currencyCode": "BWP",
+        "amountDue": 297.67,
+        "paymentDueDate": "2007-11-29T23:00:00Z",
+        "remainingAmount": 0,
+        "relatedParty": [
+          {
+            "id": "CUST0000000047"
+          }
+        ]
+      },
+      {
+        "id": "1965634",
+        "billDate": "2007-10-15T22:00:00Z",
+        "currencyCode": "BWP",
+        "amountDue": 304.12,
+        "paymentDueDate": "2007-10-29T23:00:00Z",
+        "remainingAmount": 0,
+        "relatedParty": [
+          {
+            "id": "CUST0000000047"
+          }
+        ]
+      },
+      {
+        "id": "1904703",
+        "billDate": "2007-08-15T22:00:00Z",
+        "currencyCode": "BWP",
+        "amountDue": 264.68,
+        "paymentDueDate": "2007-08-29T22:00:00Z",
+        "remainingAmount": 0,
+        "relatedParty": [
+          {
+            "id": "CUST0000000047"
+          }
+        ]
+      },
+      {
+        "id": "1871494",
+        "billDate": "2007-07-15T22:00:00Z",
+        "currencyCode": "BWP",
+        "amountDue": 267.31,
+        "paymentDueDate": "2007-07-29T22:00:00Z",
+        "remainingAmount": 0,
+        "relatedParty": [
+          {
+            "id": "CUST0000000047"
+          }
+        ]
+      },
+      {
+        "id": "1845872",
+        "billDate": "2007-06-15T22:00:00Z",
+        "currencyCode": "BWP",
+        "amountDue": 437.1,
+        "paymentDueDate": "2007-06-29T22:00:00Z",
+        "remainingAmount": 0,
+        "relatedParty": [
+          {
+            "id": "CUST0000000047"
+          }
+        ]
+      },
+      {
+        "id": "1813279",
+        "billDate": "2007-05-15T22:00:00Z",
+        "currencyCode": "BWP",
+        "amountDue": 272.97,
+        "paymentDueDate": "2007-05-29T22:00:00Z",
+        "remainingAmount": 0,
+        "relatedParty": [
+          {
+            "id": "CUST0000000047"
+          }
+        ]
+      },
+      {
+        "id": "1783497",
+        "billDate": "2007-04-15T22:00:00Z",
+        "currencyCode": "BWP",
+        "amountDue": 305.46,
+        "paymentDueDate": "2007-04-29T22:00:00Z",
+        "remainingAmount": 0,
+        "relatedParty": [
+          {
+            "id": "CUST0000000047"
+          }
+        ]
+      },
+      {
+        "id": "1755541",
+        "billDate": "2007-03-15T23:00:00Z",
+        "currencyCode": "BWP",
+        "amountDue": 274.24,
+        "paymentDueDate": "2007-03-29T22:00:00Z",
+        "remainingAmount": 0,
+        "relatedParty": [
+          {
+            "id": "CUST0000000047"
+          }
+        ]
+      },
+      {
+        "id": "1726496",
+        "billDate": "2007-02-15T23:00:00Z",
+        "currencyCode": "BWP",
+        "amountDue": 277.94,
+        "paymentDueDate": "2007-03-01T23:00:00Z",
+        "remainingAmount": 0,
+        "relatedParty": [
+          {
+            "id": "CUST0000000047"
+          }
+        ]
+      },
+      {
+        "id": "1698823",
+        "billDate": "2007-01-15T23:00:00Z",
+        "currencyCode": "BWP",
+        "amountDue": 388.04,
+        "paymentDueDate": "2007-01-29T23:00:00Z",
+        "remainingAmount": 0,
+        "relatedParty": [
+          {
+            "id": "CUST0000000047"
+          }
+        ]
+      },
+      {
+        "id": "1672154",
+        "billDate": "2006-12-15T23:00:00Z",
+        "currencyCode": "BWP",
+        "amountDue": 431.35,
+        "paymentDueDate": "2006-12-29T23:00:00Z",
+        "remainingAmount": 0,
+        "relatedParty": [
+          {
+            "id": "CUST0000000047"
+          }
+        ]
+      },
+      {
+        "id": "1642056",
+        "billDate": "2006-11-15T23:00:00Z",
+        "currencyCode": "BWP",
+        "amountDue": 473.6,
+        "paymentDueDate": "2006-11-29T23:00:00Z",
+        "remainingAmount": 0,
+        "relatedParty": [
+          {
+            "id": "CUST0000000047"
+          }
+        ]
+      },
+      {
+        "id": "1613322",
+        "billDate": "2006-10-15T22:00:00Z",
+        "currencyCode": "BWP",
+        "amountDue": 289.38,
+        "paymentDueDate": "2006-10-29T23:00:00Z",
+        "remainingAmount": 0,
+        "relatedParty": [
+          {
+            "id": "CUST0000000047"
+          }
+        ]
+      },
+      {
+        "id": "1586822",
+        "billDate": "2006-09-15T22:00:00Z",
+        "currencyCode": "BWP",
+        "amountDue": 281.11,
+        "paymentDueDate": "2006-09-29T22:00:00Z",
+        "remainingAmount": 0,
+        "relatedParty": [
+          {
+            "id": "CUST0000000047"
+          }
+        ]
+      },
+      {
+        "id": "1559215",
+        "billDate": "2006-08-15T22:00:00Z",
+        "currencyCode": "BWP",
+        "amountDue": 420.76,
+        "paymentDueDate": "2006-08-29T22:00:00Z",
+        "remainingAmount": 0,
+        "relatedParty": [
+          {
+            "id": "CUST0000000047"
+          }
+        ]
+      },
+      {
+        "id": "1532099",
+        "billDate": "2006-07-15T22:00:00Z",
+        "currencyCode": "BWP",
+        "amountDue": 423.01,
+        "paymentDueDate": "2006-07-29T22:00:00Z",
+        "remainingAmount": 0,
+        "relatedParty": [
+          {
+            "id": "CUST0000000047"
+          }
+        ]
+      },
+      {
+        "id": "1505654",
+        "billDate": "2006-06-15T22:00:00Z",
+        "currencyCode": "BWP",
+        "amountDue": 306.68,
+        "paymentDueDate": "2006-06-29T22:00:00Z",
+        "remainingAmount": 0,
+        "relatedParty": [
+          {
+            "id": "CUST0000000047"
+          }
+        ]
+      },
+      {
+        "id": "1478004",
+        "billDate": "2006-05-15T22:00:00Z",
+        "currencyCode": "BWP",
+        "amountDue": 380.07,
+        "paymentDueDate": "2006-05-29T22:00:00Z",
+        "remainingAmount": 0,
+        "relatedParty": [
+          {
+            "id": "CUST0000000047"
+          }
+        ]
+      },
+      {
+        "id": "1459021",
+        "billDate": "2006-04-15T22:00:00Z",
+        "currencyCode": "BWP",
+        "amountDue": 332.28,
+        "paymentDueDate": "2006-04-29T22:00:00Z",
+        "remainingAmount": 0,
+        "relatedParty": [
+          {
+            "id": "CUST0000000047"
+          }
+        ]
+      },
+      {
+        "id": "1426891",
+        "billDate": "2006-03-15T23:00:00Z",
+        "currencyCode": "BWP",
+        "amountDue": 408.02,
+        "paymentDueDate": "2006-03-29T22:00:00Z",
+        "remainingAmount": 0,
+        "relatedParty": [
+          {
+            "id": "CUST0000000047"
+          }
+        ]
+      },
+      {
+        "id": "1401288",
+        "billDate": "2006-02-15T23:00:00Z",
+        "currencyCode": "BWP",
+        "amountDue": 301.32,
+        "paymentDueDate": "2006-03-01T23:00:00Z",
+        "remainingAmount": 0,
+        "relatedParty": [
+          {
+            "id": "CUST0000000047"
+          }
+        ]
+      },
+      {
+        "id": "1375568",
+        "billDate": "2006-01-15T23:00:00Z",
+        "currencyCode": "BWP",
+        "amountDue": 293.78,
+        "paymentDueDate": "2006-01-29T23:00:00Z",
+        "remainingAmount": 0,
+        "relatedParty": [
+          {
+            "id": "CUST0000000047"
+          }
+        ]
+      },
+      {
+        "id": "1351263",
+        "billDate": "2005-12-15T23:00:00Z",
+        "currencyCode": "BWP",
+        "amountDue": 269.81,
+        "paymentDueDate": "2005-12-29T23:00:00Z",
+        "remainingAmount": 0,
+        "relatedParty": [
+          {
+            "id": "CUST0000000047"
+          }
+        ]
+      },
+      {
+        "id": "1325483",
+        "billDate": "2005-11-15T23:00:00Z",
+        "currencyCode": "BWP",
+        "amountDue": 283.33,
+        "paymentDueDate": "2005-11-29T23:00:00Z",
+        "remainingAmount": 0,
+        "relatedParty": [
+          {
+            "id": "CUST0000000047"
+          }
+        ]
+      },
+      {
+        "id": "1308793",
+        "billDate": "2005-10-15T22:00:00Z",
+        "currencyCode": "BWP",
+        "amountDue": 361.98,
+        "paymentDueDate": "2005-10-29T22:00:00Z",
+        "remainingAmount": 0,
+        "relatedParty": [
+          {
+            "id": "CUST0000000047"
+          }
+        ]
+      },
+      {
+        "id": "1281326",
+        "billDate": "2005-09-15T22:00:00Z",
+        "currencyCode": "BWP",
+        "amountDue": 364.56,
+        "paymentDueDate": "2005-09-29T22:00:00Z",
+        "remainingAmount": 0,
+        "relatedParty": [
+          {
+            "id": "CUST0000000047"
+          }
+        ]
+      },
+      {
+        "id": "1253616",
+        "billDate": "2005-08-15T22:00:00Z",
+        "currencyCode": "BWP",
+        "amountDue": 384.35,
+        "paymentDueDate": "2005-08-29T22:00:00Z",
+        "remainingAmount": 0,
+        "relatedParty": [
+          {
+            "id": "CUST0000000047"
+          }
+        ]
+      },
+      {
+        "id": "1227357",
+        "billDate": "2005-07-15T22:00:00Z",
+        "currencyCode": "BWP",
+        "amountDue": 441.12,
+        "paymentDueDate": "2005-07-29T22:00:00Z",
+        "remainingAmount": 0,
+        "relatedParty": [
+          {
+            "id": "CUST0000000047"
+          }
+        ]
+      },
+      {
+        "id": "1203702",
+        "billDate": "2005-06-15T22:00:00Z",
+        "currencyCode": "BWP",
+        "amountDue": 485.62,
+        "paymentDueDate": "2005-06-29T22:00:00Z",
+        "remainingAmount": 0,
+        "relatedParty": [
+          {
+            "id": "CUST0000000047"
+          }
+        ]
+      },
+      {
+        "id": "1179482",
+        "billDate": "2005-05-15T22:00:00Z",
+        "currencyCode": "BWP",
+        "amountDue": 310.25,
+        "paymentDueDate": "2005-05-29T22:00:00Z",
+        "remainingAmount": 0,
+        "relatedParty": [
+          {
+            "id": "CUST0000000047"
+          }
+        ]
+      },
+      {
+        "id": "1156903",
+        "billDate": "2005-04-15T22:00:00Z",
+        "currencyCode": "BWP",
+        "amountDue": 600.96,
+        "paymentDueDate": "2005-04-29T22:00:00Z",
+        "remainingAmount": 0,
+        "relatedParty": [
+          {
+            "id": "CUST0000000047"
+          }
+        ]
+      },
+      {
+        "id": "1133755",
+        "billDate": "2005-03-15T23:00:00Z",
+        "currencyCode": "BWP",
+        "amountDue": 322.73,
+        "paymentDueDate": "2005-03-29T22:00:00Z",
+        "remainingAmount": 0,
+        "relatedParty": [
+          {
+            "id": "CUST0000000047"
+          }
+        ]
+      },
+      {
+        "id": "1103510",
+        "billDate": "2005-02-15T23:00:00Z",
+        "currencyCode": "BWP",
+        "amountDue": 382.54,
+        "paymentDueDate": "2005-03-01T23:00:00Z",
+        "remainingAmount": 0,
+        "relatedParty": [
+          {
+            "id": "CUST0000000047"
+          }
+        ]
+      },
+      {
+        "id": "1081318",
+        "billDate": "2005-01-15T23:00:00Z",
+        "currencyCode": "BWP",
+        "amountDue": 396.16,
+        "paymentDueDate": "2005-01-29T23:00:00Z",
+        "remainingAmount": 0,
+        "relatedParty": [
+          {
+            "id": "CUST0000000047"
+          }
+        ]
+      },
+      {
+        "id": "1057153",
+        "billDate": "2004-12-15T23:00:00Z",
+        "currencyCode": "BWP",
+        "amountDue": 326.96,
+        "paymentDueDate": "2004-12-29T23:00:00Z",
+        "remainingAmount": 0,
+        "relatedParty": [
+          {
+            "id": "CUST0000000047"
+          }
+        ]
+      },
+      {
+        "id": "1037935",
+        "billDate": "2004-11-15T23:00:00Z",
+        "currencyCode": "BWP",
+        "amountDue": 478.33,
+        "paymentDueDate": "2004-11-29T23:00:00Z",
+        "remainingAmount": 0,
+        "relatedParty": [
+          {
+            "id": "CUST0000000047"
+          }
+        ]
+      },
+      {
+        "id": "1014253",
+        "billDate": "2004-10-15T22:00:00Z",
+        "currencyCode": "BWP",
+        "amountDue": 456.67,
+        "paymentDueDate": "2004-10-29T22:00:00Z",
+        "remainingAmount": 0,
+        "relatedParty": [
+          {
+            "id": "CUST0000000047"
+          }
+        ]
+      },
+      {
+        "id": "991672",
+        "billDate": "2004-09-15T22:00:00Z",
+        "currencyCode": "BWP",
+        "amountDue": 287.32,
+        "paymentDueDate": "2004-09-29T22:00:00Z",
+        "remainingAmount": 0,
+        "relatedParty": [
+          {
+            "id": "CUST0000000047"
+          }
+        ]
+      },
+      {
+        "id": "970994",
+        "billDate": "2004-08-15T22:00:00Z",
+        "currencyCode": "BWP",
+        "amountDue": 400.8,
+        "paymentDueDate": "2004-08-29T22:00:00Z",
+        "remainingAmount": 0,
+        "relatedParty": [
+          {
+            "id": "CUST0000000047"
+          }
+        ]
+      },
+      {
+        "id": "949690",
+        "billDate": "2004-07-15T22:00:00Z",
+        "currencyCode": "BWP",
+        "amountDue": 344.59,
+        "paymentDueDate": "2004-07-29T22:00:00Z",
+        "remainingAmount": 0,
+        "relatedParty": [
+          {
+            "id": "CUST0000000047"
+          }
+        ]
+      },
+      {
+        "id": "928457",
+        "billDate": "2004-06-15T22:00:00Z",
+        "currencyCode": "BWP",
+        "amountDue": 265.18,
+        "paymentDueDate": "2004-06-29T22:00:00Z",
+        "remainingAmount": 0,
+        "relatedParty": [
+          {
+            "id": "CUST0000000047"
+          }
+        ]
+      },
+      {
+        "id": "911747",
+        "billDate": "2004-05-15T22:00:00Z",
+        "currencyCode": "BWP",
+        "amountDue": 266.39,
+        "paymentDueDate": "2004-05-29T22:00:00Z",
+        "remainingAmount": 0,
+        "relatedParty": [
+          {
+            "id": "CUST0000000047"
+          }
+        ]
+      },
+      {
+        "id": "888567",
+        "billDate": "2004-04-15T22:00:00Z",
+        "currencyCode": "BWP",
+        "amountDue": 272.26,
+        "paymentDueDate": "2004-04-29T22:00:00Z",
+        "remainingAmount": 0,
+        "relatedParty": [
+          {
+            "id": "CUST0000000047"
+          }
+        ]
+      },
+      {
+        "id": "869442",
+        "billDate": "2004-03-15T23:00:00Z",
+        "currencyCode": "BWP",
+        "amountDue": 376.93,
+        "paymentDueDate": "2004-03-29T22:00:00Z",
+        "remainingAmount": 0,
+        "relatedParty": [
+          {
+            "id": "CUST0000000047"
+          }
+        ]
+      },
+      {
+        "id": "849251",
+        "billDate": "2004-02-15T23:00:00Z",
+        "currencyCode": "BWP",
+        "amountDue": 334.42,
+        "paymentDueDate": "2004-02-29T23:00:00Z",
+        "remainingAmount": 0,
+        "relatedParty": [
+          {
+            "id": "CUST0000000047"
+          }
+        ]
+      },
+      {
+        "id": "832704",
+        "billDate": "2004-01-15T23:00:00Z",
+        "currencyCode": "BWP",
+        "amountDue": 354.41,
+        "paymentDueDate": "2004-01-29T23:00:00Z",
+        "remainingAmount": 0,
+        "relatedParty": [
+          {
+            "id": "CUST0000000047"
+          }
+        ]
+      },
+      {
+        "id": "809647",
+        "billDate": "2003-12-15T23:00:00Z",
+        "currencyCode": "BWP",
+        "amountDue": 284.34,
+        "paymentDueDate": "2003-12-29T23:00:00Z",
+        "remainingAmount": 0,
+        "relatedParty": [
+          {
+            "id": "CUST0000000047"
+          }
+        ]
+      },
+      {
+        "id": "793340",
+        "billDate": "2003-11-15T23:00:00Z",
+        "currencyCode": "BWP",
+        "amountDue": 349.32,
+        "paymentDueDate": "2003-11-29T23:00:00Z",
+        "remainingAmount": 0,
+        "relatedParty": [
+          {
+            "id": "CUST0000000047"
+          }
+        ]
+      },
+      {
+        "id": "781889",
+        "billDate": "2003-10-15T22:00:00Z",
+        "currencyCode": "BWP",
+        "amountDue": 441.98,
+        "paymentDueDate": "2003-10-29T23:00:00Z",
+        "remainingAmount": 0,
+        "relatedParty": [
+          {
+            "id": "CUST0000000047"
+          }
+        ]
+      },
+      {
+        "id": "761977",
+        "billDate": "2003-09-15T22:00:00Z",
+        "currencyCode": "BWP",
+        "amountDue": 520.94,
+        "paymentDueDate": "2003-09-29T22:00:00Z",
+        "remainingAmount": 0,
+        "relatedParty": [
+          {
+            "id": "CUST0000000047"
+          }
+        ]
+      },
+      {
+        "id": "742836",
+        "billDate": "2003-08-15T22:00:00Z",
+        "currencyCode": "BWP",
+        "amountDue": 1254.19,
+        "paymentDueDate": "2003-08-29T22:00:00Z",
+        "remainingAmount": 0,
+        "relatedParty": [
+          {
+            "id": "CUST0000000047"
+          }
+        ]
+      },
+      {
+        "id": "724119",
+        "billDate": "2003-07-15T22:00:00Z",
+        "currencyCode": "BWP",
+        "amountDue": 1553.21,
+        "paymentDueDate": "2003-07-29T22:00:00Z",
+        "remainingAmount": 0,
+        "relatedParty": [
+          {
+            "id": "CUST0000000047"
+          }
+        ]
+      },
+      {
+        "id": "695271",
+        "billDate": "2003-06-15T22:00:00Z",
+        "currencyCode": "BWP",
+        "amountDue": 845.27,
+        "paymentDueDate": "2003-06-29T22:00:00Z",
+        "remainingAmount": 0,
+        "relatedParty": [
+          {
+            "id": "CUST0000000047"
+          }
+        ]
+      },
+      {
+        "id": "680428",
+        "billDate": "2003-05-15T22:00:00Z",
+        "currencyCode": "BWP",
+        "amountDue": 324.42,
+        "paymentDueDate": "2003-05-29T22:00:00Z",
+        "remainingAmount": 0,
+        "relatedParty": [
+          {
+            "id": "CUST0000000047"
+          }
+        ]
+      },
+      {
+        "id": "661529",
+        "billDate": "2003-04-15T22:00:00Z",
+        "currencyCode": "BWP",
+        "amountDue": 461.76,
+        "paymentDueDate": "2003-04-29T22:00:00Z",
+        "remainingAmount": 0,
+        "relatedParty": [
+          {
+            "id": "CUST0000000047"
+          }
+        ]
+      },
+      {
+        "id": "644314",
+        "billDate": "2003-03-15T23:00:00Z",
+        "currencyCode": "BWP",
+        "amountDue": 327.92,
+        "paymentDueDate": "2003-03-29T23:00:00Z",
+        "remainingAmount": 0,
+        "relatedParty": [
+          {
+            "id": "CUST0000000047"
+          }
+        ]
+      },
+      {
+        "id": "626634",
+        "billDate": "2003-02-15T23:00:00Z",
+        "currencyCode": "BWP",
+        "amountDue": 337.83,
+        "paymentDueDate": "2003-03-01T23:00:00Z",
+        "remainingAmount": 0,
+        "relatedParty": [
+          {
+            "id": "CUST0000000047"
+          }
+        ]
+      },
+      {
+        "id": "606218",
+        "billDate": "2003-01-15T23:00:00Z",
+        "currencyCode": "BWP",
+        "amountDue": 292.37,
+        "paymentDueDate": "2003-01-29T23:00:00Z",
+        "remainingAmount": 0,
+        "relatedParty": [
+          {
+            "id": "CUST0000000047"
+          }
+        ]
+      },
+      {
+        "id": "588708",
+        "billDate": "2002-12-15T23:00:00Z",
+        "currencyCode": "BWP",
+        "amountDue": 332.84,
+        "paymentDueDate": "2002-12-29T23:00:00Z",
+        "remainingAmount": 0,
+        "relatedParty": [
+          {
+            "id": "CUST0000000047"
+          }
+        ]
+      },
+      {
+        "id": "574710",
+        "billDate": "2002-11-15T23:00:00Z",
+        "currencyCode": "BWP",
+        "amountDue": 398.85,
+        "paymentDueDate": "2002-11-29T23:00:00Z",
+        "remainingAmount": 0,
+        "relatedParty": [
+          {
+            "id": "CUST0000000047"
+          }
+        ]
+      },
+      {
+        "id": "555704",
+        "billDate": "2002-10-15T22:00:00Z",
+        "currencyCode": "BWP",
+        "amountDue": 474.72,
+        "paymentDueDate": "2002-10-29T23:00:00Z",
+        "remainingAmount": 0,
+        "relatedParty": [
+          {
+            "id": "CUST0000000047"
+          }
+        ]
+      },
+      {
+        "id": "537894",
+        "billDate": "2002-09-15T22:00:00Z",
+        "currencyCode": "BWP",
+        "amountDue": 282.9,
+        "paymentDueDate": "2002-09-29T22:00:00Z",
+        "remainingAmount": 0,
+        "relatedParty": [
+          {
+            "id": "CUST0000000047"
+          }
+        ]
+      },
+      {
+        "id": "522109",
+        "billDate": "2002-08-15T22:00:00Z",
+        "currencyCode": "BWP",
+        "amountDue": 303.28,
+        "paymentDueDate": "2002-08-29T22:00:00Z",
+        "remainingAmount": 0,
+        "relatedParty": [
+          {
+            "id": "CUST0000000047"
+          }
+        ]
+      },
+      {
+        "id": "507229",
+        "billDate": "2002-07-15T22:00:00Z",
+        "currencyCode": "BWP",
+        "amountDue": 162.44,
+        "paymentDueDate": "2002-07-29T22:00:00Z",
+        "remainingAmount": 0,
+        "relatedParty": [
+          {
+            "id": "CUST0000000047"
+          }
+        ]
+      },
+      {
+        "id": "503783",
+        "billDate": "2002-06-30T22:00:00Z",
+        "currencyCode": "BWP",
+        "amountDue": 126.4,
+        "paymentDueDate": "2002-07-29T22:00:00Z",
+        "remainingAmount": 0,
+        "relatedParty": [
+          {
+            "id": "CUST0000000047"
+          }
+        ]
+      },
+      {
+        "id": "478591",
+        "billDate": "2002-06-15T22:00:00Z",
+        "currencyCode": "BWP",
+        "amountDue": 294.68,
+        "paymentDueDate": "2002-06-29T22:00:00Z",
+        "remainingAmount": 0,
+        "relatedParty": [
+          {
+            "id": "CUST0000000047"
+          }
+        ]
+      },
+      {
+        "id": "457309",
+        "billDate": "2002-05-15T22:00:00Z",
+        "currencyCode": "BWP",
+        "amountDue": 275.29,
+        "paymentDueDate": "2002-05-29T22:00:00Z",
+        "remainingAmount": 0,
+        "relatedParty": [
+          {
+            "id": "CUST0000000047"
+          }
+        ]
+      },
+      {
+        "id": "443770",
+        "billDate": "2002-04-15T22:00:00Z",
+        "currencyCode": "BWP",
+        "amountDue": 212.86,
+        "paymentDueDate": "2002-04-29T22:00:00Z",
+        "remainingAmount": 0,
+        "relatedParty": [
+          {
+            "id": "CUST0000000047"
+          }
+        ]
+      },
+      {
+        "id": "422198",
+        "billDate": "2002-03-15T23:00:00Z",
+        "currencyCode": "BWP",
+        "amountDue": 218.98,
+        "paymentDueDate": "2002-03-29T23:00:00Z",
+        "remainingAmount": 0,
+        "relatedParty": [
+          {
+            "id": "CUST0000000047"
+          }
+        ]
+      },
+      {
+        "id": "408183",
+        "billDate": "2002-02-15T23:00:00Z",
+        "currencyCode": "BWP",
+        "amountDue": 214.05,
+        "paymentDueDate": "2002-03-08T23:00:00Z",
+        "remainingAmount": 0,
+        "relatedParty": [
+          {
+            "id": "CUST0000000047"
+          }
+        ]
+      },
+      {
+        "id": "397059",
+        "billDate": "2002-01-15T23:00:00Z",
+        "currencyCode": "BWP",
+        "amountDue": 246.33,
+        "paymentDueDate": "2002-02-05T23:00:00Z",
+        "remainingAmount": 0,
+        "relatedParty": [
+          {
+            "id": "CUST0000000047"
+          }
+        ]
+      },
+      {
+        "id": "369384",
+        "billDate": "2001-12-15T23:00:00Z",
+        "currencyCode": "BWP",
+        "amountDue": 179.9,
+        "paymentDueDate": "2001-12-31T23:00:00Z",
+        "remainingAmount": 0,
+        "relatedParty": [
+          {
+            "id": "CUST0000000047"
+          }
+        ]
+      },
+      {
+        "id": "349283",
+        "billDate": "2001-11-15T23:00:00Z",
+        "currencyCode": "BWP",
+        "amountDue": 225.56,
+        "paymentDueDate": "2001-12-01T23:00:00Z",
+        "remainingAmount": 0,
+        "relatedParty": [
+          {
+            "id": "CUST0000000047"
+          }
+        ]
+      },
+      {
+        "id": "336846",
+        "billDate": "2001-10-15T22:00:00Z",
+        "currencyCode": "BWP",
+        "amountDue": 213.7,
+        "paymentDueDate": "2001-10-31T23:00:00Z",
+        "remainingAmount": 0,
+        "relatedParty": [
+          {
+            "id": "CUST0000000047"
+          }
+        ]
+      },
+      {
+        "id": "324427",
+        "billDate": "2001-09-15T22:00:00Z",
+        "currencyCode": "BWP",
+        "amountDue": 227.18,
+        "paymentDueDate": "2001-10-01T22:00:00Z",
+        "remainingAmount": 0,
+        "relatedParty": [
+          {
+            "id": "CUST0000000047"
+          }
+        ]
+      },
+      {
+        "id": "312434",
+        "billDate": "2001-08-15T22:00:00Z",
+        "currencyCode": "BWP",
+        "amountDue": 217.49,
+        "paymentDueDate": "2001-08-31T22:00:00Z",
+        "remainingAmount": 0,
+        "relatedParty": [
+          {
+            "id": "CUST0000000047"
+          }
+        ]
+      },
+      {
+        "id": "297543",
+        "billDate": "2001-07-15T22:00:00Z",
+        "currencyCode": "BWP",
+        "amountDue": 79.01,
+        "paymentDueDate": "2001-07-31T22:00:00Z",
+        "remainingAmount": 0,
+        "relatedParty": [
+          {
+            "id": "CUST0000000047"
+          }
+        ]
+      },
+      {
+        "id": "293515",
+        "billDate": "2001-06-30T22:00:00Z",
+        "currencyCode": "BWP",
+        "amountDue": 101.1,
+        "paymentDueDate": "2001-07-16T22:00:00Z",
+        "remainingAmount": 0,
+        "relatedParty": [
+          {
+            "id": "CUST0000000047"
+          }
+        ]
+      },
+      {
+        "id": "283149",
+        "billDate": "2001-06-15T22:00:00Z",
+        "currencyCode": "BWP",
+        "amountDue": 172.3,
+        "paymentDueDate": "2001-07-01T22:00:00Z",
+        "remainingAmount": 0,
+        "relatedParty": [
+          {
+            "id": "CUST0000000047"
+          }
+        ]
+      },
+      {
+        "id": "268579",
+        "billDate": "2001-05-15T22:00:00Z",
+        "currencyCode": "BWP",
+        "amountDue": 334.21,
+        "paymentDueDate": "2001-05-31T22:00:00Z",
+        "remainingAmount": 0,
+        "relatedParty": [
+          {
+            "id": "CUST0000000047"
+          }
+        ]
+      },
+      {
+        "id": "250150",
+        "billDate": "2001-04-15T22:00:00Z",
+        "currencyCode": "BWP",
+        "amountDue": 297.14,
+        "paymentDueDate": "2001-05-09T22:00:00Z",
+        "remainingAmount": 0,
+        "relatedParty": [
+          {
+            "id": "CUST0000000047"
+          }
+        ]
+      },
+      {
+        "id": "229919",
+        "billDate": "2001-03-15T23:00:00Z",
+        "currencyCode": "BWP",
+        "amountDue": 269.73,
+        "paymentDueDate": "2001-04-08T22:00:00Z",
+        "remainingAmount": 0,
+        "relatedParty": [
+          {
+            "id": "CUST0000000047"
+          }
+        ]
+      },
+      {
+        "id": "212661",
+        "billDate": "2001-02-15T23:00:00Z",
+        "currencyCode": "BWP",
+        "amountDue": 228.88,
+        "paymentDueDate": "2001-03-11T23:00:00Z",
+        "remainingAmount": 0,
+        "relatedParty": [
+          {
+            "id": "CUST0000000047"
+          }
+        ]
+      },
+      {
+        "id": "190145",
+        "billDate": "2001-01-15T23:00:00Z",
+        "currencyCode": "BWP",
+        "amountDue": 279.82,
+        "paymentDueDate": "2001-02-08T23:00:00Z",
+        "remainingAmount": 0,
+        "relatedParty": [
+          {
+            "id": "CUST0000000047"
+          }
+        ]
+      },
+      {
+        "id": "172969",
+        "billDate": "2000-12-15T23:00:00Z",
+        "currencyCode": "BWP",
+        "amountDue": 158.14,
+        "paymentDueDate": "2001-01-08T23:00:00Z",
+        "remainingAmount": 0,
+        "relatedParty": [
+          {
+            "id": "CUST0000000047"
+          }
+        ]
+      },
+      {
+        "id": "149662",
+        "billDate": "2000-11-15T23:00:00Z",
+        "currencyCode": "BWP",
+        "amountDue": 233.97,
+        "paymentDueDate": "2000-12-09T23:00:00Z",
+        "remainingAmount": 0,
+        "relatedParty": [
+          {
+            "id": "CUST0000000047"
+          }
+        ]
+      },
+      {
+        "id": "140519",
+        "billDate": "2000-10-15T22:00:00Z",
+        "currencyCode": "BWP",
+        "amountDue": 184.81,
+        "paymentDueDate": "2000-11-08T23:00:00Z",
+        "remainingAmount": 0,
+        "relatedParty": [
+          {
+            "id": "CUST0000000047"
+          }
+        ]
+      },
+      {
+        "id": "131843",
+        "billDate": "2000-09-15T22:00:00Z",
+        "currencyCode": "BWP",
+        "amountDue": 265.28,
+        "paymentDueDate": "2000-10-09T22:00:00Z",
+        "remainingAmount": 0,
+        "relatedParty": [
+          {
+            "id": "CUST0000000047"
+          }
+        ]
+      },
+      {
+        "id": "123124",
+        "billDate": "2000-08-15T22:00:00Z",
+        "currencyCode": "BWP",
+        "amountDue": 116.15,
+        "paymentDueDate": "2000-09-08T22:00:00Z",
+        "remainingAmount": 0,
+        "relatedParty": [
+          {
+            "id": "CUST0000000047"
+          }
+        ]
+      },
+      {
+        "id": "114788",
+        "billDate": "2000-07-15T22:00:00Z",
+        "currencyCode": "BWP",
+        "amountDue": 139.74,
+        "paymentDueDate": "2000-08-08T22:00:00Z",
+        "remainingAmount": 0,
+        "relatedParty": [
+          {
+            "id": "CUST0000000047"
+          }
+        ]
+      },
+      {
+        "id": "106445",
+        "billDate": "2000-06-15T22:00:00Z",
+        "currencyCode": "BWP",
+        "amountDue": 160.84,
+        "paymentDueDate": "2000-07-09T22:00:00Z",
+        "remainingAmount": 0,
+        "relatedParty": [
+          {
+            "id": "CUST0000000047"
+          }
+        ]
+      },
+      {
+        "id": "98419",
+        "billDate": "2000-05-15T22:00:00Z",
+        "currencyCode": "BWP",
+        "amountDue": 147.84,
+        "paymentDueDate": "2000-06-08T22:00:00Z",
+        "remainingAmount": 0,
+        "relatedParty": [
+          {
+            "id": "CUST0000000047"
+          }
+        ]
+      },
+      {
+        "id": "90575",
+        "billDate": "2000-04-15T22:00:00Z",
+        "currencyCode": "BWP",
+        "amountDue": 188.33,
+        "paymentDueDate": "2000-05-09T22:00:00Z",
+        "remainingAmount": 0,
+        "relatedParty": [
+          {
+            "id": "CUST0000000047"
+          }
+        ]
+      },
+      {
+        "id": "82977",
+        "billDate": "2000-03-25T23:00:00Z",
+        "currencyCode": "BWP",
+        "amountDue": 211.16,
+        "paymentDueDate": "2000-04-08T22:00:00Z",
+        "remainingAmount": 0,
+        "relatedParty": [
+          {
+            "id": "CUST0000000047"
+          }
+        ]
+      },
+      {
+        "id": "75520",
+        "billDate": "2000-02-25T23:00:00Z",
+        "currencyCode": "BWP",
+        "amountDue": 131.53,
+        "paymentDueDate": "2000-03-10T23:00:00Z",
+        "remainingAmount": 0,
+        "relatedParty": [
+          {
+            "id": "CUST0000000047"
+          }
+        ]
+      },
+      {
+        "id": "68137",
+        "billDate": "2000-01-25T23:00:00Z",
+        "currencyCode": "BWP",
+        "amountDue": 142.81,
+        "paymentDueDate": "2000-02-08T23:00:00Z",
+        "remainingAmount": 0,
+        "relatedParty": [
+          {
+            "id": "CUST0000000047"
+          }
+        ]
+      },
+      {
+        "id": "61142",
+        "billDate": "1999-12-25T23:00:00Z",
+        "currencyCode": "BWP",
+        "amountDue": 195.38,
+        "paymentDueDate": "2000-01-08T23:00:00Z",
+        "remainingAmount": 0,
+        "relatedParty": [
+          {
+            "id": "CUST0000000047"
+          }
+        ]
+      },
+      {
+        "id": "54788",
+        "billDate": "1999-11-25T23:00:00Z",
+        "currencyCode": "BWP",
+        "amountDue": 147.6,
+        "paymentDueDate": "1999-12-09T23:00:00Z",
+        "remainingAmount": 0,
+        "relatedParty": [
+          {
+            "id": "CUST0000000047"
+          }
+        ]
+      },
+      {
+        "id": "48909",
+        "billDate": "1999-10-25T22:00:00Z",
+        "currencyCode": "BWP",
+        "amountDue": 140.19,
+        "paymentDueDate": "1999-11-08T23:00:00Z",
+        "remainingAmount": 0,
+        "relatedParty": [
+          {
+            "id": "CUST0000000047"
+          }
+        ]
+      },
+      {
+        "id": "42894",
+        "billDate": "1999-09-30T22:00:00Z",
+        "currencyCode": "BWP",
+        "amountDue": 109.82,
+        "paymentDueDate": "1999-10-13T22:00:00Z",
+        "remainingAmount": 0,
+        "relatedParty": [
+          {
+            "id": "CUST0000000047"
+          }
+        ]
+      },
+      {
+        "id": "37210",
+        "billDate": "1999-09-09T22:00:00Z",
+        "currencyCode": "BWP",
+        "amountDue": 169.11,
+        "paymentDueDate": "1999-09-23T22:00:00Z",
+        "remainingAmount": 0,
+        "relatedParty": [
+          {
+            "id": "CUST0000000047"
+          }
+        ]
+      },
+      {
+        "id": "31795",
+        "billDate": "1999-08-10T22:00:00Z",
+        "currencyCode": "BWP",
+        "amountDue": 159.57,
+        "paymentDueDate": "1999-08-24T22:00:00Z",
+        "remainingAmount": 0,
+        "relatedParty": [
+          {
+            "id": "CUST0000000047"
+          }
+        ]
+      },
+      {
+        "id": "26668",
+        "billDate": "1999-07-15T22:00:00Z",
+        "currencyCode": "BWP",
+        "amountDue": 116.6,
+        "paymentDueDate": "1999-08-05T22:00:00Z",
+        "remainingAmount": 0,
+        "relatedParty": [
+          {
+            "id": "CUST0000000047"
+          }
+        ]
+      },
+      {
+        "id": "21299",
+        "billDate": "1999-06-17T22:00:00Z",
+        "currencyCode": "BWP",
+        "amountDue": 207.36,
+        "paymentDueDate": "1999-07-08T22:00:00Z",
+        "remainingAmount": 0,
+        "relatedParty": [
+          {
+            "id": "CUST0000000047"
+          }
+        ]
+      },
+      {
+        "id": "16805",
+        "billDate": "1999-04-30T22:00:00Z",
+        "currencyCode": "BWP",
+        "amountDue": 435.09,
+        "paymentDueDate": "1999-05-07T22:00:00Z",
+        "remainingAmount": 0,
+        "relatedParty": [
+          {
+            "id": "CUST0000000047"
+          }
+        ]
+      }
+    ],
+    "cbBillDateGte": "2016-04-15T22:00:00Z",
+    "cbResultGte": [
+      {
+        "id": "5736678",
+        "billDate": "2016-05-15T22:00:00Z",
+        "currencyCode": "BWP",
+        "amountDue": 854.96,
+        "paymentDueDate": "2016-05-29T22:00:00Z",
+        "remainingAmount": 854.96,
+        "relatedParty": [
+          {
+            "id": "CUST0000000047"
+          }
+        ]
+      },
+      {
+        "id": "5484346",
+        "billDate": "2016-04-15T22:00:00Z",
+        "currencyCode": "BWP",
+        "amountDue": 857.34,
+        "paymentDueDate": "2016-04-29T22:00:00Z",
+        "remainingAmount": 857.34,
+        "relatedParty": [
+          {
+            "id": "CUST0000000047"
+          }
+        ]
+      }
+    ],
+    "cbBillDateLte": "1999-07-16T23:00:00Z",
+    "cbResultLte": [
+      {
+        "id": "26668",
+        "billDate": "1999-07-15T22:00:00Z",
+        "currencyCode": "BWP",
+        "amountDue": 116.6,
+        "paymentDueDate": "1999-08-05T22:00:00Z",
+        "remainingAmount": 0,
+        "relatedParty": [
+          {
+            "id": "CUST0000000047"
+          }
+        ]
+      },
+      {
+        "id": "21299",
+        "billDate": "1999-06-17T22:00:00Z",
+        "currencyCode": "BWP",
+        "amountDue": 207.36,
+        "paymentDueDate": "1999-07-08T22:00:00Z",
+        "remainingAmount": 0,
+        "relatedParty": [
+          {
+            "id": "CUST0000000047"
+          }
+        ]
+      },
+      {
+        "id": "16805",
+        "billDate": "1999-04-30T22:00:00Z",
+        "currencyCode": "BWP",
+        "amountDue": 435.09,
+        "paymentDueDate": "1999-05-07T22:00:00Z",
+        "remainingAmount": 0,
+        "relatedParty": [
+          {
+            "id": "CUST0000000047"
+          }
+        ]
+      }
+    ],
+	"cbMsisdnInvalid": "pony",
+	"cbMsisdnUnused": "4242",
+	"cbBadDateFormat": "01/01/2017",
+	"cbDateFutur": "2042-01-02",
+	"cbDateSummerHour": "1956-07-19",
+	"cbMsisdnLargeAccount": "26772105123",
+	"cbResultLargeAccount": [
+  {
+    "id": "5710066",
+    "billDate": "2016-05-15T22:00:00Z",
+    "currencyCode": "BWP",
+    "amountDue": 355.44,
+    "paymentDueDate": "2016-05-29T22:00:00Z",
+    "remainingAmount": 355.44,
+    "relatedParty": [
+      {
+        "id": "CUST0000000014"
+      }
+    ]
+  },
+  {
+    "id": "5457073",
+    "billDate": "2016-04-15T22:00:00Z",
+    "currencyCode": "BWP",
+    "amountDue": 355.44,
+    "paymentDueDate": "2016-04-29T22:00:00Z",
+    "remainingAmount": 355.44,
+    "relatedParty": [
+      {
+        "id": "CUST0000000014"
+      }
+    ]
+  },
+  {
+    "id": "5426159",
+    "billDate": "2016-03-15T23:00:00Z",
+    "currencyCode": "BWP",
+    "amountDue": 355.44,
+    "paymentDueDate": "2016-03-29T22:00:00Z",
+    "remainingAmount": 355.44,
+    "relatedParty": [
+      {
+        "id": "CUST0000000014"
+      }
+    ]
+  },
+  {
+    "id": "5365444",
+    "billDate": "2016-02-15T23:00:00Z",
+    "currencyCode": "BWP",
+    "amountDue": 348.32,
+    "paymentDueDate": "2016-02-29T23:00:00Z",
+    "remainingAmount": 348.32,
+    "relatedParty": [
+      {
+        "id": "CUST0000000014"
+      }
+    ]
+  },
+  {
+    "id": "5317546",
+    "billDate": "2016-01-15T23:00:00Z",
+    "currencyCode": "BWP",
+    "amountDue": 348.32,
+    "paymentDueDate": "2016-01-29T23:00:00Z",
+    "remainingAmount": 348.32,
+    "relatedParty": [
+      {
+        "id": "CUST0000000014"
+      }
+    ]
+  },
+  {
+    "id": "5292630",
+    "billDate": "2015-12-15T23:00:00Z",
+    "currencyCode": "BWP",
+    "amountDue": 348.32,
+    "paymentDueDate": "2015-12-29T23:00:00Z",
+    "remainingAmount": 348.32,
+    "relatedParty": [
+      {
+        "id": "CUST0000000014"
+      }
+    ]
+  },
+  {
+    "id": "5234468",
+    "billDate": "2015-11-15T23:00:00Z",
+    "currencyCode": "BWP",
+    "amountDue": 348.32,
+    "paymentDueDate": "2015-11-29T23:00:00Z",
+    "remainingAmount": 348.32,
+    "relatedParty": [
+      {
+        "id": "CUST0000000014"
+      }
+    ]
+  },
+  {
+    "id": "5208795",
+    "billDate": "2015-10-15T22:00:00Z",
+    "currencyCode": "BWP",
+    "amountDue": 348.32,
+    "paymentDueDate": "2015-10-29T23:00:00Z",
+    "remainingAmount": 348.32,
+    "relatedParty": [
+      {
+        "id": "CUST0000000014"
+      }
+    ]
+  },
+  {
+    "id": "5147766",
+    "billDate": "2015-09-15T22:00:00Z",
+    "currencyCode": "BWP",
+    "amountDue": 348.32,
+    "paymentDueDate": "2015-09-29T22:00:00Z",
+    "remainingAmount": 348.32,
+    "relatedParty": [
+      {
+        "id": "CUST0000000014"
+      }
+    ]
+  },
+  {
+    "id": "5103158",
+    "billDate": "2015-08-15T22:00:00Z",
+    "currencyCode": "BWP",
+    "amountDue": 348.32,
+    "paymentDueDate": "2015-08-29T22:00:00Z",
+    "remainingAmount": 348.32,
+    "relatedParty": [
+      {
+        "id": "CUST0000000014"
+      }
+    ]
+  },
+  {
+    "id": "5062795",
+    "billDate": "2015-07-15T22:00:00Z",
+    "currencyCode": "BWP",
+    "amountDue": 348.32,
+    "paymentDueDate": "2015-07-29T22:00:00Z",
+    "remainingAmount": 348.32,
+    "relatedParty": [
+      {
+        "id": "CUST0000000014"
+      }
+    ]
+  },
+  {
+    "id": "5020377",
+    "billDate": "2015-06-15T22:00:00Z",
+    "currencyCode": "BWP",
+    "amountDue": 348.32,
+    "paymentDueDate": "2015-06-29T22:00:00Z",
+    "remainingAmount": 348.32,
+    "relatedParty": [
+      {
+        "id": "CUST0000000014"
+      }
+    ]
+  },
+  {
+    "id": "4980423",
+    "billDate": "2015-05-15T22:00:00Z",
+    "currencyCode": "BWP",
+    "amountDue": 359.93,
+    "paymentDueDate": "2015-05-29T22:00:00Z",
+    "remainingAmount": 289.53,
+    "relatedParty": [
+      {
+        "id": "CUST0000000014"
+      }
+    ]
+  },
+  {
+    "id": "96601",
+    "billDate": "2000-04-15T22:00:00Z",
+    "currencyCode": "BWP",
+    "amountDue": 0,
+    "paymentDueDate": "2000-05-09T22:00:00Z",
+    "remainingAmount": 0,
+    "relatedParty": [
+      {
+        "id": "CUST0000000014"
+      }
+    ]
+  },
+  {
+    "id": "88839",
+    "billDate": "2000-03-25T23:00:00Z",
+    "currencyCode": "BWP",
+    "amountDue": 0,
+    "paymentDueDate": "2000-04-08T22:00:00Z",
+    "remainingAmount": 0,
+    "relatedParty": [
+      {
+        "id": "CUST0000000014"
+      }
+    ]
+  },
+  {
+    "id": "41072",
+    "billDate": "1999-09-09T22:00:00Z",
+    "currencyCode": "BWP",
+    "amountDue": 0,
+    "paymentDueDate": "1999-09-23T22:00:00Z",
+    "remainingAmount": 0,
+    "relatedParty": [
+      {
+        "id": "CUST0000000014"
+      }
+    ]
+  },
+  {
+    "id": "16777",
+    "billDate": "1999-04-30T22:00:00Z",
+    "currencyCode": "BWP",
+    "amountDue": 0,
+    "paymentDueDate": "1999-05-07T22:00:00Z",
+    "remainingAmount": 0,
+    "relatedParty": [
+      {
+        "id": "CUST0000000014"
+      }
+    ]
+  }
+],
+	"cbMsisdnFlatAccount": "26772105013",
+	"cbMsisdnLargeAccountInvalid": "pony",
+    "__PRODUCT_CATALOG__": "Data for product catalog tests",
+	"pcMsisdn": "26772105013",
+	"pcResult": [
+  {
+    "id": "IMEI",
+    "name": "IMEI Service",
+    "isBundle": false,
+    "category": [
+      {
+        "name": "service"
+      }
+    ],
+    "bundledProductOffering": [
+      {
+        "id": "OPTSP"
+      }
+    ],
+    "productOfferingPrice": [
+      {
+        "priceType": "punctual",
+        "price": {
+          "taxIncludedAmount": 0,
+          "currencyCode": "BWP"
+        }
+      },
+      {
+        "priceType": "recurring",
+        "recurringChargePeriod": "1 month",
+        "price": {
+          "taxIncludedAmount": 0,
+          "currencyCode": "BWP"
+        }
+      }
+    ]
+  },
+  {
+    "id": "CrLEC",
+    "name": "Credit Limit Enhance Charge",
+    "isBundle": false,
+    "category": [
+      {
+        "name": "service"
+      }
+    ],
+    "bundledProductOffering": [
+      {
+        "id": "OPTSP"
+      }
+    ],
+    "productOfferingPrice": [
+      {
+        "priceType": "punctual",
+        "price": {
+          "taxIncludedAmount": 0,
+          "currencyCode": "BWP"
+        }
+      },
+      {
+        "priceType": "recurring",
+        "recurringChargePeriod": "1 month",
+        "price": {
+          "taxIncludedAmount": 0,
+          "currencyCode": "BWP"
+        }
+      },
+      {
+        "priceType": "recurring",
+        "recurringChargePeriod": "1 month",
+        "price": {
+          "taxIncludedAmount": 0,
+          "currencyCode": "BWP"
+        }
+      }
+    ]
+  },
+  {
+    "id": "CLTMP",
+    "name": "Credit Limit Temp",
+    "isBundle": false,
+    "category": [
+      {
+        "name": "service"
+      }
+    ],
+    "bundledProductOffering": [
+      {
+        "id": "OPTSP"
+      }
+    ],
+    "productOfferingPrice": [
+      {
+        "priceType": "punctual",
+        "price": {
+          "taxIncludedAmount": 0,
+          "currencyCode": "BWP"
+        }
+      },
+      {
+        "priceType": "recurring",
+        "recurringChargePeriod": "1 month",
+        "price": {
+          "taxIncludedAmount": 0,
+          "currencyCode": "BWP"
+        }
+      },
+      {
+        "priceType": "recurring",
+        "recurringChargePeriod": "1 month",
+        "price": {
+          "taxIncludedAmount": 0,
+          "currencyCode": "BWP"
+        }
+      },
+      {
+        "priceType": "usage"
+      }
+    ]
+  },
+  {
+    "id": "Credi",
+    "name": "Credit limit",
+    "isBundle": false,
+    "category": [
+      {
+        "name": "service"
+      }
+    ],
+    "bundledProductOffering": [
+      {
+        "id": "OPTSP"
+      }
+    ],
+    "productOfferingPrice": [
+      {
+        "priceType": "operation",
+        "price": {
+          "taxIncludedAmount": 10,
+          "currencyCode": "BWP"
+        }
+      }
+    ]
+  },
+  {
+    "id": "BBF",
+    "name": "Bounce - Banking Fees",
+    "isBundle": false,
+    "category": [
+      {
+        "name": "service"
+      }
+    ],
+    "bundledProductOffering": [
+      {
+        "id": "OPTSP"
+      }
+    ],
+    "productOfferingPrice": [
+      {
+        "priceType": "operation",
+        "price": {
+          "taxIncludedAmount": 100,
+          "currencyCode": "BWP"
+        }
+      }
+    ]
+  },
+  {
+    "id": "BHF",
+    "name": "Bounce - Handling Fees",
+    "isBundle": false,
+    "category": [
+      {
+        "name": "service"
+      }
+    ],
+    "bundledProductOffering": [
+      {
+        "id": "OPTSP"
+      }
+    ],
+    "productOfferingPrice": [
+      {
+        "priceType": "operation",
+        "price": {
+          "taxIncludedAmount": 100,
+          "currencyCode": "BWP"
+        }
+      }
+    ]
+  },
+  {
+    "id": "SIM",
+    "name": "SIM Card Replacement",
+    "isBundle": false,
+    "category": [
+      {
+        "name": "service"
+      }
+    ],
+    "bundledProductOffering": [
+      {
+        "id": "OPTSP"
+      }
+    ],
+    "productOfferingPrice": [
+      {
+        "priceType": "operation",
+        "price": {
+          "taxIncludedAmount": 50,
+          "currencyCode": "BWP"
+        }
+      }
+    ]
+  },
+  {
+    "id": "CFee",
+    "name": "Connection Fee",
+    "isBundle": false,
+    "category": [
+      {
+        "name": "service"
+      }
+    ],
+    "bundledProductOffering": [
+      {
+        "id": "OPTSP"
+      }
+    ],
+    "productOfferingPrice": [
+      {
+        "priceType": "operation",
+        "price": {
+          "taxIncludedAmount": 100,
+          "currencyCode": "BWP"
+        }
+      }
+    ]
+  },
+  {
+    "id": "ADJUT",
+    "name": "Adjustment Fees",
+    "isBundle": false,
+    "category": [
+      {
+        "name": "service"
+      }
+    ],
+    "bundledProductOffering": [
+      {
+        "id": "OPTSP"
+      }
+    ],
+    "productOfferingPrice": [
+      {
+        "priceType": "operation",
+        "price": {
+          "taxIncludedAmount": 0,
+          "currencyCode": "BWP"
+        }
+      }
+    ]
+  },
+  {
+    "id": "DICSO",
+    "name": "Discount OCC",
+    "isBundle": false,
+    "category": [
+      {
+        "name": "service"
+      }
+    ],
+    "bundledProductOffering": [
+      {
+        "id": "OPTSP"
+      }
+    ],
+    "productOfferingPrice": [
+      {
+        "priceType": "operation",
+        "price": {
+          "taxIncludedAmount": 0,
+          "currencyCode": "BWP"
+        }
+      }
+    ]
+  },
+  {
+    "id": "PENFE",
+    "name": "Penalty Fees",
+    "isBundle": false,
+    "category": [
+      {
+        "name": "service"
+      }
+    ],
+    "bundledProductOffering": [
+      {
+        "id": "OPTSP"
+      }
+    ],
+    "productOfferingPrice": [
+      {
+        "priceType": "operation",
+        "price": {
+          "taxIncludedAmount": 0,
+          "currencyCode": "BWP"
+        }
+      }
+    ]
+  },
+  {
+    "id": "HSRMF",
+    "name": "Handset Remaining Installment Fees",
+    "isBundle": false,
+    "category": [
+      {
+        "name": "service"
+      }
+    ],
+    "bundledProductOffering": [
+      {
+        "id": "OPTSP"
+      }
+    ],
+    "productOfferingPrice": [
+      {
+        "priceType": "operation",
+        "price": {
+          "taxIncludedAmount": 0,
+          "currencyCode": "BWP"
+        }
+      }
+    ]
+  },
+  {
+    "id": "ADDCF",
+    "name": "Address Change fees",
+    "isBundle": false,
+    "category": [
+      {
+        "name": "service"
+      }
+    ],
+    "bundledProductOffering": [
+      {
+        "id": "OPTSP"
+      }
+    ],
+    "productOfferingPrice": [
+      {
+        "priceType": "operation",
+        "price": {
+          "taxIncludedAmount": 0,
+          "currencyCode": "BWP"
+        }
+      }
+    ]
+  },
+  {
+    "id": "MSDCF",
+    "name": "MSISDN Change fees",
+    "isBundle": false,
+    "category": [
+      {
+        "name": "service"
+      }
+    ],
+    "bundledProductOffering": [
+      {
+        "id": "OPTSP"
+      }
+    ],
+    "productOfferingPrice": [
+      {
+        "priceType": "operation",
+        "price": {
+          "taxIncludedAmount": 0,
+          "currencyCode": "BWP"
+        }
+      }
+    ]
+  },
+  {
+    "id": "SIMCD",
+    "name": "SIM Change Discount",
+    "isBundle": false,
+    "category": [
+      {
+        "name": "service"
+      }
+    ],
+    "bundledProductOffering": [
+      {
+        "id": "OPTSP"
+      }
+    ],
+    "productOfferingPrice": [
+      {
+        "priceType": "operation",
+        "price": {
+          "taxIncludedAmount": 0,
+          "currencyCode": "BWP"
+        }
+      }
+    ]
+  },
+  {
+    "id": "GOLDN",
+    "name": "Golden Number",
+    "isBundle": false,
+    "category": [
+      {
+        "name": "service"
+      }
+    ],
+    "bundledProductOffering": [
+      {
+        "id": "OPTSP"
+      }
+    ],
+    "productOfferingPrice": [
+      {
+        "priceType": "operation",
+        "price": {
+          "taxIncludedAmount": 0,
+          "currencyCode": "BWP"
+        }
+      }
+    ]
+  },
+  {
+    "id": "ODISC",
+    "name": "Overdiscounting",
+    "isBundle": false,
+    "category": [
+      {
+        "name": "service"
+      }
+    ],
+    "bundledProductOffering": [
+      {
+        "id": "OPTSP"
+      }
+    ],
+    "productOfferingPrice": [
+      {
+        "priceType": "operation",
+        "price": {
+          "taxIncludedAmount": 0,
+          "currencyCode": "BWP"
+        }
+      }
+    ]
+  },
+  {
+    "id": "MINCO",
+    "name": "Minimum Commitment",
+    "isBundle": false,
+    "category": [
+      {
+        "name": "service"
+      }
+    ],
+    "bundledProductOffering": [
+      {
+        "id": "OPTSP"
+      }
+    ],
+    "productOfferingPrice": [
+      {
+        "priceType": "operation",
+        "price": {
+          "taxIncludedAmount": 0,
+          "currencyCode": "BWP"
+        }
+      }
+    ]
+  },
+  {
+    "id": "R4GLT",
+    "name": "4G LTE Roaming",
+    "isBundle": false,
+    "category": [
+      {
+        "name": "service"
+      }
+    ],
+    "bundledProductOffering": [
+      {
+        "id": "GeSMD"
+      }
+    ],
+    "productOfferingPrice": [
+      {
+        "priceType": "punctual",
+        "price": {
+          "taxIncludedAmount": 0,
+          "currencyCode": "BWP"
+        }
+      },
+      {
+        "priceType": "recurring",
+        "recurringChargePeriod": "1 month",
+        "price": {
+          "taxIncludedAmount": 0,
+          "currencyCode": "BWP"
+        }
+      }
+    ]
+  },
+  {
+    "id": "S4GLT",
+    "name": "4G LTE subscription",
+    "isBundle": false,
+    "category": [
+      {
+        "name": "service"
+      }
+    ],
+    "bundledProductOffering": [
+      {
+        "id": "GeSMD"
+      }
+    ],
+    "productOfferingPrice": [
+      {
+        "priceType": "punctual",
+        "price": {
+          "taxIncludedAmount": 0,
+          "currencyCode": "BWP"
+        }
+      },
+      {
+        "priceType": "recurring",
+        "recurringChargePeriod": "1 month",
+        "price": {
+          "taxIncludedAmount": 0,
+          "currencyCode": "BWP"
+        }
+      }
+    ]
+  },
+  {
+    "id": "BAGP",
+    "name": "Barring GPRS",
+    "isBundle": false,
+    "category": [
+      {
+        "name": "service"
+      }
+    ],
+    "bundledProductOffering": [
+      {
+        "id": "GeSMD"
+      }
+    ],
+    "productOfferingPrice": [
+      {
+        "priceType": "punctual",
+        "price": {
+          "taxIncludedAmount": 0,
+          "currencyCode": "BWP"
+        }
+      },
+      {
+        "priceType": "recurring",
+        "recurringChargePeriod": "1 month",
+        "price": {
+          "taxIncludedAmount": 0,
+          "currencyCode": "BWP"
+        }
+      }
+    ]
+  },
+  {
+    "id": "BBery",
+    "name": "Blackberry Subscription",
+    "isBundle": false,
+    "category": [
+      {
+        "name": "service"
+      }
+    ],
+    "bundledProductOffering": [
+      {
+        "id": "GeSMD"
+      }
+    ],
+    "productOfferingPrice": [
+      {
+        "priceType": "punctual",
+        "price": {
+          "taxIncludedAmount": 0,
+          "currencyCode": "BWP"
+        }
+      },
+      {
+        "priceType": "recurring",
+        "recurringChargePeriod": "1 month",
+        "price": {
+          "taxIncludedAmount": 590,
+          "currencyCode": "BWP"
+        }
+      },
+      {
+        "priceType": "recurring",
+        "recurringChargePeriod": "1 month",
+        "price": {
+          "taxIncludedAmount": 590,
+          "currencyCode": "BWP"
+        }
+      }
+    ]
+  },
+  {
+    "id": "FaFF",
+    "name": "Friends and Family",
+    "isBundle": false,
+    "category": [
+      {
+        "name": "service"
+      }
+    ],
+    "bundledProductOffering": [
+      {
+        "id": "GeSMD"
+      }
+    ],
+    "productOfferingPrice": [
+      {
+        "priceType": "punctual",
+        "price": {
+          "taxIncludedAmount": 0,
+          "currencyCode": "BWP"
+        }
+      },
+      {
+        "priceType": "recurring",
+        "recurringChargePeriod": "1 month",
+        "price": {
+          "taxIncludedAmount": 8.93,
+          "currencyCode": "BWP"
+        }
+      },
+      {
+        "priceType": "recurring",
+        "recurringChargePeriod": "1 month",
+        "price": {
+          "taxIncludedAmount": 8.93,
+          "currencyCode": "BWP"
+        }
+      }
+    ]
+  },
+  {
+    "id": "OBR-2",
+    "name": "Op Bar Roaming outside HPLMN",
+    "isBundle": false,
+    "category": [
+      {
+        "name": "service"
+      }
+    ],
+    "bundledProductOffering": [
+      {
+        "id": "GeSMD"
+      }
+    ],
+    "productOfferingPrice": [
+      {
+        "priceType": "punctual",
+        "price": {
+          "taxIncludedAmount": 0,
+          "currencyCode": "BWP"
+        }
+      },
+      {
+        "priceType": "recurring",
+        "recurringChargePeriod": "1 month",
+        "price": {
+          "taxIncludedAmount": 0,
+          "currencyCode": "BWP"
+        }
+      },
+      {
+        "priceType": "recurring",
+        "recurringChargePeriod": "1 month",
+        "price": {
+          "taxIncludedAmount": 0,
+          "currencyCode": "BWP"
+        }
+      }
+    ]
+  },
+  {
+    "id": "COLP",
+    "name": "Connected Line Ident Present",
+    "isBundle": false,
+    "category": [
+      {
+        "name": "service"
+      }
+    ],
+    "bundledProductOffering": [
+      {
+        "id": "GeSMD"
+      }
+    ],
+    "productOfferingPrice": [
+      {
+        "priceType": "punctual",
+        "price": {
+          "taxIncludedAmount": 0,
+          "currencyCode": "BWP"
+        }
+      },
+      {
+        "priceType": "recurring",
+        "recurringChargePeriod": "1 month",
+        "price": {
+          "taxIncludedAmount": 0,
+          "currencyCode": "BWP"
+        }
+      },
+      {
+        "priceType": "recurring",
+        "recurringChargePeriod": "1 month",
+        "price": {
+          "taxIncludedAmount": 0,
+          "currencyCode": "BWP"
+        }
+      }
+    ]
+  },
+  {
+    "id": "COLR",
+    "name": "Connected Line Ident Restrict",
+    "isBundle": false,
+    "category": [
+      {
+        "name": "service"
+      }
+    ],
+    "bundledProductOffering": [
+      {
+        "id": "GeSMD"
+      }
+    ],
+    "productOfferingPrice": [
+      {
+        "priceType": "punctual",
+        "price": {
+          "taxIncludedAmount": 0,
+          "currencyCode": "BWP"
+        }
+      },
+      {
+        "priceType": "recurring",
+        "recurringChargePeriod": "1 month",
+        "price": {
+          "taxIncludedAmount": 0,
+          "currencyCode": "BWP"
+        }
+      },
+      {
+        "priceType": "recurring",
+        "recurringChargePeriod": "1 month",
+        "price": {
+          "taxIncludedAmount": 0,
+          "currencyCode": "BWP"
+        }
+      }
+    ]
+  },
+  {
+    "id": "CLIR",
+    "name": "Calling Line Ident Restrict",
+    "isBundle": false,
+    "category": [
+      {
+        "name": "service"
+      }
+    ],
+    "bundledProductOffering": [
+      {
+        "id": "GeSMD"
+      }
+    ],
+    "productOfferingPrice": [
+      {
+        "priceType": "punctual",
+        "price": {
+          "taxIncludedAmount": 0,
+          "currencyCode": "BWP"
+        }
+      },
+      {
+        "priceType": "recurring",
+        "recurringChargePeriod": "1 month",
+        "price": {
+          "taxIncludedAmount": 0,
+          "currencyCode": "BWP"
+        }
+      },
+      {
+        "priceType": "recurring",
+        "recurringChargePeriod": "1 month",
+        "price": {
+          "taxIncludedAmount": 0,
+          "currencyCode": "BWP"
+        }
+      }
+    ]
+  },
+  {
+    "id": "BAIC",
+    "name": "Bar all IC Calls",
+    "isBundle": false,
+    "category": [
+      {
+        "name": "service"
+      }
+    ],
+    "bundledProductOffering": [
+      {
+        "id": "GeSMD"
+      }
+    ],
+    "productOfferingPrice": [
+      {
+        "priceType": "punctual",
+        "price": {
+          "taxIncludedAmount": 0,
+          "currencyCode": "BWP"
+        }
+      },
+      {
+        "priceType": "recurring",
+        "recurringChargePeriod": "1 month",
+        "price": {
+          "taxIncludedAmount": 0,
+          "currencyCode": "BWP"
+        }
+      },
+      {
+        "priceType": "recurring",
+        "recurringChargePeriod": "1 month",
+        "price": {
+          "taxIncludedAmount": 0,
+          "currencyCode": "BWP"
+        }
+      }
+    ]
+  },
+  {
+    "id": "BIEXH",
+    "name": "Bar all IC Calls Outside HPLMN",
+    "isBundle": false,
+    "category": [
+      {
+        "name": "service"
+      }
+    ],
+    "bundledProductOffering": [
+      {
+        "id": "GeSMD"
+      }
+    ],
+    "productOfferingPrice": [
+      {
+        "priceType": "punctual",
+        "price": {
+          "taxIncludedAmount": 0,
+          "currencyCode": "BWP"
+        }
+      },
+      {
+        "priceType": "recurring",
+        "recurringChargePeriod": "1 month",
+        "price": {
+          "taxIncludedAmount": 8.93,
+          "currencyCode": "BWP"
+        }
+      },
+      {
+        "priceType": "recurring",
+        "recurringChargePeriod": "1 month",
+        "price": {
+          "taxIncludedAmount": 8.93,
+          "currencyCode": "BWP"
+        }
+      }
+    ]
+  },
+  {
+    "id": "CUG",
+    "name": "Closed User Group",
+    "isBundle": false,
+    "category": [
+      {
+        "name": "service"
+      }
+    ],
+    "bundledProductOffering": [
+      {
+        "id": "GeSMD"
+      }
+    ],
+    "productOfferingPrice": [
+      {
+        "priceType": "punctual",
+        "price": {
+          "taxIncludedAmount": 0,
+          "currencyCode": "BWP"
+        }
+      },
+      {
+        "priceType": "recurring",
+        "recurringChargePeriod": "1 month",
+        "price": {
+          "taxIncludedAmount": 44.642,
+          "currencyCode": "BWP"
+        }
+      },
+      {
+        "priceType": "recurring",
+        "recurringChargePeriod": "1 month",
+        "price": {
+          "taxIncludedAmount": 44.642,
+          "currencyCode": "BWP"
+        }
+      }
+    ]
+  },
+  {
+    "id": "E750M",
+    "name": "EXTRA Bonus 100%",
+    "isBundle": false,
+    "category": [
+      {
+        "name": "service"
+      }
+    ],
+    "bundledProductOffering": [
+      {
+        "id": "GeSMD"
+      }
+    ],
+    "productOfferingPrice": [
+      {
+        "priceType": "punctual",
+        "price": {
+          "taxIncludedAmount": 0,
+          "currencyCode": "BWP"
+        }
+      },
+      {
+        "priceType": "recurring",
+        "recurringChargePeriod": "1 month",
+        "price": {
+          "taxIncludedAmount": 0,
+          "currencyCode": "BWP"
+        }
+      },
+      {
+        "priceType": "recurring",
+        "recurringChargePeriod": "1 month",
+        "price": {
+          "taxIncludedAmount": 0,
+          "currencyCode": "BWP"
+        }
+      }
+    ]
+  },
+  {
+    "id": "GeOLL",
+    "name": "Option Landline",
+    "isBundle": false,
+    "category": [
+      {
+        "name": "service"
+      }
+    ],
+    "bundledProductOffering": [
+      {
+        "id": "GeSMD"
+      }
+    ],
+    "productOfferingPrice": [
+      {
+        "priceType": "punctual",
+        "price": {
+          "taxIncludedAmount": 0,
+          "currencyCode": "BWP"
+        }
+      },
+      {
+        "priceType": "recurring",
+        "recurringChargePeriod": "1 month",
+        "price": {
+          "taxIncludedAmount": 0,
+          "currencyCode": "BWP"
+        }
+      },
+      {
+        "priceType": "recurring",
+        "recurringChargePeriod": "1 month",
+        "price": {
+          "taxIncludedAmount": 0,
+          "currencyCode": "BWP"
+        }
+      }
+    ]
+  },
+  {
+    "id": "OpWKE",
+    "name": "Option WeekEnd",
+    "isBundle": false,
+    "category": [
+      {
+        "name": "service"
+      }
+    ],
+    "bundledProductOffering": [
+      {
+        "id": "GeSMD"
+      }
+    ],
+    "productOfferingPrice": [
+      {
+        "priceType": "punctual",
+        "price": {
+          "taxIncludedAmount": 0,
+          "currencyCode": "BWP"
+        }
+      },
+      {
+        "priceType": "recurring",
+        "recurringChargePeriod": "1 month",
+        "price": {
+          "taxIncludedAmount": 0,
+          "currencyCode": "BWP"
+        }
+      },
+      {
+        "priceType": "recurring",
+        "recurringChargePeriod": "1 month",
+        "price": {
+          "taxIncludedAmount": 0,
+          "currencyCode": "BWP"
+        }
+      }
+    ]
+  },
+  {
+    "id": "OpPRO",
+    "name": "Option WE and Landline",
+    "isBundle": false,
+    "category": [
+      {
+        "name": "service"
+      }
+    ],
+    "bundledProductOffering": [
+      {
+        "id": "GeSMD"
+      }
+    ],
+    "productOfferingPrice": [
+      {
+        "priceType": "punctual",
+        "price": {
+          "taxIncludedAmount": 0,
+          "currencyCode": "BWP"
+        }
+      },
+      {
+        "priceType": "recurring",
+        "recurringChargePeriod": "1 month",
+        "price": {
+          "taxIncludedAmount": 0,
+          "currencyCode": "BWP"
+        }
+      },
+      {
+        "priceType": "recurring",
+        "recurringChargePeriod": "1 month",
+        "price": {
+          "taxIncludedAmount": 0,
+          "currencyCode": "BWP"
+        }
+      }
+    ]
+  },
+  {
+    "id": "E1GBU",
+    "name": "EXTRA 1GB Unlimited",
+    "isBundle": false,
+    "category": [
+      {
+        "name": "service"
+      }
+    ],
+    "bundledProductOffering": [
+      {
+        "id": "GeSMD"
+      }
+    ],
+    "productOfferingPrice": [
+      {
+        "priceType": "punctual",
+        "price": {
+          "taxIncludedAmount": 0,
+          "currencyCode": "BWP"
+        }
+      },
+      {
+        "priceType": "recurring",
+        "recurringChargePeriod": "1 month",
+        "price": {
+          "taxIncludedAmount": 0,
+          "currencyCode": "BWP"
+        }
+      },
+      {
+        "priceType": "recurring",
+        "recurringChargePeriod": "1 month",
+        "price": {
+          "taxIncludedAmount": 0,
+          "currencyCode": "BWP"
+        }
+      }
+    ]
+  },
+  {
+    "id": "E500U",
+    "name": "EXTRA 500MB Unlimited",
+    "isBundle": false,
+    "category": [
+      {
+        "name": "service"
+      }
+    ],
+    "bundledProductOffering": [
+      {
+        "id": "GeSMD"
+      }
+    ],
+    "productOfferingPrice": [
+      {
+        "priceType": "punctual",
+        "price": {
+          "taxIncludedAmount": 0,
+          "currencyCode": "BWP"
+        }
+      },
+      {
+        "priceType": "recurring",
+        "recurringChargePeriod": "1 month",
+        "price": {
+          "taxIncludedAmount": 0,
+          "currencyCode": "BWP"
+        }
+      },
+      {
+        "priceType": "recurring",
+        "recurringChargePeriod": "1 month",
+        "price": {
+          "taxIncludedAmount": 0,
+          "currencyCode": "BWP"
+        }
+      }
+    ]
+  },
+  {
+    "id": "E100U",
+    "name": "EXTRA Bonus 100% Unlimited",
+    "isBundle": false,
+    "category": [
+      {
+        "name": "service"
+      }
+    ],
+    "bundledProductOffering": [
+      {
+        "id": "GeSMD"
+      }
+    ],
+    "productOfferingPrice": [
+      {
+        "priceType": "punctual",
+        "price": {
+          "taxIncludedAmount": 0,
+          "currencyCode": "BWP"
+        }
+      },
+      {
+        "priceType": "recurring",
+        "recurringChargePeriod": "1 month",
+        "price": {
+          "taxIncludedAmount": 0,
+          "currencyCode": "BWP"
+        }
+      },
+      {
+        "priceType": "recurring",
+        "recurringChargePeriod": "1 month",
+        "price": {
+          "taxIncludedAmount": 0,
+          "currencyCode": "BWP"
+        }
+      }
+    ]
+  },
+  {
+    "id": "EX1GB",
+    "name": "EXTRA 1GB",
+    "isBundle": false,
+    "category": [
+      {
+        "name": "service"
+      }
+    ],
+    "bundledProductOffering": [
+      {
+        "id": "GeSMD"
+      }
+    ],
+    "productOfferingPrice": [
+      {
+        "priceType": "punctual",
+        "price": {
+          "taxIncludedAmount": 0,
+          "currencyCode": "BWP"
+        }
+      },
+      {
+        "priceType": "recurring",
+        "recurringChargePeriod": "1 month",
+        "price": {
+          "taxIncludedAmount": 0,
+          "currencyCode": "BWP"
+        }
+      },
+      {
+        "priceType": "recurring",
+        "recurringChargePeriod": "1 month",
+        "price": {
+          "taxIncludedAmount": 0,
+          "currencyCode": "BWP"
+        }
+      }
+    ]
+  },
+  {
+    "id": "E500M",
+    "name": "EXTRA 500MB",
+    "isBundle": false,
+    "category": [
+      {
+        "name": "service"
+      }
+    ],
+    "bundledProductOffering": [
+      {
+        "id": "GeSMD"
+      }
+    ],
+    "productOfferingPrice": [
+      {
+        "priceType": "punctual",
+        "price": {
+          "taxIncludedAmount": 0,
+          "currencyCode": "BWP"
+        }
+      },
+      {
+        "priceType": "recurring",
+        "recurringChargePeriod": "1 month",
+        "price": {
+          "taxIncludedAmount": 0,
+          "currencyCode": "BWP"
+        }
+      },
+      {
+        "priceType": "recurring",
+        "recurringChargePeriod": "1 month",
+        "price": {
+          "taxIncludedAmount": 0,
+          "currencyCode": "BWP"
+        }
+      }
+    ]
+  },
+  {
+    "id": "OBOC",
+    "name": "Op Bar all OG Calls",
+    "isBundle": false,
+    "category": [
+      {
+        "name": "service"
+      }
+    ],
+    "bundledProductOffering": [
+      {
+        "id": "OMSP1"
+      }
+    ],
+    "productOfferingPrice": [
+      {
+        "priceType": "punctual",
+        "price": {
+          "taxIncludedAmount": 0,
+          "currencyCode": "BWP"
+        }
+      },
+      {
+        "priceType": "recurring",
+        "recurringChargePeriod": "1 month",
+        "price": {
+          "taxIncludedAmount": 0,
+          "currencyCode": "BWP"
+        }
+      },
+      {
+        "priceType": "recurring",
+        "recurringChargePeriod": "1 month",
+        "price": {
+          "taxIncludedAmount": 0,
+          "currencyCode": "BWP"
+        }
+      }
+    ]
+  },
+  {
+    "id": "OFA",
+    "name": "Origin Forwarded-to Analysis",
+    "isBundle": false,
+    "category": [
+      {
+        "name": "service"
+      }
+    ],
+    "bundledProductOffering": [
+      {
+        "id": "OMSP1"
+      }
+    ],
+    "productOfferingPrice": [
+      {
+        "priceType": "punctual",
+        "price": {
+          "taxIncludedAmount": 0,
+          "currencyCode": "BWP"
+        }
+      },
+      {
+        "priceType": "recurring",
+        "recurringChargePeriod": "1 month",
+        "price": {
+          "taxIncludedAmount": 0,
+          "currencyCode": "BWP"
+        }
+      },
+      {
+        "priceType": "recurring",
+        "recurringChargePeriod": "1 month",
+        "price": {
+          "taxIncludedAmount": 0,
+          "currencyCode": "BWP"
+        }
+      }
+    ]
+  },
+  {
+    "id": "MTPY",
+    "name": "Multi-Party Calls",
+    "isBundle": false,
+    "category": [
+      {
+        "name": "service"
+      }
+    ],
+    "bundledProductOffering": [
+      {
+        "id": "OMSP1"
+      }
+    ],
+    "productOfferingPrice": [
+      {
+        "priceType": "punctual",
+        "price": {
+          "taxIncludedAmount": 0,
+          "currencyCode": "BWP"
+        }
+      },
+      {
+        "priceType": "recurring",
+        "recurringChargePeriod": "1 month",
+        "price": {
+          "taxIncludedAmount": 0,
+          "currencyCode": "BWP"
+        }
+      },
+      {
+        "priceType": "recurring",
+        "recurringChargePeriod": "1 month",
+        "price": {
+          "taxIncludedAmount": 0,
+          "currencyCode": "BWP"
+        }
+      }
+    ]
+  },
+  {
+    "id": "HS005",
+    "name": "Handset Service5",
+    "isBundle": false,
+    "category": [
+      {
+        "name": "service"
+      }
+    ],
+    "bundledProductOffering": [
+      {
+        "id": "HNDSP"
+      }
+    ],
+    "productOfferingPrice": [
+      {
+        "priceType": "punctual",
+        "price": {
+          "taxIncludedAmount": 0,
+          "currencyCode": "BWP"
+        }
+      },
+      {
+        "priceType": "recurring",
+        "recurringChargePeriod": "1 month",
+        "price": {
+          "taxIncludedAmount": 0,
+          "currencyCode": "BWP"
+        }
+      }
+    ]
+  },
+  {
+    "id": "HS004",
+    "name": "Handset Service4",
+    "isBundle": false,
+    "category": [
+      {
+        "name": "service"
+      }
+    ],
+    "bundledProductOffering": [
+      {
+        "id": "HNDSP"
+      }
+    ],
+    "productOfferingPrice": [
+      {
+        "priceType": "punctual",
+        "price": {
+          "taxIncludedAmount": 0,
+          "currencyCode": "BWP"
+        }
+      },
+      {
+        "priceType": "recurring",
+        "recurringChargePeriod": "1 month",
+        "price": {
+          "taxIncludedAmount": 0,
+          "currencyCode": "BWP"
+        }
+      }
+    ]
+  },
+  {
+    "id": "HS003",
+    "name": "Handset Service3",
+    "isBundle": false,
+    "category": [
+      {
+        "name": "service"
+      }
+    ],
+    "bundledProductOffering": [
+      {
+        "id": "HNDSP"
+      }
+    ],
+    "productOfferingPrice": [
+      {
+        "priceType": "punctual",
+        "price": {
+          "taxIncludedAmount": 0,
+          "currencyCode": "BWP"
+        }
+      },
+      {
+        "priceType": "recurring",
+        "recurringChargePeriod": "1 month",
+        "price": {
+          "taxIncludedAmount": 0,
+          "currencyCode": "BWP"
+        }
+      }
+    ]
+  },
+  {
+    "id": "HS002",
+    "name": "Handset Service2",
+    "isBundle": false,
+    "category": [
+      {
+        "name": "service"
+      }
+    ],
+    "bundledProductOffering": [
+      {
+        "id": "HNDSP"
+      }
+    ],
+    "productOfferingPrice": [
+      {
+        "priceType": "punctual",
+        "price": {
+          "taxIncludedAmount": 0,
+          "currencyCode": "BWP"
+        }
+      },
+      {
+        "priceType": "recurring",
+        "recurringChargePeriod": "1 month",
+        "price": {
+          "taxIncludedAmount": 0,
+          "currencyCode": "BWP"
+        }
+      }
+    ]
+  },
+  {
+    "id": "HS001",
+    "name": "Handset Service1",
+    "isBundle": false,
+    "category": [
+      {
+        "name": "service"
+      }
+    ],
+    "bundledProductOffering": [
+      {
+        "id": "HNDSP"
+      }
+    ],
+    "productOfferingPrice": [
+      {
+        "priceType": "punctual",
+        "price": {
+          "taxIncludedAmount": 0,
+          "currencyCode": "BWP"
+        }
+      },
+      {
+        "priceType": "recurring",
+        "recurringChargePeriod": "1 month",
+        "price": {
+          "taxIncludedAmount": 0,
+          "currencyCode": "BWP"
+        }
+      }
+    ]
+  }
+],
+	"pcMsisdnUnused": "26772199914",
+	"pcMsisdnInvalid": "Pony"
+  }
+]

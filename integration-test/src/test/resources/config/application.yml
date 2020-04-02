@@ -1,0 +1,92 @@
+spring:
+    jackson:
+        serialization:
+            WRITE_DATES_AS_TIMESTAMPS: false
+            WRITE_ENUMS_USING_TO_STRING : true
+logging:
+  level:
+    com.orange:DEBUG
+---
+spring:
+    profiles: local-OCM
+apibss:
+    productInventoryApiUrl: http://localhost:8080/api/productInventory/v1/
+    partyApiUrl: http://localhost:9090/api/party/v1/
+    productOrderingUrl: http://localhost:8585/api/productOrder/v1/
+    productCatalogUrl: http://localhost:8091/api/productCatalog/v1/
+#    customerBillUrl: http://ocm-customer-bill-17-snapshot.cf.ns.nd-paas.itn.ftgroup/api/customerBill/v1/
+    customerBillUrl: http://localhost:8080/api/customerBill/v1/
+    billingAccountUrl:  http://localhost:8061/api/billing/v1/
+    eligibilityUrl: http://localhost:9571/api/eligibility/v1
+    bucketBalanceUrl: http://localhost:8071/api/bucketBalance/v1/
+---
+spring:
+    profiles: local-OTN
+apibss:
+    productInventoryApiUrl: http://localhost:8083/api/productInventory/v1/
+    partyApiUrl: http://localhost:9093/api/party/v1/
+    productOrderingUrl: http://localhost:8586/api/productOrder/v1/
+    productCatalogUrl: http://localhost:8090/api/productCatalog/v1/
+    bucketBalanceUrl: http://localhost:8070/api/bucketBalance/v1/
+    customerBillUrl: http://localhost:8080/api/customerBill/v1/
+    billingAccountUrl:  http://localhost:8063/api/billing/v1/
+    eligibilityUrl: http://localhost:9570/api/eligibility/v1
+    paymentUrl: http://localhost:8050/api/payment/v1/
+---
+spring:
+    profiles: local-OBW
+apibss:
+    productInventoryApiUrl: http://localhost:8082/api/productInventory/v1/
+    partyApiUrl: http://localhost:9092/api/party/v1/
+    productOrderingUrl: http://localhost:8582/api/productOrder/v1/
+    productCatalogUrl: http://localhost:8092/api/productCatalog/v1/
+    customerBillUrl: http://localhost:8080/api/customerBill/v1/
+    billingAccountUrl:  http://localhost:8062/api/billing/v1
+    eligibilityUrl: http://localhost:9572/api/eligibility/v1
+    bucketBalanceUrl: http://localhost:8072/api/bucketBalance/v1/
+    paymentUrl: http://localhost:8052/api/payment/v1/
+---
+spring:
+    profiles: OAB-proxy
+http:
+    proxy:
+        host: proxypartner.itn.ftgroup
+        port: 8080   
+---
+spring:
+    profiles: jenkins-OCM
+apibss:
+    productInventoryApiUrl: http://api-bscs.si.francetelecom.fr:9500/ocm-product-inventory-1.16-SNAPSHOT/api/productInventory/v1/
+    partyApiUrl: http://api-bscs.si.francetelecom.fr:9500/ocm-party-1.16-SNAPSHOT/api/party/v1/
+    productOrderingUrl: http://api-bscs.si.francetelecom.fr:9500/ocm-product-ordering-1.16-SNAPSHOT/api/productOrder/v1/
+    productCatalogUrl: http://api-bscs.si.francetelecom.fr:9500/ocm-product-catalog-1.16-SNAPSHOT/api/productCatalog/v1/
+    customerBillUrl: http://api-bscs.si.francetelecom.fr:9500/ocm-customer-bill-1.16-SNAPSHOT/api/customerBill/v1/
+    billingAccountUrl:  http://api-bscs.si.francetelecom.fr:9500/ocm-billing-account-1.16-SNAPSHOT/api/billing/v1
+    eligibilityUrl: http://api-bscs.si.francetelecom.fr:9500/ocm-eligibility-1.16-SNAPSHOT/api/eligibility/v1
+    bucketBalanceUrl: http://api-bscs.si.francetelecom.fr:9500/ocm-bucket-balance-1.16-SNAPSHOT/api/bucketBalance/v1/
+---
+spring:
+    profiles: jenkins-OTN
+apibss:
+    productInventoryApiUrl: http://api-tmf-integration1.si.francetelecom.fr:9510/otn-product-inventory-1.16-SNAPSHOT/api/productInventory/v1/
+    partyApiUrl: http://api-tmf-integration1.si.francetelecom.fr:9500/otn-party-1.16-SNAPSHOT/api/party/v1/
+    productOrderingUrl: http://api-tmf-integration1.si.francetelecom.fr:9520/otn-product-ordering-1.16-SNAPSHOT/api/productOrder/v1/
+    productCatalogUrl: http://api-tmf-integration1.si.francetelecom.fr:9530/otn-product-catalog-1.16-SNAPSHOT/api/productCatalog/v1/
+    bucketBalanceUrl: http://api-tmf-integration1.si.francetelecom.fr:9540/otn-bucket-balance-1.16-SNAPSHOT/api/bucketBalance/v1/
+    customerBillUrl: http://api-tmf-integration1.si.francetelecom.fr:9550/otn-customer-bill-1.16-SNAPSHOT/api/customerBill/v1/
+    billingAccountUrl:  http://api-tmf-integration1.si.francetelecom.fr:9560/otn-billing-account-1.16-SNAPSHOT/api/billing/v1
+    eligibilityUrl: http://api-tmf-integration1.si.francetelecom.fr:9570/otn-eligibility-1.16-SNAPSHOT/api/eligibility/v1
+    paymentUrl: http://api-tmf-integration1.si.francetelecom.fr:9580/otn-payment-1.16-SNAPSHOT/api/payment/v1/
+---
+spring:
+    profiles: jenkins-OBW
+apibss:
+    productInventoryApiUrl: http://api-tmf-integration2.si.francetelecom.fr:9510/obw-product-inventory-1.16-SNAPSHOT/api/productInventory/v1/
+    partyApiUrl: http://api-tmf-integration2.si.francetelecom.fr:9500/obw-party-1.16-SNAPSHOT/api/party/v1/
+    productOrderingUrl: http://api-tmf-integration2.si.francetelecom.fr:9520/obw-product-ordering-1.16-SNAPSHOT/api/productOrder/v1/
+    productCatalogUrl: http://api-tmf-integration2.si.francetelecom.fr:9530/obw-product-catalog-1.16-SNAPSHOT/api/productCatalog/v1/
+    customerBillUrl: http://api-tmf-integration2.si.francetelecom.fr:9550/obw-customer-bill-1.16-SNAPSHOT/api/customerBill/v1/
+    billingAccountUrl:  http://api-tmf-integration2.si.francetelecom.fr:9560/obw-billing-account-1.16-SNAPSHOT/api/billing/v1
+    eligibilityUrl: http://api-tmf-integration2.si.francetelecom.fr:9570/obw-eligibility-1.16-SNAPSHOT/api/eligibility/v1
+    bucketBalanceUrl: http://api-tmf-integration2.si.francetelecom.fr:9540/obw-bucket-balance-1.16-SNAPSHOT/api/bucketBalance/v1/
+    paymentUrl: http://api-tmf-integration2.si.francetelecom.fr:9580/obw-payment-1.16-SNAPSHOT/api/payment/v1/

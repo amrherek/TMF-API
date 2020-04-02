@@ -1,0 +1,210 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <groupId>com.francetelecom.maven</groupId>
+    <artifactId>pom-corporate</artifactId>
+    <packaging>pom</packaging>
+    <name>FTRD Corporate Maven POM</name>
+    <version>3.0</version>
+
+    <properties>
+        <!-- distribution management -->
+        <releaseUrl>http://maven2.rd.francetelecom.fr/proxy/repository/inhouse</releaseUrl>
+        <snapshotUrl>http://maven2.rd.francetelecom.fr/proxy/repository/inhouse.snapshot</snapshotUrl>
+    </properties>
+
+    <distributionManagement>
+        <repository>
+            <id>inhouse</id>
+            <name>inhouse repository</name>
+            <uniqueVersion>true</uniqueVersion>
+            <url>${releaseUrl}</url>
+            <layout>default</layout>
+        </repository>
+        <snapshotRepository>
+            <id>inhouse.snapshot</id>
+            <name>inhouse.snapshot repository</name>
+            <uniqueVersion>false</uniqueVersion>
+            <url>${snapshotUrl}</url>
+            <layout>default</layout>
+        </snapshotRepository>
+    </distributionManagement>
+
+
+    <repositories>
+        <!-- snapshots repositories -->
+        <repository>
+            <id>inhouse.snapshot</id>
+            <name>inhouse.snapshot repository</name>
+            <url>http://maven2.rd.francetelecom.fr/proxy/repository/inhouse.snapshot</url>
+            <releases>
+                <enabled>false</enabled>
+            </releases>
+            <snapshots>
+                <enabled>true</enabled>
+            </snapshots>
+        </repository>
+        <repository>
+            <id>apache.snapshot</id>
+            <name>apache.snapshot repository</name>
+            <url>http://maven2.rd.francetelecom.fr/proxy/repository/apache.snapshot</url>
+            <releases>
+                <enabled>false</enabled>
+            </releases>
+            <snapshots>
+                <enabled>true</enabled>
+            </snapshots>
+        </repository>
+        <repository>
+            <id>codehaus.snapshot</id>
+            <name>codehause.snapshot repository</name>
+            <url>http://maven2.rd.francetelecom.fr/proxy/repository/codehaus.snapshot</url>
+            <releases>
+                <enabled>false</enabled>
+            </releases>
+            <snapshots>
+                <enabled>true</enabled>
+            </snapshots>
+        </repository>
+
+        <!-- release repositories -->
+        <repository>
+            <id>inhouse</id>
+            <name>inhouse repository</name>
+            <url>http://maven2.rd.francetelecom.fr/proxy/repository/inhouse</url>
+            <releases>
+                <enabled>true</enabled>
+            </releases>
+            <snapshots>
+                <enabled>false</enabled>
+            </snapshots>
+        </repository>
+        <repository>
+            <id>public</id>
+            <name>public repository (corporate, extFree, extNonFree, Central)</name>
+            <url>http://maven2.rd.francetelecom.fr/proxy/repository/public</url>
+            <releases>
+                <enabled>true</enabled>
+            </releases>
+            <snapshots>
+                <enabled>false</enabled>
+            </snapshots>
+        </repository>
+        <repository>
+            <id>codehaus</id>
+            <name>codehaus repository</name>
+            <url>http://maven2.rd.francetelecom.fr/proxy/repository/codehaus</url>
+            <releases>
+                <enabled>true</enabled>
+            </releases>
+            <snapshots>
+                <enabled>false</enabled>
+            </snapshots>
+        </repository>
+        <repository>
+            <id>maven.dev.java.net</id>
+            <name>dev.java.net librairies maven repository</name>
+            <url>http://maven2.rd.francetelecom.fr/proxy/shadows/maven.dev.java.net</url>
+            <releases>
+                <enabled>true</enabled>
+            </releases>
+            <snapshots>
+                <enabled>false</enabled>
+            </snapshots>
+        </repository>
+        <repository>
+            <id>maven2.dev.java.net</id>
+            <name>dev.java.net librairies maven2 repository</name>
+            <url>http://maven2.rd.francetelecom.fr/proxy/repository/maven2.dev.java.net</url>
+            <releases>
+                <enabled>true</enabled>
+            </releases>
+            <snapshots>
+                <enabled>false</enabled>
+            </snapshots>
+        </repository>
+    </repositories>
+
+    <pluginRepositories>
+        <!-- snapshots plugin repositories -->
+        <pluginRepository>
+            <id>inhouse.snapshot</id>
+            <name>inhouse.snapshot repository</name>
+            <url>http://maven2.rd.francetelecom.fr/proxy/repository/inhouse.snapshot</url>
+            <releases>
+                <enabled>false</enabled>
+            </releases>
+            <snapshots>
+                <enabled>true</enabled>
+            </snapshots>
+        </pluginRepository>
+        <pluginRepository>
+            <id>apache.snapshot</id>
+            <name>apache.snapshot repository</name>
+            <url>http://maven2.rd.francetelecom.fr/proxy/repository/apache.snapshot</url>
+            <releases>
+                <enabled>false</enabled>
+            </releases>
+            <snapshots>
+                <enabled>true</enabled>
+            </snapshots>
+        </pluginRepository>
+        <pluginRepository>
+            <id>codehaus.snapshot</id>
+            <name>codehaus.snapshot repository</name>
+            <url>http://maven2.rd.francetelecom.fr/proxy/repository/codehaus.snapshot</url>
+            <releases>
+                <enabled>false</enabled>
+            </releases>
+            <snapshots>
+                <enabled>true</enabled>
+            </snapshots>
+        </pluginRepository>
+
+        <!-- release plugin repositories -->
+        <pluginRepository>
+            <id>inhouse</id>
+            <name>inhouse repository</name>
+            <url>http://maven2.rd.francetelecom.fr/proxy/repository/inhouse</url>
+            <releases>
+                <enabled>true</enabled>
+            </releases>
+            <snapshots>
+                <enabled>false</enabled>
+            </snapshots>
+        </pluginRepository>
+        <pluginRepository>
+            <id>public</id>
+            <name>public repository (corporate, extFree, extNonFree, Central)</name>
+            <url>http://maven2.rd.francetelecom.fr/proxy/repository/public</url>
+            <releases>
+                <enabled>true</enabled>
+            </releases>
+            <snapshots>
+                <enabled>false</enabled>
+            </snapshots>
+        </pluginRepository>
+        <pluginRepository>
+            <id>codehaus</id>
+            <name>codehaus repository</name>
+            <url>http://maven2.rd.francetelecom.fr/proxy/repository/codehaus</url>
+            <releases>
+                <enabled>true</enabled>
+            </releases>
+            <snapshots>
+                <enabled>false</enabled>
+            </snapshots>
+        </pluginRepository>
+        <pluginRepository>
+            <id>maven2.dev.java.net</id>
+            <name>dev.java.net librairies maven2 repository</name>
+            <url>http://maven2.rd.francetelecom.fr/proxy/repository/maven2.dev.java.net</url>
+            <releases>
+                <enabled>true</enabled>
+            </releases>
+            <snapshots>
+                <enabled>false</enabled>
+            </snapshots>
+        </pluginRepository>
+    </pluginRepositories>
+</project>

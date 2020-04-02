@@ -1,0 +1,31 @@
+<!--
+ execute (BILLING_ACCOUNT.READ, {
+MODE = L : java.lang.Character
+BILLING_ACCOUNT_CODE = BA0000000656 : java.lang.String
+}
+-->
+ => {
+CS_ID_PUB = CUST0000000101 : java.lang.String
+CS_ID = 101 : java.lang.Long
+BILLING_ACCOUNT_CODE = BA0000000656 : java.lang.String
+BILLING_ACCOUNT_NAME = Nm_101 : java.lang.String
+PRIMARY_DOCUMENT_CURRENCY_ID = 43 : java.lang.Long
+PRIMARY_CONVRATETYPE_ID = 1 : java.lang.Long
+TERMCODE = 1 : java.lang.Long
+NUMBER_COPIES = 1 : java.lang.Long
+PAYMENT_SEQNO = 3 : java.lang.Long
+BM_ID = 6 : java.lang.Long
+BM_ID_PUB = L1PDF : java.lang.String
+PRIMARY_DOCUMENT_CURRENCY_ID_PUB = EUR : java.lang.String
+CONTACT_SEQNO_TEMP = 1 : java.lang.Long
+LIST_OF_BILLING_ACCOUNT_VERSIONS = sub element : com.lhs.ccb.common.soiimpl.NamedValueContainerList
+-[0]TAX_EXEMPTION_FROM_IND = C : java.lang.Character
+-[0]INDIVIDUALTAX_FROM_IND = C : java.lang.Character
+-[0]VALID_FROM = Tue Jun 18 15:34:39 CEST 2013 : com.lhs.ccb.common.soiimpl.SVLDateTimeImpl
+-[0]BILLING_ACCOUNT_VERSION = 1 : java.lang.Long
+-[0]STATUS = A : java.lang.Character
+INVOICING_IND = I : java.lang.Character
+CONTACT_SEQNO = 1 : java.lang.Long
+FOREIGN_CURCY_LVL = 1 : java.lang.Long
+}
+ 

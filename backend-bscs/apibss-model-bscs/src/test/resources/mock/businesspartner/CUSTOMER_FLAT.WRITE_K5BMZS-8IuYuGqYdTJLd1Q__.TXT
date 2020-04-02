@@ -1,0 +1,7 @@
+<!--
+execute (CUSTOMER_FLAT.WRITE, {
+CS_ID = 101 : java.lang.Long
+}
+-->
+ => {
+}

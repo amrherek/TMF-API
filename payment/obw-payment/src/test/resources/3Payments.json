@@ -1,0 +1,87 @@
+[
+    {
+        "id": "5064960",
+        "correlatorId": "00000RIVT1000007904",
+        "paymentDate": "2015-07-22T00:00:00Z",
+        "transactionType": "debt",
+        "totalAmount": {
+            "amount": 3192.88,
+            "units": "BWP"
+        },
+        "payer": {
+            "id": "CUST0000000148"
+        },
+        "paymentItem": [
+            {
+                "totalAmount": {
+                    "amount": 2087.44,
+                    "units": "BWP"
+                },
+                "item": {
+                    "id": "4983711",
+                    "type": "IN"
+                }
+            },
+            {
+                "totalAmount": {
+                    "amount": 1105.44,
+                    "units": "BWP"
+                },
+                "item": {
+                    "id": "5025211",
+                    "type": "IN"
+                }
+            }
+        ]
+    },
+    {
+        "id": "4971020",
+        "correlatorId": "00000GAMT3000008045",
+        "paymentDate": "2015-05-11T00:00:00Z",
+        "transactionType": "debt",
+        "totalAmount": {
+            "amount": 1816.34,
+            "units": "BWP"
+        },
+        "payer": {
+            "id": "CUST0000000148"
+        },
+        "paymentItem": [
+            {
+                "totalAmount": {
+                    "amount": 1816.34,
+                    "units": "BWP"
+                },
+                "item": {
+                    "id": "4941317",
+                    "type": "IN"
+                }
+            }
+        ]
+    },
+    {
+        "id": "4934314",
+        "correlatorId": "00000GAMT3000006874",
+        "paymentDate": "2015-04-09T00:00:00Z",
+        "transactionType": "debt",
+        "totalAmount": {
+            "amount": 1446.28,
+            "units": "BWP"
+        },
+        "payer": {
+            "id": "CUST0000000148"
+        },
+        "paymentItem": [
+            {
+                "totalAmount": {
+                    "amount": 1446.28,
+                    "units": "BWP"
+                },
+                "item": {
+                    "id": "4898398",
+                    "type": "IN"
+                }
+            }
+        ]
+    }
+]

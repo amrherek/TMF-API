@@ -1,0 +1,30 @@
+server:
+    port: 8062
+management:
+    context-path: /manage
+
+spring:
+    application:
+        name: obw-billing-account
+    profiles:
+        active: G01R01C01
+    client:
+        serviceUrl:
+            defaultZone: http://g-lsdp-kuber-2.rd.francetelecom.fr:10000
+    cloud:
+        config:
+            discovery:  
+                service-id: config-server
+                enabled: true
+eureka:
+    client:
+        service-url:
+            defaultZone: http://g-lsdp-kuber-2.rd.francetelecom.fr:10000/eureka
+                
+    instance:
+        hostInfo: /manage/info
+        statusPageUrlPath: /manage/info
+        healthCheckUrlPath: /manage/health
+        metadata-map:           
+          management.port: ${management.port}
+          management.context-path: /manage

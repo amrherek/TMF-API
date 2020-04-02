@@ -1,0 +1,8 @@
+<!--
+execute (BOOKING_REQUEST.WRITE, {
+SEQNO = 478 : java.lang.Long
+ACTION_CODE = D : java.lang.Character
+})
+-->
+ => {
+}

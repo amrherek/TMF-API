@@ -1,0 +1,12 @@
+server:
+    port: 9092
+spring:
+    application:
+        name: '@project.artifactId@'   
+    jackson: 
+        serialization: 
+            WRITE_EMPTY_JSON_ARRAYS: false
+
+api:
+  name: party   
+  version: '@project.version@'           

@@ -1,0 +1,16 @@
+server:
+    port: 8072
+management:
+    context-path: /manage
+
+spring:
+    application:
+        name: obw-bucket-balance
+    cloud:
+        config:
+            enabled: false
+            discovery:  
+                enabled: false
+eureka:
+  client:
+    enabled: false

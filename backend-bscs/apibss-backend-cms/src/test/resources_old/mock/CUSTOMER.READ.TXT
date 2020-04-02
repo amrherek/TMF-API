@@ -1,0 +1,23 @@
+execute (CUSTOMER.READ, {
+CS_ID = 733 : java.lang.Long
+})
+ => {
+CS_ID = 733 : java.lang.Long
+CS_ID_PUB = CUST0000000661 : java.lang.String
+CS_STATUS = a : java.lang.Character
+CS_CREATION_DATE = Thu Feb 28 13:26:09 CET 2013 : com.lhs.ccb.common.soiimpl.SVLDateTimeImpl
+CS_BILL_INFORMATION = false : java.lang.Boolean
+CS_CLIMIT = 0.0EUR : com.lhs.ccb.common.soiimpl.SVLMoneyImpl
+PARTY_ROLE_ASSIGNMENTS = sub element : com.lhs.ccb.common.soiimpl.NamedValueContainerList
+-[0]PARTY_ROLE_ID = 1 : java.lang.Long
+-[0]PARTY_ROLE_NAME = Subscriber : java.lang.String
+}
+
+
+execute (CONTRACT.READ, {
+CO_ID_PUB = CONTR0000001148 : java.lang.String
+})
+ => {
+CO_STATUS = 1 : java.lang.Integer
+CO_SIGNED_DATE = YYYY-MM-DD: 2012-12-10 : com.lhs.ccb.common.soiimpl.SVLDateImpl
+}

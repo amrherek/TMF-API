@@ -1,0 +1,10 @@
+<!--
+execute (CUSTOMER_HIERARCHY.WRITE, {
+CS_ID_PUB = CUST0000000101 : java.lang.String
+CS_ID_HIGH = 1000 : java.lang.Long
+CS_LEVEL_CODE = 30 : java.lang.String
+}
+-->
+ => {
+}
+ 

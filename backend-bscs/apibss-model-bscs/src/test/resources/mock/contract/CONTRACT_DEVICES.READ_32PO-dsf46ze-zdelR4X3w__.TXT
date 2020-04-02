@@ -1,0 +1,31 @@
+<!--
+ execute (CONTRACT_DEVICES.READ, {
+CO_ID = 111 : java.lang.Long
+})
+-->
+CO_ID = 111 : java.lang.Long
+CO_ID_PUB = CONTR0000000111 : java.lang.String
+PLCODE_PUB = EUR01 : java.lang.String
+CO_STMED_DEALER_ID = 388 : java.lang.Long
+CO_STMEDNO = 895550591210002890 : java.lang.String
+HLCODE = 1 : java.lang.Long
+HLCODE_PUB = Phys.HLR 91 : java.lang.String
+PLCODE = 1001 : java.lang.Long
+PIN = 9384 : java.lang.String
+PIN_2 =  : java.lang.String
+PUK = 83567941 : java.lang.String
+PUK_2 =  : java.lang.String
+SMC_ID = 1 : java.lang.Long
+SM_MODDATE = Mon Jun 25 16:34:19 CEST 2012 : com.lhs.ccb.common.soiimpl.SVLDateTimeImpl
+ID_E = 11 : java.lang.Long
+ID_G = 2 : java.lang.Long
+ports = sub element : com.lhs.ccb.common.soiimpl.NamedValueContainerList
+-[0]PORT_NPCODE = 60 : java.lang.Long
+-[0]PORT_NPCODE_PUB = IMSI : java.lang.String
+-[0]PORT_NUM = 304059100000289 : java.lang.String
+SM_LAST_MOD_USER = ISAD : java.lang.String
+CO_STMED_DEALER_ID_PUB = BUS0000000000006 : java.lang.String
+DESC_G = graphical Profile GSM/GSM : java.lang.String
+DESC_E = electrical Profile GSM/GSM (phase 2) : java.lang.String
+}
+

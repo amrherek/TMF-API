@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+    <!--  cf http://stackoverflow.com/questions/10896282/just-so-you-know-per-deployed-webapp-slf4j-logback-in-jboss-7-1-1 -->
+
+    <contextName>remotebackend</contextName>
+
+    <timestamp key="byDay" datePattern="yyyy-MM-dd"/>
+
+    <appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
+        <encoder>
+            <pattern>REMOTE %d{HH:mm:ss.SSS} [%thread] %-5level %logger{36} - %msg%n</pattern>
+        </encoder>
+    </appender>
+
+    <!-- Log CXF-XML messages
+    <logger name="com.orange.bscs.api.connection.CMS" level="DEBUG"/>
+
+    <!- -  LOG Corba Execute - ->
+    <logger name="com.orange.bscs.api.bo.bscs.pool.SOIConnection" level="WARN"/>
+    <logger name="com.orange.bscs.api.connection" level="DEBUG"/>
+
+    <logger name="net.sf.ehcache" level="INFO" />
+
+    <logger name="org.springframework" level="WARN"/>
+    -->
+    <root>
+        <level value="INFO"/>
+        <appender-ref ref="STDOUT"/>
+    </root>
+</configuration>

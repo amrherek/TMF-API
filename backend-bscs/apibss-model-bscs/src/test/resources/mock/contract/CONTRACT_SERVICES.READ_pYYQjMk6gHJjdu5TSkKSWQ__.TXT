@@ -1,0 +1,57 @@
+<!--
+ execute (CONTRACT_SERVICES.READ, {
+CO_ID_PUB = CONTR0000000111 : java.lang.String
+})
+-->
+ => {
+services = sub element : com.lhs.ccb.common.soiimpl.NamedValueContainerList
+-[0]ORIG_ACC = 5.0 : java.lang.Double
+-[0]REASON = 1 : java.lang.Integer
+-[0]PROFILE_ID = 0 : java.lang.Long
+-[0]COS_CURRENCY_PUB = EUR : java.lang.String
+-[0]SNCODE_PUB = ITEL : java.lang.String
+-[0]COS_CURRENCY = 43 : java.lang.Long
+-[0]CALC_ACC = 5.0 : java.lang.Double
+-[0]directory numbers = sub element : com.lhs.ccb.common.soiimpl.NamedValueContainerList
+-[0]-[0]EXTERNAL_FLAG = false : java.lang.Boolean
+-[0]-[0]DIRNUM_ON_BILL = true : java.lang.Boolean
+-[0]-[0]COSC_DN_STATUS = a : java.lang.Character
+-[0]-[0]COSC_DN_NP = 1 : java.lang.Long
+-[0]-[0]DIRNUM = 5550001154 : java.lang.String
+-[0]-[0]DN_ID = 8818 : java.lang.Long
+-[0]-[0]COSC_DN_NP_PUB = E.164 : java.lang.String
+-[0]-[0]MAIN_DIRNUM = true : java.lang.Boolean
+-[0]COS_STATUS_DATE = Thu May 30 12:57:36 CEST 2013 : com.lhs.ccb.common.soiimpl.SVLDateTimeImpl
+-[0]SNCODE = 25 : java.lang.Long
+-[0]ports = sub element : com.lhs.ccb.common.soiimpl.NamedValueContainerList
+-[0]SPCODE_PUB = SP_Fi : java.lang.String
+-[0]PARAMS_IND = false : java.lang.Boolean
+-[0]CS_PAYMENT_CONDITION_USG_IND = 1 : java.lang.Integer
+-[0]SPCODE = 63 : java.lang.Long
+-[0]COS_STATUS = 1 : java.lang.Integer
+-[0]CALC_ADVANCE_ACC = 5.0 : java.lang.Double
+-[0]CALC_SUB = 0.0 : java.lang.Double
+-[0]USER_REASON = -9223372036854775808 : java.lang.Long
+-[1]ORIG_ACC = 5.0 : java.lang.Double
+-[1]REASON = 1 : java.lang.Integer
+-[1]PROFILE_ID = 0 : java.lang.Long
+-[1]COS_CURRENCY_PUB = EUR : java.lang.String
+-[1]SNCODE_PUB = Ltpl : java.lang.String
+-[1]COS_CURRENCY = 43 : java.lang.Long
+-[1]CALC_ACC = 5.0 : java.lang.Double
+-[1]directory numbers = sub element : com.lhs.ccb.common.soiimpl.NamedValueContainerList
+-[1]COS_STATUS_DATE = Thu May 30 12:57:36 CEST 2013 : com.lhs.ccb.common.soiimpl.SVLDateTimeImpl
+-[1]SNCODE = 264 : java.lang.Long
+-[1]ports = sub element : com.lhs.ccb.common.soiimpl.NamedValueContainerList
+-[1]SPCODE_PUB = SP_Fi : java.lang.String
+-[1]PARAMS_IND = false : java.lang.Boolean
+-[1]SPCODE = 63 : java.lang.Long
+-[1]COS_STATUS = 1 : java.lang.Integer
+-[1]CALC_ADVANCE_ACC = 5.0 : java.lang.Double
+-[1]CALC_SUB = 0.0 : java.lang.Double
+-[1]USER_REASON = -9223372036854775808 : java.lang.Long
+CO_ID_PUB = CONTR0000000111 : java.lang.String
+CO_ID = 111 : java.lang.Long
+}
+
+

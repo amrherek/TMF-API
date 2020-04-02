@@ -1,0 +1,10 @@
+<!--
+execute (ADDRESS.WRITE, {
+ADR_SEQ = 1 : java.lang.Long
+CS_ID = 101 : java.lang.Long
+})
+-->
+ => {
+ADR_SEQ = 1 : java.lang.Long
+}
+ 

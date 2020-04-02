@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <parent>
+        <groupId>com.orange.mea.apisi.workflow</groupId>
+        <artifactId>common-core</artifactId>
+        <version>1.17-SNAPSHOT</version>
+    </parent>
+
+    <modelVersion>4.0.0</modelVersion>
+    <artifactId>database-audit</artifactId>
+    <name>Database audit module</name>
+    <packaging>pom</packaging>
+
+    <!-- List of modules -->
+    <modules>
+        <module>database-logging</module>
+        <module>database-audit-spring-boot-autoconfigure</module>
+        <module>database-audit-spring-boot-starter</module>
+    </modules>
+    
+    <!-- DependencyManagement -->
+    <dependencyManagement>
+        <dependencies>
+            <!-- PROJECTS DEPENDENCIES -->
+			<dependency>
+                <groupId>com.orange.mea.apisi.workflow</groupId>
+                <artifactId>database-audit-spring-boot-autoconfigure</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+            <dependency>
+            	<groupId>com.orange.mea.apisi.workflow</groupId>
+        		<artifactId>database-logging</artifactId>
+        		<version>${project.version}</version>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
+
+</project>

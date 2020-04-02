@@ -1,0 +1,41 @@
+<!--
+ execute (SERVICE_PARAMETERS.READ, {
+SNCODE_PUB = CAPSV : java.lang.String
+})
+-->
+ => {
+NUM_SERV = sub element : com.lhs.ccb.common.soiimpl.NamedValueContainerList
+-[0]SCCODE_PUB = GSM : java.lang.String
+-[0]SNCODE_PUB = CAPSV : java.lang.String
+-[0]SCCODE = 1 : java.lang.Long
+-[0]NUM_PARAM = sub element : com.lhs.ccb.common.soiimpl.NamedValueContainerList
+-[0]-[0]NET_IND = true : java.lang.Boolean
+-[0]-[0]MANDATORY_VALUE = true : java.lang.Boolean
+-[0]-[0]MULT_VALUE_IND = false : java.lang.Boolean
+-[0]-[0]NUM_CH_PRM = sub element : com.lhs.ccb.common.soiimpl.NamedValueContainerList
+-[0]-[0]PRM_ID_PUB = GSM40 : java.lang.String
+-[0]-[0]RESPONSE_PRM_IND = false : java.lang.Boolean
+-[0]-[0]RESOURCELIKE = N : java.lang.String
+-[0]-[0]PRM_ID = 40 : java.lang.Long
+-[0]-[0]PRM_DES = Free Units Package : java.lang.String
+-[0]-[0]MAX_VALUES = 2147483647 : java.lang.Integer
+-[0]-[0]OVERRIDE_IND = true : java.lang.Boolean
+-[0]-[0]PORT_IND = false : java.lang.Boolean
+-[0]-[0]MIN_VALUES = 1 : java.lang.Integer
+-[0]-[0]RATING_IND = false : java.lang.Boolean
+-[0]-[0]DATA_ENTITY_NAME = LISTDB_ERIC.GETFUPS : java.lang.String
+-[0]-[0]PRED_DEPENDENT = false : java.lang.Boolean
+-[0]-[0]BE_NAME = FU_PACK : java.lang.String
+-[0]-[0]N_VALUES = sub element : com.lhs.ccb.common.soiimpl.NamedValueContainerList
+-[0]-[0]DATA_TYPE = NU : java.lang.String
+-[0]-[0]TYPE = DB : java.lang.String
+-[0]-[0]NUM_ACTION = sub element : com.lhs.ccb.common.soiimpl.NamedValueContainerList
+-[0]-[0]-[0]ACTION_ID = 1 : java.lang.Long
+-[0]-[0]-[1]ACTION_ID = 4 : java.lang.Long
+-[0]-[0]-[2]ACTION_ID = 32 : java.lang.Long
+-[0]-[0]PRM_NO = 1 : java.lang.Long
+-[0]SNCODE = 440 : java.lang.Long
+-[0]TEMPL_IND = false : java.lang.Boolean
+
+}
+

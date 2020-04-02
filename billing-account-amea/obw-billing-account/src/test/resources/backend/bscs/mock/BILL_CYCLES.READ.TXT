@@ -1,0 +1,28 @@
+<!--
+ execute (BILL_CYCLES.READ, {
+})
+-->
+ => {
+bill cycles = sub element : com.lhs.ccb.common.soiimpl.NamedValueContainerList
+-[0]BILLCYCLE = 04 : java.lang.String
+-[0]DUMMY_BILLCYCLE = false : java.lang.Boolean
+-[0]DESCRIPTION = Ameer-BCG : java.lang.String
+-[0]LENGTH = 1 : java.lang.Integer
+-[0]INTERVAL_TYPE = M : java.lang.Character
+-[1]BILLCYCLE = 01 : java.lang.String
+-[1]DUMMY_BILLCYCLE = true : java.lang.Boolean
+-[1]DESCRIPTION = Dummy BC : java.lang.String
+-[1]LENGTH = 1 : java.lang.Integer
+-[1]INTERVAL_TYPE = M : java.lang.Character
+-[2]BILLCYCLE = 02 : java.lang.String
+-[2]DUMMY_BILLCYCLE = false : java.lang.Boolean
+-[2]DESCRIPTION = Quarterly BC : java.lang.String
+-[2]LENGTH = 1 : java.lang.Integer
+-[2]INTERVAL_TYPE = M : java.lang.Character
+-[3]BILLCYCLE = 03 : java.lang.String
+-[3]DUMMY_BILLCYCLE = false : java.lang.Boolean
+-[3]DESCRIPTION = Monthly BC : java.lang.String
+-[3]LENGTH = 1 : java.lang.Integer
+-[3]INTERVAL_TYPE = M : java.lang.Character
+}
+

@@ -1,0 +1,678 @@
+{
+	"swagger": "2.0",
+	"info": {
+		"description": "",
+		"version": "0.4.0_release",
+		"title": "API Payment"
+	},
+	"host": "api.orange.com",
+	"basePath": "/",
+	"schemes": ["http"],
+	"consumes": ["application/json;charset=utf-8"],
+	"produces": ["application/json;charset=utf-8"],
+	"tags": [{
+			"name": "Payment",
+			"description": ""
+		}, {
+			"name": "Refund",
+			"description": ""
+		}
+	],
+	"paths": {
+		"/payment": {
+			"post": {
+				"tags": ["Payment"],
+				"operationId": "paymentCreate",
+				"summary": "The Application invokes this operation to request a new payment to be created",
+				"description": "\n\nSpecific business errors for current operation will be encapsulated in\n\nHTTP Response 400 Bad Request\n",
+				"deprecated": false,
+				"parameters": [{
+						"name": "Payment",
+						"required": true,
+						"in": "body",
+						"description": "body",
+						"schema": {
+							"$ref": "#/definitions/Payment"
+						}
+					}, {
+						"name": "X-OAPI-SYNCHRONIZED",
+						"required": false,
+						"in": "header",
+						"description": "Specifies whether your transaction should be valid end-to-end",
+						"type": "boolean",
+						"default": true
+					}, {
+						"name": "X-OAPI-BSCSUSER",
+						"required": false,
+						"in": "header",
+						"description": "User BSCS",
+						"type": "string"
+					}, {
+						"name": "login",
+						"required": false,
+						"in": "header",
+						"description": "",
+						"type": "string"
+					}, {
+						"name": "password",
+						"required": false,
+						"in": "header",
+						"description": "",
+						"type": "string"
+					}, {
+						"name": "platform",
+						"required": false,
+						"in": "header",
+						"description": "",
+						"type": "string"
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "Success",
+						"schema": {
+							"$ref": "#/definitions/Payment"
+						}
+					},
+					"400": {
+						"description": "Bad Request\n\nList of supported error codes:\n- 20: Invalid URL parameter value\n- 21: Missing body\n- 22: Invalid body\n- 23: Missing body field\n- 24: Invalid body field\n- 25: Missing header\n- 26: Invalid header value\n- 27: Missing query-string parameter\n- 28: Invalid query-string parameter value",
+						"schema": {
+							"$ref": "#/definitions/Error"
+						}
+					},
+					"404": {
+						"description": "Not Found\n\nList of supported error codes:\n- 60: Resource not found",
+						"schema": {
+							"$ref": "#/definitions/Error"
+						}
+					}
+				}
+			},
+			"get": {
+				"tags": ["Payment"],
+				"operationId": "paymentFind",
+				"summary": "The Application invokes this operation to retrieve a list of payments from the server",
+				"description": "\n\nSpecific business errors for current operation will be encapsulated in\n\nHTTP Response 400 Bad Request\n",
+				"deprecated": false,
+				"parameters": [{
+						"name": "payer.id",
+						"required": false,
+						"in": "query",
+						"description": "",
+						"type": "string"
+					}, {
+						"name": "correlatorId",
+						"required": false,
+						"in": "query",
+						"description": "",
+						"type": "string"
+					}, {
+						"name": "paymentDate.lte",
+						"required": false,
+						"in": "query",
+						"description": "",
+						"type": "string",
+						"format": "date"
+					}, {
+						"name": "paymentDate.gte",
+						"required": false,
+						"in": "query",
+						"description": "",
+						"type": "string",
+						"format": "date"
+					}, {
+						"name": "limit",
+						"required": false,
+						"in": "query",
+						"description": "Number max of item retrieved",
+						"type": "integer",
+						"format": "int32"
+					}, {
+						"name": "login",
+						"required": false,
+						"in": "header",
+						"description": "",
+						"type": "string"
+					}, {
+						"name": "password",
+						"required": false,
+						"in": "header",
+						"description": "",
+						"type": "string"
+					}, {
+						"name": "platform",
+						"required": false,
+						"in": "header",
+						"description": "",
+						"type": "string"
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "Success",
+						"schema": {
+							"type": "array",
+							"items": {
+								"$ref": "#/definitions/Payment"
+							}
+						}
+					},
+					"400": {
+						"description": "Bad Request\n\nList of supported error codes:\n- 20: Invalid URL parameter value\n- 21: Missing body\n- 22: Invalid body\n- 23: Missing body field\n- 24: Invalid body field\n- 25: Missing header\n- 26: Invalid header value\n- 27: Missing query-string parameter\n- 28: Invalid query-string parameter value",
+						"schema": {
+							"$ref": "#/definitions/Error"
+						}
+					},
+					"404": {
+						"description": "Not Found\n\nList of supported error codes:\n- 60: Resource not found",
+						"schema": {
+							"$ref": "#/definitions/Error"
+						}
+					}
+				}
+			}
+		},
+		"/payment/{paymentId}": {
+			"get": {
+				"tags": ["Payment"],
+				"operationId": "paymentGet",
+				"summary": "The Application invokes this operation to retrieve a specific payment",
+				"description": "\n\nSpecific business errors for current operation will be encapsulated in\n\nHTTP Response 400 Bad Request\n",
+				"deprecated": false,
+				"parameters": [{
+						"name": "paymentId",
+						"in": "path",
+						"required": true,
+						"type": "string",
+						"description": ""
+					}, {
+						"name": "login",
+						"required": false,
+						"in": "header",
+						"description": "",
+						"type": "string"
+					}, {
+						"name": "password",
+						"required": false,
+						"in": "header",
+						"description": "",
+						"type": "string"
+					}, {
+						"name": "platform",
+						"required": false,
+						"in": "header",
+						"description": "",
+						"type": "string"
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "Success",
+						"schema": {
+							"$ref": "#/definitions/Payment"
+						}
+					},
+					"400": {
+						"description": "Bad Request\n\nList of supported error codes:\n- 20: Invalid URL parameter value\n- 21: Missing body\n- 22: Invalid body\n- 23: Missing body field\n- 24: Invalid body field\n- 25: Missing header\n- 26: Invalid header value\n- 27: Missing query-string parameter\n- 28: Invalid query-string parameter value",
+						"schema": {
+							"$ref": "#/definitions/Error"
+						}
+					},
+					"404": {
+						"description": "Not Found\n\nList of supported error codes:\n- 60: Resource not found",
+						"schema": {
+							"$ref": "#/definitions/Error"
+						}
+					}
+				}
+			}
+		},
+		"/payment/{paymentId}/refund": {
+			"get": {
+				"tags": ["Refund"],
+				"operationId": "refundFind",
+				"summary": "find refund",
+				"description": "\n\nSpecific business errors for current operation will be encapsulated in\n\nHTTP Response 400 Bad Request\n",
+				"deprecated": false,
+				"parameters": [{
+						"name": "paymentId",
+						"in": "path",
+						"required": true,
+						"type": "string",
+						"description": ""
+					}, {
+						"name": "login",
+						"required": false,
+						"in": "header",
+						"description": "",
+						"type": "string"
+					}, {
+						"name": "password",
+						"required": false,
+						"in": "header",
+						"description": "",
+						"type": "string"
+					}, {
+						"name": "platform",
+						"required": false,
+						"in": "header",
+						"description": "",
+						"type": "string"
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "Success",
+						"schema": {
+							"type": "array",
+							"items": {
+								"$ref": "#/definitions/Refund"
+							}
+						}
+					},
+					"400": {
+						"description": "Bad Request\n\nList of supported error codes:\n- 20: Invalid URL parameter value\n- 21: Missing body\n- 22: Invalid body\n- 23: Missing body field\n- 24: Invalid body field\n- 25: Missing header\n- 26: Invalid header value\n- 27: Missing query-string parameter\n- 28: Invalid query-string parameter value",
+						"schema": {
+							"$ref": "#/definitions/Error"
+						}
+					},
+					"404": {
+						"description": "Not Found\n\nList of supported error codes:\n- 60: Resource not found",
+						"schema": {
+							"$ref": "#/definitions/Error"
+						}
+					}
+				}
+			}
+		}
+	},
+	"definitions": {
+		"PaymentMethodType": {
+			"description": "",
+			"type": "string",
+			"enum": ["Cash", "DirectDebit", "CreditCard", "Check", "Transfer", "LoyaltyPoint", "Voucher", "TokenizedPayment"]
+		},
+		"TransactionType": {
+			"description": "",
+			"type": "string",
+			"enum": ["debt", "advance", "deposit"]
+		},
+		"Error": {
+			"description": "",
+			"required": ["code", "message", "description"],
+			"type": "object",
+			"properties": {
+				"code": {
+					"description": "",
+					"type": "integer",
+					"format": "int32"
+				},
+				"message": {
+					"description": "",
+					"type": "string"
+				},
+				"description": {
+					"description": "",
+					"type": "string"
+				},
+				"infoURL": {
+					"description": "",
+					"type": "string"
+				}
+			}
+		},
+		"Payment": {
+			"description": "The Payment resource represents a performed payment. It contains both information about the payment and the payment methods used in order to perform it.",
+			"type": "object",
+			"properties": {
+				"id": {
+					"description": "Unique Identifier within the server for the payment",
+					"type": "string"
+				},
+				"href": {
+					"description": "A resource URI pointing to the resource in the server that stores the detailed information. This is typically the resource url to retrieve individual details for the specific payment",
+					"type": "string"
+				},
+				"correlatorId": {
+					"description": "Unique identifier in the client for the payment in case it is needed to correlate",
+					"type": "string"
+				},
+				"paymentDate": {
+					"description": "Date when the payment was performed",
+					"type": "string",
+					"format": "date-time"
+				},
+				"name": {
+					"description": "Screen name of the payment",
+					"type": "string"
+				},
+				"description": {
+					"description": "Text describing the contents of the payment",
+					"type": "string"
+				},
+				"transactionType": {
+					"description": "",
+					"$ref": "#/definitions/TransactionType"
+				},
+				"isRefunded": {
+					"description": "a flag to know if one or more refund are attached to the payment",
+					"type": "boolean"
+				},
+				"totalAmount": {
+					"description": "Amount to be paid (including taxes)",
+					"$ref": "#/definitions/Amount"
+				},
+				"status": {
+					"description": "Status of the payment",
+					"type": "string"
+				},
+				"statusDate": {
+					"description": "Date when the status was recorded",
+					"type": "string",
+					"format": "date-time"
+				},
+				"payer": {
+					"description": "A reference to the individual that is performing the payment",
+					"$ref": "#/definitions/RelatedParty"
+				},
+				"taxAmount": {
+					"description": "Tax applied",
+					"$ref": "#/definitions/Amount"
+				},
+				"amount": {
+					"description": "Amount to be paid (net of taxes)",
+					"$ref": "#/definitions/Amount"
+				},
+				"account": {
+					"description": "Account where the payment is charged",
+					"$ref": "#/definitions/Account"
+				},
+				"channel": {
+					"description": "Channel used for the payment",
+					"$ref": "#/definitions/Channel"
+				},
+				"paymentItem": {
+					"description": "Elements that were paid with the payment",
+					"type": "array",
+					"items": {
+						"$ref": "#/definitions/PaymentItem"
+					}
+				},
+				"paymentMethod": {
+					"description": "Payment methods used to perform the payment",
+					"type": "array",
+					"items": {
+						"$ref": "#/definitions/PaymentMethod"
+					}
+				}
+			}
+		},
+		"Amount": {
+			"description": "",
+			"required": ["amount", "units"],
+			"type": "object",
+			"properties": {
+				"amount": {
+					"description": "",
+					"type": "number",
+					"format": "float"
+				},
+				"units": {
+					"description": "",
+					"type": "string"
+				}
+			}
+		},
+		"Channel": {
+			"description": "Link to the resource that holds information about the channel used to perform the payment operation",
+			"required": ["id", "name"],
+			"type": "object",
+			"properties": {
+				"id": {
+					"description": "Unique identifier for the channel entity",
+					"type": "string"
+				},
+				"name": {
+					"description": "Name of the channel",
+					"type": "string"
+				}
+			}
+		},
+		"PaymentItem": {
+			"description": "Something that was paid with the payment",
+			"required": ["amount", "taxAmount", "totalAmount", "item"],
+			"type": "object",
+			"properties": {
+				"amount": {
+					"description": "",
+					"$ref": "#/definitions/Amount"
+				},
+				"taxAmount": {
+					"description": "",
+					"$ref": "#/definitions/Amount"
+				},
+				"totalAmount": {
+					"description": "",
+					"$ref": "#/definitions/Amount"
+				},
+				"item": {
+					"description": "EntityRefType with a reference where to get more information about the entity with another API call",
+					"$ref": "#/definitions/Item"
+				}
+			}
+		},
+		"PaymentMethod": {
+			"description": "Reference or value of the method used to process the payment. Mirrors the current definition of the Payment Methods Management API",
+			"required": ["id", "description", "type", "details"],
+			"type": "object",
+			"properties": {
+				"id": {
+					"description": "Unique identifier of the payment method",
+					"type": "string"
+				},
+				"description": {
+					"description": "Description of the associated payment method",
+					"type": "string"
+				},
+				"type": {
+					"description": "Type of payment method",
+					"$ref": "#/definitions/PaymentMethodType"
+				},
+				"details": {
+					"description": "Definition of the payment method. Its contents depends on the type field",
+					"$ref": "#/definitions/Detail"
+				}
+			}
+		},
+		"RelatedParty": {
+			"description": "Link to the resource that holds information about the individual that performs the payment",
+			"required": ["id", "role", "name"],
+			"type": "object",
+			"properties": {
+				"id": {
+					"description": "Unique identifier for the party entity",
+					"type": "string"
+				},
+				"href": {
+					"description": "A resource URI pointing to the resource in the OB that stores the party entity information",
+					"type": "string"
+				},
+				"role": {
+					"description": "Role of the entity (customer, user, agent)",
+					"type": "string"
+				},
+				"name": {
+					"description": "Name of the party",
+					"type": "string"
+				}
+			}
+		},
+		"Account": {
+			"description": "Reference to a telco account. It is used to reference the account that owns the payment.",
+			"required": ["id", "name", "description"],
+			"type": "object",
+			"properties": {
+				"id": {
+					"description": "Unique identifier of the account",
+					"type": "string"
+				},
+				"name": {
+					"description": "Account name",
+					"type": "string"
+				},
+				"description": {
+					"description": "Description of the associated account",
+					"type": "string"
+				}
+			}
+		},
+		"Item": {
+			"description": "Reference to an external entity. It is used to reference something that was paid with this payment.",
+			"required": ["id"],
+			"type": "object",
+			"properties": {
+				"id": {
+					"description": "Unique identifier of the entity in its environment",
+					"type": "string"
+				},
+				"type": {
+					"description": "Entity type (e.g.: bill, product, account, etc)",
+					"type": "string"
+				}
+			}
+		},
+		"Detail": {
+			"description": "",
+			"required": ["brand", "type", "cardNumber", "expirationDate", "cvv", "nameOnCard", "bank"],
+			"type": "object",
+			"properties": {
+				"brand": {
+					"description": "",
+					"type": "string"
+				},
+				"type": {
+					"description": "",
+					"type": "string"
+				},
+				"cardNumber": {
+					"description": "",
+					"type": "string"
+				},
+				"expirationDate": {
+					"description": "",
+					"type": "string",
+					"format": "date-time"
+				},
+				"cvv": {
+					"description": "",
+					"type": "string"
+				},
+				"nameOnCard": {
+					"description": "",
+					"type": "string"
+				},
+				"bank": {
+					"description": "",
+					"type": "string"
+				}
+			}
+		},
+		"PaymentRef": {
+			"description": "",
+			"required": ["test"],
+			"type": "object",
+			"properties": {
+				"test": {
+					"description": "",
+					"type": "string"
+				}
+			}
+		},
+		"Refund": {
+			"description": "",
+			"type": "object",
+			"properties": {
+				"id": {
+					"description": "Unique Identifier within the server for the payment",
+					"type": "string"
+				},
+				"correlatorId": {
+					"description": "Unique identifier in the client for the payment in case it is needed to correlate",
+					"type": "string"
+				},
+				"refundDate": {
+					"description": "",
+					"type": "string",
+					"format": "date-time"
+				},
+				"name": {
+					"description": "Screen name of the payment",
+					"type": "string"
+				},
+				"description": {
+					"description": "Text describing the contents of the payment",
+					"type": "string"
+				},
+				"totalAmount": {
+					"description": "Amount to be paid (including taxes)",
+					"$ref": "#/definitions/Amount"
+				},
+				"relatedPayment": {
+					"description": "",
+					"$ref": "#/definitions/PaymentReference"
+				},
+				"reason": {
+					"description": "",
+					"type": "string"
+				},
+				"status": {
+					"description": "Status of the payment",
+					"type": "string"
+				},
+				"statusDate": {
+					"description": "Date when the status was recorded",
+					"type": "string",
+					"format": "date-time"
+				},
+				"requestor": {
+					"description": "",
+					"$ref": "#/definitions/RelatedParty"
+				},
+				"paymentMethod": {
+					"description": "Payment methods used to perform the payment",
+					"type": "array",
+					"items": {
+						"$ref": "#/definitions/PaymentMethod"
+					}
+				},
+				"amount": {
+					"description": "Amount to be paid (net of taxes)",
+					"$ref": "#/definitions/Amount"
+				},
+				"taxAmount": {
+					"description": "Tax applied",
+					"$ref": "#/definitions/Amount"
+				},
+				"account": {
+					"description": "Account where the payment is charged",
+					"$ref": "#/definitions/Account"
+				},
+				"channel": {
+					"description": "Channel used for the payment",
+					"$ref": "#/definitions/Channel"
+				}
+			}
+		},
+		"PaymentReference": {
+			"description": "",
+			"required": ["id"],
+			"type": "object",
+			"properties": {
+				"id": {
+					"description": "",
+					"type": "string"
+				}
+			}
+		}
+	}
+}

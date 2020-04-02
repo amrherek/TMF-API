@@ -1,0 +1,34 @@
+<!--
+ execute (CONTRACT_HISTORY.READ, {
+CO_ID = 111 : java.lang.Long
+})
+-->
+ => {
+DEVICES_NUM = 1 : java.lang.Integer
+NUM_STATES = 2 : java.lang.Integer
+contract_history = sub element : com.lhs.ccb.common.soiimpl.NamedValueContainerList
+-[0]CONTRACT_ENTRY_DATE = Thu May 30 12:57:36 CEST 2013 : com.lhs.ccb.common.soiimpl.SVLDateTimeImpl
+-[0]CONTRACT_REASON = 6 : java.lang.Long
+-[0]CONTRACT_STATUS = o : java.lang.Character
+-[0]CONTRACT_USER_LAST_MOD = ISAD : java.lang.String
+-[0]CONTRACT_PENDING = false : java.lang.Boolean
+-[0]CONTRACT_VALID_FROM = Thu May 30 00:00:00 CEST 2013 : com.lhs.ccb.common.soiimpl.SVLDateTimeImpl
+-[1]CONTRACT_ENTRY_DATE = Thu May 30 12:57:36 CEST 2013 : com.lhs.ccb.common.soiimpl.SVLDateTimeImpl
+-[1]CONTRACT_REASON = 18 : java.lang.Long
+-[1]CONTRACT_STATUS = a : java.lang.Character
+-[1]CONTRACT_USER_LAST_MOD = ISAD : java.lang.String
+-[1]CONTRACT_PENDING = false : java.lang.Boolean
+-[1]CONTRACT_VALID_FROM = Thu May 30 12:57:36 CEST 2013 : com.lhs.ccb.common.soiimpl.SVLDateTimeImpl
+contract_device_history = sub element : com.lhs.ccb.common.soiimpl.NamedValueContainerList
+-[0]HLCODE_PUB = Phys.HLR 91 : java.lang.String
+-[0]DEVICE_MOD_DATE = Thu May 30 12:57:36 CEST 2013 : com.lhs.ccb.common.soiimpl.SVLDateTimeImpl
+-[0]DEVICE_PORT = 304059100000637 : java.lang.String
+-[0]HLCODE = 1 : java.lang.Long
+-[0]DEVICE_SM_NUM = 895550591210006370 : java.lang.String
+-[0]DEVICE_SEQNO = 1 : java.lang.Integer
+-[0]DEVICE_ENTRY_DATE = Thu May 30 12:57:36 CEST 2013 : com.lhs.ccb.common.soiimpl.SVLDateTimeImpl
+-[0]DEVICE_USER_LAST_MOD = ISAD : java.lang.String
+-[0]DEVICE_STATUS = O : java.lang.String
+-[0]DEVICE_ID = 1 : java.lang.Long
+-[0]DEVICE_VALID_FROM = Thu May 30 12:57:36 CEST 2013 : com.lhs.ccb.common.soiimpl.SVLDateTimeImpl
+}

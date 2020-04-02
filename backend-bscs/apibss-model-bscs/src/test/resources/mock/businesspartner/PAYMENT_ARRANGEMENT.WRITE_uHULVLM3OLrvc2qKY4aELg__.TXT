@@ -1,0 +1,10 @@
+<!--
+execute (PAYMENT_ARRANGEMENT.WRITE, {
+CS_ID_PUB = CUST0000000101 : java.lang.String
+CSP_SEQNO = 0 : java.lang.Long
+CSP_PMNT_ID_PUB = P : java.lang.String
+}
+-->
+ => {
+CSP_SEQNO = 1 : java.lang.Long
+}

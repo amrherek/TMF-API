@@ -1,0 +1,9 @@
+<!--
+ execute (CONTRACT.WRITE, {
+CO_STATUS = 2 : java.lang.Integer
+CO_ID_PUB = CONTR0000000111 : java.lang.String
+REASON = 6 : java.lang.Long
+})
+-->
+<!-- Output=Null -->
+

@@ -1,0 +1,9 @@
+<!--
+ execute (CONTRACT_DEVICE.ADD, {
+CO_ID_PUB = CONTR0000000111 : java.lang.String
+RES_TYPE = 2 : java.lang.Integer
+RES_ID = 1703 : java.lang.Long
+})
+-->
+<!-- Output=Null -->
+

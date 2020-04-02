@@ -1,0 +1,28 @@
+<!--
+execute (CUSTOMERS.SEARCH, {
+ADR_NAME = BILL : java.lang.String
+}
+-->
+ => {
+SEARCH_IS_COMPLETE = true : java.lang.Boolean
+SEARCH_RESULT = sub element : com.lhs.ccb.common.soiimpl.NamedValueContainerList
+-[0]CS_ID_PUB = CUST0000000101 : java.lang.String
+-[0]BU_ID = 2 : java.lang.Long
+-[0]CS_ID_HIGH = -9223372036854775808 : java.lang.Long
+-[0]ADR_FNAME = test : java.lang.String
+-[0]ADR_ZIP =  : java.lang.String
+-[0]CS_STATUS = a : java.lang.Character
+-[0]CS_ID = 101 : java.lang.Long
+-[0]ADR_CITY =  : java.lang.String
+-[0]CS_CODE = 1.578 : java.lang.String
+-[0]ADR_NAME = BILL : java.lang.String
+-[0]PAYMENT_RESP = X : java.lang.Character
+-[0]CS_LEVEL_CODE = 40 : java.lang.String
+-[0]ADR_BIRTHDT = YYYY-MM-DD: 2-1-1 : com.lhs.ccb.common.soiimpl.SVLDateImpl
+-[0]CS_DEALERID = -9223372036854775808 : java.lang.Long
+-[0]CS_CONTR_RESP = X : java.lang.Character
+-[0]ADR_STREET =  : java.lang.String
+-[0]ADR_LNAME =  : java.lang.String
+-[0]PARTY_TYPE = C : java.lang.String
+-[0]ADR_STREETNO =  : java.lang.String
+} 

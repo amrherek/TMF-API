@@ -1,0 +1,60 @@
+<QueryAllPricePlanResponse>
+         <PricePlanDtoList>
+            <PricePlanDto>
+               <PricePlanIndex>440</PricePlanIndex>
+               <PricePlanName>All Access internet-1month</PricePlanName>
+               <EffDate>2013-04-16</EffDate>
+               <PricePlanType>3</PricePlanType>
+               <ProductCode>2</ProductCode>
+            </PricePlanDto>
+            <PricePlanDto>
+               <PricePlanIndex>426</PricePlanIndex>
+               <PricePlanName>My Music-1day</PricePlanName>
+               <EffDate>2013-01-24</EffDate>
+               <PricePlanType>3</PricePlanType>
+               <ProductCode>2</ProductCode>
+            </PricePlanDto>
+            <PricePlanDto>
+               <PricePlanIndex>407</PricePlanIndex>
+               <PricePlanName>CallHome Offer–Zimbabwe</PricePlanName>
+               <EffDate>2012-11-29</EffDate>
+               <PricePlanType>3</PricePlanType>
+               <ProductCode>2</ProductCode>
+            </PricePlanDto>
+            <PricePlanDto>
+               <PricePlanIndex>PostData_Bundle_50MB</PricePlanIndex>
+               <PricePlanName>PostData Bundle-50MB</PricePlanName>
+               <EffDate>2017-04-04</EffDate>
+               <PricePlanType>3</PricePlanType>
+               <ProductCode>2</ProductCode>
+            </PricePlanDto>
+            <PricePlanDto>
+               <PricePlanIndex>290</PricePlanIndex>
+               <PricePlanName>Prepaid Data Bundle-10MB</PricePlanName>
+               <EffDate>2014-11-14</EffDate>
+               <PricePlanType>3</PricePlanType>
+               <ProductCode>2</ProductCode>
+            </PricePlanDto>
+            <PricePlanDto>
+               <PricePlanIndex>98</PricePlanIndex>
+               <PricePlanName>Youth offer individual price plan</PricePlanName>
+               <EffDate>2011-08-17</EffDate>
+               <PricePlanType>3</PricePlanType>
+               <ProductCode>2</ProductCode>
+            </PricePlanDto> 
+            <PricePlanDto>
+               <PricePlanIndex>439</PricePlanIndex>
+               <PricePlanName>All Access internet-2weeks</PricePlanName>
+               <EffDate>2013-08-07</EffDate>
+               <PricePlanType>3</PricePlanType>
+               <ProductCode>2</ProductCode>
+            </PricePlanDto>
+            <PricePlanDto>
+               <PricePlanIndex>386</PricePlanIndex>
+               <PricePlanName>Prepaid Voice Bundle-1day</PricePlanName>
+               <EffDate>2017-02-03</EffDate>
+               <PricePlanType>3</PricePlanType>
+               <ProductCode>2</ProductCode>
+            </PricePlanDto>
+         </PricePlanDtoList>
+      </QueryAllPricePlanResponse>

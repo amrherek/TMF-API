@@ -1,0 +1,41 @@
+<!--
+ execute (CONTRACT_INFO.READ, {
+CO_ID_PUB = CONTR0000000111 : java.lang.String
+})
+-->
+ => {
+CO_ID = 111 : java.lang.Long
+CO_ID_PUB = CONTR0000000111 : java.lang.String
+TEXT01 =  : java.lang.String
+TEXT02 =  : java.lang.String
+TEXT03 =  : java.lang.String
+TEXT04 =  : java.lang.String
+TEXT05 =  : java.lang.String
+TEXT06 =  : java.lang.String
+TEXT07 =  : java.lang.String
+TEXT08 =  : java.lang.String
+TEXT09 =  : java.lang.String
+TEXT10 =  : java.lang.String
+TEXT11 =  : java.lang.String
+TEXT12 =  : java.lang.String
+TEXT13 =  : java.lang.String
+TEXT14 = BSSCO001 : java.lang.String
+TEXT15 = 7 : java.lang.String
+TEXT16 =  : java.lang.String
+TEXT17 =  : java.lang.String
+TEXT18 =  : java.lang.String
+TEXT19 =  : java.lang.String
+TEXT20 =  : java.lang.String
+TEXT21 =  : java.lang.String
+TEXT22 =  : java.lang.String
+TEXT23 =  : java.lang.String
+TEXT24 =  : java.lang.String
+TEXT25 =  : java.lang.String
+TEXT26 =  : java.lang.String
+TEXT27 =  : java.lang.String
+TEXT28 =  : java.lang.String
+TEXT29 =  : java.lang.String
+TEXT30 =  : java.lang.String
+}
+
+

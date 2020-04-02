@@ -1,0 +1,519 @@
+{
+	"swagger": "2.0",
+	"info": {
+		"description": "",
+		"version": "0.4.0_release",
+		"title": "API CommercialEligibility"
+	},
+	"host": "api.orange.com",
+	"basePath": "/",
+	"schemes": ["http"],
+	"consumes": ["application/json;charset=utf-8"],
+	"produces": ["application/json;charset=utf-8"],
+	"tags": [{
+			"name": "eligibleOptions",
+			"description": ""
+		}, {
+			"name": "eligibleContract",
+			"description": ""
+		}
+	],
+	"paths": {
+		"/eligibleOptions": {
+			"get": {
+				"tags": ["eligibleOptions"],
+				"operationId": "eligibleOptionFind",
+				"summary": "I would like to get eligible options",
+				"description": "\n\nSpecific business errors for current operation will be encapsulated in\n\nHTTP Response 400 Bad Request\n\n - 4001: Missing parameter\n   ",
+				"deprecated": false,
+				"parameters": [{
+						"name": "publicKey",
+						"required": true,
+						"in": "query",
+						"description": "Public key identifier of the device for which the usage report is calculated (msisdn number, PTSN number for example). International format (E164 norm)",
+						"type": "string"
+					}, {
+						"name": "productSpecification.id",
+						"required": false,
+						"in": "query",
+						"description": "",
+						"type": "string"
+					}, {
+						"name": "productOfferingId",
+						"required": false,
+						"in": "query",
+						"description": "",
+						"type": "string"
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "Success",
+						"schema": {
+							"type": "array",
+							"items": {
+								"$ref": "#/definitions/EligibleOption"
+							}
+						}
+					},
+					"400": {
+						"description": "Bad Request\n\nList of supported error codes:\n- 20: Invalid URL parameter value\n- 21: Missing body\n- 22: Invalid body\n- 23: Missing body field\n- 24: Invalid body field\n- 25: Missing header\n- 26: Invalid header value\n- 27: Missing query-string parameter\n- 28: Invalid query-string parameter value\n\nSpecific encapsulated business errors for current operation\n\n - 4001: Missing parameter\n   ",
+						"schema": {
+							"$ref": "#/definitions/ZError"
+						}
+					}
+				}
+			}
+		},
+		"/eligibleContract": {
+			"get": {
+				"tags": ["eligibleContract"],
+				"operationId": "eligibleContractFind",
+				"summary": "find eligibleContract",
+				"description": "\n\nSpecific business errors for current operation will be encapsulated in\n\nHTTP Response 400 Bad Request\n",
+				"deprecated": false,
+				"parameters": [{
+						"name": "publicKey",
+						"required": true,
+						"in": "query",
+						"description": "MSISDN",
+						"type": "string"
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "Success",
+						"schema": {
+							"$ref": "#/definitions/EligibleContract"
+						}
+					},
+					"400": {
+						"description": "Bad Request\n\nList of supported error codes:\n- 20: Invalid URL parameter value\n- 21: Missing body\n- 22: Invalid body\n- 23: Missing body field\n- 24: Invalid body field\n- 25: Missing header\n- 26: Invalid header value\n- 27: Missing query-string parameter\n- 28: Invalid query-string parameter value",
+						"schema": {
+							"$ref": "#/definitions/ZError"
+						}
+					}
+				}
+			}
+		}
+	},
+	"definitions": {
+		"ZErrorDetail": {
+			"description": "",
+			"required": ["code", "message"],
+			"type": "object",
+			"properties": {
+				"code": {
+					"description": "",
+					"type": "integer",
+					"format": "int32"
+				},
+				"message": {
+					"description": "",
+					"type": "string"
+				},
+				"description": {
+					"description": "",
+					"type": "string"
+				},
+				"infoURL": {
+					"description": "",
+					"type": "string"
+				}
+			}
+		},
+		"ZError": {
+			"description": "",
+			"required": ["code", "message"],
+			"type": "object",
+			"properties": {
+				"code": {
+					"description": "",
+					"type": "integer",
+					"format": "int32"
+				},
+				"message": {
+					"description": "",
+					"type": "string"
+				},
+				"description": {
+					"description": "",
+					"type": "string"
+				},
+				"infoURL": {
+					"description": "",
+					"type": "string"
+				},
+				"details": {
+					"description": "",
+					"type": "array",
+					"items": {
+						"$ref": "#/definitions/ZErrorDetail"
+					}
+				}
+			}
+		},
+		"Page": {
+			"description": "",
+			"type": "object",
+			"properties": {
+				"number": {
+					"description": "",
+					"type": "integer",
+					"format": "int32"
+				},
+				"size": {
+					"description": "",
+					"type": "integer",
+					"format": "int32"
+				},
+				"totalElements": {
+					"description": "",
+					"type": "integer",
+					"format": "int32"
+				},
+				"totalPages": {
+					"description": "",
+					"type": "integer",
+					"format": "int32"
+				}
+			}
+		},
+		"CommercialOperation": {
+			"description": "",
+			"type": "object",
+			"properties": {
+				"id": {
+					"description": "",
+					"type": "string"
+				},
+				"isAuthorized": {
+					"description": "",
+					"type": "boolean"
+				},
+				"name": {
+					"description": "",
+					"type": "string"
+				}
+			}
+		},
+		"Content": {
+			"description": "",
+			"type": "object",
+			"properties": {
+				"id": {
+					"description": "",
+					"type": "string"
+				},
+				"operationDate": {
+					"description": "",
+					"type": "string",
+					"format": "date-time"
+				},
+				"productId": {
+					"description": "",
+					"type": "string"
+				},
+				"commercialOperation": {
+					"description": "",
+					"type": "array",
+					"items": {
+						"$ref": "#/definitions/CommercialOperation"
+					}
+				}
+			}
+		},
+		"Link": {
+			"description": "",
+			"type": "object",
+			"properties": {
+				"href": {
+					"description": "",
+					"type": "string"
+				},
+				"rel": {
+					"description": "",
+					"type": "string"
+				},
+				"templated": {
+					"description": "",
+					"type": "boolean"
+				}
+			}
+		},
+		"FunctionValue": {
+			"description": "",
+			"type": "object",
+			"properties": {
+				"valueCode": {
+					"description": "",
+					"type": "string"
+				},
+				"valueLabel": {
+					"description": "",
+					"type": "string"
+				}
+			}
+		},
+		"ModifyableFunction": {
+			"description": "",
+			"type": "object",
+			"properties": {
+				"functionId": {
+					"description": "",
+					"type": "string"
+				},
+				"functionLabel": {
+					"description": "",
+					"type": "string"
+				},
+				"installedFunctionValue": {
+					"description": "",
+					"type": "string"
+				},
+				"installedFunctionValueLabel": {
+					"description": "",
+					"type": "string"
+				},
+				"functionEligibleValues": {
+					"description": "",
+					"type": "array",
+					"items": {
+						"$ref": "#/definitions/FunctionValue"
+					}
+				}
+			}
+		},
+		"MigrateOffer": {
+			"description": "",
+			"type": "object",
+			"properties": {
+				"productOfferingId": {
+					"description": "",
+					"type": "string"
+				}
+			}
+		},
+		"EligibleOption": {
+			"description": "",
+			"type": "object",
+			"properties": {
+				"productOfferingId": {
+					"description": "",
+					"type": "string"
+				},
+				"productOfferingName": {
+					"description": "",
+					"type": "string"
+				},
+				"description": {
+					"description": "",
+					"type": "string"
+				},
+				"canBeSubscribed": {
+					"description": "",
+					"type": "boolean"
+				},
+				"price": {
+					"description": "",
+					"$ref": "#/definitions/Price"
+				},
+				"eligibleCharacteristic": {
+					"description": "",
+					"type": "array",
+					"items": {
+						"$ref": "#/definitions/EligibleCharacteristic"
+					}
+				},
+				"productSpecification": {
+					"description": "",
+					"$ref": "#/definitions/ProductSpecification"
+				}
+			}
+		},
+		"SubscriptionInformation": {
+			"description": "",
+			"required": ["eligibleOptionPrice"],
+			"type": "object",
+			"properties": {
+				"eligibleOptionPrice": {
+					"description": "",
+					"type": "array",
+					"items": {
+						"$ref": "#/definitions/Tariff"
+					}
+				}
+			}
+		},
+		"EligibleAlert": {
+			"description": "",
+			"type": "object",
+			"properties": {
+				"eligibleAlertCode": {
+					"description": "",
+					"type": "string"
+				},
+				"eligibleAlertGravity": {
+					"description": "",
+					"type": "string"
+				},
+				"eligibleAlertLabel": {
+					"description": "",
+					"type": "string"
+				}
+			}
+		},
+		"Tariff": {
+			"description": "",
+			"type": "object",
+			"properties": {
+				"name": {
+					"description": "",
+					"type": "string"
+				},
+				"taxIncludedAmount": {
+					"description": "",
+					"type": "integer",
+					"format": "int64"
+				}
+			}
+		},
+		"Amount": {
+			"description": "",
+			"type": "object",
+			"properties": {
+				"id": {
+					"description": "",
+					"type": "string"
+				},
+				"name": {
+					"description": "",
+					"type": "string"
+				},
+				"taxeIncludedAmount": {
+					"description": "",
+					"type": "integer",
+					"format": "int64"
+				}
+			}
+		},
+		"EligibleContract": {
+			"description": "",
+			"type": "object",
+			"properties": {
+				"productOffering": {
+					"description": "",
+					"type": "array",
+					"items": {
+						"$ref": "#/definitions/ProductOffering"
+					}
+				}
+			}
+		},
+		"ProductOffering": {
+			"description": "",
+			"type": "object",
+			"properties": {
+				"id": {
+					"description": "",
+					"type": "string"
+				},
+				"name": {
+					"description": "",
+					"type": "string"
+				},
+				"productOfferingPrice": {
+					"description": "",
+					"type": "array",
+					"items": {
+						"$ref": "#/definitions/ProductOfferingPrice"
+					}
+				}
+			}
+		},
+		"EligibleCharacteristic": {
+			"description": "",
+			"type": "object",
+			"properties": {
+				"id": {
+					"description": "",
+					"type": "string"
+				},
+				"name": {
+					"description": "",
+					"type": "string"
+				},
+				"productSpecCharacteristicValues": {
+					"description": "",
+					"type": "array",
+					"items": {
+						"$ref": "#/definitions/ProductSpecCharacteristicValues"
+					}
+				}
+			}
+		},
+		"ProductSpecCharacteristicValues": {
+			"description": "",
+			"type": "object",
+			"properties": {
+				"systemValueCode": {
+					"description": "",
+					"type": "string"
+				},
+				"value": {
+					"description": "",
+					"type": "string"
+				}
+			}
+		},
+		"Attachment": {
+			"description": "",
+			"type": "object",
+			"properties": {
+				"mimeType": {
+					"description": "",
+					"type": "string"
+				},
+				"url": {
+					"description": "",
+					"type": "string"
+				}
+			}
+		},
+		"Price": {
+			"description": "",
+			"type": "object",
+			"properties": {
+				"currencyCode": {
+					"description": "",
+					"type": "string"
+				},
+				"taxIncludedAmount": {
+					"description": "",
+					"type": "number",
+					"format": "float"
+				}
+			}
+		},
+		"ProductSpecification": {
+			"description": "",
+			"type": "object",
+			"properties": {
+				"id": {
+					"description": "",
+					"type": "string"
+				}
+			}
+		},
+		"ProductOfferingPrice": {
+			"description": "",
+			"type": "object",
+			"properties": {
+				"price": {
+					"description": "",
+					"$ref": "#/definitions/Price"
+				}
+			}
+		}
+	}
+}

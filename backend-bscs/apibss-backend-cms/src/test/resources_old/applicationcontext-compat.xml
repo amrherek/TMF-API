@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+		xmlns:context="http://www.springframework.org/schema/context"
+		xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+		xsi:schemaLocation="
+			http://www.springframework.org/schema/beans 	http://www.springframework.org/schema/beans/spring-beans.xsd
+			http://www.springframework.org/schema/context	http://www.springframework.org/schema/context/spring-context.xsd
+			http://www.springframework.org/schema/aop		http://www.springframework.org/schema/aop/spring-aop-3.0.xsd
+			http://cxf.apache.org/jaxws 					http://cxf.apache.org/schemas/jaxws.xsd">
+	
+<!-- 	
+		xmlns:aop="http://www.springframework.org/schema/aop"
+		xmlns:jaxws="http://cxf.apache.org/jaxws"
+ -->
+	
+<!-- 
+	<import resource="classpath:META-INF/cxf/cxf.xml" />
+	<import resource="classpath:META-INF/cxf/cxf-extension-soap.xml" />
+	<import resource="classpath:META-INF/cxf/cxf-servlet.xml" />
+ -->	
+	<!-- 
+	<import resource="cxf-config.xml" />
+ 	-->
+
+	<bean id="soiPostProcessor" class="com.orange.bscs.api.aop.SOIPostProcessorFactory">
+		<constructor-arg >
+			<bean id="soiInvocationHander" class="com.orange.bscs.api.aop.SOIInvocationHandlerFactory">
+				<constructor-arg ref="soiTransactionsManager"></constructor-arg>
+			</bean>
+		</constructor-arg>
+	</bean>
+		
+	<!-- Read the application configuration file -->
+	<context:property-placeholder location="classpath:apibscs-default.properties" />
+
+	<!-- Make the the ApplicationConfig class load the application config file -->
+	<bean id="applicationConfig" class="com.orange.bscs.api.utils.config.ApplicationConfig" />
+
+	<import resource="classpath:dao-test.xml" />
+
+
+	<bean id="abstractEndpoint" class="com.orange.bscs.api.ws.endpoint.impl.AbstractEndpoint" abstract="true">
+		<!-- the transactions' manager -->
+		<property name="soiTransactionsManager" ref="soiTransactionsManager" />
+		<!-- application config file reader -->
+		<property name="applicationConfig" ref="applicationConfig" />
+	</bean>
+
+	<!--
+		===================
+		 GENERIC ENDPOINTS
+		===================
+	 -->
+	
+	<bean id="serviceCompatible" class="com.orange.bscs.api.test.ws.SampleCompatibleServiceImpl">
+		<property name="service" ref="compatibleService"></property>
+		<property name="modelMappingObject" ref="compatibleServiceMap"></property>
+	</bean>
+	<bean name="compatibleService" class="com.orange.bscs.api.test.business.SampleCompatibleServiceImpl"/>
+	<bean name="compatibleServiceMap" class="com.orange.bscs.api.test.mapping.SampleCompatibleServiceMap"/>
+	
+	
+</beans>

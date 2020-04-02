@@ -1,0 +1,5474 @@
+{
+	"variables": [],
+	"info": {
+		"name": "OBW copy",
+		"_postman_id": "a6b7b430-2145-0200-8fc0-54f8c472b5a7",
+		"description": "",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Customer Bill",
+			"description": "",
+			"item": [
+				{
+					"name": "UC30_01 - view invoice history (full) MSISDN",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"tests[\"Status code is 200\"] = responseCode.code === 200;",
+									"",
+									"var jsonData = JSON.parse(responseBody);",
+									"",
+									"tests[\"Validate data\"] = _.isEqual(jsonData, JSON.parse(environment.cbResultFull));",
+									"",
+									"var schema = JSON.parse(environment.customerBillSchema);",
+									"",
+									"_.forEach(jsonData, function(dataItem) {",
+									"    var valid_schema = tv4.validateResult(dataItem, schema).valid;",
+									"    if (valid_schema) {",
+									"        tests[\"JSON Response [id:\" + dataItem.id + \"] has valid schema\"] = true",
+									"    } else {",
+									"        tests[\"JSON Response [id:\" + dataItem.id + \"] has invalid schema in path [\" + tv4.validateResult(dataItem, schema).error.dataPath + \"] Error: \" + tv4.validateResult(dataItem, schema).error.message] = false;",
+									"    }",
+									"});"
+								]
+							}
+						}
+					],
+					"request": {
+						"url": {
+							"raw": "{{CB_URL}}/customerBill?publicKey={{cbMsisdn}}",
+							"host": [
+								"{{CB_URL}}"
+							],
+							"path": [
+								"customerBill"
+							],
+							"query": [
+								{
+									"description": "",
+									"equals": true,
+									"key": "publicKey",
+									"value": "{{cbMsisdn}}"
+								}
+							],
+							"variable": []
+						},
+						"method": "GET",
+						"header": [
+							{
+								"description": "",
+								"key": "login",
+								"value": "{{headers_login}}",
+								"disabled": true
+							},
+							{
+								"description": "",
+								"key": "password",
+								"value": "{{headers_password}}",
+								"disabled": true
+							},
+							{
+								"description": "",
+								"key": "platform",
+								"value": "{{headers_platform}}",
+								"disabled": true
+							},
+							{
+								"description": "",
+								"key": "login",
+								"value": "{{headers_login}}",
+								"disabled": true
+							},
+							{
+								"description": "",
+								"key": "password",
+								"value": "{{headers_password}}",
+								"disabled": true
+							},
+							{
+								"description": "",
+								"key": "platform",
+								"value": "{{headers_platform}}",
+								"disabled": true
+							},
+							{
+								"key": "login",
+								"value": "{{headers_login}}",
+								"description": "",
+								"disabled": true
+							},
+							{
+								"key": "password",
+								"value": "{{headers_password}}",
+								"description": "",
+								"disabled": true
+							},
+							{
+								"key": "platform",
+								"value": "{{headers_platform}}",
+								"description": "",
+								"disabled": true
+							},
+							{
+								"key": "//login",
+								"value": "{{headers_login}}",
+								"description": "",
+								"disabled": true
+							},
+							{
+								"key": "//password",
+								"value": "{{headers_password}}",
+								"description": "",
+								"disabled": true
+							},
+							{
+								"key": "//platform",
+								"value": "{{headers_platform}}",
+								"description": "",
+								"disabled": true
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "UC30_02 - view invoice history (.gte)",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"tests[\"Status code is 200\"] = responseCode.code === 200;",
+									"",
+									"var jsonData = JSON.parse(responseBody);",
+									"",
+									"tests[\"Validate data\"] = _.isEqual(jsonData, JSON.parse(environment.cbResultGte));",
+									"",
+									"var schema = JSON.parse(environment.customerBillSchema);",
+									"",
+									"_.forEach(jsonData, function(dataItem) {",
+									"    var valid_schema = tv4.validateResult(dataItem, schema).valid;",
+									"    if (valid_schema) {",
+									"        tests[\"JSON Response [id:\" + dataItem.id + \"] has valid schema\"] = true;",
+									"    } else {",
+									"        tests[\"JSON Response [id:\" + dataItem.id + \"] has invalid schema in path [\" + tv4.validateResult(dataItem, schema).error.dataPath + \"] Error: \" + tv4.validateResult(dataItem, schema).error.message] = false;",
+									"    }",
+									"});"
+								]
+							}
+						}
+					],
+					"request": {
+						"url": {
+							"raw": "{{CB_URL}}/customerBill?publicKey={{cbMsisdn}}&billDate.gte={{cbBillDateGte}}",
+							"host": [
+								"{{CB_URL}}"
+							],
+							"path": [
+								"customerBill"
+							],
+							"query": [
+								{
+									"key": "publicKey",
+									"value": "{{cbMsisdn}}"
+								},
+								{
+									"key": "billDate.gte",
+									"value": "{{cbBillDateGte}}"
+								}
+							],
+							"variable": []
+						},
+						"method": "GET",
+						"header": [
+							{
+								"description": "",
+								"key": "login",
+								"value": "{{headers_login}}",
+								"disabled": true
+							},
+							{
+								"description": "",
+								"key": "password",
+								"value": "{{headers_password}}",
+								"disabled": true
+							},
+							{
+								"description": "",
+								"key": "platform",
+								"value": "{{headers_platform}}",
+								"disabled": true
+							},
+							{
+								"description": "",
+								"key": "login",
+								"value": "{{headers_login}}",
+								"disabled": true
+							},
+							{
+								"description": "",
+								"key": "password",
+								"value": "{{headers_password}}",
+								"disabled": true
+							},
+							{
+								"description": "",
+								"key": "platform",
+								"value": "{{headers_platform}}",
+								"disabled": true
+							},
+							{
+								"key": "login",
+								"value": "{{headers_login}}",
+								"description": "",
+								"disabled": true
+							},
+							{
+								"key": "password",
+								"value": "{{headers_password}}",
+								"description": "",
+								"disabled": true
+							},
+							{
+								"key": "platform",
+								"value": "{{headers_platform}}",
+								"description": "",
+								"disabled": true
+							},
+							{
+								"key": "//login",
+								"value": "{{headers_login}}",
+								"description": "",
+								"disabled": true
+							},
+							{
+								"key": "//password",
+								"value": "{{headers_password}}",
+								"description": "",
+								"disabled": true
+							},
+							{
+								"key": "//platform",
+								"value": "{{headers_platform}}",
+								"description": "",
+								"disabled": true
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "UC30_03 - view invoice history (.lte)",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"tests[\"Status code is 200\"] = responseCode.code === 200;",
+									"",
+									"var jsonData = JSON.parse(responseBody);",
+									"",
+									"tests[\"Validate data\"] = _.isEqual(jsonData, JSON.parse(environment.cbResultLte));",
+									"",
+									"var schema = JSON.parse(environment.cbResultLte);",
+									"",
+									"_.forEach(jsonData, function(dataItem) {",
+									"    var valid_schema = tv4.validateResult(dataItem, schema).valid;",
+									"    if (valid_schema) {",
+									"        tests[\"JSON Response [id:\" + dataItem.id + \"] has valid schema\"] = true",
+									"    } else {",
+									"        tests[\"JSON Response [id:\" + dataItem.id + \"] has invalid schema in path [\" + tv4.validateResult(dataItem, schema).error.dataPath + \"] Error: \" + tv4.validateResult(dataItem, schema).error.message] = false;",
+									"    }",
+									"});"
+								]
+							}
+						}
+					],
+					"request": {
+						"url": {
+							"raw": "{{CB_URL}}/customerBill?publicKey={{cbMsisdn}}&billDate.lte={{cbBillDateLte}}",
+							"host": [
+								"{{CB_URL}}"
+							],
+							"path": [
+								"customerBill"
+							],
+							"query": [
+								{
+									"key": "publicKey",
+									"value": "{{cbMsisdn}}"
+								},
+								{
+									"key": "billDate.lte",
+									"value": "{{cbBillDateLte}}"
+								}
+							],
+							"variable": []
+						},
+						"method": "GET",
+						"header": [
+							{
+								"description": "",
+								"key": "login",
+								"value": "{{headers_login}}",
+								"disabled": true
+							},
+							{
+								"description": "",
+								"key": "password",
+								"value": "{{headers_password}}",
+								"disabled": true
+							},
+							{
+								"description": "",
+								"key": "platform",
+								"value": "{{headers_platform}}",
+								"disabled": true
+							},
+							{
+								"description": "",
+								"key": "login",
+								"value": "{{headers_login}}",
+								"disabled": true
+							},
+							{
+								"description": "",
+								"key": "password",
+								"value": "{{headers_password}}",
+								"disabled": true
+							},
+							{
+								"description": "",
+								"key": "platform",
+								"value": "{{headers_platform}}",
+								"disabled": true
+							},
+							{
+								"key": "login",
+								"value": "{{headers_login}}",
+								"description": "",
+								"disabled": true
+							},
+							{
+								"key": "password",
+								"value": "{{headers_password}}",
+								"description": "",
+								"disabled": true
+							},
+							{
+								"key": "platform",
+								"value": "{{headers_platform}}",
+								"description": "",
+								"disabled": true
+							},
+							{
+								"key": "//login",
+								"value": "{{headers_login}}",
+								"description": "",
+								"disabled": true
+							},
+							{
+								"key": "//password",
+								"value": "{{headers_password}}",
+								"description": "",
+								"disabled": true
+							},
+							{
+								"key": "//platform",
+								"value": "{{headers_platform}}",
+								"description": "",
+								"disabled": true
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "UC30_05 - view invoice history (full) by party.Id",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"tests[\"Status code is 200\"] = responseCode.code === 200;",
+									"",
+									"var jsonData = JSON.parse(responseBody);",
+									"",
+									"tests[\"Validate data\"] = _.isEqual(jsonData, JSON.parse(environment.cbResultFull));",
+									"",
+									"var schema = JSON.parse(environment.customerBillSchema);",
+									"",
+									"_.forEach(jsonData, function(dataItem) {",
+									"    var valid_schema = tv4.validateResult(dataItem, schema).valid;",
+									"    if (valid_schema) {",
+									"        tests[\"JSON Response [id:\" + dataItem.id + \"] has valid schema\"] = true",
+									"    } else {",
+									"        tests[\"JSON Response [id:\" + dataItem.id + \"] has invalid schema in path [\" + tv4.validateResult(dataItem, schema).error.dataPath + \"] Error: \" + tv4.validateResult(dataItem, schema).error.message] = false;",
+									"    }",
+									"});"
+								]
+							}
+						}
+					],
+					"request": {
+						"url": {
+							"raw": "{{CB_URL}}/customerBill?relatedParty.id={{cbPartyIdFlat}}",
+							"host": [
+								"{{CB_URL}}"
+							],
+							"path": [
+								"customerBill"
+							],
+							"query": [
+								{
+									"description": "",
+									"equals": true,
+									"key": "relatedParty.id",
+									"value": "{{cbPartyIdFlat}}"
+								}
+							],
+							"variable": []
+						},
+						"method": "GET",
+						"header": [
+							{
+								"description": "",
+								"key": "login",
+								"value": "{{headers_login}}",
+								"disabled": true
+							},
+							{
+								"description": "",
+								"key": "password",
+								"value": "{{headers_password}}",
+								"disabled": true
+							},
+							{
+								"description": "",
+								"key": "platform",
+								"value": "{{headers_platform}}",
+								"disabled": true
+							},
+							{
+								"description": "",
+								"key": "login",
+								"value": "{{headers_login}}",
+								"disabled": true
+							},
+							{
+								"description": "",
+								"key": "password",
+								"value": "{{headers_password}}",
+								"disabled": true
+							},
+							{
+								"description": "",
+								"key": "platform",
+								"value": "{{headers_platform}}",
+								"disabled": true
+							},
+							{
+								"key": "login",
+								"value": "{{headers_login}}",
+								"description": "",
+								"disabled": true
+							},
+							{
+								"key": "password",
+								"value": "{{headers_password}}",
+								"description": "",
+								"disabled": true
+							},
+							{
+								"key": "platform",
+								"value": "{{headers_platform}}",
+								"description": "",
+								"disabled": true
+							},
+							{
+								"key": "//login",
+								"value": "{{headers_login}}",
+								"description": "",
+								"disabled": true
+							},
+							{
+								"key": "//password",
+								"value": "{{headers_password}}",
+								"description": "",
+								"disabled": true
+							},
+							{
+								"key": "//platform",
+								"value": "{{headers_platform}}",
+								"description": "",
+								"disabled": true
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "UC30_06 - view invoice history (.gte)  by partyId",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"tests[\"Status code is 200\"] = responseCode.code === 200;",
+									"",
+									"var jsonData = JSON.parse(responseBody);",
+									"",
+									"tests[\"Validate data\"] = _.isEqual(jsonData, JSON.parse(environment.cbResultGte));",
+									"",
+									"var schema = JSON.parse(environment.customerBillSchema);",
+									"",
+									"_.forEach(jsonData, function(dataItem) {",
+									"    var valid_schema = tv4.validateResult(dataItem, schema).valid;",
+									"    if (valid_schema) {",
+									"        tests[\"JSON Response [id:\" + dataItem.id + \"] has valid schema\"] = true",
+									"    } else {",
+									"        tests[\"JSON Response [id:\" + dataItem.id + \"] has invalid schema in path [\" + tv4.validateResult(dataItem, schema).error.dataPath + \"] Error: \" + tv4.validateResult(dataItem, schema).error.message] = false;",
+									"    }",
+									"});"
+								]
+							}
+						}
+					],
+					"request": {
+						"url": {
+							"raw": "{{CB_URL}}/customerBill?relatedParty.id={{cbPartyIdFlat}}&billDate.gte={{cbBillDateGte}}",
+							"host": [
+								"{{CB_URL}}"
+							],
+							"path": [
+								"customerBill"
+							],
+							"query": [
+								{
+									"key": "relatedParty.id",
+									"value": "{{cbPartyIdFlat}}"
+								},
+								{
+									"key": "billDate.gte",
+									"value": "{{cbBillDateGte}}"
+								}
+							],
+							"variable": []
+						},
+						"method": "GET",
+						"header": [
+							{
+								"description": "",
+								"key": "login",
+								"value": "{{headers_login}}",
+								"disabled": true
+							},
+							{
+								"description": "",
+								"key": "password",
+								"value": "{{headers_password}}",
+								"disabled": true
+							},
+							{
+								"description": "",
+								"key": "platform",
+								"value": "{{headers_platform}}",
+								"disabled": true
+							},
+							{
+								"description": "",
+								"key": "login",
+								"value": "{{headers_login}}",
+								"disabled": true
+							},
+							{
+								"description": "",
+								"key": "password",
+								"value": "{{headers_password}}",
+								"disabled": true
+							},
+							{
+								"description": "",
+								"key": "platform",
+								"value": "{{headers_platform}}",
+								"disabled": true
+							},
+							{
+								"key": "login",
+								"value": "{{headers_login}}",
+								"description": "",
+								"disabled": true
+							},
+							{
+								"key": "password",
+								"value": "{{headers_password}}",
+								"description": "",
+								"disabled": true
+							},
+							{
+								"key": "platform",
+								"value": "{{headers_platform}}",
+								"description": "",
+								"disabled": true
+							},
+							{
+								"key": "//login",
+								"value": "{{headers_login}}",
+								"description": "",
+								"disabled": true
+							},
+							{
+								"key": "//password",
+								"value": "{{headers_password}}",
+								"description": "",
+								"disabled": true
+							},
+							{
+								"key": "//platform",
+								"value": "{{headers_platform}}",
+								"description": "",
+								"disabled": true
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "UC30_07 - view invoice history (.lte) by partyId",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"tests[\"Status code is 200\"] = responseCode.code === 200;",
+									"",
+									"var jsonData = JSON.parse(responseBody);",
+									"",
+									"tests[\"Validate data\"] = _.isEqual(jsonData, JSON.parse(environment.cbResultLte));",
+									"",
+									"var schema = JSON.parse(environment.cbResultLte);",
+									"",
+									"_.forEach(jsonData, function(dataItem) {",
+									"    var valid_schema = tv4.validateResult(dataItem, schema).valid;",
+									"    if (valid_schema) {",
+									"        tests[\"JSON Response [id:\" + dataItem.id + \"] has valid schema\"] = true",
+									"    } else {",
+									"        tests[\"JSON Response [id:\" + dataItem.id + \"] has invalid schema in path [\" + tv4.validateResult(dataItem, schema).error.dataPath + \"] Error: \" + tv4.validateResult(dataItem, schema).error.message] = false;",
+									"    }",
+									"});"
+								]
+							}
+						}
+					],
+					"request": {
+						"url": {
+							"raw": "{{CB_URL}}/customerBill?relatedParty.id={{cbPartyIdFlat}}&billDate.lte={{cbBillDateLte}}",
+							"host": [
+								"{{CB_URL}}"
+							],
+							"path": [
+								"customerBill"
+							],
+							"query": [
+								{
+									"key": "relatedParty.id",
+									"value": "{{cbPartyIdFlat}}"
+								},
+								{
+									"key": "billDate.lte",
+									"value": "{{cbBillDateLte}}"
+								}
+							],
+							"variable": []
+						},
+						"method": "GET",
+						"header": [
+							{
+								"description": "",
+								"key": "login",
+								"value": "{{headers_login}}",
+								"disabled": true
+							},
+							{
+								"description": "",
+								"key": "password",
+								"value": "{{headers_password}}",
+								"disabled": true
+							},
+							{
+								"description": "",
+								"key": "platform",
+								"value": "{{headers_platform}}",
+								"disabled": true
+							},
+							{
+								"description": "",
+								"key": "login",
+								"value": "{{headers_login}}",
+								"disabled": true
+							},
+							{
+								"description": "",
+								"key": "password",
+								"value": "{{headers_password}}",
+								"disabled": true
+							},
+							{
+								"description": "",
+								"key": "platform",
+								"value": "{{headers_platform}}",
+								"disabled": true
+							},
+							{
+								"key": "login",
+								"value": "{{headers_login}}",
+								"description": "",
+								"disabled": true
+							},
+							{
+								"key": "password",
+								"value": "{{headers_password}}",
+								"description": "",
+								"disabled": true
+							},
+							{
+								"key": "platform",
+								"value": "{{headers_platform}}",
+								"description": "",
+								"disabled": true
+							},
+							{
+								"key": "//login",
+								"value": "{{headers_login}}",
+								"description": "",
+								"disabled": true
+							},
+							{
+								"key": "//password",
+								"value": "{{headers_password}}",
+								"description": "",
+								"disabled": true
+							},
+							{
+								"key": "//platform",
+								"value": "{{headers_platform}}",
+								"description": "",
+								"disabled": true
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "UC30_10 - Err MSISDN invalid format",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"tests[\"Status code is 200\"] = responseCode.code === 200;",
+									"",
+									"var jsonData = JSON.parse(responseBody);",
+									"tests[\"Validate data\"] = _.isEqual(jsonData, []);"
+								]
+							}
+						}
+					],
+					"request": {
+						"url": {
+							"raw": "{{CB_URL}}/customerBill?publicKey={{cbMsisdnInvalid}}",
+							"host": [
+								"{{CB_URL}}"
+							],
+							"path": [
+								"customerBill"
+							],
+							"query": [
+								{
+									"key": "publicKey",
+									"value": "{{cbMsisdnInvalid}}"
+								}
+							],
+							"variable": []
+						},
+						"method": "GET",
+						"header": [
+							{
+								"description": "",
+								"key": "login",
+								"value": "{{headers_login}}",
+								"disabled": true
+							},
+							{
+								"description": "",
+								"key": "password",
+								"value": "{{headers_password}}",
+								"disabled": true
+							},
+							{
+								"description": "",
+								"key": "platform",
+								"value": "{{headers_platform}}",
+								"disabled": true
+							},
+							{
+								"description": "",
+								"key": "login",
+								"value": "{{headers_login}}",
+								"disabled": true
+							},
+							{
+								"description": "",
+								"key": "password",
+								"value": "{{headers_password}}",
+								"disabled": true
+							},
+							{
+								"description": "",
+								"key": "platform",
+								"value": "{{headers_platform}}",
+								"disabled": true
+							},
+							{
+								"key": "login",
+								"value": "{{headers_login}}",
+								"description": "",
+								"disabled": true
+							},
+							{
+								"key": "password",
+								"value": "{{headers_password}}",
+								"description": "",
+								"disabled": true
+							},
+							{
+								"key": "platform",
+								"value": "{{headers_platform}}",
+								"description": "",
+								"disabled": true
+							},
+							{
+								"key": "//login",
+								"value": "{{headers_login}}",
+								"description": "",
+								"disabled": true
+							},
+							{
+								"key": "//password",
+								"value": "{{headers_password}}",
+								"description": "",
+								"disabled": true
+							},
+							{
+								"key": "//platform",
+								"value": "{{headers_platform}}",
+								"description": "",
+								"disabled": true
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "UC30_11 - Err MSISDN not attributed",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"tests[\"Status code is 200\"] = responseCode.code === 200;",
+									"",
+									"var jsonData = JSON.parse(responseBody);",
+									"tests[\"Validate data\"] = _.isEqual(jsonData, []);"
+								]
+							}
+						}
+					],
+					"request": {
+						"url": {
+							"raw": "{{CB_URL}}/customerBill?publicKey={{cbMsisdnUnused}}",
+							"host": [
+								"{{CB_URL}}"
+							],
+							"path": [
+								"customerBill"
+							],
+							"query": [
+								{
+									"key": "publicKey",
+									"value": "{{cbMsisdnUnused}}"
+								}
+							],
+							"variable": []
+						},
+						"method": "GET",
+						"header": [
+							{
+								"description": "",
+								"key": "login",
+								"value": "{{headers_login}}",
+								"disabled": true
+							},
+							{
+								"description": "",
+								"key": "password",
+								"value": "{{headers_password}}",
+								"disabled": true
+							},
+							{
+								"description": "",
+								"key": "platform",
+								"value": "{{headers_platform}}",
+								"disabled": true
+							},
+							{
+								"description": "",
+								"key": "login",
+								"value": "{{headers_login}}",
+								"disabled": true
+							},
+							{
+								"description": "",
+								"key": "password",
+								"value": "{{headers_password}}",
+								"disabled": true
+							},
+							{
+								"description": "",
+								"key": "platform",
+								"value": "{{headers_platform}}",
+								"disabled": true
+							},
+							{
+								"key": "login",
+								"value": "{{headers_login}}",
+								"description": "",
+								"disabled": true
+							},
+							{
+								"key": "password",
+								"value": "{{headers_password}}",
+								"description": "",
+								"disabled": true
+							},
+							{
+								"key": "platform",
+								"value": "{{headers_platform}}",
+								"description": "",
+								"disabled": true
+							},
+							{
+								"key": "//login",
+								"value": "{{headers_login}}",
+								"description": "",
+								"disabled": true
+							},
+							{
+								"key": "//password",
+								"value": "{{headers_password}}",
+								"description": "",
+								"disabled": true
+							},
+							{
+								"key": "//platform",
+								"value": "{{headers_platform}}",
+								"description": "",
+								"disabled": true
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "UC30_12 - Err Format date",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"tests[\"Status code is 400\"] = responseCode.code === 400;",
+									"var jsonData = JSON.parse(responseBody);",
+									"tests[\"Check error is 4002\"] = jsonData.code === 4002;",
+									"tests[\"Error description\"] = jsonData.description.has(\"Bad format for parameter \");"
+								]
+							}
+						}
+					],
+					"request": {
+						"url": {
+							"raw": "{{CB_URL}}/customerBill?publicKey={{cbMsisdn}}&billDate.gte={{cbBadDateFormat}}",
+							"host": [
+								"{{CB_URL}}"
+							],
+							"path": [
+								"customerBill"
+							],
+							"query": [
+								{
+									"key": "publicKey",
+									"value": "{{cbMsisdn}}"
+								},
+								{
+									"key": "billDate.gte",
+									"value": "{{cbBadDateFormat}}"
+								}
+							],
+							"variable": []
+						},
+						"method": "GET",
+						"header": [
+							{
+								"description": "",
+								"key": "login",
+								"value": "{{headers_login}}",
+								"disabled": true
+							},
+							{
+								"description": "",
+								"key": "password",
+								"value": "{{headers_password}}",
+								"disabled": true
+							},
+							{
+								"description": "",
+								"key": "platform",
+								"value": "{{headers_platform}}",
+								"disabled": true
+							},
+							{
+								"description": "",
+								"key": "login",
+								"value": "{{headers_login}}",
+								"disabled": true
+							},
+							{
+								"description": "",
+								"key": "password",
+								"value": "{{headers_password}}",
+								"disabled": true
+							},
+							{
+								"description": "",
+								"key": "platform",
+								"value": "{{headers_platform}}",
+								"disabled": true
+							},
+							{
+								"key": "login",
+								"value": "{{headers_login}}",
+								"description": "",
+								"disabled": true
+							},
+							{
+								"key": "password",
+								"value": "{{headers_password}}",
+								"description": "",
+								"disabled": true
+							},
+							{
+								"key": "platform",
+								"value": "{{headers_platform}}",
+								"description": "",
+								"disabled": true
+							},
+							{
+								"key": "//login",
+								"value": "{{headers_login}}",
+								"description": "",
+								"disabled": true
+							},
+							{
+								"key": "//password",
+								"value": "{{headers_password}}",
+								"description": "",
+								"disabled": true
+							},
+							{
+								"key": "//platform",
+								"value": "{{headers_platform}}",
+								"description": "",
+								"disabled": true
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "UC30_13 - Err party.Id unknown",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"tests[\"Status code is 200\"] = responseCode.code === 200;",
+									"",
+									"var jsonData = JSON.parse(responseBody);",
+									"tests[\"Validate data\"] = _.isEqual(jsonData, []);"
+								]
+							}
+						}
+					],
+					"request": {
+						"url": {
+							"raw": "{{CB_URL}}/customerBill?relatedParty.id={{cbIdUnknown}}",
+							"host": [
+								"{{CB_URL}}"
+							],
+							"path": [
+								"customerBill"
+							],
+							"query": [
+								{
+									"key": "relatedParty.id",
+									"value": "{{cbIdUnknown}}"
+								}
+							],
+							"variable": []
+						},
+						"method": "GET",
+						"header": [
+							{
+								"description": "",
+								"key": "login",
+								"value": "{{headers_login}}",
+								"disabled": true
+							},
+							{
+								"description": "",
+								"key": "password",
+								"value": "{{headers_password}}",
+								"disabled": true
+							},
+							{
+								"description": "",
+								"key": "platform",
+								"value": "{{headers_platform}}",
+								"disabled": true
+							},
+							{
+								"description": "",
+								"key": "login",
+								"value": "{{headers_login}}",
+								"disabled": true
+							},
+							{
+								"description": "",
+								"key": "password",
+								"value": "{{headers_password}}",
+								"disabled": true
+							},
+							{
+								"description": "",
+								"key": "platform",
+								"value": "{{headers_platform}}",
+								"disabled": true
+							},
+							{
+								"key": "login",
+								"value": "{{headers_login}}",
+								"description": "",
+								"disabled": true
+							},
+							{
+								"key": "password",
+								"value": "{{headers_password}}",
+								"description": "",
+								"disabled": true
+							},
+							{
+								"key": "platform",
+								"value": "{{headers_platform}}",
+								"description": "",
+								"disabled": true
+							},
+							{
+								"key": "//login",
+								"value": "{{headers_login}}",
+								"description": "",
+								"disabled": true
+							},
+							{
+								"key": "//password",
+								"value": "{{headers_password}}",
+								"description": "",
+								"disabled": true
+							},
+							{
+								"key": "//platform",
+								"value": "{{headers_platform}}",
+								"description": "",
+								"disabled": true
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "UC30_21 - Err .gte < .lte",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"tests[\"Status code is 400\"] = responseCode.code === 400;",
+									"var jsonData = JSON.parse(responseBody);",
+									"tests[\"Check error is 4003\"] = jsonData.code === 4003;",
+									"tests[\"Error description\"] = jsonData.description.has(\"Bad value for parameter endDate:\");"
+								]
+							}
+						}
+					],
+					"request": {
+						"url": {
+							"raw": "{{CB_URL}}/customerBill?publicKey={{cbMsisdn}}&billDate.gte={{cbBillDateGte}}&billDate.lte={{cbBillDateLte}}",
+							"host": [
+								"{{CB_URL}}"
+							],
+							"path": [
+								"customerBill"
+							],
+							"query": [
+								{
+									"key": "publicKey",
+									"value": "{{cbMsisdn}}"
+								},
+								{
+									"key": "billDate.gte",
+									"value": "{{cbBillDateGte}}"
+								},
+								{
+									"key": "billDate.lte",
+									"value": "{{cbBillDateLte}}"
+								}
+							],
+							"variable": []
+						},
+						"method": "GET",
+						"header": [
+							{
+								"description": "",
+								"key": "login",
+								"value": "{{headers_login}}",
+								"disabled": true
+							},
+							{
+								"description": "",
+								"key": "password",
+								"value": "{{headers_password}}",
+								"disabled": true
+							},
+							{
+								"description": "",
+								"key": "platform",
+								"value": "{{headers_platform}}",
+								"disabled": true
+							},
+							{
+								"description": "",
+								"key": "login",
+								"value": "{{headers_login}}",
+								"disabled": true
+							},
+							{
+								"description": "",
+								"key": "password",
+								"value": "{{headers_password}}",
+								"disabled": true
+							},
+							{
+								"description": "",
+								"key": "platform",
+								"value": "{{headers_platform}}",
+								"disabled": true
+							},
+							{
+								"key": "login",
+								"value": "{{headers_login}}",
+								"description": "",
+								"disabled": true
+							},
+							{
+								"key": "password",
+								"value": "{{headers_password}}",
+								"description": "",
+								"disabled": true
+							},
+							{
+								"key": "platform",
+								"value": "{{headers_platform}}",
+								"description": "",
+								"disabled": true
+							},
+							{
+								"key": "//login",
+								"value": "{{headers_login}}",
+								"description": "",
+								"disabled": true
+							},
+							{
+								"key": "//password",
+								"value": "{{headers_password}}",
+								"description": "",
+								"disabled": true
+							},
+							{
+								"key": "//platform",
+								"value": "{{headers_platform}}",
+								"description": "",
+								"disabled": true
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "UC30_22 - billDate .gte in the future",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"tests[\"Status code is 200\"] = responseCode.code === 200;",
+									"",
+									"var jsonData = JSON.parse(responseBody);",
+									"tests[\"Validate data\"] = _.isEqual(jsonData, []);"
+								]
+							}
+						}
+					],
+					"request": {
+						"url": {
+							"raw": "{{CB_URL}}/customerBill?publicKey={{cbMsisdn}}&billDate.gte={{cbDateFutur}}",
+							"host": [
+								"{{CB_URL}}"
+							],
+							"path": [
+								"customerBill"
+							],
+							"query": [
+								{
+									"key": "publicKey",
+									"value": "{{cbMsisdn}}"
+								},
+								{
+									"key": "billDate.gte",
+									"value": "{{cbDateFutur}}"
+								}
+							],
+							"variable": []
+						},
+						"method": "GET",
+						"header": [
+							{
+								"description": "",
+								"key": "login",
+								"value": "{{headers_login}}",
+								"disabled": true
+							},
+							{
+								"description": "",
+								"key": "password",
+								"value": "{{headers_password}}",
+								"disabled": true
+							},
+							{
+								"description": "",
+								"key": "platform",
+								"value": "{{headers_platform}}",
+								"disabled": true
+							},
+							{
+								"description": "",
+								"key": "login",
+								"value": "{{headers_login}}",
+								"disabled": true
+							},
+							{
+								"description": "",
+								"key": "password",
+								"value": "{{headers_password}}",
+								"disabled": true
+							},
+							{
+								"description": "",
+								"key": "platform",
+								"value": "{{headers_platform}}",
+								"disabled": true
+							},
+							{
+								"key": "login",
+								"value": "{{headers_login}}",
+								"description": "",
+								"disabled": true
+							},
+							{
+								"key": "password",
+								"value": "{{headers_password}}",
+								"description": "",
+								"disabled": true
+							},
+							{
+								"key": "platform",
+								"value": "{{headers_platform}}",
+								"description": "",
+								"disabled": true
+							},
+							{
+								"key": "//login",
+								"value": "{{headers_login}}",
+								"description": "",
+								"disabled": true
+							},
+							{
+								"key": "//password",
+								"value": "{{headers_password}}",
+								"description": "",
+								"disabled": true
+							},
+							{
+								"key": "//platform",
+								"value": "{{headers_platform}}",
+								"description": "",
+								"disabled": true
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "UC30_31 - view invoice history (Large Account) by MSISDN",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"tests[\"Status code is 200\"] = responseCode.code === 200;",
+									"",
+									"var jsonData = JSON.parse(responseBody);",
+									"",
+									"tests[\"Validate data\"] = _.isEqual(jsonData, JSON.parse(environment.cbResultLargeAccount));",
+									"",
+									"var schema = JSON.parse(environment.cbResultLargeAccount);",
+									"",
+									"_.forEach(jsonData, function(dataItem) {",
+									"    var valid_schema = tv4.validateResult(dataItem, schema).valid;",
+									"    if (valid_schema) {",
+									"        tests[\"JSON Response [id:\" + dataItem.id + \"] has valid schema\"] = true",
+									"    } else {",
+									"        tests[\"JSON Response [id:\" + dataItem.id + \"] has invalid schema in path [\" + tv4.validateResult(dataItem, schema).error.dataPath + \"] Error: \" + tv4.validateResult(dataItem, schema).error.message] = false;",
+									"    }",
+									"});"
+								]
+							}
+						}
+					],
+					"request": {
+						"url": {
+							"raw": "{{CB_URL}}/customerBill?publicKey={{cbMsisdnLargeAccount}}",
+							"host": [
+								"{{CB_URL}}"
+							],
+							"path": [
+								"customerBill"
+							],
+							"query": [
+								{
+									"description": "",
+									"equals": true,
+									"key": "publicKey",
+									"value": "{{cbMsisdnLargeAccount}}"
+								}
+							],
+							"variable": []
+						},
+						"method": "GET",
+						"header": [
+							{
+								"description": "",
+								"key": "login",
+								"value": "{{headers_login}}",
+								"disabled": true
+							},
+							{
+								"description": "",
+								"key": "password",
+								"value": "{{headers_password}}",
+								"disabled": true
+							},
+							{
+								"description": "",
+								"key": "platform",
+								"value": "{{headers_platform}}",
+								"disabled": true
+							},
+							{
+								"description": "",
+								"key": "login",
+								"value": "{{headers_login}}",
+								"disabled": true
+							},
+							{
+								"description": "",
+								"key": "password",
+								"value": "{{headers_password}}",
+								"disabled": true
+							},
+							{
+								"description": "",
+								"key": "platform",
+								"value": "{{headers_platform}}",
+								"disabled": true
+							},
+							{
+								"key": "login",
+								"value": "{{headers_login}}",
+								"description": "",
+								"disabled": true
+							},
+							{
+								"key": "password",
+								"value": "{{headers_password}}",
+								"description": "",
+								"disabled": true
+							},
+							{
+								"key": "platform",
+								"value": "{{headers_platform}}",
+								"description": "",
+								"disabled": true
+							},
+							{
+								"key": "//login",
+								"value": "{{headers_login}}",
+								"description": "",
+								"disabled": true
+							},
+							{
+								"key": "//password",
+								"value": "{{headers_password}}",
+								"description": "",
+								"disabled": true
+							},
+							{
+								"key": "//platform",
+								"value": "{{headers_platform}}",
+								"description": "",
+								"disabled": true
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "UC30_32- view invoice history (full) LargeAccount by party.Id",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"tests[\"Status code is 200\"] = responseCode.code === 200;",
+									"",
+									"var jsonData = JSON.parse(responseBody);",
+									"",
+									"tests[\"Validate data\"] = _.isEqual(jsonData, JSON.parse(environment.cbResultLargeAccount));",
+									"",
+									"var schema = JSON.parse(environment.cbResultLargeAccount);",
+									"",
+									"_.forEach(jsonData, function(dataItem) {",
+									"    var valid_schema = tv4.validateResult(dataItem, schema).valid;",
+									"    if (valid_schema) {",
+									"        tests[\"JSON Response [id:\" + dataItem.id + \"] has valid schema\"] = true",
+									"    } else {",
+									"        tests[\"JSON Response [id:\" + dataItem.id + \"] has invalid schema in path [\" + tv4.validateResult(dataItem, schema).error.dataPath + \"] Error: \" + tv4.validateResult(dataItem, schema).error.message] = false;",
+									"    }",
+									"});"
+								]
+							}
+						}
+					],
+					"request": {
+						"url": {
+							"raw": "{{CB_URL}}/customerBill?relatedParty.id={{cbPartyIdLargeAccount}}",
+							"host": [
+								"{{CB_URL}}"
+							],
+							"path": [
+								"customerBill"
+							],
+							"query": [
+								{
+									"description": "",
+									"equals": true,
+									"key": "relatedParty.id",
+									"value": "{{cbPartyIdLargeAccount}}"
+								}
+							],
+							"variable": []
+						},
+						"method": "GET",
+						"header": [
+							{
+								"description": "",
+								"key": "login",
+								"value": "{{headers_login}}",
+								"disabled": true
+							},
+							{
+								"description": "",
+								"key": "password",
+								"value": "{{headers_password}}",
+								"disabled": true
+							},
+							{
+								"description": "",
+								"key": "platform",
+								"value": "{{headers_platform}}",
+								"disabled": true
+							},
+							{
+								"description": "",
+								"key": "login",
+								"value": "{{headers_login}}",
+								"disabled": true
+							},
+							{
+								"description": "",
+								"key": "password",
+								"value": "{{headers_password}}",
+								"disabled": true
+							},
+							{
+								"description": "",
+								"key": "platform",
+								"value": "{{headers_platform}}",
+								"disabled": true
+							},
+							{
+								"key": "login",
+								"value": "{{headers_login}}",
+								"description": "",
+								"disabled": true
+							},
+							{
+								"key": "password",
+								"value": "{{headers_password}}",
+								"description": "",
+								"disabled": true
+							},
+							{
+								"key": "platform",
+								"value": "{{headers_platform}}",
+								"description": "",
+								"disabled": true
+							},
+							{
+								"key": "//login",
+								"value": "{{headers_login}}",
+								"description": "",
+								"disabled": true
+							},
+							{
+								"key": "//password",
+								"value": "{{headers_password}}",
+								"description": "",
+								"disabled": true
+							},
+							{
+								"key": "//platform",
+								"value": "{{headers_platform}}",
+								"description": "",
+								"disabled": true
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "UC30_41 - View invoice by CbId",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"tests[\"Status code is 200\"] = responseCode.code === 200;",
+									"",
+									"var jsonData = JSON.parse(responseBody);",
+									"",
+									"var schema = JSON.parse(environment.customerBillSchema);",
+									"",
+									"",
+									"_.forEach(jsonData, function(dataItem) {",
+									"    var valid_schema = tv4.validateResult(dataItem, schema).valid;",
+									"    if (valid_schema) {",
+									"        tests[\"JSON Response [id:\" + dataItem.id + \"] has valid schema\"] = true",
+									"    } else {",
+									"        tests[\"JSON Response [id:\" + dataItem.id + \"] has invalid schema in path [\" + tv4.validateResult(dataItem, schema).error.dataPath + \"] Error: \" + tv4.validateResult(dataItem, schema).error.message] = false;",
+									"    }",
+									"});",
+									""
+								]
+							}
+						}
+					],
+					"request": {
+						"url": "{{CB_URL}}/customerBill/{{cbId}}",
+						"method": "GET",
+						"header": [
+							{
+								"description": "",
+								"key": "login",
+								"value": "{{headers_login}}",
+								"disabled": true
+							},
+							{
+								"description": "",
+								"key": "password",
+								"value": "{{headers_password}}",
+								"disabled": true
+							},
+							{
+								"description": "",
+								"key": "platform",
+								"value": "{{headers_platform}}",
+								"disabled": true
+							},
+							{
+								"description": "",
+								"key": "login",
+								"value": "{{headers_login}}",
+								"disabled": true
+							},
+							{
+								"description": "",
+								"key": "password",
+								"value": "{{headers_password}}",
+								"disabled": true
+							},
+							{
+								"description": "",
+								"key": "platform",
+								"value": "{{headers_platform}}",
+								"disabled": true
+							},
+							{
+								"key": "login",
+								"value": "{{headers_login}}",
+								"description": "",
+								"disabled": true
+							},
+							{
+								"key": "password",
+								"value": "{{headers_password}}",
+								"description": "",
+								"disabled": true
+							},
+							{
+								"key": "platform",
+								"value": "{{headers_platform}}",
+								"description": "",
+								"disabled": true
+							},
+							{
+								"key": "//login",
+								"value": "{{headers_login}}",
+								"description": "",
+								"disabled": true
+							},
+							{
+								"key": "//password",
+								"value": "{{headers_password}}",
+								"description": "",
+								"disabled": true
+							},
+							{
+								"key": "//platform",
+								"value": "{{headers_platform}}",
+								"description": "",
+								"disabled": true
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "UC30_51 - Err cbId unknown",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"tests[\"Status code is 404\"] = responseCode.code === 404;",
+									"var jsonData = JSON.parse(responseBody);",
+									"tests[\"Check error is 4040\"] = jsonData.code === 4040;",
+									"tests[\"Error description\"] = jsonData.description.has(\"There is no bill with id \");"
+								]
+							}
+						}
+					],
+					"request": {
+						"url": "{{CB_URL}}/customerBill/{{cbIdUnknown}}",
+						"method": "GET",
+						"header": [
+							{
+								"description": "",
+								"key": "login",
+								"value": "{{headers_login}}",
+								"disabled": true
+							},
+							{
+								"description": "",
+								"key": "password",
+								"value": "{{headers_password}}",
+								"disabled": true
+							},
+							{
+								"description": "",
+								"key": "platform",
+								"value": "{{headers_platform}}",
+								"disabled": true
+							},
+							{
+								"description": "",
+								"key": "login",
+								"value": "{{headers_login}}",
+								"disabled": true
+							},
+							{
+								"description": "",
+								"key": "password",
+								"value": "{{headers_password}}",
+								"disabled": true
+							},
+							{
+								"description": "",
+								"key": "platform",
+								"value": "{{headers_platform}}",
+								"disabled": true
+							},
+							{
+								"key": "login",
+								"value": "{{headers_login}}",
+								"description": "",
+								"disabled": true
+							},
+							{
+								"key": "password",
+								"value": "{{headers_password}}",
+								"description": "",
+								"disabled": true
+							},
+							{
+								"key": "platform",
+								"value": "{{headers_platform}}",
+								"description": "",
+								"disabled": true
+							},
+							{
+								"key": "//login",
+								"value": "{{headers_login}}",
+								"description": "",
+								"disabled": true
+							},
+							{
+								"key": "//password",
+								"value": "{{headers_password}}",
+								"description": "",
+								"disabled": true
+							},
+							{
+								"key": "//platform",
+								"value": "{{headers_platform}}",
+								"description": "",
+								"disabled": true
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "UC30_52 - Err cbId invalid format",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"tests[\"Status code is 400\"] = responseCode.code === 400;",
+									"var jsonData = JSON.parse(responseBody);",
+									"tests[\"Check error is 4002\"] = jsonData.code === 4002;",
+									"tests[\"Error description\"] = jsonData.description.has(\"Bad format for parameter customerBill id:\");"
+								]
+							}
+						}
+					],
+					"request": {
+						"url": "{{CB_URL}}/customerBill/{{cbIdInvalid}}",
+						"method": "GET",
+						"header": [
+							{
+								"description": "",
+								"key": "login",
+								"value": "{{headers_login}}",
+								"disabled": true
+							},
+							{
+								"description": "",
+								"key": "password",
+								"value": "{{headers_password}}",
+								"disabled": true
+							},
+							{
+								"description": "",
+								"key": "platform",
+								"value": "{{headers_platform}}",
+								"disabled": true
+							},
+							{
+								"description": "",
+								"key": "login",
+								"value": "{{headers_login}}",
+								"disabled": true
+							},
+							{
+								"description": "",
+								"key": "password",
+								"value": "{{headers_password}}",
+								"disabled": true
+							},
+							{
+								"description": "",
+								"key": "platform",
+								"value": "{{headers_platform}}",
+								"disabled": true
+							},
+							{
+								"key": "login",
+								"value": "{{headers_login}}",
+								"description": "",
+								"disabled": true
+							},
+							{
+								"key": "password",
+								"value": "{{headers_password}}",
+								"description": "",
+								"disabled": true
+							},
+							{
+								"key": "platform",
+								"value": "{{headers_platform}}",
+								"description": "",
+								"disabled": true
+							},
+							{
+								"key": "//login",
+								"value": "{{headers_login}}",
+								"description": "",
+								"disabled": true
+							},
+							{
+								"key": "//password",
+								"value": "{{headers_password}}",
+								"description": "",
+								"disabled": true
+							},
+							{
+								"key": "//platform",
+								"value": "{{headers_platform}}",
+								"description": "",
+								"disabled": true
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"description": ""
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Party",
+			"description": "",
+			"item": [
+				{
+					"name": "UC26_01 - party consult by ID",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"tests[\"Status code is 200\"] = responseCode.code === 200;",
+									"",
+									"var individualData =JSON.parse(environment.individualData);",
+									"",
+									"var jsonData = JSON.parse(responseBody);",
+									"",
+									"tests[\"Validate data\"] = _.isEqual(jsonData,individualData); ",
+									"",
+									"",
+									"var schema=JSON.parse(environment.individualSchema);",
+									"",
+									"var valid_schema = tv4.validateResult(jsonData, schema).valid;",
+									"if (valid_schema){",
+									"tests[\"JSON Response has valid schema\"] = true",
+									"}else",
+									"{",
+									"tests[\"JSON Response has invalid schema in path [\" + tv4.validateResult(jsonData, schema).error.dataPath + \"] Error: \"+ tv4.validateResult(jsonData, schema).error.message] = false;",
+									"}"
+								]
+							}
+						}
+					],
+					"request": {
+						"url": "{{PP_URL}}/individual/{{individualIdValid}}",
+						"method": "GET",
+						"header": [
+							{
+								"description": "",
+								"key": "login",
+								"value": "{{headers_login}}",
+								"disabled": true
+							},
+							{
+								"description": "",
+								"key": "password",
+								"value": "{{headers_password}}",
+								"disabled": true
+							},
+							{
+								"description": "",
+								"key": "platform",
+								"value": "{{headers_platform}}",
+								"disabled": true
+							},
+							{
+								"description": "",
+								"key": "login",
+								"value": "{{headers_login}}",
+								"disabled": true
+							},
+							{
+								"description": "",
+								"key": "password",
+								"value": "{{headers_password}}",
+								"disabled": true
+							},
+							{
+								"description": "",
+								"key": "platform",
+								"value": "{{headers_platform}}",
+								"disabled": true
+							},
+							{
+								"key": "login",
+								"value": "{{headers_login}}",
+								"description": "",
+								"disabled": true
+							},
+							{
+								"key": "password",
+								"value": "{{headers_password}}",
+								"description": "",
+								"disabled": true
+							},
+							{
+								"key": "platform",
+								"value": "{{headers_platform}}",
+								"description": "",
+								"disabled": true
+							},
+							{
+								"key": "//login",
+								"value": "{{headers_login}}",
+								"description": "",
+								"disabled": true
+							},
+							{
+								"key": "//password",
+								"value": "{{headers_password}}",
+								"description": "",
+								"disabled": true
+							},
+							{
+								"key": "//platform",
+								"value": "{{headers_platform}}",
+								"description": "",
+								"disabled": true
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "UC26_02 - party consult by invalid format ID",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"tests[\"Status code is 500\"] = responseCode.code === 404;",
+									"var jsonData = JSON.parse(responseBody);",
+									"",
+									"tests[\"Error code is 4040\"] = jsonData.code === 4040;",
+									"tests[\"Error description\"] = jsonData.description.has(\"Unknown id\");"
+								]
+							}
+						}
+					],
+					"request": {
+						"url": "{{PP_URL}}/individual/{{individualIdInvalidLong}}",
+						"method": "GET",
+						"header": [
+							{
+								"description": "",
+								"key": "login",
+								"value": "{{headers_login}}",
+								"disabled": true
+							},
+							{
+								"description": "",
+								"key": "password",
+								"value": "{{headers_password}}",
+								"disabled": true
+							},
+							{
+								"description": "",
+								"key": "platform",
+								"value": "{{headers_platform}}",
+								"disabled": true
+							},
+							{
+								"description": "",
+								"key": "login",
+								"value": "{{headers_login}}",
+								"disabled": true
+							},
+							{
+								"description": "",
+								"key": "password",
+								"value": "{{headers_password}}",
+								"disabled": true
+							},
+							{
+								"description": "",
+								"key": "platform",
+								"value": "{{headers_platform}}",
+								"disabled": true
+							},
+							{
+								"key": "login",
+								"value": "{{headers_login}}",
+								"description": "",
+								"disabled": true
+							},
+							{
+								"key": "password",
+								"value": "{{headers_password}}",
+								"description": "",
+								"disabled": true
+							},
+							{
+								"key": "platform",
+								"value": "{{headers_platform}}",
+								"description": "",
+								"disabled": true
+							},
+							{
+								"key": "//login",
+								"value": "{{headers_login}}",
+								"description": "",
+								"disabled": true
+							},
+							{
+								"key": "//password",
+								"value": "{{headers_password}}",
+								"description": "",
+								"disabled": true
+							},
+							{
+								"key": "//platform",
+								"value": "{{headers_platform}}",
+								"description": "",
+								"disabled": true
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "UC26_03 - party consult by invalid format alpha ID",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"tests[\"Status code is 500\"] = responseCode.code === 404;",
+									"var jsonData = JSON.parse(responseBody);",
+									"",
+									"tests[\"Error code is 4040\"] = jsonData.code === 4040;",
+									"tests[\"Error description\"] = jsonData.description.has(\"Unknown id\");"
+								]
+							}
+						}
+					],
+					"request": {
+						"url": "{{PP_URL}}/individual/{{individualIdInvalidAlpha}}",
+						"method": "GET",
+						"header": [
+							{
+								"description": "",
+								"key": "login",
+								"value": "{{headers_login}}",
+								"disabled": true
+							},
+							{
+								"description": "",
+								"key": "password",
+								"value": "{{headers_password}}",
+								"disabled": true
+							},
+							{
+								"description": "",
+								"key": "platform",
+								"value": "{{headers_platform}}",
+								"disabled": true
+							},
+							{
+								"description": "",
+								"key": "login",
+								"value": "{{headers_login}}",
+								"disabled": true
+							},
+							{
+								"description": "",
+								"key": "password",
+								"value": "{{headers_password}}",
+								"disabled": true
+							},
+							{
+								"description": "",
+								"key": "platform",
+								"value": "{{headers_platform}}",
+								"disabled": true
+							},
+							{
+								"key": "login",
+								"value": "{{headers_login}}",
+								"description": "",
+								"disabled": true
+							},
+							{
+								"key": "password",
+								"value": "{{headers_password}}",
+								"description": "",
+								"disabled": true
+							},
+							{
+								"key": "platform",
+								"value": "{{headers_platform}}",
+								"description": "",
+								"disabled": true
+							},
+							{
+								"key": "//login",
+								"value": "{{headers_login}}",
+								"description": "",
+								"disabled": true
+							},
+							{
+								"key": "//password",
+								"value": "{{headers_password}}",
+								"description": "",
+								"disabled": true
+							},
+							{
+								"key": "//platform",
+								"value": "{{headers_platform}}",
+								"description": "",
+								"disabled": true
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "UC26_04 - party consult by invalid ID format special letter",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"tests[\"Status code is 500\"] = responseCode.code === 404;",
+									"var jsonData = JSON.parse(responseBody);",
+									"",
+									"tests[\"Error code is 4040\"] = jsonData.code === 4040;",
+									"tests[\"Error description\"] = jsonData.description.has(\"Unknown id\");",
+									""
+								]
+							}
+						}
+					],
+					"request": {
+						"url": "{{PP_URL}}/individual/{{individualIdInvalidSpecial}}",
+						"method": "GET",
+						"header": [
+							{
+								"description": "",
+								"key": "login",
+								"value": "{{headers_login}}",
+								"disabled": true
+							},
+							{
+								"description": "",
+								"key": "password",
+								"value": "{{headers_password}}",
+								"disabled": true
+							},
+							{
+								"description": "",
+								"key": "platform",
+								"value": "{{headers_platform}}",
+								"disabled": true
+							},
+							{
+								"description": "",
+								"key": "login",
+								"value": "{{headers_login}}",
+								"disabled": true
+							},
+							{
+								"description": "",
+								"key": "password",
+								"value": "{{headers_password}}",
+								"disabled": true
+							},
+							{
+								"description": "",
+								"key": "platform",
+								"value": "{{headers_platform}}",
+								"disabled": true
+							},
+							{
+								"key": "login",
+								"value": "{{headers_login}}",
+								"description": "",
+								"disabled": true
+							},
+							{
+								"key": "password",
+								"value": "{{headers_password}}",
+								"description": "",
+								"disabled": true
+							},
+							{
+								"key": "platform",
+								"value": "{{headers_platform}}",
+								"description": "",
+								"disabled": true
+							},
+							{
+								"key": "//login",
+								"value": "{{headers_login}}",
+								"description": "",
+								"disabled": true
+							},
+							{
+								"key": "//password",
+								"value": "{{headers_password}}",
+								"description": "",
+								"disabled": true
+							},
+							{
+								"key": "//platform",
+								"value": "{{headers_platform}}",
+								"description": "",
+								"disabled": true
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "UC26_10 - party consult by givenName",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"tests[\"Status code is 200\"] = responseCode.code === 200;",
+									"",
+									"var jsonData = JSON.parse(responseBody);",
+									"",
+									"tests[\"Validate data\"] = _.isEqual(jsonData,JSON.parse(environment.individualGivenNameData)); ",
+									"",
+									"var schema=JSON.parse(environment.individualSchema);",
+									"",
+									"_.forEach(jsonData, function(dataItem){",
+									"    var valid_schema = tv4.validateResult(dataItem, schema).valid;",
+									"    if (valid_schema){",
+									"    tests[\"JSON Response has valid schema\"] = true",
+									"    }else",
+									"    {",
+									"    tests[\"JSON Response has invalid schema in path [\" + tv4.validateResult(dataItem, schema).error.dataPath + \"] Error: \"+ tv4.validateResult(dataItem, schema).error.message] = false;",
+									"    }",
+									"});"
+								]
+							}
+						}
+					],
+					"request": {
+						"url": {
+							"raw": "{{PP_URL}}/individual?givenName={{individualGivenName}}",
+							"host": [
+								"{{PP_URL}}"
+							],
+							"path": [
+								"individual"
+							],
+							"query": [
+								{
+									"key": "givenName",
+									"value": "{{individualGivenName}}",
+									"equals": true,
+									"description": ""
+								}
+							],
+							"variable": []
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "login",
+								"value": "{{headers_login}}",
+								"description": "",
+								"disabled": true
+							},
+							{
+								"key": "password",
+								"value": "{{headers_password}}",
+								"description": "",
+								"disabled": true
+							},
+							{
+								"key": "platform",
+								"value": "{{headers_platform}}",
+								"description": "",
+								"disabled": true
+							},
+							{
+								"key": "login",
+								"value": "{{headers_login}}",
+								"description": "",
+								"disabled": true
+							},
+							{
+								"key": "password",
+								"value": "{{headers_password}}",
+								"description": "",
+								"disabled": true
+							},
+							{
+								"key": "platform",
+								"value": "{{headers_platform}}",
+								"description": "",
+								"disabled": true
+							},
+							{
+								"key": "login",
+								"value": "{{headers_login}}",
+								"description": "",
+								"disabled": true
+							},
+							{
+								"key": "password",
+								"value": "{{headers_password}}",
+								"description": "",
+								"disabled": true
+							},
+							{
+								"key": "platform",
+								"value": "{{headers_platform}}",
+								"description": "",
+								"disabled": true
+							},
+							{
+								"key": "//login",
+								"value": "{{headers_login}}",
+								"description": "",
+								"disabled": true
+							},
+							{
+								"key": "//password",
+								"value": "{{headers_password}}",
+								"description": "",
+								"disabled": true
+							},
+							{
+								"key": "//platform",
+								"value": "{{headers_platform}}",
+								"description": "",
+								"disabled": true
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "UC26_11 - party consult by familyName",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"tests[\"Status code is 200\"] = responseCode.code === 200;",
+									"",
+									"var jsonData = JSON.parse(responseBody);",
+									"",
+									"tests[\"Validate data\"] = _.isEqual(jsonData,JSON.parse(environment.individualFamilyNameData)); ",
+									"",
+									"var schema=JSON.parse(environment.individualSchema);",
+									"",
+									"_.forEach(jsonData, function(dataItem){",
+									"    var valid_schema = tv4.validateResult(dataItem, schema).valid;",
+									"    if (valid_schema){",
+									"    tests[\"JSON Response has valid schema\"] = true",
+									"    }else",
+									"    {",
+									"    tests[\"JSON Response has invalid schema in path [\" + tv4.validateResult(dataItem, schema).error.dataPath + \"] Error: \"+ tv4.validateResult(dataItem, schema).error.message] = false;",
+									"    }",
+									"});"
+								]
+							}
+						}
+					],
+					"request": {
+						"url": {
+							"raw": "{{PP_URL}}/individual?familyName={{individualFamilyName}}",
+							"host": [
+								"{{PP_URL}}"
+							],
+							"path": [
+								"individual"
+							],
+							"query": [
+								{
+									"key": "familyName",
+									"value": "{{individualFamilyName}}",
+									"equals": true,
+									"description": ""
+								}
+							],
+							"variable": []
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "login",
+								"value": "{{headers_login}}",
+								"description": "",
+								"disabled": true
+							},
+							{
+								"key": "password",
+								"value": "{{headers_password}}",
+								"description": "",
+								"disabled": true
+							},
+							{
+								"key": "platform",
+								"value": "{{headers_platform}}",
+								"description": "",
+								"disabled": true
+							},
+							{
+								"key": "login",
+								"value": "{{headers_login}}",
+								"description": "",
+								"disabled": true
+							},
+							{
+								"key": "password",
+								"value": "{{headers_password}}",
+								"description": "",
+								"disabled": true
+							},
+							{
+								"key": "platform",
+								"value": "{{headers_platform}}",
+								"description": "",
+								"disabled": true
+							},
+							{
+								"key": "login",
+								"value": "{{headers_login}}",
+								"description": "",
+								"disabled": true
+							},
+							{
+								"key": "password",
+								"value": "{{headers_password}}",
+								"description": "",
+								"disabled": true
+							},
+							{
+								"key": "platform",
+								"value": "{{headers_platform}}",
+								"description": "",
+								"disabled": true
+							},
+							{
+								"key": "//login",
+								"value": "{{headers_login}}",
+								"description": "",
+								"disabled": true
+							},
+							{
+								"key": "//password",
+								"value": "{{headers_password}}",
+								"description": "",
+								"disabled": true
+							},
+							{
+								"key": "//platform",
+								"value": "{{headers_platform}}",
+								"description": "",
+								"disabled": true
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "UM27_01 - update party",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"tests['Status code is 200'] = responseCode.code === 200;",
+									"const response = JSON.parse(responseBody);",
+									"const requestData = JSON.parse(request.data);",
+									"",
+									"tests['id'] = requestData.id === response.id;",
+									"// Save current individual for check step",
+									"postman.setGlobalVariable(\"currentIndividual\", JSON.stringify(requestData));",
+									"",
+									"tests['phone number'] = requestData.contactMedium[0].medium.number === _.find(response.contactMedium, { 'type': 'phoneNumber' }).medium.number;",
+									"tests['email address'] = requestData.contactMedium[1].medium.emailAddress === _.find(response.contactMedium, { 'type': 'emailAddress' }).medium.emailAddress;",
+									"tests['postal address'] = requestData.contactMedium[2].medium.streetOne === _.find(response.contactMedium, { 'type': 'postalAddress' }).medium.streetOne;",
+									"",
+									"tests['registration Status'] = requestData.characteristic[0].value === _.find(response.characteristic, { 'name': 'registrationStatus' }).value;",
+									"",
+									""
+								]
+							}
+						}
+					],
+					"request": {
+						"url": "{{PP_URL}}/individual/{{individualUpdatableId}}",
+						"method": "PUT",
+						"header": [
+							{
+								"description": "",
+								"key": "login",
+								"value": "{{headers_login}}",
+								"disabled": true
+							},
+							{
+								"description": "",
+								"key": "password",
+								"value": "{{headers_password}}",
+								"disabled": true
+							},
+							{
+								"description": "",
+								"key": "platform",
+								"value": "{{headers_platform}}",
+								"disabled": true
+							},
+							{
+								"description": "",
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"description": "",
+								"key": "login",
+								"value": "{{headers_login}}",
+								"disabled": true
+							},
+							{
+								"description": "",
+								"key": "password",
+								"value": "{{headers_password}}",
+								"disabled": true
+							},
+							{
+								"description": "",
+								"key": "platform",
+								"value": "{{headers_platform}}",
+								"disabled": true
+							},
+							{
+								"key": "login",
+								"value": "{{headers_login}}",
+								"description": "",
+								"disabled": true
+							},
+							{
+								"key": "password",
+								"value": "{{headers_password}}",
+								"description": "",
+								"disabled": true
+							},
+							{
+								"key": "platform",
+								"value": "{{headers_platform}}",
+								"description": "",
+								"disabled": true
+							},
+							{
+								"key": "//login",
+								"value": "{{headers_login}}",
+								"description": "",
+								"disabled": true
+							},
+							{
+								"key": "//password",
+								"value": "{{headers_password}}",
+								"description": "",
+								"disabled": true
+							},
+							{
+								"key": "//platform",
+								"value": "{{headers_platform}}",
+								"description": "",
+								"disabled": true
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "\r\n{\r\n  \"id\": \"{{individualUpdatableId}}\",\r\n  \"gender\": \"male\",\r\n  \"placeOfBirth\": \"Belgique\",\r\n  \"nationality\": \"CM\",\r\n  \"maritalStatus\": \"single\",\r\n  \"birthDate\": \"1980-12-25\",\r\n  \"title\": \"1\",\r\n  \"givenName\": \"Jack\",\r\n  \"familyName\": \"Apple\",\r\n  \"characteristic\": [\r\n    {\r\n      \"name\": \"registrationStatus\",\r\n      \"value\": \"{{$guid}}\"\r\n    }\r\n  ],  \r\n  \"contactMedium\": [\r\n    {\r\n      \"type\": \"phoneNumber\",\r\n      \"medium\": {\r\n        \"number\": \"{{$randomInt}}\"\r\n      }\r\n    },\r\n    {\r\n      \"type\": \"emailAddress\",\r\n      \"medium\": {\r\n        \"emailAddress\": \"{{$guid}}@demo.pony\"\r\n      }\r\n    },\r\n    {\r\n      \"type\": \"postalAddress\",\r\n      \"medium\": {\r\n        \"city\": \"Ponyland\",\r\n        \"country\": \"FR\",\r\n        \"postcode\": \"10001\",\r\n        \"stateOrProvince\": \"Raaaa\",\r\n        \"streetOne\": \"{{$guid}}\",\r\n        \"number\": \"42\"\r\n      }\r\n    }\r\n  ],\r\n\t\"individualIdentification\":\t[\r\n\t\t{\r\n\t\t\t\"type\": \"1\",\r\n\t\t\t\"identificationId\": \"apple\"\r\n\t\t}\r\n\t\t]\r\n}"
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "UM27_01 check",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"tests[\"Status code is 200\"] = responseCode.code === 200;",
+									"const response = JSON.parse(responseBody);",
+									"",
+									"var individualUpdatableId=environment.individualUpdatableId;",
+									"",
+									"//console.log(\"individualUpdatableId=\"+individualUpdatableId);",
+									"tests[\" id \"] = individualUpdatableId === response.id;",
+									"",
+									"tests['CurentIndividual Exist'] = globals.currentIndividual !== void 0;",
+									"if(globals.currentIndividual){",
+									"    tests['Status code is 200'] = responseCode.code === 200;",
+									"    const individual = JSON.parse(globals.currentIndividual);",
+									"    ",
+									"    tests['id is equals to request'] = individual.id === response.id;",
+									"    // Save current individual for check step",
+									"",
+									"    var responseMedium = _.find(response.contactMedium, { 'type': 'phoneNumber' });",
+									"    var individualMedium = _.find(individual.contactMedium, { 'type': 'phoneNumber' });",
+									"    tests['phone number'] = responseMedium && individualMedium ? responseMedium.medium.number === individualMedium.medium.number : false;",
+									"    ",
+									"    responseMedium = _.find(response.contactMedium, { 'type': 'emailAddress' });",
+									"    individualMedium = _.find(individual.contactMedium, { 'type': 'emailAddress' });",
+									"    tests['email Address'] = responseMedium && individualMedium ? responseMedium.medium.emailAddress === individualMedium.medium.emailAddress : false;",
+									"    ",
+									"    responseMedium = _.find(response.contactMedium, { 'type': 'postalAddress' });",
+									"    individualMedium = _.find(individual.contactMedium, { 'type': 'postalAddress' });",
+									"    tests['postal Address'] = responseMedium && individualMedium ? responseMedium.medium.streetOne === individualMedium.medium.streetOne : false;",
+									"",
+									"    var responseCharacteristic = _.find(response.characteristic, { 'name': 'registrationStatus' });",
+									"    var individualCharacteristic = _.find(individual.characteristic, { 'name': 'registrationStatus' });",
+									"    tests['registration Status'] = responseCharacteristic && individualCharacteristic ? responseCharacteristic.value === individualCharacteristic.value : false;",
+									"}",
+									"",
+									"postman.clearGlobalVariables();",
+									"",
+									""
+								]
+							}
+						}
+					],
+					"request": {
+						"url": "{{PP_URL}}/individual/{{individualUpdatableId}}",
+						"method": "GET",
+						"header": [
+							{
+								"description": "",
+								"key": "login",
+								"value": "{{headers_login}}",
+								"disabled": true
+							},
+							{
+								"description": "",
+								"key": "password",
+								"value": "{{headers_password}}",
+								"disabled": true
+							},
+							{
+								"description": "",
+								"key": "platform",
+								"value": "{{headers_platform}}",
+								"disabled": true
+							},
+							{
+								"description": "",
+								"key": "Content-Type",
+								"value": "application/json",
+								"disabled": true
+							},
+							{
+								"description": "",
+								"key": "login",
+								"value": "{{headers_login}}",
+								"disabled": true
+							},
+							{
+								"description": "",
+								"key": "password",
+								"value": "{{headers_password}}",
+								"disabled": true
+							},
+							{
+								"description": "",
+								"key": "platform",
+								"value": "{{headers_platform}}",
+								"disabled": true
+							},
+							{
+								"description": "",
+								"key": "Content-Type",
+								"value": "application/json",
+								"disabled": true
+							},
+							{
+								"key": "login",
+								"value": "{{headers_login}}",
+								"description": "",
+								"disabled": true
+							},
+							{
+								"key": "password",
+								"value": "{{headers_password}}",
+								"description": "",
+								"disabled": true
+							},
+							{
+								"key": "platform",
+								"value": "{{headers_platform}}",
+								"description": "",
+								"disabled": true
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": "",
+								"disabled": true
+							},
+							{
+								"key": "//login",
+								"value": "{{headers_login}}",
+								"description": "",
+								"disabled": true
+							},
+							{
+								"key": "//password",
+								"value": "{{headers_password}}",
+								"description": "",
+								"disabled": true
+							},
+							{
+								"key": "//platform",
+								"value": "{{headers_platform}}",
+								"description": "",
+								"disabled": true
+							},
+							{
+								"key": "//Content-Type",
+								"value": "application/json",
+								"description": "",
+								"disabled": true
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "\r\n{\r\n  \"id\": \"{{individualUpdatableId}}\",\r\n  \"placeOfBirth\": \"Belgique\",\r\n  \"nationality\": \"CM\",\r\n  \"maritalStatus\": \"single\",\r\n  \"birthDate\": \"1969-12-25\",\r\n  \"title\": \"1\",\r\n  \"givenName\": \"Guillaume\",\r\n  \"familyName\": \"Bonnafy\",\r\n  \"contactMedium\": [\r\n    {\r\n      \"type\": \"phoneNumber\",\r\n      \"medium\": {\r\n        \"number\": \"{{$randomInt}}@demo.pony\"\r\n      }\r\n    },\r\n    {\r\n      \"type\": \"emailAddress\",\r\n      \"medium\": {\r\n        \"emailAddress\": \"{{$guid}}@demo.pony\"\r\n      }\r\n    },\r\n    {\r\n      \"type\": \"postalAddress\",\r\n      \"medium\": {\r\n        \"city\": \"Pessac\",\r\n        \"country\": \"FR\",\r\n        \"postcode\": \"33600\",\r\n        \"stateOrProvince\": \"Gironde\",\r\n        \"streetOne\": \"{{$guid}}\",\r\n        \"number\": \"1\"\r\n      }\r\n    }\r\n  ]\r\n}"
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "UM27_01 rollback",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"tests['Status code is 200'] = responseCode.code === 200;",
+									""
+								]
+							}
+						}
+					],
+					"request": {
+						"url": "{{PP_URL}}/individual/{{individualUpdatableId}}",
+						"method": "PUT",
+						"header": [
+							{
+								"description": "",
+								"key": "login",
+								"value": "{{headers_login}}",
+								"disabled": true
+							},
+							{
+								"description": "",
+								"key": "password",
+								"value": "{{headers_password}}",
+								"disabled": true
+							},
+							{
+								"description": "",
+								"key": "platform",
+								"value": "{{headers_platform}}",
+								"disabled": true
+							},
+							{
+								"description": "",
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"description": "",
+								"key": "login",
+								"value": "{{headers_login}}",
+								"disabled": true
+							},
+							{
+								"description": "",
+								"key": "password",
+								"value": "{{headers_password}}",
+								"disabled": true
+							},
+							{
+								"description": "",
+								"key": "platform",
+								"value": "{{headers_platform}}",
+								"disabled": true
+							},
+							{
+								"key": "login",
+								"value": "{{headers_login}}",
+								"description": "",
+								"disabled": true
+							},
+							{
+								"key": "password",
+								"value": "{{headers_password}}",
+								"description": "",
+								"disabled": true
+							},
+							{
+								"key": "platform",
+								"value": "{{headers_platform}}",
+								"description": "",
+								"disabled": true
+							},
+							{
+								"key": "//login",
+								"value": "{{headers_login}}",
+								"description": "",
+								"disabled": true
+							},
+							{
+								"key": "//password",
+								"value": "{{headers_password}}",
+								"description": "",
+								"disabled": true
+							},
+							{
+								"key": "//platform",
+								"value": "{{headers_platform}}",
+								"description": "",
+								"disabled": true
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "\r\n{\r\n  \"id\": \"{{individualUpdatableId}}\",\r\n  \"gender\": \"female\",\r\n  \"placeOfBirth\": \"Belgique\",\r\n  \"nationality\": \"CM\",\r\n  \"maritalStatus\": \"single\",\r\n  \"birthDate\": \"1969-12-25\",\r\n  \"title\": \"2\",\r\n  \"givenName\": \"Guillaume\",\r\n  \"familyName\": \"Bonnafy\",\r\n  \"contactMedium\": [\r\n    {\r\n      \"type\": \"phoneNumber\",\r\n      \"medium\": {\r\n        \"number\": \"0123456789\"\r\n      }\r\n    },\r\n    {\r\n      \"type\": \"emailAddress\",\r\n      \"medium\": {\r\n        \"emailAddress\": \"valid@demo.pony\"\r\n      }\r\n    },\r\n    {\r\n      \"type\": \"postalAddress\",\r\n      \"medium\": {\r\n        \"city\": \"Pessac\",\r\n        \"country\": \"FR\",\r\n        \"postcode\": \"33600\",\r\n        \"stateOrProvince\": \"Gironde\",\r\n        \"streetOne\": \"pony street\",\r\n        \"number\": \"1\"\r\n      }\r\n    }\r\n  ]\r\n}"
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "UM27_02 -test update birthdate on summer time",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"tests[\"Status code is 200\"] = responseCode.code === 200;",
+									"const response = JSON.parse(responseBody);",
+									"const requestData = JSON.parse(request.data);",
+									"",
+									"",
+									"tests['birthDate ok'] = _.isEqual(requestData.birthDate,response.birthDate);",
+									""
+								]
+							}
+						}
+					],
+					"request": {
+						"url": "{{PP_URL}}/individual/{{individualUpdatableId}}",
+						"method": "PUT",
+						"header": [
+							{
+								"description": "",
+								"key": "login",
+								"value": "{{headers_login}}",
+								"disabled": true
+							},
+							{
+								"description": "",
+								"key": "password",
+								"value": "{{headers_password}}",
+								"disabled": true
+							},
+							{
+								"description": "",
+								"key": "platform",
+								"value": "{{headers_platform}}",
+								"disabled": true
+							},
+							{
+								"description": "",
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"description": "",
+								"key": "login",
+								"value": "{{headers_login}}",
+								"disabled": true
+							},
+							{
+								"description": "",
+								"key": "password",
+								"value": "{{headers_password}}",
+								"disabled": true
+							},
+							{
+								"description": "",
+								"key": "platform",
+								"value": "{{headers_platform}}",
+								"disabled": true
+							},
+							{
+								"key": "login",
+								"value": "{{headers_login}}",
+								"description": "",
+								"disabled": true
+							},
+							{
+								"key": "password",
+								"value": "{{headers_password}}",
+								"description": "",
+								"disabled": true
+							},
+							{
+								"key": "platform",
+								"value": "{{headers_platform}}",
+								"description": "",
+								"disabled": true
+							},
+							{
+								"key": "//login",
+								"value": "{{headers_login}}",
+								"description": "",
+								"disabled": true
+							},
+							{
+								"key": "//password",
+								"value": "{{headers_password}}",
+								"description": "",
+								"disabled": true
+							},
+							{
+								"key": "//platform",
+								"value": "{{headers_platform}}",
+								"description": "",
+								"disabled": true
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "\r\n{\r\n  \"id\": \"{{individualUpdatableId}}\",\r\n  \"gender\": \"male\",\r\n  \"placeOfBirth\": \"Belgique\",\r\n  \"nationality\": \"CM\",\r\n  \"maritalStatus\": \"single\",\t\r\n  \"birthDate\": \"1969-05-25\",\r\n  \"title\": \"1\",\r\n  \"givenName\": \"Guillaume\",\r\n  \"familyName\": \"Bonnafy\",\r\n  \"contactMedium\": [\r\n    {\r\n      \"type\": \"phoneNumber\",\r\n      \"medium\": {\r\n        \"number\": \"{{$randomInt}}@demo.pony\"\r\n      }\r\n    },\r\n    {\r\n      \"type\": \"emailAddress\",\r\n      \"medium\": {\r\n        \"emailAddress\": \"{{$guid}}@demo.pony\"\r\n      }\r\n    },\r\n    {\r\n      \"type\": \"postalAddress\",\r\n      \"medium\": {\r\n        \"city\": \"Pessac\",\r\n        \"country\": \"FR\",\r\n        \"postcode\": \"33600\",\r\n        \"stateOrProvince\": \"Gironde\",\r\n        \"streetOne\": \"{{$guid}}\",\r\n        \"number\": \"1\"\r\n      }\r\n    }\r\n  ]\r\n}"
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "UM27_03 - Err update party with gender inconsistant with title",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"tests[\"Status code is 400\"] = responseCode.code === 400;",
+									"var jsonData = JSON.parse(responseBody);",
+									"tests[\"Check error is 4003\"] = jsonData.code === 4003;",
+									"tests[\"Error description\"] = jsonData.description.has(\"Bad value for parameter title:\");"
+								]
+							}
+						}
+					],
+					"request": {
+						"url": "{{PP_URL}}/individual/{{individualUpdatableId}}",
+						"method": "PUT",
+						"header": [
+							{
+								"description": "",
+								"key": "login",
+								"value": "{{headers_login}}"
+							},
+							{
+								"description": "",
+								"key": "password",
+								"value": "{{headers_password}}"
+							},
+							{
+								"description": "",
+								"key": "platform",
+								"value": "{{headers_platform}}"
+							},
+							{
+								"description": "",
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "\r\n{\r\n  \"id\": \"{{individualUpdatableId}}\",\r\n  \"gender\": \"{{ppIncoherentTitleGenderGender}}\",\r\n  \"title\": \"{{ppIncoherentTitleGenderTitle}}\",\r\n  \"placeOfBirth\": \"Belgique\",\r\n  \"nationality\": \"CM\",\r\n  \"maritalStatus\": \"single\",\r\n  \"birthDate\": \"1969-12-25\",\r\n  \"givenName\": \"Guillaume\",\r\n  \"familyName\": \"Bonnafy\",\r\n  \"contactMedium\": [\r\n    {\r\n      \"type\": \"phoneNumber\",\r\n      \"medium\": {\r\n        \"number\": \"{{$randomInt}}@demo.pony\"\r\n      }\r\n    },\r\n    {\r\n      \"type\": \"emailAddress\",\r\n      \"medium\": {\r\n        \"emailAddress\": \"{{$guid}}@demo.pony\"\r\n      }\r\n    },\r\n    {\r\n      \"type\": \"postalAddress\",\r\n      \"medium\": {\r\n        \"city\": \"Pessac\",\r\n        \"country\": \"FR\",\r\n        \"postcode\": \"33600\",\r\n        \"stateOrProvince\": \"Gironde\",\r\n        \"streetOne\": \"{{$guid}}\",\r\n        \"number\": \"1\"\r\n      }\r\n    }\r\n  ]\r\n}"
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "UM27_04 - modify ID party",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"tests[\"Status code is 200\"] = responseCode.code === 200;",
+									"",
+									"const jsonData = JSON.parse(responseBody);",
+									"",
+									"",
+									"tests[\"Id won't changed\"] = jsonData.id === environment.individualUpdatableId;"
+								]
+							}
+						}
+					],
+					"request": {
+						"url": "{{PP_URL}}/individual/{{individualUpdatableId}}",
+						"method": "PUT",
+						"header": [
+							{
+								"description": "",
+								"key": "login",
+								"value": "{{headers_login}}"
+							},
+							{
+								"description": "",
+								"key": "password",
+								"value": "{{headers_password}}"
+							},
+							{
+								"description": "",
+								"key": "platform",
+								"value": "{{headers_platform}}"
+							},
+							{
+								"description": "",
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "\r\n{\r\n  \"id\": \"hahaha\",\r\n  \"gender\": \"male\",\r\n  \"title\": \"1\",\r\n  \"placeOfBirth\": \"Belgique\",\r\n  \"nationality\": \"CM\",\r\n  \"maritalStatus\": \"single\",\r\n  \"birthDate\": \"1969-12-25\",\r\n  \"givenName\": \"Guillaume\",\r\n  \"familyName\": \"Bonnafy\",\r\n  \"contactMedium\": [\r\n    {\r\n      \"type\": \"phoneNumber\",\r\n      \"medium\": {\r\n        \"number\": \"{{$randomInt}}@demo.pony\"\r\n      }\r\n    },\r\n    {\r\n      \"type\": \"emailAddress\",\r\n      \"medium\": {\r\n        \"emailAddress\": \"{{$guid}}@demo.pony\"\r\n      }\r\n    },\r\n    {\r\n      \"type\": \"postalAddress\",\r\n      \"medium\": {\r\n        \"city\": \"Pessac\",\r\n        \"country\": \"FR\",\r\n        \"postcode\": \"33600\",\r\n        \"stateOrProvince\": \"Gironde\",\r\n        \"streetOne\": \"{{$guid}}\",\r\n        \"number\": \"1\"\r\n      }\r\n    }\r\n  ]\r\n}"
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "UM27_05 - update party with invalid ID",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"tests[\"Status code is 404\"] = responseCode.code === 404;",
+									"var jsonData = JSON.parse(responseBody);",
+									"tests[\"Check error is 4040\"] = jsonData.code === 4040;",
+									"tests[\"Error description\"] = jsonData.description.has(\"Unknown id\");"
+								]
+							}
+						}
+					],
+					"request": {
+						"url": "{{PP_URL}}/individual/{{individualIdInvalidLong}}",
+						"method": "PUT",
+						"header": [
+							{
+								"description": "",
+								"key": "login",
+								"value": "{{headers_login}}"
+							},
+							{
+								"description": "",
+								"key": "password",
+								"value": "{{headers_password}}"
+							},
+							{
+								"description": "",
+								"key": "platform",
+								"value": "{{headers_platform}}"
+							},
+							{
+								"description": "",
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "\r\n{\r\n  \"id\": \"{{UC27.individualIdInvalid}}\",\r\n  \"placeOfBirth\": \"Belgique\",\r\n  \"nationality\": \"CM\",\r\n  \"maritalStatus\": \"single\",\r\n  \"birthDate\": \"1969-12-25\",\r\n  \"title\": \"1\",\r\n  \"givenName\": \"Guillaume\",\r\n  \"familyName\": \"Bonnafy\",\r\n  \"contactMedium\": [\r\n    {\r\n      \"type\": \"phoneNumber\",\r\n      \"medium\": {\r\n        \"number\": \"{{$randomInt}}@demo.pony\"\r\n      }\r\n    },\r\n    {\r\n      \"type\": \"emailAddress\",\r\n      \"medium\": {\r\n        \"emailAddress\": \"{{$guid}}@demo.pony\"\r\n      }\r\n    },\r\n    {\r\n      \"type\": \"postalAddress\",\r\n      \"medium\": {\r\n        \"city\": \"Pessac\",\r\n        \"country\": \"FR\",\r\n        \"postcode\": \"33600\",\r\n        \"stateOrProvince\": \"Gironde\",\r\n        \"streetOne\": \"{{$guid}}\",\r\n        \"number\": \"1\"\r\n      }\r\n    }\r\n  ]\r\n}"
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "UM27_06 - update party with invalid alpha ID",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"tests[\"Status code is 404\"] = responseCode.code === 404;",
+									"var jsonData = JSON.parse(responseBody);",
+									"tests[\"Check error is 4040\"] = jsonData.code === 4040;",
+									"tests[\"Error description\"] = jsonData.description.has(\"Unknown id\");"
+								]
+							}
+						}
+					],
+					"request": {
+						"url": "{{PP_URL}}/individual/{{individualIdInvalidAlpha}}",
+						"method": "PUT",
+						"header": [
+							{
+								"description": "",
+								"key": "login",
+								"value": "{{headers_login}}"
+							},
+							{
+								"description": "",
+								"key": "password",
+								"value": "{{headers_password}}"
+							},
+							{
+								"description": "",
+								"key": "platform",
+								"value": "{{headers_platform}}"
+							},
+							{
+								"description": "",
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "\r\n{\r\n  \"id\": \"{{UC27.individualIdInvalid}}\",\r\n  \"placeOfBirth\": \"Belgique\",\r\n  \"nationality\": \"CM\",\r\n  \"maritalStatus\": \"single\",\r\n  \"birthDate\": \"1969-12-25\",\r\n  \"title\": \"1\",\r\n  \"givenName\": \"Guillaume\",\r\n  \"familyName\": \"Bonnafy\",\r\n  \"contactMedium\": [\r\n    {\r\n      \"type\": \"phoneNumber\",\r\n      \"medium\": {\r\n        \"number\": \"{{$randomInt}}@demo.pony\"\r\n      }\r\n    },\r\n    {\r\n      \"type\": \"emailAddress\",\r\n      \"medium\": {\r\n        \"emailAddress\": \"{{$guid}}@demo.pony\"\r\n      }\r\n    },\r\n    {\r\n      \"type\": \"postalAddress\",\r\n      \"medium\": {\r\n        \"city\": \"Pessac\",\r\n        \"country\": \"FR\",\r\n        \"postcode\": \"33600\",\r\n        \"stateOrProvince\": \"Gironde\",\r\n        \"streetOne\": \"{{$guid}}\",\r\n        \"number\": \"1\"\r\n      }\r\n    }\r\n  ]\r\n}"
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "UM27_07 - update party with invalid special letter ID",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"tests[\"Status code is 404\"] = responseCode.code === 404;",
+									"var jsonData = JSON.parse(responseBody);",
+									"tests[\"Check error is 4040\"] = jsonData.code === 4040;",
+									"tests[\"Error description\"] = jsonData.description.has(\"Unknown id\");"
+								]
+							}
+						}
+					],
+					"request": {
+						"url": "{{PP_URL}}/individual/{{individualIdInvalidSpecial}}",
+						"method": "PUT",
+						"header": [
+							{
+								"description": "",
+								"key": "login",
+								"value": "{{headers_login}}"
+							},
+							{
+								"description": "",
+								"key": "password",
+								"value": "{{headers_password}}"
+							},
+							{
+								"description": "",
+								"key": "platform",
+								"value": "{{headers_platform}}"
+							},
+							{
+								"description": "",
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "\r\n{\r\n  \"id\": \"{{UC27.individualIdInvalid}}\",\r\n  \"placeOfBirth\": \"Belgique\",\r\n  \"nationality\": \"CM\",\r\n  \"maritalStatus\": \"single\",\r\n  \"birthDate\": \"1969-12-25\",\r\n  \"title\": \"1\",\r\n  \"givenName\": \"Guillaume\",\r\n  \"familyName\": \"Bonnafy\",\r\n  \"contactMedium\": [\r\n    {\r\n      \"type\": \"phoneNumber\",\r\n      \"medium\": {\r\n        \"number\": \"{{$randomInt}}@demo.pony\"\r\n      }\r\n    },\r\n    {\r\n      \"type\": \"emailAddress\",\r\n      \"medium\": {\r\n        \"emailAddress\": \"{{$guid}}@demo.pony\"\r\n      }\r\n    },\r\n    {\r\n      \"type\": \"postalAddress\",\r\n      \"medium\": {\r\n        \"city\": \"Pessac\",\r\n        \"country\": \"FR\",\r\n        \"postcode\": \"33600\",\r\n        \"stateOrProvince\": \"Gironde\",\r\n        \"streetOne\": \"{{$guid}}\",\r\n        \"number\": \"1\"\r\n      }\r\n    }\r\n  ]\r\n}"
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "UM27_08 Err test update postcode inconsistent",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"tests[\"Status code is 400\"] = responseCode.code === 400;",
+									"var jsonData = JSON.parse(responseBody);",
+									"tests[\"Check error is 4003\"] = jsonData.code === 4003;",
+									"tests[\"Error description\"] = jsonData.description.has(\"Bad value for parameter contactMedium.medium.postcode: \");",
+									""
+								]
+							}
+						}
+					],
+					"request": {
+						"url": "{{PP_URL}}/individual/{{individualUpdatableId}}",
+						"method": "PUT",
+						"header": [
+							{
+								"description": "",
+								"key": "login",
+								"value": "{{headers_login}}",
+								"disabled": true
+							},
+							{
+								"description": "",
+								"key": "password",
+								"value": "{{headers_password}}",
+								"disabled": true
+							},
+							{
+								"description": "",
+								"key": "platform",
+								"value": "{{headers_platform}}",
+								"disabled": true
+							},
+							{
+								"description": "",
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"description": "",
+								"key": "login",
+								"value": "{{headers_login}}",
+								"disabled": true
+							},
+							{
+								"description": "",
+								"key": "password",
+								"value": "{{headers_password}}",
+								"disabled": true
+							},
+							{
+								"description": "",
+								"key": "platform",
+								"value": "{{headers_platform}}",
+								"disabled": true
+							},
+							{
+								"key": "login",
+								"value": "{{headers_login}}",
+								"description": "",
+								"disabled": true
+							},
+							{
+								"key": "password",
+								"value": "{{headers_password}}",
+								"description": "",
+								"disabled": true
+							},
+							{
+								"key": "platform",
+								"value": "{{headers_platform}}",
+								"description": "",
+								"disabled": true
+							},
+							{
+								"key": "//login",
+								"value": "{{headers_login}}",
+								"description": "",
+								"disabled": true
+							},
+							{
+								"key": "//password",
+								"value": "{{headers_password}}",
+								"description": "",
+								"disabled": true
+							},
+							{
+								"key": "//platform",
+								"value": "{{headers_platform}}",
+								"description": "",
+								"disabled": true
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "\r\n{\r\n  \"id\": \"{{individualUpdatableId}}\",\r\n  \"gender\": \"female\",\r\n  \"placeOfBirth\": \"Belgique\",\r\n  \"nationality\": \"CM\",\r\n  \"maritalStatus\": \"single\",\r\n  \"birthDate\": \"1969-12-25\",\r\n  \"title\": \"2\",\r\n  \"givenName\": \"Guillaume\",\r\n  \"familyName\": \"Bonnafy\",\r\n  \"contactMedium\": [\r\n    {\r\n      \"type\": \"phoneNumber\",\r\n      \"medium\": {\r\n        \"number\": \"0123456789\"\r\n      }\r\n    },\r\n    {\r\n      \"type\": \"emailAddress\",\r\n      \"medium\": {\r\n        \"emailAddress\": \"valid@demo.pony\"\r\n      }\r\n    },\r\n    {\r\n      \"type\": \"postalAddress\",\r\n      \"medium\": {\r\n        \"city\": \"Pessac\",\r\n        \"country\": \"BW\",\r\n        \"postcode\": \"33600\",\r\n        \"stateOrProvince\": \"Gironde\",\r\n        \"streetOne\": \"pony street\",\r\n        \"number\": \"1\"\r\n      }\r\n    }\r\n  ]\r\n}"
+						},
+						"description": ""
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Product Catalog",
+			"description": "",
+			"item": [
+				{
+					"name": "UC03_01 - Consult  eligible option by MSISDN",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"tests[\"Status code is 200\"] = responseCode.code === 200;",
+									"",
+									"var jsonData = JSON.parse(responseBody);",
+									"tests[\"Validate data\"] = _.isEqual(jsonData, JSON.parse(environment.pcResult));"
+								]
+							}
+						}
+					],
+					"request": {
+						"url": {
+							"raw": "{{PC_URL}}/productOffering?publicKey={{pcMsisdn}}&operationType=compatibilityWith",
+							"host": [
+								"{{PC_URL}}"
+							],
+							"path": [
+								"productOffering"
+							],
+							"query": [
+								{
+									"key": "publicKey",
+									"value": "{{pcMsisdn}}"
+								},
+								{
+									"key": "operationType",
+									"value": "compatibilityWith"
+								}
+							],
+							"variable": []
+						},
+						"method": "GET",
+						"header": [
+							{
+								"description": "",
+								"key": "login",
+								"value": "{{headers_login}}",
+								"disabled": true
+							},
+							{
+								"description": "",
+								"key": "password",
+								"value": "{{headers_password}}",
+								"disabled": true
+							},
+							{
+								"description": "",
+								"key": "platform",
+								"value": "{{headers_platform}}",
+								"disabled": true
+							},
+							{
+								"description": "",
+								"key": "login",
+								"value": "{{headers_login}}",
+								"disabled": true
+							},
+							{
+								"description": "",
+								"key": "password",
+								"value": "{{headers_password}}",
+								"disabled": true
+							},
+							{
+								"description": "",
+								"key": "platform",
+								"value": "{{headers_platform}}",
+								"disabled": true
+							},
+							{
+								"key": "login",
+								"value": "{{headers_login}}",
+								"description": "",
+								"disabled": true
+							},
+							{
+								"key": "password",
+								"value": "{{headers_password}}",
+								"description": "",
+								"disabled": true
+							},
+							{
+								"key": "platform",
+								"value": "{{headers_platform}}",
+								"description": "",
+								"disabled": true
+							},
+							{
+								"key": "//login",
+								"value": "{{headers_login}}",
+								"description": "",
+								"disabled": true
+							},
+							{
+								"key": "//password",
+								"value": "{{headers_password}}",
+								"description": "",
+								"disabled": true
+							},
+							{
+								"key": "//platform",
+								"value": "{{headers_platform}}",
+								"description": "",
+								"disabled": true
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "UC03_02 - Err MSISDN not attributed",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"tests[\"Status code is 200\"] = responseCode.code === 200;",
+									"",
+									"var jsonData = JSON.parse(responseBody);",
+									"",
+									"tests[\"Result is empty\"] = _.isEmpty(jsonData);",
+									""
+								]
+							}
+						}
+					],
+					"request": {
+						"url": {
+							"raw": "{{PC_URL}}/productOffering?publicKey={{pcMsisdnUnused}}&operationType=compatibilityWith",
+							"host": [
+								"{{PC_URL}}"
+							],
+							"path": [
+								"productOffering"
+							],
+							"query": [
+								{
+									"description": "",
+									"equals": true,
+									"key": "publicKey",
+									"value": "{{pcMsisdnUnused}}"
+								},
+								{
+									"description": "",
+									"equals": true,
+									"key": "operationType",
+									"value": "compatibilityWith"
+								}
+							],
+							"variable": []
+						},
+						"method": "GET",
+						"header": [
+							{
+								"description": "",
+								"key": "login",
+								"value": "{{headers_login}}",
+								"disabled": true
+							},
+							{
+								"description": "",
+								"key": "password",
+								"value": "{{headers_password}}",
+								"disabled": true
+							},
+							{
+								"description": "",
+								"key": "platform",
+								"value": "{{headers_platform}}",
+								"disabled": true
+							},
+							{
+								"description": "",
+								"key": "login",
+								"value": "{{headers_login}}",
+								"disabled": true
+							},
+							{
+								"description": "",
+								"key": "password",
+								"value": "{{headers_password}}",
+								"disabled": true
+							},
+							{
+								"description": "",
+								"key": "platform",
+								"value": "{{headers_platform}}",
+								"disabled": true
+							},
+							{
+								"key": "login",
+								"value": "{{headers_login}}",
+								"description": "",
+								"disabled": true
+							},
+							{
+								"key": "password",
+								"value": "{{headers_password}}",
+								"description": "",
+								"disabled": true
+							},
+							{
+								"key": "platform",
+								"value": "{{headers_platform}}",
+								"description": "",
+								"disabled": true
+							},
+							{
+								"key": "//login",
+								"value": "{{headers_login}}",
+								"description": "",
+								"disabled": true
+							},
+							{
+								"key": "//password",
+								"value": "{{headers_password}}",
+								"description": "",
+								"disabled": true
+							},
+							{
+								"key": "//platform",
+								"value": "{{headers_platform}}",
+								"description": "",
+								"disabled": true
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "UC03_03 - Err MSISDN invalid format",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"tests[\"Status code is 200\"] = responseCode.code === 200;",
+									"",
+									"var jsonData = JSON.parse(responseBody);",
+									"",
+									"tests[\"Result is empty\"] = _.isEmpty(jsonData);"
+								]
+							}
+						}
+					],
+					"request": {
+						"url": {
+							"raw": "{{PC_URL}}/productOffering?publicKey={{pcMsisdnInvalid}}&operationType=compatibilityWith",
+							"host": [
+								"{{PC_URL}}"
+							],
+							"path": [
+								"productOffering"
+							],
+							"query": [
+								{
+									"description": "",
+									"equals": true,
+									"key": "publicKey",
+									"value": "{{pcMsisdnInvalid}}"
+								},
+								{
+									"description": "",
+									"equals": true,
+									"key": "operationType",
+									"value": "compatibilityWith"
+								}
+							],
+							"variable": []
+						},
+						"method": "GET",
+						"header": [
+							{
+								"description": "",
+								"key": "login",
+								"value": "{{headers_login}}",
+								"disabled": true
+							},
+							{
+								"description": "",
+								"key": "password",
+								"value": "{{headers_password}}",
+								"disabled": true
+							},
+							{
+								"description": "",
+								"key": "platform",
+								"value": "{{headers_platform}}",
+								"disabled": true
+							},
+							{
+								"description": "",
+								"key": "login",
+								"value": "{{headers_login}}",
+								"disabled": true
+							},
+							{
+								"description": "",
+								"key": "password",
+								"value": "{{headers_password}}",
+								"disabled": true
+							},
+							{
+								"description": "",
+								"key": "platform",
+								"value": "{{headers_platform}}",
+								"disabled": true
+							},
+							{
+								"key": "login",
+								"value": "{{headers_login}}",
+								"description": "",
+								"disabled": true
+							},
+							{
+								"key": "password",
+								"value": "{{headers_password}}",
+								"description": "",
+								"disabled": true
+							},
+							{
+								"key": "platform",
+								"value": "{{headers_platform}}",
+								"description": "",
+								"disabled": true
+							},
+							{
+								"key": "//login",
+								"value": "{{headers_login}}",
+								"description": "",
+								"disabled": true
+							},
+							{
+								"key": "//password",
+								"value": "{{headers_password}}",
+								"description": "",
+								"disabled": true
+							},
+							{
+								"key": "//platform",
+								"value": "{{headers_platform}}",
+								"description": "",
+								"disabled": true
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"description": ""
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Product Inventory",
+			"description": "",
+			"item": [
+				{
+					"name": "UC06_01 - consult main offer by MSISDN",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"tests[\"Status code is 200\"] = responseCode.code === 200;",
+									"",
+									"var jsonData = JSON.parse(responseBody);",
+									"var piProductValid=JSON.parse(environment.piProductValid);",
+									"",
+									"tests[\"Validate data\"] = _.isEqual(jsonData,piProductValid); ",
+									"",
+									"postman.setGlobalVariable(\"currentProduct\", responseBody);",
+									"",
+									"var schema=JSON.parse(environment.productInventorySchema);",
+									"",
+									"_.forEach(jsonData, function(dataItem){",
+									" var valid_schema = tv4.validateResult(dataItem, schema).valid;",
+									" if (valid_schema){",
+									"  tests[\"JSON Response [id:\"+dataItem.id+\"] has valid schema\"] = true",
+									" }else{",
+									"  tests[\"JSON Response [id:\"+dataItem.id+\"] has invalid schema in path [\" + tv4.validateResult(dataItem, schema).error.dataPath + \"] Error: \"+ tv4.validateResult(dataItem, schema).error.message] = false;",
+									" }",
+									"});"
+								]
+							}
+						}
+					],
+					"request": {
+						"url": {
+							"raw": "{{PI_URL}}/product?publicKey={{piMsisdnValid}}&productOffering.category=offer",
+							"host": [
+								"{{PI_URL}}"
+							],
+							"path": [
+								"product"
+							],
+							"query": [
+								{
+									"description": "",
+									"equals": true,
+									"key": "publicKey",
+									"value": "{{piMsisdnValid}}"
+								},
+								{
+									"description": "",
+									"equals": true,
+									"key": "productOffering.category",
+									"value": "offer"
+								}
+							],
+							"variable": []
+						},
+						"method": "GET",
+						"header": [
+							{
+								"description": "",
+								"key": "login",
+								"value": "{{headers_login}}"
+							},
+							{
+								"description": "",
+								"key": "password",
+								"value": "{{headers_password}}"
+							},
+							{
+								"description": "",
+								"key": "platform",
+								"value": "{{headers_platform}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "UC06_02 - consult main offer by invalid MSISDN",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"tests[\"Status code is 200\"] = responseCode.code === 200;",
+									"",
+									"tests[\"Result is empty\"] = _.isEmpty(JSON.parse(responseBody));"
+								]
+							}
+						}
+					],
+					"request": {
+						"url": {
+							"raw": "{{PI_URL}}/product?iccId={{piMsisdnInvalid}}&productOffering.category=offer",
+							"host": [
+								"{{PI_URL}}"
+							],
+							"path": [
+								"product"
+							],
+							"query": [
+								{
+									"description": "",
+									"equals": true,
+									"key": "iccId",
+									"value": "{{piMsisdnInvalid}}"
+								},
+								{
+									"description": "",
+									"equals": true,
+									"key": "productOffering.category",
+									"value": "offer"
+								}
+							],
+							"variable": []
+						},
+						"method": "GET",
+						"header": [
+							{
+								"description": "",
+								"key": "login",
+								"value": "{{headers_login}}"
+							},
+							{
+								"description": "",
+								"key": "password",
+								"value": "{{headers_password}}"
+							},
+							{
+								"description": "",
+								"key": "platform",
+								"value": "{{headers_platform}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "UC04_01 - consult all the caracteristics by MSISDN",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"tests[\"Status code is 200\"] = responseCode.code === 200;",
+									"",
+									"var jsonData = JSON.parse(responseBody);",
+									"",
+									"var piProductValidFull=JSON.parse(environment.piProductValidFull);",
+									"",
+									"tests[\"Validate data\"] = _.isEqual(jsonData,piProductValidFull); ",
+									""
+								]
+							}
+						}
+					],
+					"request": {
+						"url": {
+							"raw": "{{PI_URL}}/product?publicKey={{piMsisdnValid}}",
+							"host": [
+								"{{PI_URL}}"
+							],
+							"path": [
+								"product"
+							],
+							"query": [
+								{
+									"description": "",
+									"equals": true,
+									"key": "publicKey",
+									"value": "{{piMsisdnValid}}"
+								}
+							],
+							"variable": []
+						},
+						"method": "GET",
+						"header": [
+							{
+								"description": "",
+								"key": "login",
+								"value": "{{headers_login}}"
+							},
+							{
+								"description": "",
+								"key": "password",
+								"value": "{{headers_password}}"
+							},
+							{
+								"description": "",
+								"key": "platform",
+								"value": "{{headers_platform}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "UC04_02 - consult all the caracteristics by iccId",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"tests[\"Status code is 200\"] = responseCode.code === 200;",
+									"",
+									"var jsonData = JSON.parse(responseBody);",
+									"",
+									"var piProductValidFull=JSON.parse(environment.piProductValidFull);",
+									"",
+									"tests[\"Validate data\"] = _.isEqual(jsonData,piProductValidFull); ",
+									""
+								]
+							}
+						}
+					],
+					"request": {
+						"url": {
+							"raw": "{{PI_URL}}/product?iccId={{piIccIdValid}}",
+							"host": [
+								"{{PI_URL}}"
+							],
+							"path": [
+								"product"
+							],
+							"query": [
+								{
+									"description": "",
+									"equals": true,
+									"key": "iccId",
+									"value": "{{piIccIdValid}}"
+								}
+							],
+							"variable": []
+						},
+						"method": "GET",
+						"header": [
+							{
+								"description": "",
+								"key": "login",
+								"value": "{{headers_login}}"
+							},
+							{
+								"description": "",
+								"key": "password",
+								"value": "{{headers_password}}"
+							},
+							{
+								"description": "",
+								"key": "platform",
+								"value": "{{headers_platform}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "UC04_03 - consult the includedServices by MSISDN",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"tests[\"Status code is 200\"] = responseCode.code === 200;",
+									"",
+									"var jsonData = JSON.parse(responseBody);",
+									"",
+									"var piProductFiltredIncludedServices=JSON.parse(environment.piProductFiltredIncludedServices);",
+									"",
+									"tests[\"Validate data\"] = _.isEqual(jsonData,piProductFiltredIncludedServices); "
+								]
+							}
+						}
+					],
+					"request": {
+						"url": {
+							"raw": "{{PI_URL}}/product?publicKey={{piMsisdnValid}}&productOffering.category=includedService",
+							"host": [
+								"{{PI_URL}}"
+							],
+							"path": [
+								"product"
+							],
+							"query": [
+								{
+									"description": "",
+									"equals": true,
+									"key": "publicKey",
+									"value": "{{piMsisdnValid}}"
+								},
+								{
+									"description": "",
+									"equals": true,
+									"key": "productOffering.category",
+									"value": "includedService"
+								}
+							],
+							"variable": []
+						},
+						"method": "GET",
+						"header": [
+							{
+								"description": "",
+								"key": "login",
+								"value": "{{headers_login}}"
+							},
+							{
+								"description": "",
+								"key": "password",
+								"value": "{{headers_password}}"
+							},
+							{
+								"description": "",
+								"key": "platform",
+								"value": "{{headers_platform}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "UC04_04 - consult all the includedServices by invalid MSISDN",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"tests[\"Status code is 200\"] = responseCode.code === 200;",
+									"",
+									"tests[\"Result is empty\"] = _.isEmpty(JSON.parse(responseBody));"
+								]
+							}
+						}
+					],
+					"request": {
+						"url": {
+							"raw": "{{PI_URL}}/product?publicKey={{piMsisdnInvalid}}&category=includedService",
+							"host": [
+								"{{PI_URL}}"
+							],
+							"path": [
+								"product"
+							],
+							"query": [
+								{
+									"description": "",
+									"equals": true,
+									"key": "publicKey",
+									"value": "{{piMsisdnInvalid}}"
+								},
+								{
+									"description": "",
+									"equals": true,
+									"key": "category",
+									"value": "includedService"
+								}
+							],
+							"variable": []
+						},
+						"method": "GET",
+						"header": [
+							{
+								"description": "",
+								"key": "login",
+								"value": "{{headers_login}}"
+							},
+							{
+								"description": "",
+								"key": "password",
+								"value": "{{headers_password}}"
+							},
+							{
+								"description": "",
+								"key": "platform",
+								"value": "{{headers_platform}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "UC04_05 - consult all the includedServices by invalid alpha MSISDN",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"tests[\"Status code is 200\"] = responseCode.code === 200;",
+									"",
+									"tests[\"Result is empty\"] = _.isEmpty(JSON.parse(responseBody));"
+								]
+							}
+						}
+					],
+					"request": {
+						"url": {
+							"raw": "{{PI_URL}}/product?publicKey={{piMsisdnInvalidAlpha}}&category=includedService",
+							"host": [
+								"{{PI_URL}}"
+							],
+							"path": [
+								"product"
+							],
+							"query": [
+								{
+									"description": "",
+									"equals": true,
+									"key": "publicKey",
+									"value": "{{piMsisdnInvalidAlpha}}"
+								},
+								{
+									"description": "",
+									"equals": true,
+									"key": "category",
+									"value": "includedService"
+								}
+							],
+							"variable": []
+						},
+						"method": "GET",
+						"header": [
+							{
+								"description": "",
+								"key": "login",
+								"value": "{{headers_login}}"
+							},
+							{
+								"description": "",
+								"key": "password",
+								"value": "{{headers_password}}"
+							},
+							{
+								"description": "",
+								"key": "platform",
+								"value": "{{headers_platform}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "UC04_06 - consult all the includedServices by unknown MSISDN",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"tests[\"Status code is 200\"] = responseCode.code === 200;",
+									"",
+									"tests[\"Result is empty\"] = _.isEmpty(JSON.parse(responseBody));"
+								]
+							}
+						}
+					],
+					"request": {
+						"url": {
+							"raw": "{{PI_URL}}/product?publicKey={{piMsisdnUnused}}&category=includedService",
+							"host": [
+								"{{PI_URL}}"
+							],
+							"path": [
+								"product"
+							],
+							"query": [
+								{
+									"description": "",
+									"equals": true,
+									"key": "publicKey",
+									"value": "{{piMsisdnUnused}}"
+								},
+								{
+									"description": "",
+									"equals": true,
+									"key": "category",
+									"value": "includedService"
+								}
+							],
+							"variable": []
+						},
+						"method": "GET",
+						"header": [
+							{
+								"description": "",
+								"key": "login",
+								"value": "{{headers_login}}"
+							},
+							{
+								"description": "",
+								"key": "password",
+								"value": "{{headers_password}}"
+							},
+							{
+								"description": "",
+								"key": "platform",
+								"value": "{{headers_platform}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "UC04_07 - Err consult all the caracteristics by iccId invalid",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"tests[\"Status code is 200\"] = responseCode.code === 200;",
+									"",
+									"tests[\"Result is empty\"] = _.isEmpty(JSON.parse(responseBody));",
+									""
+								]
+							}
+						}
+					],
+					"request": {
+						"url": {
+							"raw": "{{PI_URL}}/product?iccId={{piIccidInvalid}}",
+							"host": [
+								"{{PI_URL}}"
+							],
+							"path": [
+								"product"
+							],
+							"query": [
+								{
+									"description": "",
+									"equals": true,
+									"key": "iccId",
+									"value": "{{piIccidInvalid}}"
+								}
+							],
+							"variable": []
+						},
+						"method": "GET",
+						"header": [
+							{
+								"description": "",
+								"key": "login",
+								"value": "{{headers_login}}"
+							},
+							{
+								"description": "",
+								"key": "password",
+								"value": "{{headers_password}}"
+							},
+							{
+								"description": "",
+								"key": "platform",
+								"value": "{{headers_platform}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "UC04_11 Consult simCard service by MSISDN",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"tests[\"Status code is 200\"] = responseCode.code === 200;",
+									"",
+									"var jsonData = JSON.parse(responseBody);",
+									"",
+									"tests[\"productOffering.id = simCard\"] = jsonData[0].productOffering.id === \"simCard\";",
+									"",
+									"var schema=JSON.parse(environment.productInventorySchema);",
+									"",
+									"_.forEach(jsonData, function(dataItem){",
+									" var valid_schema = tv4.validateResult(dataItem, schema).valid;",
+									" if (valid_schema){",
+									"  tests[\"JSON Response [id:\"+dataItem.id+\"] has valid schema\"] = true",
+									" }else{",
+									"  tests[\"JSON Response [id:\"+dataItem.id+\"] has invalid schema in path [\" + tv4.validateResult(dataItem, schema).error.dataPath + \"] Error: \"+ tv4.validateResult(dataItem, schema).error.message] = false;",
+									" }",
+									"});",
+									"",
+									""
+								]
+							}
+						}
+					],
+					"request": {
+						"url": {
+							"raw": "{{PI_URL}}/product?publicKey={{piMsisdnValid}}&productOffering.id=simCard",
+							"host": [
+								"{{PI_URL}}"
+							],
+							"path": [
+								"product"
+							],
+							"query": [
+								{
+									"description": "",
+									"equals": true,
+									"key": "publicKey",
+									"value": "{{piMsisdnValid}}"
+								},
+								{
+									"description": "",
+									"equals": true,
+									"key": "productOffering.id",
+									"value": "simCard"
+								}
+							],
+							"variable": []
+						},
+						"method": "GET",
+						"header": [
+							{
+								"description": "",
+								"key": "login",
+								"value": "{{headers_login}}"
+							},
+							{
+								"description": "",
+								"key": "password",
+								"value": "{{headers_password}}"
+							},
+							{
+								"description": "",
+								"key": "platform",
+								"value": "{{headers_platform}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"description": ""
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Product Order UM17 SimSwap",
+			"description": "",
+			"item": [
+				{
+					"name": "UM17_001 Err Catalog",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"tests[\"Status code is 400\"] = responseCode.code === 400;",
+									"",
+									"var error = JSON.parse(responseBody);",
+									"tests[\"code is 4003\"] = error.code === 4003;",
+									"tests[\"Error description\"] = error.description.has(\"Bad value for parameter orderItem.product.productOffering.id: \");"
+								]
+							}
+						}
+					],
+					"request": {
+						"url": "{{PO_URL}}/productOrder",
+						"method": "POST",
+						"header": [
+							{
+								"description": "",
+								"key": "Accept",
+								"value": "application/json"
+							},
+							{
+								"description": "",
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n\t\"orderItem\": [\r\n\t\t{\r\n\t\t\t\"id\": \"1\",\r\n\t\t\t\"action\": \"deleteCharacteristic\",\r\n\t\t\t\"orderItemRelationship\": {\r\n\t\t\t\t\"type\": \"isPrerequisite\",\r\n\t\t\t\t\"id\": \"2\"\r\n\t\t\t},\r\n\t\t\t\"product\": {\r\n\t\t\t\t\"productOffering\": {\r\n\t\t\t\t\t\"id\": \"simCa\"\r\n\t\t\t\t},\r\n\t\t\t\t\"productCharacteristic\": [\r\n\t\t\t\t\t{\r\n\t\t\t\t\t\t\"name\": \"iccId\",\r\n\t\t\t\t\t\t\"value\": \"89237021104300007165\"\r\n\t\t\t\t\t}\r\n\t\t\t\t],\r\n\t\t\t\t\"productRelationship\": [\r\n\t\t\t\t\t{\r\n\t\t\t\t\t\t\"type\": \"isContainedIn\",\r\n\t\t\t\t\t\t\"product\": {\r\n\t\t\t\t\t\t\t\"id\": \"28210638\"\r\n\t\t\t\t\t\t}\r\n\t\t\t\t\t}\r\n\t\t\t\t]\r\n\t\t\t}\r\n\t\t},\r\n\t\t{\r\n\t\t\t\"id\": \"2\",\r\n\t\t\t\"action\": \"addCharacteristic\",\r\n\t\t\t\"orderItemRelationship\": {\r\n\t\t\t\t\"type\": \"hasPrerequisite\",\r\n\t\t\t\t\"id\": \"1\"\r\n\t\t\t},\r\n\t\t\t\"product\": {\r\n\t\t\t\t\"productOffering\": {\r\n\t\t\t\t\t\"id\": \"simCa\"\r\n\t\t\t\t},\r\n\t\t\t\t\"productCharacteristic\": [\r\n\t\t\t\t\t{\r\n\t\t\t\t\t\t\"name\": \"iccId\",\r\n\t\t\t\t\t\t\"value\": \"89237021104301613276\"\r\n\t\t\t\t\t}\r\n\t\t\t\t],\r\n\t\t\t\t\"productRelationship\": [\r\n\t\t\t\t\t{\r\n\t\t\t\t\t\t\"type\": \"isContainedIn\",\r\n\t\t\t\t\t\t\"product\": {\r\n\t\t\t\t\t\t\t\"id\": \"28210638\"\r\n\t\t\t\t\t\t}\r\n\t\t\t\t\t}\r\n\t\t\t\t]\r\n\t\t\t}\r\n\t\t}\r\n\t],\r\n\t\"channel\": {\r\n\t\t\"name\": \"Nomad\"\r\n\t}\r\n}"
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "UM17_002 Err Product",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"tests[\"Status code is 400\"] = responseCode.code === 400;",
+									"",
+									"var error = JSON.parse(responseBody);",
+									"tests[\"code is 4103\"] = error.code === 4103;",
+									"tests[\"Error description\"] = error.description.has(\"No contract found with id \");"
+								]
+							}
+						}
+					],
+					"request": {
+						"url": "{{PO_URL}}/productOrder",
+						"method": "POST",
+						"header": [
+							{
+								"description": "",
+								"key": "Accept",
+								"value": "application/json"
+							},
+							{
+								"description": "",
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"orderItem\": [\r\n        {\r\n            \"id\": \"1\",\r\n            \"action\": \"deleteCharacteristic\",\r\n            \"orderItemRelationship\":\r\n                {\r\n                    \"type\": \"isPrerequisite\",\r\n                    \"id\": \"2\"\r\n                },\r\n            \"product\": {\r\n                \"productOffering\": {\r\n                    \"id\": \"simCard\"\r\n                },\r\n                \"productCharacteristic\": [\r\n                    {\r\n                        \"name\": \"iccId\",\r\n                        \"value\": \"{{poUM17oldIccid}}\"\r\n                    }\r\n                ],\r\n                \"productRelationship\": [\r\n                    {\r\n                        \"type\": \"isContainedIn\",\r\n                        \"product\": {\r\n                            \"id\": \"pony\" \r\n                        }\r\n                    }\r\n                ]\r\n            }\r\n        },\r\n        {\r\n            \"id\": \"2\",\r\n            \"action\": \"addCharacteristic\",\r\n            \"orderItemRelationship\":\r\n                {\r\n                    \"type\": \"hasPrerequisite\",\r\n                    \"id\": \"1\"\r\n                },\r\n            \"product\": {\r\n                \"productOffering\": {\r\n                    \"id\": \"simCard\"\r\n                },\r\n                \"productCharacteristic\": [\r\n                    {\r\n                        \"name\": \"iccId\",\r\n                        \"value\": \"{{poUM17newIccid}}\"\r\n                    }\r\n                ],\r\n                \"productRelationship\": [\r\n                    {\r\n                        \"type\": \"isContainedIn\",\r\n                        \"product\": {\r\n                            \"id\": \"pony\"\r\n                        }\r\n                    }\r\n                ]\r\n            }\r\n        }\r\n    ],\r\n    \"channel\": {\r\n        \"name\": \"Nomad\"\r\n    }\r\n}"
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "UM17_000 contract with MSISDN",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"tests[\"Status code is 200\"] = responseCode.code === 200;",
+									"",
+									"var inventories = JSON.parse(responseBody);",
+									"",
+									"var item = inventories[0];",
+									"",
+									"tests[\"Validate data\"] = _.isEqual(inventories, JSON.parse(environment.poUM17Products));",
+									"tests[\"status Active\"] = inventories[0].status === \"Active\";",
+									"tests[\"Product Id\"] = inventories[0].id === environment.poUM17productId;"
+								]
+							}
+						}
+					],
+					"request": {
+						"url": {
+							"raw": "{{PI_URL}}/product?publicKey={{poUM17msisdn}}",
+							"host": [
+								"{{PI_URL}}"
+							],
+							"path": [
+								"product"
+							],
+							"query": [
+								{
+									"description": "",
+									"equals": true,
+									"key": "publicKey",
+									"value": "{{poUM17msisdn}}"
+								}
+							],
+							"variable": []
+						},
+						"method": "GET",
+						"header": [
+							{
+								"description": "",
+								"key": "Accept",
+								"value": "application/json"
+							},
+							{
+								"description": "",
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"description": " Consulter les caractéristiques de l’offre principale et des options ou services inclus à partir du MSISDN "
+					},
+					"response": []
+				},
+				{
+					"name": "UM17_000 contract with old ICCID",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"tests[\"Status code is 200\"] = responseCode.code === 200;",
+									"",
+									"var inventories = JSON.parse(responseBody);",
+									"",
+									"var item = inventories[0];",
+									"",
+									"tests[\"Validate data\"] = _.isEqual(inventories, JSON.parse(environment.poUM17Products));",
+									"tests[\"status Active\"] = inventories[0].status === \"Active\";",
+									"tests[\"Product Id\"] = inventories[0].id === environment.poUM17productId;"
+								]
+							}
+						}
+					],
+					"request": {
+						"url": {
+							"raw": "{{PI_URL}}/product?iccId={{poUM17oldIccid}}",
+							"host": [
+								"{{PI_URL}}"
+							],
+							"path": [
+								"product"
+							],
+							"query": [
+								{
+									"description": "",
+									"equals": true,
+									"key": "iccId",
+									"value": "{{poUM17oldIccid}}"
+								}
+							],
+							"variable": []
+						},
+						"method": "GET",
+						"header": [
+							{
+								"description": "",
+								"key": "Accept",
+								"value": "application/json"
+							},
+							{
+								"description": "",
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"description": " Consulter les caractéristiques de l’offre principale et des options ou services inclus à partir du MSISDN "
+					},
+					"response": []
+				},
+				{
+					"name": "UM17_004 SimSwap",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"tests[\"Status code is 200\"] = responseCode.code === 200;",
+									"",
+									"var body = JSON.parse(responseBody)",
+									"",
+									"tests[\"status in progress\"] = body.state === \"inProgress\";"
+								]
+							}
+						}
+					],
+					"request": {
+						"url": "{{PO_URL}}/productOrder",
+						"method": "POST",
+						"header": [
+							{
+								"description": "",
+								"key": "Accept",
+								"value": "application/json"
+							},
+							{
+								"description": "",
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"orderItem\": [\r\n        {\r\n            \"id\": \"1\",\r\n            \"action\": \"deleteCharacteristic\",\r\n            \"orderItemRelationship\":\r\n                {\r\n                    \"type\": \"isPrerequisite\",\r\n                    \"id\": \"2\"\r\n                },\r\n            \"product\": {\r\n                \"productOffering\": {\r\n                    \"id\": \"simCard\"\r\n                },\r\n                \"productCharacteristic\": [\r\n                    {\r\n                        \"name\": \"iccId\",\r\n                        \"value\": \"{{poUM17oldIccid}}\"\r\n                    }\r\n                ],\r\n                \"productRelationship\": [\r\n                    {\r\n                        \"type\": \"isContainedIn\",\r\n                        \"product\": {\r\n                            \"id\": \"{{poUM17productId}}\" \r\n                        }\r\n                    }\r\n                ]\r\n            }\r\n        },\r\n        {\r\n            \"id\": \"2\",\r\n            \"action\": \"addCharacteristic\",\r\n            \"orderItemRelationship\":\r\n                {\r\n                    \"type\": \"hasPrerequisite\",\r\n                    \"id\": \"1\"\r\n                },\r\n            \"product\": {\r\n                \"productOffering\": {\r\n                    \"id\": \"simCard\"\r\n                },\r\n                \"productCharacteristic\": [\r\n                    {\r\n                        \"name\": \"iccId\",\r\n                        \"value\": \"{{poUM17newIccid}}\"\r\n                    }\r\n                ],\r\n                \"productRelationship\": [\r\n                    {\r\n                        \"type\": \"isContainedIn\",\r\n                        \"product\": {\r\n                            \"id\": \"{{poUM17productId}}\"\r\n                        }\r\n                    }\r\n                ]\r\n            }\r\n        }\r\n    ],\r\n    \"channel\": {\r\n        \"name\": \"Nomad\"\r\n    }\r\n}"
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "UM17_005a contract with old IccId err404",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"tests[\"Status code is 200\"] = responseCode.code === 200;",
+									"",
+									"tests[\"Empty list\"] = responseBody === \"[]\";",
+									""
+								]
+							}
+						}
+					],
+					"request": {
+						"url": {
+							"raw": "{{PI_URL}}/product?iccId={{poUM17oldIccid}}",
+							"host": [
+								"{{PI_URL}}"
+							],
+							"path": [
+								"product"
+							],
+							"query": [
+								{
+									"key": "iccId",
+									"value": "{{poUM17oldIccid}}"
+								}
+							],
+							"variable": []
+						},
+						"method": "GET",
+						"header": [
+							{
+								"description": "",
+								"key": "Accept",
+								"value": "application/json"
+							},
+							{
+								"description": "",
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"description": " Consulter les caractéristiques de l’offre principale et des options ou services inclus à partir du MSISDN (notamment le service de barring)"
+					},
+					"response": []
+				},
+				{
+					"name": "UM17_005b check contract with MSISDN",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"tests[\"Status code is 200\"] = responseCode.code === 200;",
+									"",
+									"var inventories = JSON.parse(responseBody);",
+									"",
+									"var item = inventories[0];",
+									"",
+									"tests[\"status Active\"] = inventories[0].status === \"Active\";",
+									"tests[\"New IccId\"] = inventories[0].productCharacteristic[0].value === environment.poUM17newIccid;"
+								]
+							}
+						}
+					],
+					"request": {
+						"url": {
+							"raw": "{{PI_URL}}/product?publicKey={{poUM17msisdn}}&productOffering.id=simCard",
+							"host": [
+								"{{PI_URL}}"
+							],
+							"path": [
+								"product"
+							],
+							"query": [
+								{
+									"description": "",
+									"equals": true,
+									"key": "publicKey",
+									"value": "{{poUM17msisdn}}"
+								},
+								{
+									"description": "",
+									"equals": true,
+									"key": "productOffering.id",
+									"value": "simCard"
+								}
+							],
+							"variable": []
+						},
+						"method": "GET",
+						"header": [
+							{
+								"description": "",
+								"key": "Accept",
+								"value": "application/json"
+							},
+							{
+								"description": "",
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"description": " Consulter les caractéristiques de l’offre principale et des options ou services inclus à partir du MSISDN "
+					},
+					"response": []
+				},
+				{
+					"name": "UM17_006 Err Product déjà assigné add",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"tests[\"Status code is 400\"] = responseCode.code === 400;",
+									"",
+									"var error = JSON.parse(responseBody);",
+									"tests[\"code is 4103\"] = error.code === 4103;",
+									"tests[\"description\"] = error.description === \"The old resource is not assigned to the contract\";"
+								]
+							}
+						}
+					],
+					"request": {
+						"url": "{{PO_URL}}/productOrder",
+						"method": "POST",
+						"header": [
+							{
+								"description": "",
+								"key": "Accept",
+								"value": "application/json"
+							},
+							{
+								"description": "",
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"orderItem\": [\r\n        {\r\n            \"id\": \"1\",\r\n            \"action\": \"deleteCharacteristic\",\r\n            \"orderItemRelationship\":\r\n                {\r\n                    \"type\": \"isPrerequisite\",\r\n                    \"id\": \"2\"\r\n                },\r\n            \"product\": {\r\n                \"productOffering\": {\r\n                    \"id\": \"simCard\"\r\n                },\r\n                \"productCharacteristic\": [\r\n                    {\r\n                        \"name\": \"iccId\",\r\n                        \"value\": \"{{poUM17oldIccid}}\"\r\n                    }\r\n                ],\r\n                \"productRelationship\": [\r\n                    {\r\n                        \"type\": \"isContainedIn\",\r\n                        \"product\": {\r\n                            \"id\": \"{{poUM17productId}}\" \r\n                        }\r\n                    }\r\n                ]\r\n            }\r\n        },\r\n        {\r\n            \"id\": \"2\",\r\n            \"action\": \"addCharacteristic\",\r\n            \"orderItemRelationship\":\r\n                {\r\n                    \"type\": \"hasPrerequisite\",\r\n                    \"id\": \"1\"\r\n                },\r\n            \"product\": {\r\n                \"productOffering\": {\r\n                    \"id\": \"simCard\"\r\n                },\r\n                \"productCharacteristic\": [\r\n                    {\r\n                        \"name\": \"iccId\",\r\n                        \"value\": \"{{poUM17newIccid}}\"\r\n                    }\r\n                ],\r\n                \"productRelationship\": [\r\n                    {\r\n                        \"type\": \"isContainedIn\",\r\n                        \"product\": {\r\n                            \"id\": \"{{poUM17productId}}\"\r\n                        }\r\n                    }\r\n                ]\r\n            }\r\n        }\r\n    ],\r\n    \"channel\": {\r\n        \"name\": \"Nomad\"\r\n    }\r\n}"
+						},
+						"description": ""
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Product Order UM46 activate PrepaidContrat & update dummy party copy",
+			"description": "",
+			"item": [
+				{
+					"name": "UM46_01 Err Party Invalid",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"var body = JSON.parse(responseBody)",
+									"",
+									"tests[\"Status code is 400\"] = responseCode.code === 400;",
+									"tests[\"error code is 4101\"] = body.code === 4101",
+									"",
+									"tests[\"Description sur Individual\"] = body.description.has (\"API Party error: Unknown id\")"
+								]
+							}
+						}
+					],
+					"request": {
+						"url": "{{PO_URL}}/productOrder",
+						"method": "POST",
+						"header": [
+							{
+								"description": "",
+								"key": "Accept",
+								"value": "application/json"
+							},
+							{
+								"description": "",
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n\t\"relatedIndividual\": [\r\n\t\t{\r\n\t\t\t\"role\": \"customer\",\r\n\t\t\t\"id\": \"{{poUM46IndividualInvalid}}\",\r\n\t\t\t\"gender\": \"female\",\r\n\t\t\t\"placeOfBirth\": \"BORDEAUX\",\r\n\t\t\t\"nationality\": \"CM\",\r\n\t\t\t\"maritalStatus\": \"single\",\r\n\t\t\t\"birthDate\": \"1953-09-18\",\r\n\t\t\t\"title\": \"3\",\r\n\t\t\t\"givenName\": \"Laura\",\r\n\t\t\t\"familyName\": \"Lavergne\",\r\n\t\t\t\"contactMedium\": [\r\n\t\t\t\t{\r\n\t\t\t\t\t\"type\": \"postalAddress\",\r\n\t\t\t\t\t\"medium\": {\r\n\t\t\t\t\t\t\"city\": \"BEKA GOTTO \",\r\n\t\t\t\t\t\t\"country\": \"CM\",\r\n\t\t\t\t\t\t\"postcode\": \"86000\",\r\n\t\t\t\t\t\t\"stateOrProvince\": \"BELLA FOKOU\",\r\n\t\t\t\t\t\t\"streetOne\": \"rue de la gibauderie\",\r\n\t\t\t\t\t\t\"number\": \"38\"\r\n\t\t\t\t\t}\r\n\t\t\t\t}\r\n\t\t\t],\r\n\t\t\t\"individualIdentification\": [\r\n\t\t\t\t{\r\n\t\t\t\t\t\"type\": \"1\",\r\n\t\t\t\t\t\"identificationId\": \"78678678\"\r\n\t\t\t\t}\r\n\t\t\t]\r\n\t\t}\r\n\t],\r\n\t\"orderItem\": [\r\n\t\t{\r\n\t\t\t\"id\": \"1\",\r\n\t\t\t\"action\": \"activate\",\r\n\t\t\t\"productOffering\": {\r\n\t\t\t\t\"category\": \"offer\"\r\n\t\t\t},\r\n\t\t\t\"product\": {\r\n\t\t\t\t\"id\": \"{{poUM46ContractId}}\"\r\n\t\t\t}\r\n\t\t}\r\n\t],\r\n\t\"channel\": {\r\n\t\t\"name\": \"Nomad\"\r\n\t}\r\n}"
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "UM46_02 Err productInvalid",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"var body = JSON.parse(responseBody)",
+									"",
+									"tests[\"Status code is 400\"] = responseCode.code === 400;",
+									"tests[\"error code is 4104\"] = body.code === 4104 && body.message === \"Contract state change impossible\";",
+									"",
+									"tests[\"Description sur Product\"] = body.description.has (\"Impossible to change state for contract with id\")",
+									"",
+									""
+								]
+							}
+						}
+					],
+					"request": {
+						"url": "{{PO_URL}}/productOrder",
+						"method": "POST",
+						"header": [
+							{
+								"description": "",
+								"key": "Accept",
+								"value": "application/json"
+							},
+							{
+								"description": "",
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n\t\"relatedIndividual\": [\r\n\t\t{\r\n\t\t\t\"role\": \"customer\",\r\n\t\t\t\"id\": \"CUST0002199891\",\r\n\t\t\t\"gender\": \"female\",\r\n\t\t\t\"placeOfBirth\": \"BORDEAUX\",\r\n\t\t\t\"nationality\": \"BW\",\r\n\t\t\t\"maritalStatus\": \"single\",\r\n\t\t\t\"birthDate\": \"1953-09-18\",\r\n\t\t\t\"title\": \"3\",\r\n\t\t\t\"givenName\": \"Laura\",\r\n\t\t\t\"familyName\": \"Lavergne\",\r\n\t\t\t\"contactMedium\": [\r\n\t\t\t\t{\r\n\t\t\t\t\t\"type\": \"postalAddress\",\r\n\t\t\t\t\t\"medium\": {\r\n\t\t\t\t\t\t\"city\": \"Gaborone\",\r\n\t\t\t\t\t\t\"country\": \"BW\",\r\n\t\t\t\t\t\t\"postcode\": \"860000000\",\r\n\t\t\t\t\t\t\"stateOrProvince\": \"BELLA FOKOU\",\r\n\t\t\t\t\t\t\"streetOne\": \"rue de la gibauderie\",\r\n\t\t\t\t\t\t\"number\": \"38\"\r\n\t\t\t\t\t}\r\n\t\t\t\t}\r\n\t\t\t],\r\n\t\t\t\"individualIdentification\": [\r\n\t\t\t\t{\r\n\t\t\t\t\t\"type\": \"1\",\r\n\t\t\t\t\t\"identificationId\": \"78678678\"\r\n\t\t\t\t}\r\n\t\t\t]\r\n\t\t}\r\n\t],\r\n\t\"orderItem\": [\r\n\t\t{\r\n\t\t\t\"id\": \"1\",\r\n\t\t\t\"action\": \"activate\",\r\n\t\t\t\"productOffering\": {\r\n\t\t\t\t\"category\": \"offer\"\r\n\t\t\t},\r\n\t\t\t\"product\": {\r\n\t\t\t\t\"id\": \"{{poUM46ProductIdInvalid}}\"\r\n\t\t\t}\r\n\t\t}\r\n\t],\r\n\t\"channel\": {\r\n\t\t\"name\": \"Nomad\"\r\n\t}\r\n}"
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "UM46_11a (UC26) Get majeur dummy Party id",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"tests[\"Status code is 200\"] = responseCode.code === 200;",
+									"",
+									"var individual = JSON.parse(responseBody);",
+									"",
+									"var leSchemaIndividual = JSON.parse(postman.getEnvironmentVariable(\"individualSchema\"));",
+									"",
+									"tests[\"TV4 Valid parseData individual\"] = tv4.validate(individual, leSchemaIndividual);",
+									"if (tv4.error !== null) console.log(\"Validation failed: \", tv4.error); ",
+									"",
+									"tests[\"Name is DUMMY\"] = individual.familyName === \"DUMMY\";"
+								]
+							}
+						}
+					],
+					"request": {
+						"url": {
+							"raw": "{{PP_URL}}/individual/:id",
+							"host": [
+								"{{PP_URL}}"
+							],
+							"path": [
+								"individual",
+								":id"
+							],
+							"query": [],
+							"variable": [
+								{
+									"id": "id",
+									"value": "{{poUM46IndividualId}}"
+								},
+								{
+									"id": "id",
+									"value": "{{poUM46IndividualId}}"
+								},
+								{
+									"value": "{{poUM46IndividualId}}",
+									"id": "id"
+								},
+								{
+									"value": "{{poUM46IndividualId}}",
+									"id": "id"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"description": "",
+								"key": "Accept",
+								"value": "application/json"
+							},
+							{
+								"description": "",
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "UM46_11b test status pending (Get Inventory caract MSISDN)",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"tests[\"Status code is 200\"] = responseCode.code === 200;",
+									"",
+									"var body = JSON.parse(responseBody);",
+									"",
+									"tests[\"contract status active\"] = body[0].status === \"Active\";",
+									"tests[\"contract id is valid\"] = body[0].id === environment.poUM46ContractId;",
+									"//var service = _.find(body, {'id':'CONTR0000003219|A|NRESE'});",
+									"//console.log(\"idRef = [\"+environment.poUM46ContractId+\"]\");",
+									"var service = _.find(body, {'id': environment.poUM46ContractId+'|A|NRESE'});",
+									"//console.log(\"service = [\"+JSON.stringify(service)+\"]\");",
+									"tests[\"Service 131 / NRESE active\"] = _.isEqual(service.status,\"Active\");",
+									"",
+									"",
+									""
+								]
+							}
+						}
+					],
+					"request": {
+						"url": {
+							"raw": "{{PI_URL}}/product?publicKey={{poUM46Msisdn}}",
+							"host": [
+								"{{PI_URL}}"
+							],
+							"path": [
+								"product"
+							],
+							"query": [
+								{
+									"description": "",
+									"equals": true,
+									"key": "publicKey",
+									"value": "{{poUM46Msisdn}}"
+								}
+							],
+							"variable": []
+						},
+						"method": "GET",
+						"header": [
+							{
+								"description": "",
+								"key": "Accept",
+								"value": "application/json"
+							},
+							{
+								"description": "",
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "UM46_11 ActivatePrepaid&UpdateParty",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"tests[\"Status code is 200\"] = responseCode.code === 200;",
+									"",
+									"var body = JSON.parse(responseBody)",
+									"",
+									"tests[\"status in progress\"] = body.state === \"inProgress\";"
+								]
+							}
+						}
+					],
+					"request": {
+						"url": "{{PO_URL}}/productOrder",
+						"method": "POST",
+						"header": [
+							{
+								"description": "",
+								"key": "Accept",
+								"value": "application/json"
+							},
+							{
+								"description": "",
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n\t\"relatedIndividual\": [\r\n\t\t{\r\n\t\t\t\"role\": \"customer\",\r\n\t\t\t\"id\": \"{{poUM46IndividualId}}\",\r\n\t\t\t\"gender\": \"male\",\r\n\t\t\t\"placeOfBirth\": \"BORDEAUX\",\r\n\t\t\t\"nationality\": \"VN\",\r\n\t\t\t\"maritalStatus\": \"single\",\r\n\t\t\t\"birthDate\": \"1975-04-17\",\r\n\t\t\t\"title\": \"1\",\r\n\t\t\t\"givenName\": \"Tuan\",\r\n\t\t\t\"familyName\": \"Nguyen\",\r\n\t\t\t\"individualIdentification\": [\r\n\t\t\t\t{\r\n\t\t\t\t\t\"type\": \"1\",\r\n\t\t\t\t\t\"identificationId\": \"78678678\"\r\n\t\t\t\t}\r\n\t\t\t]\r\n\t\t}\r\n\t],\r\n\t\"orderItem\": [\r\n\t\t{\r\n\t\t\t\"id\": \"1\",\r\n\t\t\t\"action\": \"activate\",\r\n\t\t\t\"productOffering\": {\r\n\t\t\t\t\"category\": \"offer\"\r\n\t\t\t},\r\n\t\t\t\"product\": {\r\n\t\t\t\t\"id\": \"{{poUM46ContractId}}\"\r\n\t\t\t}\r\n\t\t}\r\n\t],\r\n\t\"channel\": {\r\n\t\t\"name\": \"Nomad\"\r\n\t}\r\n}"
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "UM46_11z Verif test status NOT pending",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"tests[\"Status code is 200\"] = responseCode.code === 200;",
+									"",
+									"var body = JSON.parse(responseBody);",
+									"",
+									"tests[\"contract status active\"] = body[0].status === \"Active\";",
+									"tests[\"contract id is valid\"] = body[0].id === environment.poUM46ContractId;",
+									"var service = _.find(body, {'id': environment.poUM46ContractId+'|A|NRESE'});",
+									"tests[\"Service 131 / NRESE Inactive\"] = service ? service.status === \"Terminated\" : false;",
+									"",
+									""
+								]
+							}
+						}
+					],
+					"request": {
+						"url": {
+							"raw": "{{PI_URL}}/product?publicKey={{poUM46Msisdn}}",
+							"host": [
+								"{{PI_URL}}"
+							],
+							"path": [
+								"product"
+							],
+							"query": [
+								{
+									"description": "",
+									"equals": true,
+									"key": "publicKey",
+									"value": "{{poUM46Msisdn}}"
+								}
+							],
+							"variable": []
+						},
+						"method": "GET",
+						"header": [
+							{
+								"description": "",
+								"key": "Accept",
+								"value": "application/json"
+							},
+							{
+								"description": "",
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "UM46_21 Err Statut Contrat pas Pending",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"var body = JSON.parse(responseBody)",
+									"",
+									"tests[\"Status code is 400\"] = responseCode.code === 400;",
+									"tests[\"error code is 4104\"] = body.code === 4104;",
+									"",
+									""
+								]
+							}
+						}
+					],
+					"request": {
+						"url": "{{PO_URL}}/productOrder",
+						"method": "POST",
+						"header": [
+							{
+								"description": "",
+								"key": "Accept",
+								"value": "application/json"
+							},
+							{
+								"description": "",
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n\t\"relatedIndividual\": [\r\n\t\t{\r\n\t\t\t\"role\": \"customer\",\r\n\t\t\t\"id\": \"{{poUM46IndividualId}}\",\r\n\t\t\t\"gender\": \"male\",\r\n\t\t\t\"placeOfBirth\": \"BORDEAUX\",\r\n\t\t\t\"nationality\": \"VN\",\r\n\t\t\t\"maritalStatus\": \"single\",\r\n\t\t\t\"birthDate\": \"1975-04-17\",\r\n\t\t\t\"title\": \"1\",\r\n\t\t\t\"givenName\": \"Tuan\",\r\n\t\t\t\"familyName\": \"Nguyen\",\r\n\t\t\t\"individualIdentification\": [\r\n\t\t\t\t{\r\n\t\t\t\t\t\"type\": \"1\",\r\n\t\t\t\t\t\"identificationId\": \"78678678\"\r\n\t\t\t\t}\r\n\t\t\t]\r\n\t\t}\r\n\t],\r\n\t\"orderItem\": [\r\n\t\t{\r\n\t\t\t\"id\": \"1\",\r\n\t\t\t\"action\": \"activate\",\r\n\t\t\t\"productOffering\": {\r\n\t\t\t\t\"category\": \"offer\"\r\n\t\t\t},\r\n\t\t\t\"product\": {\r\n\t\t\t\t\"id\": \"{{poUM46ContractId}}\"\r\n\t\t\t}\r\n\t\t}\r\n\t],\r\n\t\"channel\": {\r\n\t\t\"name\": \"Nomad\"\r\n\t}\r\n}"
+						},
+						"description": ""
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}

@@ -1,0 +1,58 @@
+<!--
+execute (ADDRESSES.READ, {
+CS_ID = 200 : java.lang.Long
+}
+-->
+ => {
+CS_ID_PUB = CUST0000000200 : java.lang.String
+CS_ID = 200 : java.lang.Long
+LIST_OF_ALL_ADDRESSES = sub element : com.lhs.ccb.common.soiimpl.NamedValueContainerList
+-[0]ADR_SEQ = 1 : java.lang.Long
+-[0]ADR_FNAME = test1 : java.lang.String
+-[0]ADR_CUSTTYPE = C : java.lang.Character
+-[0]ADR_SOCIALSENO = SS123456 : java.lang.String
+-[0]ADR_JUR_TAX_OVERRIDDEN = false : java.lang.Boolean
+-[0]ADR_URGENT = false : java.lang.Boolean
+-[0]ADR_ROLES = U : java.lang.String
+-[0]ADR_TEMPBILL_OVERRIDDEN = false : java.lang.Boolean
+-[0]ADR_NAME = User : java.lang.String
+-[0]TTL_ID = 1 : java.lang.Long
+-[0]ADR_EMPLOYEE = false : java.lang.Boolean
+-[0]TTL_ID_PUB = MR : java.lang.String
+-[0]ADR_BIRTHDT = YYYY-MM-DD: 1979-8-26 : com.lhs.ccb.common.soiimpl.SVLDateImpl
+-[0]ADR_COMPNO = COMPNO123456 : java.lang.String
+-[0]ADR_LNAME = TEST200 : java.lang.String
+-[0]ADR_FORWARD = false : java.lang.Boolean
+-[1]ADR_SEQ = 2 : java.lang.Long
+-[1]ADR_FNAME = test : java.lang.String
+-[1]ADR_CUSTTYPE = C : java.lang.Character
+-[1]ADR_SOCIALSENO = SS123456 : java.lang.String
+-[1]ADR_JUR_TAX_OVERRIDDEN = false : java.lang.Boolean
+-[1]ADR_URGENT = false : java.lang.Boolean
+-[1]ADR_ROLES = BCID : java.lang.String
+-[1]ADR_TEMPBILL_OVERRIDDEN = false : java.lang.Boolean
+-[1]ADR_NAME = BILLER : java.lang.String
+-[1]TTL_ID = 1 : java.lang.Long
+-[1]ADR_EMPLOYEE = false : java.lang.Boolean
+-[1]TTL_ID_PUB = MR : java.lang.String
+-[1]ADR_BIRTHDT = YYYY-MM-DD: 1979-8-26 : com.lhs.ccb.common.soiimpl.SVLDateImpl
+-[1]ADR_COMPNO = COMPNO123456 : java.lang.String
+-[1]ADR_LNAME = Biller : java.lang.String
+-[1]ADR_FORWARD = false : java.lang.Boolean
+-[2]ADR_SEQ = 3 : java.lang.Long
+-[2]ADR_FNAME = test : java.lang.String
+-[2]ADR_CUSTTYPE = C : java.lang.Character
+-[2]ADR_SOCIALSENO = SS123456 : java.lang.String
+-[2]ADR_JUR_TAX_OVERRIDDEN = false : java.lang.Boolean
+-[2]ADR_URGENT = false : java.lang.Boolean
+-[2]ADR_ROLES = U : java.lang.String
+-[2]ADR_TEMPBILL_OVERRIDDEN = false : java.lang.Boolean
+-[2]ADR_NAME = PAYER : java.lang.String
+-[2]TTL_ID = 1 : java.lang.Long
+-[2]ADR_EMPLOYEE = false : java.lang.Boolean
+-[2]TTL_ID_PUB = MR : java.lang.String
+-[2]ADR_BIRTHDT = YYYY-MM-DD: 1979-8-26 : com.lhs.ccb.common.soiimpl.SVLDateImpl
+-[2]ADR_COMPNO = COMPNO123456 : java.lang.String
+-[2]ADR_LNAME = Payer : java.lang.String
+-[2]ADR_FORWARD = false : java.lang.Boolean
+}

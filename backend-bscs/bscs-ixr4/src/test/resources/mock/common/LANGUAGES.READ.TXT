@@ -1,0 +1,26 @@
+<!--
+ execute (LANGUAGES.READ, {
+CS_ID = 542 : java.lang.Long
+})
+-->
+ => {
+LIST_OF_LANGUAGES = sub element : com.lhs.ccb.common.soiimpl.NamedValueContainerList
+-[0]LNG_CODE_PUB = DE : java.lang.String
+-[0]LNG_CODE = 1 : java.lang.Long
+-[0]LNG_SHDES = DE : java.lang.String
+-[0]LNG_DES = German : java.lang.String
+-[1]LNG_CODE_PUB = EN : java.lang.String
+-[1]LNG_CODE = 2 : java.lang.Long
+-[1]LNG_SHDES = EN : java.lang.String
+-[1]LNG_DES = English : java.lang.String
+-[2]LNG_CODE_PUB = FR : java.lang.String
+-[2]LNG_CODE = 3 : java.lang.Long
+-[2]LNG_SHDES = FR : java.lang.String
+-[2]LNG_DES = French : java.lang.String
+-[3]LNG_CODE_PUB = IT : java.lang.String
+-[3]LNG_CODE = 4 : java.lang.Long
+-[3]LNG_SHDES = IT : java.lang.String
+-[3]LNG_DES = Italian : java.lang.String
+LNG_CODE_DEF = 2 : java.lang.Long
+}
+

@@ -1,0 +1,11 @@
+server:
+    port: 9572
+spring:
+    application:
+        name: '@project.artifactId@'
+    jackson: 
+        serialization: 
+            WRITE_EMPTY_JSON_ARRAYS: false
+api:
+   name: eligibility
+   version: '@project.version@'                 

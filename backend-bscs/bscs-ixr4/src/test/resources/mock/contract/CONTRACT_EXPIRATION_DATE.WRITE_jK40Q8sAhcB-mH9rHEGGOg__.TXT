@@ -1,0 +1,8 @@
+<!--
+ execute (CONTRACT_EXPIRATION_DATE.WRITE, {
+CO_ID_PUB = CONTR0000000111 : java.lang.String
+CO_EXPIR_DATE = YYYY-MM-DD: 2015-1-1 : com.lhs.ccb.common.soiimpl.SVLDateImpl
+})
+-->
+<!-- Output=Null -->
+

@@ -1,0 +1,72 @@
+<!--
+ execute (PAYMENT_METHODS.READ, {
+})
+-->
+ => {
+paymentmethods = sub element : com.lhs.ccb.common.soiimpl.NamedValueContainerList
+-[0]PAYMETH_SWIFTCODE = false : java.lang.Boolean
+-[0]PAYMETH_PREPAY_DEF = N : java.lang.Character
+-[0]PAYMETH_BANKNAME = false : java.lang.Boolean
+-[0]PAYMETH_BANKZIP = false : java.lang.Boolean
+-[0]PAYMETH_PAYMENT_DEFAULT = N : java.lang.Character
+-[0]PAYMETH_BANKCOUNTRY = false : java.lang.Boolean
+-[0]PAYMETH_BANKACCT_NUM = true : java.lang.Boolean
+-[0]PAYMETH_BANKSTATE = false : java.lang.Boolean
+-[0]PAYMETH_BANKSUBACCT_NUM = false : java.lang.Boolean
+-[0]PAYMETH_BANKSTREET_NUM = false : java.lang.Boolean
+-[0]PAYMETH_DESC = Credit Card : java.lang.String
+-[0]PAYMETH_BANKSTREET = false : java.lang.Boolean
+-[0]PAYMETH_VALIDTHROUGHDATE = true : java.lang.Boolean
+-[0]PAYMETH_CREDITCARDCOMPANY = true : java.lang.Boolean
+-[0]PAYMETH_ACCTOWNER = true : java.lang.Boolean
+-[0]PAYMETH_ID = -5 : java.lang.Long
+-[0]PAYMETH_CODE = R : java.lang.String
+-[0]PAYMETH_PAYMENT_AUTHORIZATION = N : java.lang.Character
+-[0]PAYMETH_ID_PUB = R : java.lang.String
+-[0]PAYMETH_ACCT_VALIDATION = Y : java.lang.Character
+-[0]PAYMETH_BANKCITY = false : java.lang.Boolean
+-[1]PAYMETH_SWIFTCODE = true : java.lang.Boolean
+-[1]PAYMETH_PREPAY_DEF = N : java.lang.Character
+-[1]PAYMETH_BANKNAME = true : java.lang.Boolean
+-[1]PAYMETH_BANKZIP = false : java.lang.Boolean
+-[1]PAYMETH_PAYMENT_DEFAULT = N : java.lang.Character
+-[1]PAYMETH_BANKCOUNTRY = false : java.lang.Boolean
+-[1]PAYMETH_BANKACCT_NUM = true : java.lang.Boolean
+-[1]PAYMETH_BANKSTATE = false : java.lang.Boolean
+-[1]PAYMETH_BANKSUBACCT_NUM = false : java.lang.Boolean
+-[1]PAYMETH_BANKSTREET_NUM = false : java.lang.Boolean
+-[1]PAYMETH_DESC = Direct Debit : java.lang.String
+-[1]PAYMETH_BANKSTREET = false : java.lang.Boolean
+-[1]PAYMETH_VALIDTHROUGHDATE = false : java.lang.Boolean
+-[1]PAYMETH_CREDITCARDCOMPANY = false : java.lang.Boolean
+-[1]PAYMETH_ACCTOWNER = true : java.lang.Boolean
+-[1]PAYMETH_ID = -3 : java.lang.Long
+-[1]PAYMETH_CODE = D : java.lang.String
+-[1]PAYMETH_PAYMENT_AUTHORIZATION = N : java.lang.Character
+-[1]PAYMETH_ID_PUB = D : java.lang.String
+-[1]PAYMETH_ACCT_VALIDATION = Y : java.lang.Character
+-[1]PAYMETH_BANKCITY = false : java.lang.Boolean
+-[2]PAYMETH_SWIFTCODE = false : java.lang.Boolean
+-[2]PAYMETH_PREPAY_DEF = N : java.lang.Character
+-[2]PAYMETH_BANKNAME = false : java.lang.Boolean
+-[2]PAYMETH_BANKZIP = false : java.lang.Boolean
+-[2]PAYMETH_PAYMENT_DEFAULT = N : java.lang.Character
+-[2]PAYMETH_BANKCOUNTRY = false : java.lang.Boolean
+-[2]PAYMETH_BANKACCT_NUM = false : java.lang.Boolean
+-[2]PAYMETH_BANKSTATE = false : java.lang.Boolean
+-[2]PAYMETH_BANKSUBACCT_NUM = false : java.lang.Boolean
+-[2]PAYMETH_BANKSTREET_NUM = false : java.lang.Boolean
+-[2]PAYMETH_DESC = Cash : java.lang.String
+-[2]PAYMETH_BANKSTREET = false : java.lang.Boolean
+-[2]PAYMETH_VALIDTHROUGHDATE = false : java.lang.Boolean
+-[2]PAYMETH_CREDITCARDCOMPANY = false : java.lang.Boolean
+-[2]PAYMETH_ACCTOWNER = false : java.lang.Boolean
+-[2]PAYMETH_ID = -1 : java.lang.Long
+-[2]PAYMETH_CODE = P : java.lang.String
+-[2]PAYMETH_PAYMENT_AUTHORIZATION = N : java.lang.Character
+-[2]PAYMETH_ID_PUB = P : java.lang.String
+-[2]PAYMETH_ACCT_VALIDATION = N : java.lang.Character
+-[2]PAYMETH_BANKCITY = false : java.lang.Boolean
+
+}
+

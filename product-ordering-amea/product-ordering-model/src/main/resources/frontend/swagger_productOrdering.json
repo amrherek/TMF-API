@@ -1,0 +1,652 @@
+{
+	"swagger": "2.0",
+	"info": {
+		"description": "",
+		"version": "1.0.0_release",
+		"title": "API ProductOrder"
+	},
+	"host": "api.orange.com",
+	"basePath": "/",
+	"schemes": ["http"],
+	"consumes": ["application/json;charset=utf-8"],
+	"produces": ["application/json;charset=utf-8"],
+	"tags": [{
+			"name": "ProductOrder",
+			"description": ""
+		}
+	],
+	"paths": {
+		"/productOrder": {
+			"post": {
+				"tags": ["ProductOrder"],
+				"operationId": "productOrderCreate",
+				"summary": "create productOrder",
+				"description": "\n\nSpecific business errors for current operation will be encapsulated in\n\nHTTP Response 422 Unprocessable entity\n",
+				"deprecated": false,
+				"parameters": [{
+						"name": "ProductOrder",
+						"required": true,
+						"in": "body",
+						"description": "",
+						"schema": {
+							"$ref": "#/definitions/ProductOrder"
+						}
+					}, {
+						"name": "publicKey",
+						"required": false,
+						"in": "query",
+						"description": "MSISDN",
+						"type": "string"
+					}
+				],
+				"responses": {
+					"201": {
+						"description": "Success",
+						"schema": {
+							"$ref": "#/definitions/ProductOrder"
+						}
+					}
+				}
+			}
+		}
+	},
+	"definitions": {
+		"MaritalStatus": {
+			"description": "",
+			"type": "string",
+			"enum": ["single", "married", "divorced", "widowed"]
+		},
+		"Role": {
+			"description": "",
+			"type": "string",
+			"enum": ["customer", "tutor"]
+		},
+		"ContactMediumType": {
+			"description": "",
+			"type": "string",
+			"enum": ["emailAddress", "postalAddress", "phoneNumber"]
+		},
+		"OrderItemRelationshipType": {
+			"description": "",
+			"type": "string",
+			"enum": ["isPrerequisite", "hasPrerequisite", "reliesOn", "brings", "hasParent", "hasChild"]
+		},
+		"PublicKeyName": {
+			"description": "",
+			"type": "string",
+			"enum": ["retailerMSISDN", "customerMSISDN", "payerMSISDN", "recipientMSISDN"]
+		},
+		"State": {
+			"description": "",
+			"type": "string",
+			"enum": ["acknowledged", "inProgress", "cancelled", "completed", "rejected", "pending", "held", "failed", "partial"]
+		},
+		"ProductRelationShipType": {
+			"description": "",
+			"type": "string",
+			"enum": ["isContainedIn", "contains"]
+		},
+		"Gender": {
+			"description": "",
+			"type": "string",
+			"enum": ["male", "female"]
+		},
+		"OrderItemAction": {
+			"description": "",
+			"type": "string",
+			"enum": ["activate", "deactivate", "reactivate", "suspend", "modifyTariff", "add", "modify", "delete", "noChange", "addCharacteristic", "deleteCharacteristic", "migrate", "modifyCharacteristic"]
+		},
+		"ProductOrderCategory": {
+			"description": "",
+			"type": "string",
+			"enum": ["offerSuspension", "includedService", "offerAcquisition", "offerActivation", "option", "material", "offerMigration", "tariff", "characteristic", "serviceStatus", "usageAlert", "identificationParty", "offerCancel"]
+		},
+		"ErrorDetail": {
+			"description": "",
+			"required": ["code", "message"],
+			"type": "object",
+			"properties": {
+				"code": {
+					"description": "",
+					"type": "integer",
+					"format": "int32"
+				},
+				"message": {
+					"description": "",
+					"type": "string"
+				},
+				"description": {
+					"description": "",
+					"type": "string"
+				},
+				"infoURL": {
+					"description": "",
+					"type": "string"
+				}
+			}
+		},
+		"Error": {
+			"description": "",
+			"required": ["code", "message"],
+			"type": "object",
+			"properties": {
+				"code": {
+					"description": "",
+					"type": "integer",
+					"format": "int32"
+				},
+				"message": {
+					"description": "",
+					"type": "string"
+				},
+				"description": {
+					"description": "",
+					"type": "string"
+				},
+				"infoURL": {
+					"description": "",
+					"type": "string"
+				},
+				"details": {
+					"description": "",
+					"type": "array",
+					"items": {
+						"$ref": "#/definitions/ErrorDetail"
+					}
+				}
+			}
+		},
+		"OrderItemRelationship": {
+			"description": "",
+			"required": ["id"],
+			"type": "object",
+			"properties": {
+				"type": {
+					"description": "",
+					"$ref": "#/definitions/OrderItemRelationshipType"
+				},
+				"id": {
+					"description": "",
+					"type": "string"
+				}
+			}
+		},
+		"ProductOrder": {
+			"description": "",
+			"type": "object",
+			"properties": {
+				"id": {
+					"description": "",
+					"type": "string"
+				},
+				"externalId": {
+					"description": "",
+					"type": "string"
+				},
+				"relatedPublicKey": {
+					"description": "",
+					"type": "array",
+					"items": {
+						"$ref": "#/definitions/PublicKey"
+					}
+				},
+				"description": {
+					"description": "",
+					"type": "string"
+				},
+				"category": {
+					"description": "",
+					"$ref": "#/definitions/ProductOrderCategory"
+				},
+				"state": {
+					"description": "",
+					"$ref": "#/definitions/State"
+				},
+				"orderDate": {
+					"description": "",
+					"type": "string",
+					"format": "date-time"
+				},
+				"requestedStartDate": {
+					"description": "",
+					"type": "string",
+					"format": "date-time"
+				},
+				"relatedIndividual": {
+					"description": "",
+					"type": "array",
+					"items": {
+						"$ref": "#/definitions/RelatedIndividual"
+					}
+				},
+				"relatedOrganization": {
+					"description": "",
+					"type": "array",
+					"items": {
+						"$ref": "#/definitions/RelatedOrganization"
+					}
+				},
+				"orderItem": {
+					"description": "",
+					"type": "array",
+					"items": {
+						"$ref": "#/definitions/OrderItem"
+					}
+				},
+				"channel": {
+					"description": "",
+					"$ref": "#/definitions/ChannelRef"
+				},
+				"place": {
+					"description": "",
+					"$ref": "#/definitions/Place"
+				}
+			}
+		},
+		"Note": {
+			"description": "",
+			"type": "object",
+			"properties": {
+				"text": {
+					"description": "",
+					"type": "string"
+				},
+				"date": {
+					"description": "",
+					"type": "string",
+					"format": "date-time"
+				},
+				"author": {
+					"description": "",
+					"type": "string"
+				}
+			}
+		},
+		"OrderItem": {
+			"description": "",
+			"type": "object",
+			"properties": {
+				"id": {
+					"description": "",
+					"type": "string"
+				},
+				"orderItemRelationship": {
+					"description": "",
+					"$ref": "#/definitions/OrderItemRelationship"
+				},
+				"action": {
+					"description": "",
+					"$ref": "#/definitions/OrderItemAction"
+				},
+				"quantity": {
+					"description": "",
+					"type": "integer",
+					"format": "int32"
+				},
+				"productOffering": {
+					"description": "",
+					"$ref": "#/definitions/ProductOffering"
+				},
+				"product": {
+					"description": "",
+					"$ref": "#/definitions/Product"
+				}
+			}
+		},
+		"Product": {
+			"description": "",
+			"type": "object",
+			"properties": {
+				"id": {
+					"description": "",
+					"type": "string"
+				},
+				"productCharacteristic": {
+					"description": "",
+					"type": "array",
+					"items": {
+						"$ref": "#/definitions/Characteristic"
+					}
+				},
+				"productOffering": {
+					"description": "",
+					"$ref": "#/definitions/ProductOfferingRef"
+				},
+				"productSpecification": {
+					"description": "",
+					"$ref": "#/definitions/ProductSpecification"
+				},
+				"productRelationship": {
+					"description": "",
+					"type": "array",
+					"items": {
+						"$ref": "#/definitions/ProductRelationship"
+					}
+				}
+			}
+		},
+		"Characteristic": {
+			"description": "",
+			"type": "object",
+			"properties": {
+				"name": {
+					"description": "",
+					"type": "string"
+				},
+				"value": {
+					"description": "",
+					"type": "string"
+				}
+			}
+		},
+		"ProductRelationship": {
+			"description": "",
+			"type": "object",
+			"properties": {
+				"type": {
+					"description": "",
+					"$ref": "#/definitions/ProductRelationShipType"
+				},
+				"product": {
+					"description": "",
+					"$ref": "#/definitions/ProductRef"
+				}
+			}
+		},
+		"ProductOfferingRef": {
+			"description": "",
+			"type": "object",
+			"properties": {
+				"id": {
+					"description": "",
+					"type": "string"
+				},
+				"category": {
+					"description": "",
+					"type": "string"
+				}
+			}
+		},
+		"RelatedOrganization": {
+			"description": "",
+			"allOf": [{
+					"$ref": "#/definitions/RelatedParty"
+				}, {
+					"type": "object",
+					"properties": {
+						"tradingName": {
+							"description": "",
+							"type": "string"
+						},
+						"organizationIdentification": {
+							"description": "",
+							"type": "array",
+							"items": {
+								"$ref": "#/definitions/Identification"
+							}
+						}
+					}
+				}
+			]
+		},
+		"RelatedIndividual": {
+			"description": "",
+			"allOf": [{
+					"$ref": "#/definitions/RelatedParty"
+				}, {
+					"type": "object",
+					"properties": {
+						"gender": {
+							"description": "",
+							"$ref": "#/definitions/Gender"
+						},
+						"birthDate": {
+							"description": "",
+							"type": "string",
+							"format": "date"
+						},
+						"placeOfBirth": {
+							"description": "",
+							"type": "string"
+						},
+						"title": {
+							"description": "",
+							"type": "string"
+						},
+						"givenName": {
+							"description": "",
+							"type": "string"
+						},
+						"familyName": {
+							"description": "",
+							"type": "string"
+						},
+						"maritalStatus": {
+							"description": "",
+							"$ref": "#/definitions/MaritalStatus"
+						},
+						"individualIdentification": {
+							"description": "",
+							"type": "array",
+							"items": {
+								"$ref": "#/definitions/Identification"
+							}
+						},
+						"nationality": {
+							"description": "",
+							"type": "string"
+						},
+						"countryOfBirth": {
+							"description": "",
+							"type": "string"
+						}
+					}
+				}
+			]
+		},
+		"RelatedParty": {
+			"description": "",
+			"type": "object",
+			"properties": {
+				"id": {
+					"description": "",
+					"type": "string"
+				},
+				"role": {
+					"description": "",
+					"$ref": "#/definitions/Role"
+				},
+				"characteristic": {
+					"description": "",
+					"type": "array",
+					"items": {
+						"$ref": "#/definitions/Characteristic"
+					}
+				},
+				"contactMedium": {
+					"description": "",
+					"type": "array",
+					"items": {
+						"$ref": "#/definitions/ContactMedium"
+					}
+				}
+			}
+		},
+		"ContactMedium": {
+			"description": "",
+			"type": "object",
+			"properties": {
+				"type": {
+					"description": "",
+					"$ref": "#/definitions/ContactMediumType"
+				},
+				"medium": {
+					"description": "",
+					"$ref": "#/definitions/Medium"
+				}
+			}
+		},
+		"Medium": {
+			"description": "",
+			"type": "object",
+			"properties": {
+				"city": {
+					"description": "",
+					"type": "string"
+				},
+				"country": {
+					"description": "",
+					"type": "string"
+				},
+				"stateOrProvince": {
+					"description": "",
+					"type": "string"
+				},
+				"residenceName": {
+					"description": "",
+					"type": "string"
+				},
+				"postcode": {
+					"description": "",
+					"type": "string"
+				},
+				"streetOne": {
+					"description": "",
+					"type": "string"
+				},
+				"streetTwo": {
+					"description": "",
+					"type": "string"
+				},
+				"apartmentNumber": {
+					"description": "",
+					"type": "string"
+				},
+				"floorNumber": {
+					"description": "",
+					"type": "string"
+				},
+				"emailAddress": {
+					"description": "",
+					"type": "string"
+				},
+				"type": {
+					"description": "",
+					"type": "string"
+				},
+				"number": {
+					"description": "",
+					"type": "string"
+				}
+			}
+		},
+		"Identification": {
+			"description": "",
+			"type": "object",
+			"properties": {
+				"type": {
+					"description": "",
+					"type": "string"
+				},
+				"issuingDate": {
+					"description": "",
+					"type": "string",
+					"format": "date"
+				},
+				"expirationDate": {
+					"description": "",
+					"type": "string",
+					"format": "date"
+				},
+				"identificationId": {
+					"description": "",
+					"type": "string"
+				},
+				"issuingPlace": {
+					"description": "",
+					"type": "string"
+				}
+			}
+		},
+		"PublicKey": {
+			"description": "",
+			"type": "object",
+			"properties": {
+				"id": {
+					"description": "",
+					"type": "string"
+				},
+				"name": {
+					"description": "",
+					"type": "string"
+				}
+			}
+		},
+		"ProductRef": {
+			"description": "",
+			"type": "object",
+			"properties": {
+				"id": {
+					"description": "",
+					"type": "string"
+				}
+			}
+		},
+		"ChannelRef": {
+			"description": "",
+			"type": "object",
+			"properties": {
+				"id": {
+					"description": "",
+					"type": "string"
+				},
+				"name": {
+					"description": "",
+					"type": "string"
+				}
+			}
+		},
+		"Place": {
+			"description": "",
+			"type": "object",
+			"properties": {
+				"latitude": {
+					"description": "",
+					"type": "string"
+				},
+				"longitude": {
+					"description": "",
+					"type": "string"
+				}
+			}
+		},
+		"ProductSpecification": {
+			"description": "",
+			"type": "object",
+			"properties": {
+				"id": {
+					"description": "",
+					"type": "string"
+				},
+				"name": {
+					"description": "",
+					"type": "string"
+				}
+			}
+		},
+		"ProductOffering": {
+			"description": "",
+			"type": "object",
+			"properties": {
+				"id": {
+					"description": "",
+					"type": "string"
+				},
+				"category": {
+					"description": "",
+					"type": "string"
+				}
+			}
+		}
+	}
+}

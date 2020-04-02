@@ -1,0 +1,10 @@
+<!--
+ execute (SERVICE_CREATION_DATE.READ, {
+CO_ID_PUB = CONTR0000000111 : java.lang.String
+SNCODE_PUB = ITEL : java.lang.String
+})
+-->
+ => {
+ENTRY_DATE = YYYY-MM-DD: 2013-3-8 : com.lhs.ccb.common.soiimpl.SVLDateImpl
+}
+
