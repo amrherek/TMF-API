@@ -3,7 +3,7 @@
 	<parent>
 		<groupId>com.orange.mea.apisi.party</groupId>
 		<artifactId>party-amea</artifactId>
-		<version>1.17-SNAPSHOT</version>
+		<version>1.18-SNAPSHOT</version>
 	</parent>
 
 	<modelVersion>4.0.0</modelVersion>
@@ -76,6 +76,32 @@
                             <generateApis>false</generateApis>
                             <generateSupportingFiles>false</generateSupportingFiles>
                             <modelPackage>com.orange.apibss.party.model</modelPackage>
+                            <environmentVariables>
+                                <library>resttemplate</library>
+                            </environmentVariables>
+                            <output>target/generated-sources</output>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+            <plugin>
+                <groupId>io.swagger</groupId>
+                <artifactId>swagger-codegen-maven-plugin</artifactId>
+                <executions>
+                    <execution>
+                        <id>generate-model-obw</id>
+                        <goals>
+                            <goal>generate</goal>
+                        </goals>
+                        <configuration>
+                            <inputSpec>${project.basedir}/src/main/resources/frontend/swagger_party_obw.json</inputSpec>
+                            <language>java</language>
+                            <configOptions>
+                                <sourceFolder>model</sourceFolder>  
+                            </configOptions>
+                            <generateApis>false</generateApis>
+                            <generateSupportingFiles>false</generateSupportingFiles>
+                            <modelPackage>com.orange.apibss.party.model.obw</modelPackage>
                             <environmentVariables>
                                 <library>resttemplate</library><!--  to use jackson -->
                             </environmentVariables>

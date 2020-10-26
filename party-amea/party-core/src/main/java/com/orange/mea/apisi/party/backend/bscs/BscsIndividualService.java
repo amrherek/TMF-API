@@ -1,5 +1,6 @@
 package com.orange.mea.apisi.party.backend.bscs;
 
+import java.util.Date;
 import java.util.List;
 
 import javax.persistence.NoResultException;
@@ -13,11 +14,18 @@ import com.orange.apibss.common.exceptions.ApiException;
 import com.orange.apibss.common.exceptions.badrequest.BadParameterValueException;
 import com.orange.apibss.common.exceptions.badrequest.notfound.NotFoundIdException;
 import com.orange.apibss.common.exceptions.technical.TechnicalException;
+import com.orange.bscs.api.model.exception.CMSException;
 import com.orange.bscs.model.BscsAddress;
 import com.orange.bscs.model.BscsCustomer;
 import com.orange.bscs.model.BscsCustomerInfo;
 import com.orange.bscs.model.BscsCustomerSearch;
+import com.orange.bscs.model.businesspartner.BSCSAddress;
+import com.orange.bscs.model.businesspartner.BSCSCustomer;
+import com.orange.bscs.model.businesspartner.BSCSCustomerWriteInput;
+import com.orange.bscs.model.businesspartner.BSCSPaymentArrangement;
 import com.orange.bscs.model.businesspartner.EnumAddressRole;
+import com.orange.bscs.model.businesspartner.EnumCustomerLevelCode;
+import com.orange.bscs.model.businesspartner.EnumCustomerStatus;
 import com.orange.bscs.model.criteria.BscsCustomerSearchCriteria;
 import com.orange.bscs.model.factory.BscsObjectFactory;
 import com.orange.bscs.service.BscsBusinessPartnerServiceAdapter;
@@ -195,4 +203,191 @@ public class BscsIndividualService {
 
         return customer;
     }
+    
+    
+    public BSCSCustomer executeCustomerNewForePostPartyIndividual(String csBillCycle, String prgCode, String rpCodePub, String partyType, Boolean paymentResp, String externalCustomerId, String externalCustomerSetId, String partyRoleSHName)
+    	     throws ApiException, BscsInvalidIdException, BscsInvalidFieldException, CMSException
+    	   {
+    	     try
+    	     {
+    	       BSCSCustomerWriteInput inCms = new BSCSCustomerWriteInput();
+    	       if (null != csBillCycle) {
+    	         inCms.setBillingCycle(csBillCycle);
+    	       }
+    	       if (null != prgCode) {
+    	         inCms.setPriceGroupCode(prgCode);
+    	       }
+    	       if (null != rpCodePub) {
+    	         inCms.setRatePlanCode(rpCodePub);
+    	       }
+    	       if (null != partyType) {
+    	         inCms.setPartyType(partyType);
+    	       }
+    	       if (null != paymentResp) {
+    	         inCms.setIsPaymentResponsible(paymentResp);
+    	       }
+    	       if (null != externalCustomerId) {
+    	         inCms.setExternalCustomerId(externalCustomerId);
+    	       }
+    	       if (null != externalCustomerSetId) {
+    	         inCms.setExternalCustomerIdSet(externalCustomerSetId);
+    	       }
+    	       inCms.setCustomerLevelCode(EnumCustomerLevelCode.SUBSCRIBER);
+    	       
+    	 
+    	       BSCSCustomer newCustomer = this.businessPartnerAdapter.writeNewCustomer(inCms, false);
+    	       if (null != newCustomer) {
+    	         return newCustomer;
+    	       }
+    	       throw new CMSException("command cms CUSTOMER.NEW result is null");
+    	     }
+    	     catch (CMSException e)
+    	     {
+    	       throw e;
+    	     }
+    	   }
+    	   
+    	   public void executeAddressWriteForPostPartyIndividual(String csIdPub, Character adrCsType, Long adrSeq, String adrFName, String adrLName, String middleName, String adrStreetNo, String adrCity, Character adrSex, String adrStreet, String adrZip, String countryIdPub, String adrJBDes, Date birthDate, String title, String nationality, String adrRoles, String licence, String social, String idNo, Long idType, String email, String fax, String tel)
+    	     throws CMSException, ApiException
+    	   {
+    	     try
+    	     {
+    	       BSCSAddress inCms = new BSCSAddress();
+    	       if (null != csIdPub) {
+    	         inCms.setCustomerIdPub(csIdPub);
+    	       }
+    	       if (null != adrCsType) {
+    	         inCms.setCustomerType(adrCsType);
+    	       }
+    	       if (null != adrSeq) {
+    	         inCms.setSequenceNumber(adrSeq);
+    	       }
+    	       if (null != adrFName) {
+    	         inCms.setFirstName(adrFName);
+    	       }
+    	       if (null != adrLName) {
+    	         inCms.setLastName(adrLName);
+    	       }
+    	       if (null != middleName) {
+    	         inCms.setMidNames(middleName);
+    	       }
+    	       if (null != adrStreetNo) {
+    	         inCms.setStreetNumber(adrStreetNo);
+    	       }
+    	       if (null != adrCity) {
+    	         inCms.setCity(adrCity);
+    	       }
+    	       if (null != adrSex) {
+    	         inCms.setSex(adrSex);
+    	       }
+    	       if (null != adrStreet) {
+    	         inCms.setStreet(adrStreet);
+    	       }
+    	       if (null != adrZip) {
+    	         inCms.setPostalCode(adrZip);
+    	       }
+    	       if (null != countryIdPub) {
+    	         inCms.setCountryCode(countryIdPub);
+    	       }
+    	       if (null != adrJBDes) {
+    	         inCms.setJobDescription(adrJBDes);
+    	       }
+    	       if (null != birthDate) {
+    	         inCms.setBirthDate(null);
+    	       }
+    	       if (null != title) {
+    	         inCms.setTitleCode(title);
+    	       }
+    	       if (null != nationality) {
+    	         inCms.setNationalityCode(nationality);
+    	       }
+    	       if (null != adrRoles) {
+    	         inCms.setAddressRoles(adrRoles);
+    	       }
+    	       if (null != licence) {
+    	         inCms.setDrivingLicense(licence);
+    	       }
+    	       if (null != social) {
+    	         inCms.setSocialNumber(social);
+    	       }
+    	       if (null != idNo) {
+    	         inCms.setNationalCard(idNo);
+    	       }
+    	       if (null != idType) {
+    	         inCms.setNationalIdTypeCode(idType);
+    	       }
+    	       if (null != email) {
+    	         inCms.setEmail(email);
+    	       }
+    	       if (null != fax) {
+    	         inCms.setFax(fax);
+    	       }
+    	       if (null != tel) {
+    	         inCms.setTelephone1(tel);
+    	       }
+    	       Long localLong = this.businessPartnerAdapter.writeAddress(inCms, false);
+    	     }
+    	     catch (BscsInvalidIdException e)
+    	     {
+    	       this.logger.debug("Unknown customer id", e);
+    	       throw new NotFoundIdException("party", csIdPub);
+    	     }
+    	     catch (BscsInvalidFieldException e)
+    	     {
+    	       this.logger.debug("Invalid field", e);
+    	       
+    	       throw new TechnicalException(e.getMessage(), e);
+    	     }
+    	   }
+    	   
+    	   public void executePaymentArrangementWriteForPostPartyIndividual(String csIdPub, Long cspSeqNo, String CSPPMNTIdPub)
+    	     throws CMSException, ApiException
+    	   {
+    	     try
+    	     {
+    	       BSCSPaymentArrangement inCms = new BSCSPaymentArrangement();
+    	       if (null != csIdPub) {
+    	         inCms.setCustomerIDPub(csIdPub);
+    	       }
+    	       if (null != CSPPMNTIdPub) {
+    	         inCms.setPaymentMethodId(Long.valueOf(CSPPMNTIdPub));
+    	       }
+    	       this.logger.trace("CMS PAYMENT_ARRANGEMENT.WRITE");
+    	       BSCSPaymentArrangement localBSCSPaymentArrangement1 = this.businessPartnerAdapter.writePaymentArrangement(inCms, false);
+    	     }
+    	     catch (BscsInvalidIdException e)
+    	     {
+    	       this.logger.debug("Unknown customer id", e);
+    	       throw new NotFoundIdException("party", csIdPub);
+    	     }
+    	     catch (BscsInvalidFieldException e)
+    	     {
+    	       this.logger.debug("Invalid field", e);
+    	       
+    	       throw new TechnicalException(e.getMessage(), e);
+    	     }
+    	   }
+    	   
+    	   public void executeCustomerWriteForPostPartyIndividual(String csIdPub, Character csStatus, Long rsCode, String rpCodePub, Long custCatCode)
+    	     throws CMSException, BscsInvalidIdException, BscsInvalidFieldException
+    	   {
+    	     BSCSCustomerWriteInput inCms = new BSCSCustomerWriteInput();
+    	     if (null != csIdPub) {
+    	       inCms.setCustomerIdPub(csIdPub);
+    	     }
+    	     if (null != csStatus) {
+    	       inCms.setStatus(EnumCustomerStatus.parse(csStatus));
+    	     }
+    	     if (null != rsCode) {
+    	       inCms.setReasonCode(rsCode);
+    	     }
+    	     if (null != rpCodePub) {
+    	       inCms.setRatePlanCode(rpCodePub);
+    	     }
+    	     if (null != custCatCode) {
+    	       inCms.setCustomerCategory(custCatCode);
+    	     }
+    	     this.logger.debug("CMS PAYMENT_ARRANGEMENT.WRITE");
+    	     this.businessPartnerAdapter.writeCustomer(inCms, true);
+    	   }
 }

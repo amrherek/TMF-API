@@ -1,5 +1,6 @@
 package com.orange.mea.apisi.party.service;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.apache.commons.lang.StringUtils;
@@ -13,6 +14,8 @@ import com.orange.apibss.common.exceptions.badrequest.BadParameterFormatExceptio
 import com.orange.apibss.common.exceptions.badrequest.MissingParameterException;
 import com.orange.apibss.common.exceptions.technical.TechnicalException;
 import com.orange.apibss.party.model.Individual;
+import com.orange.apibss.party.model.obw.RelatedParty;
+import com.orange.mea.apisi.party.backend.CreateIndividualBackend;
 import com.orange.mea.apisi.party.backend.FindIndividualsByCriteriaBackend;
 import com.orange.mea.apisi.party.backend.FindIndividualsByIdentificationBackend;
 import com.orange.mea.apisi.party.backend.GetIndividualBackend;
@@ -43,6 +46,9 @@ public class IndividualService {
 
     @Autowired
     private UpdateIndividualBackend updateIndividualBackend;
+    
+    @Autowired
+    private CreateIndividualBackend createIndividualBackend;
 
     /**
      * Returns an individual using its id (get)
@@ -116,5 +122,28 @@ public class IndividualService {
         return findIndividualsByIdentificationBackend.findIndividualsByIdentification(identificationType,
                 identificationId);
     }
+    
+    public com.orange.apibss.party.model.obw.Individual postIndividual(com.orange.apibss.party.model.obw.Individual individual)
+    	    throws ApiException
+    	  {
+    	    if (individual == null) {
+    	      throw new TechnicalException("individual is null");
+    	    }
+    	    this.logger.debug("creating new individual [{}]", individual.getId());
+    	    try
+    	    {
+    	      String custcode = this.createIndividualBackend.createIndividual(individual);
+    	      RelatedParty newRelatedParty = (RelatedParty)individual.getRelatedParty().get(0);
+    	      newRelatedParty.setId(custcode);
+    	      List<RelatedParty> listRelatedParty = new ArrayList<RelatedParty>();
+    	      listRelatedParty.add(newRelatedParty);
+    	      individual.setRelatedParty(listRelatedParty);
+    	    }
+    	    catch (NumberFormatException e)
+    	    {
+    	      throw new BadParameterFormatException("individual.id", individual.getId(), "a numeric value", e);
+    	    }
+    	    return individual;
+    	  }
 
 }

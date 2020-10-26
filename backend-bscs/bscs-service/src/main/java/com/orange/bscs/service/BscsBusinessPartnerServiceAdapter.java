@@ -18,7 +18,10 @@ import com.orange.bscs.model.BscsCustomerSearch;
 import com.orange.bscs.model.BscsIdentificationDocumentType;
 import com.orange.bscs.model.BscsPaymentArrangement;
 import com.orange.bscs.model.BscsTitle;
+import com.orange.bscs.model.businesspartner.BSCSAddress;
 import com.orange.bscs.model.businesspartner.BSCSCustomer;
+import com.orange.bscs.model.businesspartner.BSCSCustomerWriteInput;
+import com.orange.bscs.model.businesspartner.BSCSPaymentArrangement;
 import com.orange.bscs.model.businesspartner.EnumAddressRole;
 import com.orange.bscs.model.criteria.BscsCustomerSearchCriteria;
 import com.orange.bscs.model.factory.BscsObjectFactory;
@@ -199,5 +202,100 @@ public abstract class BscsBusinessPartnerServiceAdapter {
         }
         return res;
     }
+    
+    
+    public BSCSCustomer writeNewCustomer(BSCSCustomerWriteInput customer, boolean commit)
+    		  throws BscsInvalidIdException, BscsInvalidFieldException
+    		{
+    		  try
+    		  {
+    		    BSCSCustomer newCustomer = this.businessPartnerServiceAdapter.customerNew(customer);
+    		    if (commit) {
+    		      ConnectionHolder.getCurrentConnection().commit();
+    		    }
+    		    return newCustomer;
+    		  }
+    		  catch (SOIException e)
+    		  {
+    		    this.logger.debug("BSCS CUSTOMER.NEW error with code: " + e.getCode());
+    		  }
+    		  return null;
+    		}
 
+    		public BSCSPaymentArrangement writePaymentArrangement(BSCSPaymentArrangement payArrang, boolean commit)
+    		  throws BscsInvalidIdException, BscsInvalidFieldException
+    		{
+    		  try
+    		  {
+    		    BSCSPaymentArrangement payArrangement = this.businessPartnerServiceAdapter.paymentArrangementWrite(payArrang);
+    		    if (commit) {
+    		      ConnectionHolder.getCurrentConnection().commit();
+    		    }
+    		    return payArrangement;
+    		  }
+    		  catch (SOIException e)
+    		  {
+    		    this.logger.debug("BSCS PAYMENT_ARRANGEMENT.WRITE error with code: " + e.getCode());
+    		  }
+    		  return null;
+    		}
+
+    		public void writeCustomer(BSCSCustomerWriteInput customer, boolean commit)
+    		  throws BscsInvalidIdException, BscsInvalidFieldException
+    		{
+    		  try
+    		  {
+    		    this.businessPartnerServiceAdapter.customerWrite(customer);
+    		    if (commit) {
+    		      ConnectionHolder.getCurrentConnection().commit();
+    		    }
+    		  }
+    		  catch (SOIException e)
+    		  {
+    		    this.logger.debug("BSCS CUSTOMER.WRITE error with code: " + e.getCode());
+    		  }
+    		}
+    
+    		public Long writeAddress(BSCSAddress address, boolean commit)
+    				   throws BscsInvalidIdException, BscsInvalidFieldException
+    				 {
+    				   Long result = null;
+    				   try
+    				   {
+    				     result = Long.valueOf(this.businessPartnerServiceAdapter.addressWrite(address));
+    				     if (commit) {
+    				       ConnectionHolder.getCurrentConnection().commit();
+    				     }
+    				   }
+    				   catch (SOIException e)
+    				   {
+    				     this.logger.debug("BSCS ADDRESS_WRITE error with code: " + e.getCode());
+    				     if (e.getCode() != null)
+    				     {
+    				       if ((e.getCode().contains("FUNC_FRMWK_SRV.id0468")) || (e.getCode().contains("RC6701"))) {
+    				         throw new BscsInvalidIdException(BscsFieldExceptionEnum.CUSTOMER_ID, e.getFirstArg(), "Invalid customer id: {" + e.getFirstArg() + "}");
+    				       }
+    				       if (e.getCode().contains("RC6721")) {
+    				         throw new BscsInvalidFieldException(BscsFieldExceptionEnum.TITLE, address.getTitleId().toString(), e.getMessage());
+    				       }
+    				       if (e.getCode().contains("RC6723")) {
+    				         throw new BscsInvalidFieldException(BscsFieldExceptionEnum.IDENTIFICATION_TYPE, e.getFirstArg(), e.getMessage());
+    				       }
+    				       if (e.getCode().contains("BusinessPartner.GenderTitleNotMatch")) {
+    				         throw new BscsInvalidFieldException(BscsFieldExceptionEnum.TITLE, null, "Gender and title are not compatible");
+    				       }
+    				       if (e.getCode().contains("BusinessPartner.MandatoryCharNoFound")) {
+    				         throw new BscsInvalidFieldException(BscsFieldExceptionEnum.buildBscsFieldExceptionEnum(e.getArg(1)), null, "Bad field in individual content");
+    				       }
+    				       if (e.getCode().contains("BusinessPartner.InvalidPostalCode")) {
+    				         throw new BscsInvalidFieldException(BscsFieldExceptionEnum.POSTAL_CODE, address.getPostalCode(), "Bad format for zip code");
+    				       }
+    				     }
+    				     throw e;
+    				   }
+    				   return result;
+    				 }
+    		
+    		
+    		
 }

@@ -1216,5 +1216,11 @@ public class BSCSCustomerWriteInput extends BSCSModel {
     public void setWelcomProcedureCode(Long value) {
         setLongValue(Constants.P_WP_CODE, value);
     }
+    
+    
+    public void setCustomerLevelCode(EnumCustomerLevelCode value)
+    {
+      setStringValue("CS_LEVEL_CODE", EnumCustomerLevelCode.toString(value));
+    }
 
 }
