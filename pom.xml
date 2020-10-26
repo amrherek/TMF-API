@@ -56,14 +56,14 @@
         <module>common-core</module>
         <module>backend-bscs</module>
         <module>party-amea</module>
-        <!--module>product-inventory-amea</module>
+        <module>product-inventory-amea</module>
         <module>product-ordering-amea</module>
         <module>billing-account-amea</module>
         <module>bucket-balance-amea</module>
         <module>customer-bill-amea</module>
         <module>product-catalog</module>
         <module>eligibility</module>
-        <module>payment</module-->
+        <module>payment</module>
     </modules>
 
 
