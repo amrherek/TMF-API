@@ -1,16 +1,22 @@
 package com.orange.mea.apisi.party.rest;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
-
 import com.orange.apibss.common.audit.AuditContext;
+import com.orange.apibss.common.exceptions.ApiException;
 import com.orange.apibss.party.model.obw.Individual;
 import com.orange.apibss.party.model.obw.IndividualCreateEvent;
 import com.orange.apibss.party.model.obw.IndividualCreateEventPayload;
+import com.orange.bscs.api.model.exception.CMSException;
+import com.orange.bscs.service.exception.BscsInvalidFieldException;
+import com.orange.bscs.service.exception.BscsInvalidIdException;
 import com.orange.mea.apisi.party.service.IndividualService;
+
 import io.swagger.annotations.ApiParam;
+
 import javax.annotation.security.RolesAllowed;
 import javax.servlet.http.HttpServletRequest;
 import javax.validation.Valid;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -40,29 +46,24 @@ public class IndividualCreateEventApiController
   }
   
   @RolesAllowed({"ROLE_PARTY"})
-  @RequestMapping(method={org.springframework.web.bind.annotation.RequestMethod.POST}, produces={"application/json"})
   @ResponseStatus(HttpStatus.CREATED)
-  public IndividualCreateEvent individualCreateEventCreate(@ApiParam(value="", required=true) @Valid @RequestBody IndividualCreateEvent individualCreateEvent)
+  @RequestMapping(method={org.springframework.web.bind.annotation.RequestMethod.POST}, produces={"application/json"})
+  public IndividualCreateEvent individualCreateEventCreate(@ApiParam(value="", required=true) @Valid @RequestBody IndividualCreateEvent individualCreateEvent) throws ApiException, BscsInvalidIdException, BscsInvalidFieldException, CMSException
   {
-    log.debug("post Party Individual  in : " + individualCreateEvent.toString());
+    log.debug("POST Party Individual  in : " + individualCreateEvent.toString());
     Long requestId = null;
     
     IndividualCreateEvent newIndividualCreateEvent = new IndividualCreateEvent();
+    newIndividualCreateEvent=individualCreateEvent;
     
-    Individual newIndividual = new Individual();
-    try
-    {
+      Individual newIndividual = new Individual();
       this.auditContext.open("individualCreateEventCreate", null);
       newIndividual = this.individualService.postIndividual(individualCreateEvent.getEvent().getIndividual());
       IndividualCreateEventPayload event = individualCreateEvent.getEvent();
       event.setIndividual(newIndividual);
       newIndividualCreateEvent.setEvent(event);
-    }
-    catch (Exception e)
-    {
-      log.error("", e);
-    }
-    log.debug("post Party Individual out individual:" + newIndividualCreateEvent);
+    
+    log.debug("POST Party Individual out individual:" + newIndividualCreateEvent);
   return newIndividualCreateEvent;
    }
 }

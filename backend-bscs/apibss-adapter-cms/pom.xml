@@ -4,7 +4,7 @@
     <parent>
         <groupId>com.orange.mea.apisi.backend</groupId>
         <artifactId>backend-bscs</artifactId>
-        <version>1.17-SNAPSHOT</version>
+        <version>1.18-SNAPSHOT</version>
     </parent>
 
     <modelVersion>4.0.0</modelVersion>

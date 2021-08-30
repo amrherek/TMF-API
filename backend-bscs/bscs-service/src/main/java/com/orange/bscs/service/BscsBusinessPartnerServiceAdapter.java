@@ -9,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 
 import com.orange.bscs.api.connection.ConnectionHolder;
 import com.orange.bscs.api.model.BSCSModel;
+import com.orange.bscs.api.model.exception.CMSException;
 import com.orange.bscs.api.model.exception.SOIException;
 import com.orange.bscs.cms.servicelayeradapter.BusinessPartnerServiceAdapterI;
 import com.orange.bscs.model.BscsAddress;
@@ -21,8 +22,11 @@ import com.orange.bscs.model.BscsTitle;
 import com.orange.bscs.model.businesspartner.BSCSAddress;
 import com.orange.bscs.model.businesspartner.BSCSCustomer;
 import com.orange.bscs.model.businesspartner.BSCSCustomerWriteInput;
+import com.orange.bscs.model.businesspartner.BSCSCustomersSearchRequest;
 import com.orange.bscs.model.businesspartner.BSCSPaymentArrangement;
+import com.orange.bscs.model.businesspartner.BSCSPaymentArrangementAssignment;
 import com.orange.bscs.model.businesspartner.EnumAddressRole;
+import com.orange.bscs.model.businesspartner.EnumCustomerLevelCode;
 import com.orange.bscs.model.criteria.BscsCustomerSearchCriteria;
 import com.orange.bscs.model.factory.BscsObjectFactory;
 import com.orange.bscs.service.exception.BscsFieldExceptionEnum;
@@ -218,8 +222,9 @@ public abstract class BscsBusinessPartnerServiceAdapter {
     		  catch (SOIException e)
     		  {
     		    this.logger.debug("BSCS CUSTOMER.NEW error with code: " + e.getCode());
+    		    return null;
     		  }
-    		  return null;
+    		  
     		}
 
     		public BSCSPaymentArrangement writePaymentArrangement(BSCSPaymentArrangement payArrang, boolean commit)
@@ -239,9 +244,27 @@ public abstract class BscsBusinessPartnerServiceAdapter {
     		  }
     		  return null;
     		}
+    		
+    		public BSCSPaymentArrangementAssignment writePaymentArrangementAssignement(BSCSPaymentArrangementAssignment payArrang, boolean commit)
+    	    		  throws BscsInvalidIdException, BscsInvalidFieldException
+    	    		{
+    	    		  try
+    	    		  {
+    	    		    BSCSPaymentArrangementAssignment payArrangement = this.businessPartnerServiceAdapter.paymentArrangementAssignementWrite(payArrang);
+    	    		    if (commit) {
+    	    		      ConnectionHolder.getCurrentConnection().commit();
+    	    		    }
+    	    		    return payArrangement;
+    	    		  }
+    	    		  catch (SOIException e)
+    	    		  {
+    	    		    this.logger.debug("BSCS PAYMENT_ARRANGEMENT_ASSIGNEMENT.WRITE error with code: " + e.getCode());
+    	    		  }
+    	    		  return null;
+    	    		}
 
     		public void writeCustomer(BSCSCustomerWriteInput customer, boolean commit)
-    		  throws BscsInvalidIdException, BscsInvalidFieldException
+    		  throws BscsInvalidIdException, BscsInvalidFieldException, CMSException
     		{
     		  try
     		  {
@@ -253,8 +276,28 @@ public abstract class BscsBusinessPartnerServiceAdapter {
     		  catch (SOIException e)
     		  {
     		    this.logger.debug("BSCS CUSTOMER.WRITE error with code: " + e.getCode());
+    		    throw new CMSException("BSCS CUSTOMER.WRITE error with code: " + e.getCode());
     		  }
     		}
+    		
+    		public BSCSCustomer writeLAMember(BSCSCustomer customer, boolean commit)
+    	    		  throws BscsInvalidIdException, BscsInvalidFieldException
+    	    		{
+    	    		  
+    			     BSCSCustomer result = null;
+    				try
+    	    		  {
+    					result = businessPartnerServiceAdapter.laMemberNewOne(customer);
+    	    		    if (commit) {
+    	    		      ConnectionHolder.getCurrentConnection().commit();
+    	    		    }
+    	    		  }
+    	    		  catch (SOIException e)
+    	    		  {
+    	    		    this.logger.debug("BSCS CUSTOMER.WRITE error with code: " + e.getCode());
+    	    		  }
+    				return result;
+    	    		}
     
     		public Long writeAddress(BSCSAddress address, boolean commit)
     				   throws BscsInvalidIdException, BscsInvalidFieldException
@@ -296,6 +339,37 @@ public abstract class BscsBusinessPartnerServiceAdapter {
     				   return result;
     				 }
     		
+    		public BSCSCustomer searchCustomer(Long csid, String csidpub, boolean syncWithDB)
+    	    		{
+    				BSCSCustomer customer = businessPartnerServiceAdapter.customerRead(csid, csidpub, syncWithDB);
+    				return customer ;
+
+    	    		}	
     		
+    		public List<BSCSCustomer> searchCustomer(String csExterId, String csExterSetId, boolean syncWithDB)
+    		{
+    			BSCSCustomersSearchRequest customerSearchParams = new BSCSCustomersSearchRequest();
+    			customerSearchParams.setExternalCustomerId(csExterId);
+    			customerSearchParams.setExternalCustomerIdSet(csExterSetId);
+			List<BSCSCustomer> customer = businessPartnerServiceAdapter.searchByCriterias(customerSearchParams);
+			
+			return customer ;
+
+    		}
     		
+    		public void writeCustomerHierarchy(Long csId, String csIdPub, Long csIdHigh, String csIdHighPub, Boolean isPaymentResponsible, EnumCustomerLevelCode hierarchyLevel, boolean commit)
+    	    		  throws BscsInvalidIdException, BscsInvalidFieldException
+    	    		{
+    	    		  try
+    	    		  {
+    	    		    this.businessPartnerServiceAdapter.customerHierarchyWrite(csId, csIdPub, csIdHigh, csIdHighPub, isPaymentResponsible, hierarchyLevel);
+    	    		    if (commit) {
+    	    		      ConnectionHolder.getCurrentConnection().commit();
+    	    		    }
+    	    		  }
+    	    		  catch (SOIException e)
+    	    		  {
+    	    		    this.logger.debug("BSCS CUSTOMER.WRITE error with code: " + e.getCode());
+    	    		  }
+    }
 }

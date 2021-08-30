@@ -15,6 +15,10 @@ import com.orange.apibss.common.exceptions.badrequest.MissingParameterException;
 import com.orange.apibss.common.exceptions.technical.TechnicalException;
 import com.orange.apibss.party.model.Individual;
 import com.orange.apibss.party.model.obw.RelatedParty;
+import com.orange.bscs.api.model.exception.CMSException;
+import com.orange.bscs.model.businesspartner.BSCSCustomer;
+import com.orange.bscs.service.exception.BscsInvalidFieldException;
+import com.orange.bscs.service.exception.BscsInvalidIdException;
 import com.orange.mea.apisi.party.backend.CreateIndividualBackend;
 import com.orange.mea.apisi.party.backend.FindIndividualsByCriteriaBackend;
 import com.orange.mea.apisi.party.backend.FindIndividualsByIdentificationBackend;
@@ -124,26 +128,48 @@ public class IndividualService {
     }
     
     public com.orange.apibss.party.model.obw.Individual postIndividual(com.orange.apibss.party.model.obw.Individual individual)
+    	    throws ApiException, BscsInvalidIdException, BscsInvalidFieldException, CMSException
+    	  {
+    	   
+    	try{
+    		if (individual == null) {
+    	      throw new TechnicalException("individual is null");
+    	    }
+    	    this.logger.debug("creating new individual [{}]", individual.getId());
+    	      RelatedParty newRelatedParty = new RelatedParty();
+    	      BSCSCustomer customer = this.createIndividualBackend.createIndividual(individual);
+    	      if( null != individual.getRelatedParty() && individual.getRelatedParty().size()>0 ){
+    	       newRelatedParty = (RelatedParty)individual.getRelatedParty().get(0);
+    	      }
+    	      newRelatedParty.setId(customer.getCustomerIDPub());
+    	      List<RelatedParty> listRelatedParty = new ArrayList<RelatedParty>();
+    	      listRelatedParty.add(newRelatedParty);
+    	      individual.setRelatedParty(listRelatedParty);
+    	      individual.setId(customer.getCustomerIDPub());
+
+    	    return individual;
+    	}catch(ApiException e){
+    		throw e;
+    	}
+     }
+    
+    
+    public com.orange.apibss.party.model.obw.Individual patchIndividual(com.orange.apibss.party.model.obw.Individual individual)
     	    throws ApiException
     	  {
     	    if (individual == null) {
     	      throw new TechnicalException("individual is null");
     	    }
-    	    this.logger.debug("creating new individual [{}]", individual.getId());
+    	    this.logger.debug("patch existing individual [{}]", individual.getId());
+    	    com.orange.apibss.party.model.obw.Individual individualUp = null;
     	    try
     	    {
-    	      String custcode = this.createIndividualBackend.createIndividual(individual);
-    	      RelatedParty newRelatedParty = (RelatedParty)individual.getRelatedParty().get(0);
-    	      newRelatedParty.setId(custcode);
-    	      List<RelatedParty> listRelatedParty = new ArrayList<RelatedParty>();
-    	      listRelatedParty.add(newRelatedParty);
-    	      individual.setRelatedParty(listRelatedParty);
-    	    }
-    	    catch (NumberFormatException e)
-    	    {
-    	      throw new BadParameterFormatException("individual.id", individual.getId(), "a numeric value", e);
-    	    }
-    	    return individual;
+    	    	individualUp = this.createIndividualBackend.patchIndividual(individual);
+
+    	    }catch(ApiException e){
+        		throw e;
+        	}
+    	    return individualUp;
     	  }
 
 }

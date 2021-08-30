@@ -10,6 +10,7 @@ import com.orange.bscs.model.businesspartner.BSCSCustomer;
 import com.orange.bscs.model.businesspartner.BSCSCustomerWriteInput;
 import com.orange.bscs.model.businesspartner.BSCSCustomersSearchRequest;
 import com.orange.bscs.model.businesspartner.BSCSPaymentArrangement;
+import com.orange.bscs.model.businesspartner.BSCSPaymentArrangementAssignment;
 import com.orange.bscs.model.businesspartner.EnumAddressRole;
 import com.orange.bscs.model.businesspartner.EnumCustomerLevelCode;
 
@@ -228,6 +229,8 @@ public interface BusinessPartnerServiceAdapterI {
      * @return same pa with identifier
      */
     BSCSPaymentArrangement paymentArrangementWrite(BSCSPaymentArrangement pa);
+    
+    BSCSPaymentArrangementAssignment paymentArrangementAssignementWrite(BSCSPaymentArrangementAssignment pa);
 
     /**
      * Read all addresses of a particular customer.
@@ -534,6 +537,7 @@ public interface BusinessPartnerServiceAdapterI {
     BSCSCustomer laMemberNew(Long existingFlatCsIdPub, Long parentLAIdPub, EnumCustomerLevelCode csLevelCode, Boolean isPaymentResponsible);
     
 	List<BSCSCustomer> searchByCriterias(BSCSCustomersSearchRequest customerSearchParams);
-
+	
+	BSCSCustomer laMemberNewOne(BSCSCustomer customer);
 
 }

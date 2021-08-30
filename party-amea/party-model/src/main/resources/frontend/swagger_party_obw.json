@@ -1,1014 +1,1234 @@
 {
-	"swagger": "2.0",
-	"info": {
-		"version": "0.1.0_inProgress",
-		"title": "API PartyManagementNotification",
-		"x-logo": {
-			"url": "\/redoc\/logo.png",
-			"backgroundColor": "#FFFFFF"
-		}
-	},
-	"produces": ["application\/json;charset=utf-8"],
-	"tags": [{
-		"name": "Individual"
-	}, {
-		"name": "IndividualCreateEvent"
-	}, {
-		"name": "IndividualAttributeValueChangeEvent"
-	}, {
-		"name": "OrganizationCreateEvent"
-	}, {
-		"name": "OrganizationAttributeValueChangeEvent"
-	}],
-	"paths": {
-		"\/individual": {
-			"get": {
-				"tags": ["Individual"],
-				"produces": ["application\/json;charset=utf-8"],
-				"operationId": "individualFind",
-				"summary": "find individual",
-				"deprecated": false,
-				"parameters": [{
-					"name": "givenNale",
-					"required": false,
-					"in": "query",
-					"description": "firstName",
-					"type": "string"
-				}, {
-					"name": "familyName",
-					"required": false,
-					"in": "query",
-					"description": "lastName",
-					"type": "string"
-				}, {
-					"name": "individualIdentification.type",
-					"required": false,
-					"in": "query",
-					"description": "type of identification (passport, identity card, ....)",
-					"type": "string"
-				}, {
-					"name": "individualIdentification.identificationId",
-					"required": false,
-					"in": "query",
-					"description": "identifier of passport, identity card, ...",
-					"type": "string"
-				}],
-				"responses": {
-					"200": {
-						"description": "Ok",
-						"schema": {
-							"type": "array",
-							"items": {
-								"$ref": "#\/definitions\/Individual"
-							}
-						}
-					},
-					"400": {
-						"description": "Bad Request\n\nList of supported error codes:\n- 20: Invalid URL parameter value\n- 21: Missing body\n- 22: Invalid body\n- 23: Missing body field\n- 24: Invalid body field\n- 25: Missing header\n- 26: Invalid header value\n- 27: Missing query-string parameter\n- 28: Invalid query-string parameter value",
-						"schema": {
-							"$ref": "#\/definitions\/Error"
-						}
-					},
-					"404": {
-						"description": "Not Found\n\nList of supported error codes:\n- 60: Resource not found",
-						"schema": {
-							"$ref": "#\/definitions\/Error"
-						}
-					},
-					"422": {
-						"description": "Unprocessable entity\n\nFunctional error",
-						"schema": {
-							"$ref": "#\/definitions\/Error"
-						}
-					},
-					"503": {
-						"description": "Service Unavailable\n\nList of supported error codes:\n- 5: The service is temporarily unavailable\n- 6: Orange API is over capacity, retry later !",
-						"schema": {
-							"$ref": "#\/definitions\/Error"
-						}
-					}
-				}
-			}
-		},
-		"\/individual\/{IndividualId}": {
-			"get": {
-				"tags": ["Individual"],
-				"produces": ["application\/json;charset=utf-8"],
-				"operationId": "individualGet",
-				"summary": "get individual",
-				"deprecated": false,
-				"parameters": [{
-					"name": "IndividualId",
-					"required": true,
-					"in": "path",
-					"type": "string"
-				}],
-				"responses": {
-					"200": {
-						"description": "Ok",
-						"schema": {
-							"$ref": "#\/definitions\/Individual"
-						}
-					},
-					"400": {
-						"description": "Bad Request\n\nList of supported error codes:\n- 20: Invalid URL parameter value\n- 21: Missing body\n- 22: Invalid body\n- 23: Missing body field\n- 24: Invalid body field\n- 25: Missing header\n- 26: Invalid header value\n- 27: Missing query-string parameter\n- 28: Invalid query-string parameter value",
-						"schema": {
-							"$ref": "#\/definitions\/Error"
-						}
-					},
-					"404": {
-						"description": "Not Found\n\nList of supported error codes:\n- 60: Resource not found",
-						"schema": {
-							"$ref": "#\/definitions\/Error"
-						}
-					},
-					"422": {
-						"description": "Unprocessable entity\n\nFunctional error",
-						"schema": {
-							"$ref": "#\/definitions\/Error"
-						}
-					},
-					"503": {
-						"description": "Service Unavailable\n\nList of supported error codes:\n- 5: The service is temporarily unavailable\n- 6: Orange API is over capacity, retry later !",
-						"schema": {
-							"$ref": "#\/definitions\/Error"
-						}
-					}
-				}
-			},
-			"put": {
-				"tags": ["Individual"],
-				"consumes": ["application\/json;charset=utf-8"],
-				"produces": ["application\/json;charset=utf-8"],
-				"operationId": "individualUpdate",
-				"summary": "update individual",
-				"deprecated": false,
-				"parameters": [{
-					"name": "IndividualId",
-					"required": true,
-					"in": "path",
-					"type": "string"
-				}, {
-					"name": "Individual",
-					"required": true,
-					"in": "body",
-					"schema": {
-						"$ref": "#\/definitions\/Individual"
-					}
-				}],
-				"responses": {
-					"200": {
-						"description": "Ok",
-						"schema": {
-							"$ref": "#\/definitions\/Individual"
-						}
-					},
-					"400": {
-						"description": "Bad Request\n\nList of supported error codes:\n- 20: Invalid URL parameter value\n- 21: Missing body\n- 22: Invalid body\n- 23: Missing body field\n- 24: Invalid body field\n- 25: Missing header\n- 26: Invalid header value\n- 27: Missing query-string parameter\n- 28: Invalid query-string parameter value",
-						"schema": {
-							"$ref": "#\/definitions\/Error"
-						}
-					},
-					"404": {
-						"description": "Not Found\n\nList of supported error codes:\n- 60: Resource not found",
-						"schema": {
-							"$ref": "#\/definitions\/Error"
-						}
-					},
-					"422": {
-						"description": "Unprocessable entity\n\nFunctional error",
-						"schema": {
-							"$ref": "#\/definitions\/Error"
-						}
-					},
-					"503": {
-						"description": "Service Unavailable\n\nList of supported error codes:\n- 5: The service is temporarily unavailable\n- 6: Orange API is over capacity, retry later !",
-						"schema": {
-							"$ref": "#\/definitions\/Error"
-						}
-					}
-				}
-			}
-		},
-		"\/individualCreateEvent": {
-			"post": {
-				"tags": ["IndividualCreateEvent"],
-				"consumes": ["application\/json;charset=utf-8"],
-				"produces": ["application\/json;charset=utf-8"],
-				"operationId": "individualCreateEventCreate",
-				"summary": "create individualCreateEvent",
-				"deprecated": false,
-				"parameters": [{
-					"name": "IndividualCreateEvent",
-					"required": true,
-					"in": "body",
-					"schema": {
-						"$ref": "#\/definitions\/IndividualCreateEvent"
-					}
-				}],
-				"responses": {
-					"201": {
-						"description": "Created",
-						"schema": {
-							"$ref": "#\/definitions\/IndividualCreateEvent"
-						}
-					},
-					"400": {
-						"description": "Bad Request\n\nList of supported error codes:\n- 20: Invalid URL parameter value\n- 21: Missing body\n- 22: Invalid body\n- 23: Missing body field\n- 24: Invalid body field\n- 25: Missing header\n- 26: Invalid header value\n- 27: Missing query-string parameter\n- 28: Invalid query-string parameter value",
-						"schema": {
-							"$ref": "#\/definitions\/Error"
-						}
-					},
-					"404": {
-						"description": "Not Found\n\nList of supported error codes:\n- 60: Resource not found",
-						"schema": {
-							"$ref": "#\/definitions\/Error"
-						}
-					},
-					"422": {
-						"description": "Unprocessable entity\n\nFunctional error",
-						"schema": {
-							"$ref": "#\/definitions\/Error"
-						}
-					},
-					"503": {
-						"description": "Service Unavailable\n\nList of supported error codes:\n- 5: The service is temporarily unavailable\n- 6: Orange API is over capacity, retry later !",
-						"schema": {
-							"$ref": "#\/definitions\/Error"
-						}
-					}
-				}
-			}
-		},
-		"\/individualAttributeValueChangeEvent": {
-			"post": {
-				"tags": ["IndividualAttributeValueChangeEvent"],
-				"consumes": ["application\/json;charset=utf-8"],
-				"produces": ["application\/json;charset=utf-8"],
-				"operationId": "individualAttributeValueChangeEventCreate",
-				"summary": "create individualAttributeValueChangeEvent",
-				"deprecated": false,
-				"parameters": [{
-					"name": "IndividualAttributeValueChangeEvent",
-					"required": true,
-					"in": "body",
-					"schema": {
-						"$ref": "#\/definitions\/IndividualAttributeValueChangeEvent"
-					}
-				}],
-				"responses": {
-					"201": {
-						"description": "Created",
-						"schema": {
-							"$ref": "#\/definitions\/IndividualAttributeValueChangeEvent"
-						}
-					},
-					"400": {
-						"description": "Bad Request\n\nList of supported error codes:\n- 20: Invalid URL parameter value\n- 21: Missing body\n- 22: Invalid body\n- 23: Missing body field\n- 24: Invalid body field\n- 25: Missing header\n- 26: Invalid header value\n- 27: Missing query-string parameter\n- 28: Invalid query-string parameter value",
-						"schema": {
-							"$ref": "#\/definitions\/Error"
-						}
-					},
-					"404": {
-						"description": "Not Found\n\nList of supported error codes:\n- 60: Resource not found",
-						"schema": {
-							"$ref": "#\/definitions\/Error"
-						}
-					},
-					"422": {
-						"description": "Unprocessable entity\n\nFunctional error",
-						"schema": {
-							"$ref": "#\/definitions\/Error"
-						}
-					},
-					"503": {
-						"description": "Service Unavailable\n\nList of supported error codes:\n- 5: The service is temporarily unavailable\n- 6: Orange API is over capacity, retry later !",
-						"schema": {
-							"$ref": "#\/definitions\/Error"
-						}
-					}
-				}
-			}
-		},
-		"\/organizationCreateEvent": {
-			"post": {
-				"tags": ["OrganizationCreateEvent"],
-				"consumes": ["application\/json;charset=utf-8"],
-				"produces": ["application\/json;charset=utf-8"],
-				"operationId": "organizationCreateEventCreate",
-				"summary": "create organizationCreateEvent",
-				"deprecated": false,
-				"parameters": [{
-					"name": "OrganizationCreateEvent",
-					"required": true,
-					"in": "body",
-					"schema": {
-						"$ref": "#\/definitions\/OrganizationCreateEvent"
-					}
-				}],
-				"responses": {
-					"201": {
-						"description": "Created",
-						"schema": {
-							"$ref": "#\/definitions\/OrganizationCreateEvent"
-						}
-					},
-					"400": {
-						"description": "Bad Request\n\nList of supported error codes:\n- 20: Invalid URL parameter value\n- 21: Missing body\n- 22: Invalid body\n- 23: Missing body field\n- 24: Invalid body field\n- 25: Missing header\n- 26: Invalid header value\n- 27: Missing query-string parameter\n- 28: Invalid query-string parameter value",
-						"schema": {
-							"$ref": "#\/definitions\/Error"
-						}
-					},
-					"404": {
-						"description": "Not Found\n\nList of supported error codes:\n- 60: Resource not found",
-						"schema": {
-							"$ref": "#\/definitions\/Error"
-						}
-					},
-					"422": {
-						"description": "Unprocessable entity\n\nFunctional error",
-						"schema": {
-							"$ref": "#\/definitions\/Error"
-						}
-					},
-					"503": {
-						"description": "Service Unavailable\n\nList of supported error codes:\n- 5: The service is temporarily unavailable\n- 6: Orange API is over capacity, retry later !",
-						"schema": {
-							"$ref": "#\/definitions\/Error"
-						}
-					}
-				}
-			}
-		},
-		"\/organizationAttributeValueChangeEvent": {
-			"post": {
-				"tags": ["OrganizationAttributeValueChangeEvent"],
-				"consumes": ["application\/json;charset=utf-8"],
-				"produces": ["application\/json;charset=utf-8"],
-				"operationId": "organizationAttributeValueChangeEventCreate",
-				"summary": "create organizationAttributeValueChangeEvent",
-				"deprecated": false,
-				"parameters": [{
-					"name": "OrganizationAttributeValueChangeEvent",
-					"required": true,
-					"in": "body",
-					"schema": {
-						"$ref": "#\/definitions\/OrganizationAttributeValueChangeEvent"
-					}
-				}],
-				"responses": {
-					"201": {
-						"description": "Created",
-						"schema": {
-							"$ref": "#\/definitions\/OrganizationAttributeValueChangeEvent"
-						}
-					},
-					"400": {
-						"description": "Bad Request\n\nList of supported error codes:\n- 20: Invalid URL parameter value\n- 21: Missing body\n- 22: Invalid body\n- 23: Missing body field\n- 24: Invalid body field\n- 25: Missing header\n- 26: Invalid header value\n- 27: Missing query-string parameter\n- 28: Invalid query-string parameter value",
-						"schema": {
-							"$ref": "#\/definitions\/Error"
-						}
-					},
-					"404": {
-						"description": "Not Found\n\nList of supported error codes:\n- 60: Resource not found",
-						"schema": {
-							"$ref": "#\/definitions\/Error"
-						}
-					},
-					"422": {
-						"description": "Unprocessable entity\n\nFunctional error",
-						"schema": {
-							"$ref": "#\/definitions\/Error"
-						}
-					},
-					"503": {
-						"description": "Service Unavailable\n\nList of supported error codes:\n- 5: The service is temporarily unavailable\n- 6: Orange API is over capacity, retry later !",
-						"schema": {
-							"$ref": "#\/definitions\/Error"
-						}
-					}
-				}
-			}
-		}
-	},
-	"definitions": {
-		"ContactMediumType": {
-			"type": "string",
-			"enum": ["emailAddress", "postalAddress", "phoneNumber", "faxNumber", "socialNetwork"]
-		},
-		"Gender": {
-			"type": "string",
-			"enum": ["male", "female", "other"]
-		},
-		"MaritalStatus": {
-			"type": "string",
-			"enum": ["single", "married", "divorced", "widowed"]
-		},
-		"Role": {
-			"type": "string",
-			"enum": ["tutor", "customer", "payer", "commercial", "owner", "user", "mainFleetManager", "secondFleetManager", "thirdFleetManager"]
-		},
-		"OrganizationType": {
-			"type": "string",
-			"enum": ["organization", "dealer"]
-		},
-		"StatusEnum": {
-			"type": "string",
-			"enum": ["initialized", "validated", "deceaded"]
-		},
-		"ReferredTypeEnum": {
-			"type": "string",
-			"enum": ["Individual", "Organization", "PartyRole"]
-		},
-		"MediumCharacteristicType": {
-			"type": "string",
-			"enum": ["home", "homeResidential", "office", "officeResidential", "mobile", "personalMobile", "professionalMobile", "landline", "homeLandline", "officeLandline", "personalFax", "professionalFax"]
-		},
-		"CharacteristicNameEnum": {
-			"type": "string",
-			"enum": ["categoryCode", "categoryLabel", "registrationStatus", "billCycle", "occRatePlan", "isPaymentResp", "paymentMethod", "tradingName", "occupation"]
-		},
-		"TitleEnum": {
-			"type": "string",
-			"enum": ["m.", "mme", "mrs", "melle", "dr.", "me", "honorable", "excellence", "professor", "ste", "association", "other"]
-		},
-		"IdentificationType": {
-			"type": "string",
-			"enum": ["passport", "identityCard", "driverLicence", "socialSecurityNumber", "companyRegistrationNumber", "refugeeID", "studentCard", "other"]
-		},
-		"StatusEnumOrg": {
-			"type": "string",
-			"enum": ["initialized", "validated", "closed"]
-		},
-		"IdentificationOrgEnum": {
-			"type": "string",
-			"enum": ["vat", "tradingLicense", "foreignCompany", "compagnyRegistrationNumber"]
-		},
-		"ErrorDetail": {
-			"required": ["code", "message"],
-			"type": "object",
-			"properties": {
-				"code": {
-					"type": "integer",
-					"format": "int32"
-				},
-				"message": {
-					"type": "string"
-				},
-				"description": {
-					"type": "string"
-				},
-				"infoURL": {
-					"type": "string"
-				}
-			}
-		},
-		"Error": {
-			"required": ["code", "message"],
-			"type": "object",
-			"properties": {
-				"code": {
-					"type": "integer",
-					"format": "int32"
-				},
-				"message": {
-					"type": "string"
-				},
-				"description": {
-					"type": "string"
-				},
-				"infoURL": {
-					"type": "string"
-				},
-				"details": {
-					"type": "array",
-					"items": {
-						"$ref": "#\/definitions\/ErrorDetail"
-					}
-				}
-			}
-		},
-		"Individual": {
-			"required": ["characteristic"],
-			"type": "object",
-			"properties": {
-				"id": {
-					"type": "string"
-				},
-				"gender": {
-					"$ref": "#\/definitions\/Gender"
-				},
-				"placeOfBirth": {
-					"type": "string"
-				},
-				"countryOfBirth": {
-					"type": "string"
-				},
-				"nationality": {
-					"type": "string"
-				},
-				"maritalStatus": {
-					"$ref": "#\/definitions\/MaritalStatus"
-				},
-				"birthDate": {
-					"type": "string",
-					"format": "date"
-				},
-				"title": {
-					"$ref": "#\/definitions\/TitleEnum"
-				},
-				"status": {
-					"$ref": "#\/definitions\/StatusEnum"
-				},
-				"givenName": {
-					"type": "string"
-				},
-				"familyName": {
-					"type": "string"
-				},
-				"characteristic": {
-					"type": "array",
-					"items": {
-						"$ref": "#\/definitions\/Characteristic"
-					}
-				},
-				"externalReference": {
-					"type": "array",
-					"items": {
-						"$ref": "#\/definitions\/ExternalReference"
-					}
-				},
-				"relatedParty": {
-					"type": "array",
-					"items": {
-						"$ref": "#\/definitions\/RelatedParty"
-					}
-				},
-				"contactMedium": {
-					"type": "array",
-					"items": {
-						"$ref": "#\/definitions\/ContactMedium"
-					}
-				},
-				"individualIdentification": {
-					"type": "array",
-					"items": {
-						"$ref": "#\/definitions\/IndividualIdentification"
-					}
-				}
-			}
-		},
-		"ExternalReference": {
-			"required": ["externalReferenceType", "name"],
-			"type": "object",
-			"properties": {
-				"externalReferenceType": {
-					"type": "string"
-				},
-				"name": {
-					"type": "string"
-				}
-			}
-		},
-		"RelatedParty": {
-			"required": ["@referredType"],
-			"type": "object",
-			"properties": {
-				"id": {
-					"type": "string"
-				},
-				"name": {
-					"type": "string"
-				},
-				"role": {
-					"$ref": "#\/definitions\/Role"
-				},
-				"@referredType": {
-					"$ref": "#\/definitions\/ReferredTypeEnum"
-				}
-			}
-		},
-		"ContactMedium": {
-			"required": ["characteristic"],
-			"type": "object",
-			"properties": {
-				"preferred": {
-					"type": "boolean"
-				},
-				"mediumType": {
-					"$ref": "#\/definitions\/ContactMediumType"
-				},
-				"validFor": {
-					"$ref": "#\/definitions\/ValidFor"
-				},
-				"characteristic": {
-					"$ref": "#\/definitions\/MediumCharacteristic"
-				}
-			}
-		},
-		"MediumCharacteristic": {
-			"type": "object",
-			"properties": {
-				"city": {
-					"type": "string"
-				},
-				"country": {
-					"type": "string"
-				},
-				"postcode": {
-					"type": "string"
-				},
-				"stateOrProvince": {
-					"type": "string"
-				},
-				"emailAddress": {
-					"type": "string"
-				},
-				"type": {
-					"$ref": "#\/definitions\/MediumCharacteristicType"
-				},
-				"street1": {
-					"type": "string"
-				},
-				"plot": {
-					"type": "string"
-				},
-				"phoneNumber": {
-					"type": "string"
-				},
-				"faxNumber": {
-					"type": "string"
-				},
-				"customerCode": {
-					"type": "string"
-				}
-			}
-		},
-		"IndividualIdentification": {
-			"type": "object",
-			"properties": {
-				"identificationType": {
-					"$ref": "#\/definitions\/IdentificationType"
-				},
-				"identificationId": {
-					"type": "string"
-				},
-				"expirationDate": {
-					"type": "string",
-					"format": "date"
-				},
-				"issuingAuthority": {
-					"type": "string"
-				},
-				"issuingDate": {
-					"type": "string",
-					"format": "date"
-				},
-				"issuingPlace": {
-					"type": "string"
-				}
-			}
-		},
-		"OtherName": {
-			"type": "object",
-			"properties": {
-				"title": {
-					"type": "string"
-				},
-				"givenName": {
-					"type": "string"
-				},
-				"familyName": {
-					"type": "string"
-				},
-				"middleName": {
-					"type": "string"
-				},
-				"fullName": {
-					"type": "string"
-				},
-				"formattedName": {
-					"type": "string"
-				},
-				"validFor": {
-					"$ref": "#\/definitions\/ValidFor"
-				},
-				"nameType": {
-					"type": "string"
-				},
-				"tradingName": {
-					"type": "string"
-				}
-			}
-		},
-		"Characteristic": {
-			"required": ["name"],
-			"type": "object",
-			"properties": {
-				"name": {
-					"$ref": "#\/definitions\/CharacteristicNameEnum"
-				},
-				"value": {
-					"type": "string"
-				},
-				"valueType": {
-					"type": "string"
-				}
-			}
-		},
-		"Disability": {
-			"type": "object",
-			"properties": {
-				"disability": {
-					"type": "string"
-				}
-			}
-		},
-		"ValidFor": {
-			"type": "object",
-			"properties": {
-				"startDateTime": {
-					"type": "string",
-					"format": "date-time"
-				},
-				"endDateTime": {
-					"type": "string",
-					"format": "date-time"
-				}
-			}
-		},
-		"Organization": {
-			"type": "object",
-			"properties": {
-				"id": {
-					"type": "string"
-				},
-				"href": {
-					"type": "string"
-				},
-				"isLegalEntity": {
-					"type": "boolean"
-				},
-				"type": {
-					"$ref": "#\/definitions\/OrganizationType"
-				},
-				"existsDuring": {
-					"$ref": "#\/definitions\/ExistsDuring"
-				},
-				"tradingName": {
-					"type": "string"
-				},
-				"status": {
-					"$ref": "#\/definitions\/StatusEnumOrg"
-				},
-				"characteristic": {
-					"type": "array",
-					"items": {
-						"$ref": "#\/definitions\/Characteristic"
-					}
-				},
-				"externalReference": {
-					"type": "array",
-					"items": {
-						"$ref": "#\/definitions\/ExternalReference"
-					}
-				},
-				"relatedParty": {
-					"type": "array",
-					"items": {
-						"$ref": "#\/definitions\/RelatedParty"
-					}
-				},
-				"contactMedium": {
-					"type": "array",
-					"items": {
-						"$ref": "#\/definitions\/ContactMedium"
-					}
-				},
-				"organizationIdentification": {
-					"$ref": "#\/definitions\/OrganizationIdentification"
-				},
-				"organizationParentRelationship": {
-					"$ref": "#\/definitions\/OrganizationParentRelationship"
-				},
-				"organizationChildRelationship": {
-					"$ref": "#\/definitions\/OrganizationChildRelationship"
-				}
-			}
-		},
-		"OrganizationIdentification": {
-			"type": "object",
-			"properties": {
-				"identificationType": {
-					"$ref": "#\/definitions\/IdentificationOrgEnum"
-				},
-				"identificationId": {
-					"type": "string"
-				},
-				"issuingDate": {
-					"type": "string"
-				},
-				"validFor": {
-					"$ref": "#\/definitions\/ValidFor"
-				}
-			}
-		},
-		"OrganizationParentRelationship": {
-			"type": "object",
-			"properties": {
-				"id": {
-					"type": "string"
-				}
-			}
-		},
-		"OrganizationChildRelationship": {
-			"type": "object",
-			"properties": {
-				"id": {
-					"type": "string"
-				}
-			}
-		},
-		"ExistsDuring": {
-			"type": "object",
-			"properties": {
-				"startDateTime": {
-					"type": "string",
-					"format": "date-time"
-				},
-				"endDateTime": {
-					"type": "string",
-					"format": "date-time"
-				}
-			}
-		},
-		"IndividualCreateEvent": {
-			"required": ["eventId", "eventTime", "description", "eventType", "timeOccured", "event"],
-			"type": "object",
-			"properties": {
-				"eventId": {
-					"type": "string"
-				},
-				"eventTime": {
-					"type": "string",
-					"format": "date-time"
-				},
-				"description": {
-					"type": "string"
-				},
-				"eventType": {
-					"type": "string"
-				},
-				"timeOccured": {
-					"description": "The time the event occured.",
-					"type": "string",
-					"format": "date-time"
-				},
-				"event": {
-					"$ref": "#\/definitions\/IndividualCreateEventPayload"
-				}
-			}
-		},
-		"IndividualCreateEventPayload": {
-			"required": ["individual"],
-			"type": "object",
-			"properties": {
-				"individual": {
-					"$ref": "#\/definitions\/Individual"
-				}
-			}
-		},
-		"IndividualAttributeValueChangeEvent": {
-			"required": ["eventId", "eventTime", "description", "timeOccured", "title", "eventType", "event"],
-			"type": "object",
-			"properties": {
-				"eventId": {
-					"description": "The identifier of the notification",
-					"type": "string"
-				},
-				"eventTime": {
-					"description": "Time of the event occurrence.",
-					"type": "string",
-					"format": "date-time"
-				},
-				"description": {
-					"description": "An explnatory of the event.",
-					"type": "string"
-				},
-				"timeOccured": {
-					"description": "The time the event occured.",
-					"type": "string",
-					"format": "date-time"
-				},
-				"title": {
-					"description": "The title of the event.",
-					"type": "string"
-				},
-				"eventType": {
-					"description": "The type of the notification.",
-					"type": "string"
-				},
-				"event": {
-					"$ref": "#\/definitions\/IndividualAttributeValueChangeEventPayload"
-				}
-			}
-		},
-		"IndividualAttributeValueChangeEventPayload": {
-			"required": ["individual"],
-			"type": "object",
-			"properties": {
-				"individual": {
-					"$ref": "#\/definitions\/Individual"
-				}
-			}
-		},
-		"OrganizationCreateEvent": {
-			"required": ["eventId", "eventTime", "descriction", "timeOccured", "title", "eventType", "event"],
-			"type": "object",
-			"properties": {
-				"eventId": {
-					"description": "The identifier of the notification.",
-					"type": "string"
-				},
-				"eventTime": {
-					"description": "Time of the event occurrence.",
-					"type": "string",
-					"format": "date-time"
-				},
-				"descriction": {
-					"description": "An explnatory of the event.",
-					"type": "string"
-				},
-				"timeOccured": {
-					"description": "The time the event occured.",
-					"type": "string",
-					"format": "date-time"
-				},
-				"title": {
-					"description": "The title of the event.",
-					"type": "string"
-				},
-				"eventType": {
-					"description": "The type of the notification.",
-					"type": "string"
-				},
-				"event": {
-					"$ref": "#\/definitions\/OrganizationCreateEventPayload"
-				}
-			}
-		},
-		"OrganizationCreateEventPayload": {
-			"required": ["organization"],
-			"type": "object",
-			"properties": {
-				"organization": {
-					"$ref": "#\/definitions\/Organization"
-				}
-			}
-		},
-		"OrganizationAttributeValueChangeEvent": {
-			"required": ["eventId", "eventTime", "description", "timeOccured", "title", "eventType", "event"],
-			"type": "object",
-			"properties": {
-				"eventId": {
-					"description": "he identifier of the notification.",
-					"type": "string"
-				},
-				"eventTime": {
-					"description": "Time of the event occurrence.",
-					"type": "string",
-					"format": "date-time"
-				},
-				"description": {
-					"description": "An explnatory of the event.",
-					"type": "string"
-				},
-				"timeOccured": {
-					"description": "The time the event occured.",
-					"type": "string",
-					"format": "date-time"
-				},
-				"title": {
-					"description": "The title of the event.",
-					"type": "string"
-				},
-				"eventType": {
-					"description": "The type of the notification.",
-					"type": "string"
-				},
-				"event": {
-					"$ref": "#\/definitions\/OrganizationAttributeValueChangeEventPayload"
-				}
-			}
-		},
-		"OrganizationAttributeValueChangeEventPayload": {
-			"required": ["organization"],
-			"type": "object",
-			"properties": {
-				"organization": {
-					"$ref": "#\/definitions\/Organization"
-				}
-			}
-		}
-	}
+   "swagger":"2.0",
+   "info":{
+      "description":"ajouter des attributs mandatory pour renseigner le payment Method.\ncomme solution provisoire on va gérer ces méthodes de payment dans cette API. puisque OBW n'expose pas l'API PaymentMethod.",
+      "version":"0.1.2_tag",
+      "title":"API PartymanagementNotification",
+      "x-logo":{
+         "url":"\/redoc\/logo.png",
+         "backgroundColor":"#FFFFFF"
+      }
+   },
+   "produces":[
+      "application\/json;charset=utf-8"
+   ],
+   "tags":[
+      {
+         "name":"Individual"
+      },
+      {
+         "name":"IndividualCreateEvent"
+      },
+      {
+         "name":"IndividualAttributeValueChangeEvent"
+      },
+      {
+         "name":"OrganizationCreateEvent"
+      },
+      {
+         "name":"OrganizationAttributeValueChangeEvent"
+      }
+   ],
+   "paths":{
+      "\/individual":{
+         "get":{
+            "tags":[
+               "Individual"
+            ],
+            "produces":[
+               "application\/json;charset=utf-8"
+            ],
+            "operationId":"individualFind",
+            "summary":"find individual",
+            "deprecated":false,
+            "parameters":[
+               {
+                  "name":"givenNale",
+                  "required":false,
+                  "in":"query",
+                  "description":"firstName",
+                  "type":"string"
+               },
+               {
+                  "name":"familyName",
+                  "required":false,
+                  "in":"query",
+                  "description":"lastName",
+                  "type":"string"
+               },
+               {
+                  "name":"individualIdentification.type",
+                  "required":false,
+                  "in":"query",
+                  "description":"type of identification (passport, identity card, ....)",
+                  "type":"string"
+               },
+               {
+                  "name":"individualIdentification.identificationId",
+                  "required":false,
+                  "in":"query",
+                  "description":"identifier of passport, identity card, ...",
+                  "type":"string"
+               }
+            ],
+            "responses":{
+               "200":{
+                  "description":"Ok",
+                  "schema":{
+                     "type":"array",
+                     "items":{
+                        "$ref":"#\/definitions\/Individual"
+                     }
+                  }
+               },
+               "400":{
+                  "description":"Bad Request\n\nList of supported error codes:\n- 20: Invalid URL parameter value\n- 21: Missing body\n- 22: Invalid body\n- 23: Missing body field\n- 24: Invalid body field\n- 25: Missing header\n- 26: Invalid header value\n- 27: Missing query-string parameter\n- 28: Invalid query-string parameter value",
+                  "schema":{
+                     "$ref":"#\/definitions\/Error"
+                  }
+               },
+               "404":{
+                  "description":"Not Found\n\nList of supported error codes:\n- 60: Resource not found",
+                  "schema":{
+                     "$ref":"#\/definitions\/Error"
+                  }
+               },
+               "422":{
+                  "description":"Unprocessable entity\n\nFunctional error",
+                  "schema":{
+                     "$ref":"#\/definitions\/Error"
+                  }
+               },
+               "503":{
+                  "description":"Service Unavailable\n\nList of supported error codes:\n- 5: The service is temporarily unavailable\n- 6: Orange API is over capacity, retry later !",
+                  "schema":{
+                     "$ref":"#\/definitions\/Error"
+                  }
+               }
+            }
+         }
+      },
+      "\/individual\/{IndividualId}":{
+         "get":{
+            "tags":[
+               "Individual"
+            ],
+            "produces":[
+               "application\/json;charset=utf-8"
+            ],
+            "operationId":"individualGet",
+            "summary":"get individual",
+            "deprecated":false,
+            "parameters":[
+               {
+                  "name":"IndividualId",
+                  "required":true,
+                  "in":"path",
+                  "type":"string"
+               }
+            ],
+            "responses":{
+               "200":{
+                  "description":"Ok",
+                  "schema":{
+                     "$ref":"#\/definitions\/Individual"
+                  }
+               },
+               "400":{
+                  "description":"Bad Request\n\nList of supported error codes:\n- 20: Invalid URL parameter value\n- 21: Missing body\n- 22: Invalid body\n- 23: Missing body field\n- 24: Invalid body field\n- 25: Missing header\n- 26: Invalid header value\n- 27: Missing query-string parameter\n- 28: Invalid query-string parameter value",
+                  "schema":{
+                     "$ref":"#\/definitions\/Error"
+                  }
+               },
+               "404":{
+                  "description":"Not Found\n\nList of supported error codes:\n- 60: Resource not found",
+                  "schema":{
+                     "$ref":"#\/definitions\/Error"
+                  }
+               },
+               "422":{
+                  "description":"Unprocessable entity\n\nFunctional error",
+                  "schema":{
+                     "$ref":"#\/definitions\/Error"
+                  }
+               },
+               "503":{
+                  "description":"Service Unavailable\n\nList of supported error codes:\n- 5: The service is temporarily unavailable\n- 6: Orange API is over capacity, retry later !",
+                  "schema":{
+                     "$ref":"#\/definitions\/Error"
+                  }
+               }
+            }
+         },
+         "put":{
+            "tags":[
+               "Individual"
+            ],
+            "consumes":[
+               "application\/json;charset=utf-8"
+            ],
+            "produces":[
+               "application\/json;charset=utf-8"
+            ],
+            "operationId":"individualUpdate",
+            "summary":"update individual",
+            "deprecated":false,
+            "parameters":[
+               {
+                  "name":"IndividualId",
+                  "required":true,
+                  "in":"path",
+                  "type":"string"
+               },
+               {
+                  "name":"Individual",
+                  "required":true,
+                  "in":"body",
+                  "schema":{
+                     "$ref":"#\/definitions\/Individual"
+                  }
+               }
+            ],
+            "responses":{
+               "200":{
+                  "description":"Ok",
+                  "schema":{
+                     "$ref":"#\/definitions\/Individual"
+                  }
+               },
+               "400":{
+                  "description":"Bad Request\n\nList of supported error codes:\n- 20: Invalid URL parameter value\n- 21: Missing body\n- 22: Invalid body\n- 23: Missing body field\n- 24: Invalid body field\n- 25: Missing header\n- 26: Invalid header value\n- 27: Missing query-string parameter\n- 28: Invalid query-string parameter value",
+                  "schema":{
+                     "$ref":"#\/definitions\/Error"
+                  }
+               },
+               "404":{
+                  "description":"Not Found\n\nList of supported error codes:\n- 60: Resource not found",
+                  "schema":{
+                     "$ref":"#\/definitions\/Error"
+                  }
+               },
+               "422":{
+                  "description":"Unprocessable entity\n\nFunctional error",
+                  "schema":{
+                     "$ref":"#\/definitions\/Error"
+                  }
+               },
+               "503":{
+                  "description":"Service Unavailable\n\nList of supported error codes:\n- 5: The service is temporarily unavailable\n- 6: Orange API is over capacity, retry later !",
+                  "schema":{
+                     "$ref":"#\/definitions\/Error"
+                  }
+               }
+            }
+         }
+      },
+      "\/individualCreateEvent":{
+         "post":{
+            "tags":[
+               "IndividualCreateEvent"
+            ],
+            "consumes":[
+               "application\/json;charset=utf-8"
+            ],
+            "produces":[
+               "application\/json;charset=utf-8"
+            ],
+            "operationId":"individualCreateEventCreate",
+            "summary":"create individualCreateEvent",
+            "deprecated":false,
+            "parameters":[
+               {
+                  "name":"IndividualCreateEvent",
+                  "required":true,
+                  "in":"body",
+                  "schema":{
+                     "$ref":"#\/definitions\/IndividualCreateEvent"
+                  }
+               }
+            ],
+            "responses":{
+               "201":{
+                  "description":"Created",
+                  "schema":{
+                     "$ref":"#\/definitions\/IndividualCreateEvent"
+                  }
+               },
+               "400":{
+                  "description":"Bad Request\n\nList of supported error codes:\n- 20: Invalid URL parameter value\n- 21: Missing body\n- 22: Invalid body\n- 23: Missing body field\n- 24: Invalid body field\n- 25: Missing header\n- 26: Invalid header value\n- 27: Missing query-string parameter\n- 28: Invalid query-string parameter value",
+                  "schema":{
+                     "$ref":"#\/definitions\/Error"
+                  }
+               },
+               "404":{
+                  "description":"Not Found\n\nList of supported error codes:\n- 60: Resource not found",
+                  "schema":{
+                     "$ref":"#\/definitions\/Error"
+                  }
+               },
+               "422":{
+                  "description":"Unprocessable entity\n\nFunctional error",
+                  "schema":{
+                     "$ref":"#\/definitions\/Error"
+                  }
+               },
+               "503":{
+                  "description":"Service Unavailable\n\nList of supported error codes:\n- 5: The service is temporarily unavailable\n- 6: Orange API is over capacity, retry later !",
+                  "schema":{
+                     "$ref":"#\/definitions\/Error"
+                  }
+               }
+            }
+         }
+      },
+      "\/individualAttributeValueChangeEvent":{
+         "post":{
+            "tags":[
+               "IndividualAttributeValueChangeEvent"
+            ],
+            "consumes":[
+               "application\/json;charset=utf-8"
+            ],
+            "produces":[
+               "application\/json;charset=utf-8"
+            ],
+            "operationId":"individualAttributeValueChangeEventCreate",
+            "summary":"create individualAttributeValueChangeEvent",
+            "deprecated":false,
+            "parameters":[
+               {
+                  "name":"IndividualAttributeValueChangeEvent",
+                  "required":true,
+                  "in":"body",
+                  "schema":{
+                     "$ref":"#\/definitions\/IndividualAttributeValueChangeEvent"
+                  }
+               }
+            ],
+            "responses":{
+               "201":{
+                  "description":"Created",
+                  "schema":{
+                     "$ref":"#\/definitions\/IndividualAttributeValueChangeEvent"
+                  }
+               },
+               "400":{
+                  "description":"Bad Request\n\nList of supported error codes:\n- 20: Invalid URL parameter value\n- 21: Missing body\n- 22: Invalid body\n- 23: Missing body field\n- 24: Invalid body field\n- 25: Missing header\n- 26: Invalid header value\n- 27: Missing query-string parameter\n- 28: Invalid query-string parameter value",
+                  "schema":{
+                     "$ref":"#\/definitions\/Error"
+                  }
+               },
+               "404":{
+                  "description":"Not Found\n\nList of supported error codes:\n- 60: Resource not found",
+                  "schema":{
+                     "$ref":"#\/definitions\/Error"
+                  }
+               },
+               "422":{
+                  "description":"Unprocessable entity\n\nFunctional error",
+                  "schema":{
+                     "$ref":"#\/definitions\/Error"
+                  }
+               },
+               "503":{
+                  "description":"Service Unavailable\n\nList of supported error codes:\n- 5: The service is temporarily unavailable\n- 6: Orange API is over capacity, retry later !",
+                  "schema":{
+                     "$ref":"#\/definitions\/Error"
+                  }
+               }
+            }
+         }
+      },
+      "\/organizationCreateEvent":{
+         "post":{
+            "tags":[
+               "OrganizationCreateEvent"
+            ],
+            "consumes":[
+               "application\/json;charset=utf-8"
+            ],
+            "produces":[
+               "application\/json;charset=utf-8"
+            ],
+            "operationId":"organizationCreateEventCreate",
+            "summary":"create organizationCreateEvent",
+            "deprecated":false,
+            "parameters":[
+               {
+                  "name":"OrganizationCreateEvent",
+                  "required":true,
+                  "in":"body",
+                  "schema":{
+                     "$ref":"#\/definitions\/OrganizationCreateEvent"
+                  }
+               }
+            ],
+            "responses":{
+               "201":{
+                  "description":"Created",
+                  "schema":{
+                     "$ref":"#\/definitions\/OrganizationCreateEvent"
+                  }
+               },
+               "400":{
+                  "description":"Bad Request\n\nList of supported error codes:\n- 20: Invalid URL parameter value\n- 21: Missing body\n- 22: Invalid body\n- 23: Missing body field\n- 24: Invalid body field\n- 25: Missing header\n- 26: Invalid header value\n- 27: Missing query-string parameter\n- 28: Invalid query-string parameter value",
+                  "schema":{
+                     "$ref":"#\/definitions\/Error"
+                  }
+               },
+               "404":{
+                  "description":"Not Found\n\nList of supported error codes:\n- 60: Resource not found",
+                  "schema":{
+                     "$ref":"#\/definitions\/Error"
+                  }
+               },
+               "422":{
+                  "description":"Unprocessable entity\n\nFunctional error",
+                  "schema":{
+                     "$ref":"#\/definitions\/Error"
+                  }
+               },
+               "503":{
+                  "description":"Service Unavailable\n\nList of supported error codes:\n- 5: The service is temporarily unavailable\n- 6: Orange API is over capacity, retry later !",
+                  "schema":{
+                     "$ref":"#\/definitions\/Error"
+                  }
+               }
+            }
+         }
+      },
+      "\/organizationAttributeValueChangeEvent":{
+         "post":{
+            "tags":[
+               "OrganizationAttributeValueChangeEvent"
+            ],
+            "consumes":[
+               "application\/json;charset=utf-8"
+            ],
+            "produces":[
+               "application\/json;charset=utf-8"
+            ],
+            "operationId":"organizationAttributeValueChangeEventCreate",
+            "summary":"create organizationAttributeValueChangeEvent",
+            "deprecated":false,
+            "parameters":[
+               {
+                  "name":"OrganizationAttributeValueChangeEvent",
+                  "required":true,
+                  "in":"body",
+                  "schema":{
+                     "$ref":"#\/definitions\/OrganizationAttributeValueChangeEvent"
+                  }
+               }
+            ],
+            "responses":{
+               "201":{
+                  "description":"Created",
+                  "schema":{
+                     "$ref":"#\/definitions\/OrganizationAttributeValueChangeEvent"
+                  }
+               },
+               "400":{
+                  "description":"Bad Request\n\nList of supported error codes:\n- 20: Invalid URL parameter value\n- 21: Missing body\n- 22: Invalid body\n- 23: Missing body field\n- 24: Invalid body field\n- 25: Missing header\n- 26: Invalid header value\n- 27: Missing query-string parameter\n- 28: Invalid query-string parameter value",
+                  "schema":{
+                     "$ref":"#\/definitions\/Error"
+                  }
+               },
+               "404":{
+                  "description":"Not Found\n\nList of supported error codes:\n- 60: Resource not found",
+                  "schema":{
+                     "$ref":"#\/definitions\/Error"
+                  }
+               },
+               "422":{
+                  "description":"Unprocessable entity\n\nFunctional error",
+                  "schema":{
+                     "$ref":"#\/definitions\/Error"
+                  }
+               },
+               "503":{
+                  "description":"Service Unavailable\n\nList of supported error codes:\n- 5: The service is temporarily unavailable\n- 6: Orange API is over capacity, retry later !",
+                  "schema":{
+                     "$ref":"#\/definitions\/Error"
+                  }
+               }
+            }
+         }
+      }
+   },
+   "definitions":{
+      "Characteristic":{
+         "type":"object",
+         "properties":{
+            "name":{
+               "$ref":"#\/definitions\/CharacteristicNameEnum"
+            },
+            "value":{
+               "type":"string"
+            },
+            "valueType":{
+               "type":"string"
+            }
+         }
+      },
+      "CharacteristicNameEnum":{
+         "type":"string",
+         "enum":[
+            "categoryCode",
+            "categoryLabel",
+            "registrationStatus",
+            "billCycle",
+            "occRatePlan",
+            "isPaymentResp",
+            "tradingName",
+            "occupation",
+            "paymentMethod",
+            "pMethAccountOwner",
+            "pMethAccountNumber",
+            "pMethExpirationDate",
+            "pMethCreditCardCompagny",
+            "pMethCreditCardLimit",
+            "pMethBankCode",
+            "pMethBankName",
+            "pMethSwiftCode",
+            "pMethBankStreetName",
+            "pMethBankStreetNum",
+            "pMethBankZip",
+            "pMethBankProvince",
+            "pMethBankZone",
+            "pMethBankCountry",
+            "pMethBankCity"
+         ]
+      },
+      "ContactMedium":{
+         "required":[
+            "characteristic"
+         ],
+         "type":"object",
+         "properties":{
+            "preferred":{
+               "type":"boolean"
+            },
+            "mediumType":{
+               "$ref":"#\/definitions\/ContactMediumType"
+            },
+            "validFor":{
+               "$ref":"#\/definitions\/ValidFor"
+            },
+            "characteristic":{
+               "$ref":"#\/definitions\/MediumCharacteristic"
+            }
+         }
+      },
+      "ContactMediumType":{
+         "type":"string",
+         "enum":[
+            "emailAddress",
+            "postalAddress",
+            "phoneNumber",
+            "faxNumber",
+            "socialNetwork"
+         ]
+      },
+      "Disability":{
+         "type":"object",
+         "properties":{
+            "disability":{
+               "type":"string"
+            }
+         }
+      },
+      "Error":{
+         "required":[
+            "code",
+            "reason"
+         ],
+         "type":"object",
+         "properties":{
+            "code":{
+               "type":"integer",
+               "format":"int32"
+            },
+            "reason":{
+               "type":"string"
+            },
+            "message":{
+               "type":"string"
+            },
+            "status":{
+               "type":"string"
+            },
+            "referenceError":{
+               "type":"string"
+            },
+            "@type":{
+               "type":"string"
+            },
+            "@schemaLocation":{
+               "type":"string"
+            }
+         }
+      },
+      "ErrorDetail":{
+         "required":[
+            "code",
+            "message"
+         ],
+         "type":"object",
+         "properties":{
+            "code":{
+               "type":"integer",
+               "format":"int32"
+            },
+            "message":{
+               "type":"string"
+            },
+            "description":{
+               "type":"string"
+            },
+            "infoURL":{
+               "type":"string"
+            }
+         }
+      },
+      "ExistsDuring":{
+         "type":"object",
+         "properties":{
+            "startDateTime":{
+               "type":"string",
+               "format":"date-time"
+            },
+            "endDateTime":{
+               "type":"string",
+               "format":"date-time"
+            }
+         }
+      },
+      "ExternalReference":{
+         "required":[
+            "externalReferenceType",
+            "name"
+         ],
+         "type":"object",
+         "properties":{
+            "externalReferenceType":{
+               "type":"string"
+            },
+            "name":{
+               "type":"string"
+            }
+         }
+      },
+      "Gender":{
+         "type":"string",
+         "enum":[
+            "male",
+            "female",
+            "other"
+         ]
+      },
+      "IdentificationOrgEnum":{
+         "type":"string",
+         "enum":[
+            "vat",
+            "tradingLicense",
+            "foreignCompany",
+            "compagnyRegistrationNumber"
+         ]
+      },
+      "IdentificationType":{
+         "type":"string",
+         "enum":[
+            "passport",
+            "identityCard",
+            "driverLicence",
+            "socialSecurityNumber",
+            "companyRegistrationNumber",
+            "refugeeID",
+            "studentCard",
+            "other"
+         ]
+      },
+      "Individual":{
+         "type":"object",
+         "properties":{
+            "id":{
+               "type":"string"
+            },
+            "gender":{
+               "$ref":"#\/definitions\/Gender"
+            },
+            "placeOfBirth":{
+               "type":"string"
+            },
+            "countryOfBirth":{
+               "type":"string"
+            },
+            "nationality":{
+               "type":"string"
+            },
+            "maritalStatus":{
+               "$ref":"#\/definitions\/MaritalStatus"
+            },
+            "birthDate":{
+               "type":"string",
+               "format":"date"
+            },
+            "title":{
+               "$ref":"#\/definitions\/TitleEnum"
+            },
+            "status":{
+               "$ref":"#\/definitions\/StatusEnum"
+            },
+            "givenName":{
+               "type":"string"
+            },
+            "familyName":{
+               "type":"string"
+            },
+            "characteristic":{
+               "type":"array",
+               "items":{
+                  "$ref":"#\/definitions\/Characteristic"
+               }
+            },
+            "externalReference":{
+               "type":"array",
+               "items":{
+                  "$ref":"#\/definitions\/ExternalReference"
+               }
+            },
+            "relatedParty":{
+               "type":"array",
+               "items":{
+                  "$ref":"#\/definitions\/RelatedParty"
+               }
+            },
+            "contactMedium":{
+               "type":"array",
+               "items":{
+                  "$ref":"#\/definitions\/ContactMedium"
+               }
+            },
+            "individualIdentification":{
+               "type":"array",
+               "items":{
+                  "$ref":"#\/definitions\/IndividualIdentification"
+               }
+            }
+         }
+      },
+      "IndividualAttributeValueChangeEvent":{
+         "required":[
+            "eventId",
+            "eventTime",
+            "description",
+            "timeOccured",
+            "title",
+            "eventType",
+            "event"
+         ],
+         "type":"object",
+         "properties":{
+            "eventId":{
+               "description":"The identifier of the notification",
+               "type":"string"
+            },
+            "eventTime":{
+               "description":"Time of the event occurrence.",
+               "type":"string",
+               "format":"date-time"
+            },
+            "description":{
+               "description":"An explnatory of the event.",
+               "type":"string"
+            },
+            "timeOccured":{
+               "description":"The time the event occured.",
+               "type":"string",
+               "format":"date-time"
+            },
+            "title":{
+               "description":"The title of the event.",
+               "type":"string"
+            },
+            "eventType":{
+               "description":"The type of the notification.",
+               "type":"string"
+            },
+            "event":{
+               "$ref":"#\/definitions\/IndividualAttributeValueChangeEventPayload"
+            }
+         }
+      },
+      "IndividualAttributeValueChangeEventPayload":{
+         "required":[
+            "individual"
+         ],
+         "type":"object",
+         "properties":{
+            "individual":{
+               "$ref":"#\/definitions\/Individual"
+            }
+         }
+      },
+      "IndividualCreateEvent":{
+         "required":[
+            "eventId",
+            "eventTime",
+            "description",
+            "eventType",
+            "timeOccured",
+            "event"
+         ],
+         "type":"object",
+         "properties":{
+            "eventId":{
+               "type":"string"
+            },
+            "eventTime":{
+               "type":"string",
+               "format":"date-time"
+            },
+            "description":{
+               "type":"string"
+            },
+            "eventType":{
+               "type":"string"
+            },
+            "timeOccured":{
+               "description":"The time the event occured.",
+               "type":"string",
+               "format":"date-time"
+            },
+            "event":{
+               "$ref":"#\/definitions\/IndividualCreateEventPayload"
+            }
+         }
+      },
+      "IndividualCreateEventPayload":{
+         "required":[
+            "individual"
+         ],
+         "type":"object",
+         "properties":{
+            "individual":{
+               "$ref":"#\/definitions\/Individual"
+            }
+         }
+      },
+      "IndividualIdentification":{
+         "type":"object",
+         "properties":{
+            "identificationType":{
+               "$ref":"#\/definitions\/IdentificationType"
+            },
+            "identificationId":{
+               "type":"string"
+            },
+            "expirationDate":{
+               "type":"string",
+               "format":"date"
+            },
+            "issuingAuthority":{
+               "type":"string"
+            },
+            "issuingDate":{
+               "type":"string",
+               "format":"date"
+            },
+            "issuingPlace":{
+               "type":"string"
+            }
+         }
+      },
+      "MaritalStatus":{
+         "type":"string",
+         "enum":[
+            "single",
+            "married",
+            "divorced",
+            "widowed"
+         ]
+      },
+      "MediumCharacteristic":{
+         "type":"object",
+         "properties":{
+            "city":{
+               "type":"string"
+            },
+            "country":{
+               "type":"string"
+            },
+            "postcode":{
+               "type":"string"
+            },
+            "stateOrProvince":{
+               "type":"string"
+            },
+            "emailAddress":{
+               "type":"string"
+            },
+            "type":{
+               "$ref":"#\/definitions\/MediumCharacteristicType"
+            },
+            "street1":{
+               "type":"string"
+            },
+            "plot":{
+               "type":"string"
+            },
+            "phoneNumber":{
+               "type":"string"
+            },
+            "faxNumber":{
+               "type":"string"
+            },
+            "customerCode":{
+               "type":"string"
+            }
+         }
+      },
+      "MediumCharacteristicType":{
+         "type":"string",
+         "enum":[
+            "home",
+            "homeResidential",
+            "office",
+            "officeResidential",
+            "mobile",
+            "personalMobile",
+            "professionalMobile",
+            "landline",
+            "homeLandline",
+            "officeLandline",
+            "personalFax",
+            "professionalFax"
+         ]
+      },
+      "Organization":{
+         "type":"object",
+         "properties":{
+            "id":{
+               "type":"string"
+            },
+            "href":{
+               "type":"string"
+            },
+            "isLegalEntity":{
+               "type":"boolean"
+            },
+            "type":{
+               "$ref":"#\/definitions\/OrganizationType"
+            },
+            "existsDuring":{
+               "$ref":"#\/definitions\/ExistsDuring"
+            },
+            "tradingName":{
+               "type":"string"
+            },
+            "status":{
+               "$ref":"#\/definitions\/StatusEnumOrg"
+            },
+            "characteristic":{
+               "type":"array",
+               "items":{
+                  "$ref":"#\/definitions\/Characteristic"
+               }
+            },
+            "externalReference":{
+               "type":"array",
+               "items":{
+                  "$ref":"#\/definitions\/ExternalReference"
+               }
+            },
+            "relatedParty":{
+               "type":"array",
+               "items":{
+                  "$ref":"#\/definitions\/RelatedParty"
+               }
+            },
+            "contactMedium":{
+               "type":"array",
+               "items":{
+                  "$ref":"#\/definitions\/ContactMedium"
+               }
+            },
+            "organizationIdentification":{
+               "$ref":"#\/definitions\/OrganizationIdentification"
+            },
+            "organizationParentRelationship":{
+               "$ref":"#\/definitions\/OrganizationParentRelationship"
+            },
+            "organizationChildRelationship":{
+               "$ref":"#\/definitions\/OrganizationChildRelationship"
+            }
+         }
+      },
+      "OrganizationAttributeValueChangeEvent":{
+         "required":[
+            "eventId",
+            "eventTime",
+            "description",
+            "timeOccured",
+            "title",
+            "eventType",
+            "event"
+         ],
+         "type":"object",
+         "properties":{
+            "eventId":{
+               "description":"he identifier of the notification.",
+               "type":"string"
+            },
+            "eventTime":{
+               "description":"Time of the event occurrence.",
+               "type":"string",
+               "format":"date-time"
+            },
+            "description":{
+               "description":"An explnatory of the event.",
+               "type":"string"
+            },
+            "timeOccured":{
+               "description":"The time the event occured.",
+               "type":"string",
+               "format":"date-time"
+            },
+            "title":{
+               "description":"The title of the event.",
+               "type":"string"
+            },
+            "eventType":{
+               "description":"The type of the notification.",
+               "type":"string"
+            },
+            "event":{
+               "$ref":"#\/definitions\/OrganizationAttributeValueChangeEventPayload"
+            }
+         }
+      },
+      "OrganizationAttributeValueChangeEventPayload":{
+         "required":[
+            "organization"
+         ],
+         "type":"object",
+         "properties":{
+            "organization":{
+               "$ref":"#\/definitions\/Organization"
+            }
+         }
+      },
+      "OrganizationChildRelationship":{
+         "type":"object",
+         "properties":{
+            "id":{
+               "type":"string"
+            }
+         }
+      },
+      "OrganizationCreateEvent":{
+         "required":[
+            "eventId",
+            "eventTime",
+            "descriction",
+            "timeOccured",
+            "title",
+            "eventType",
+            "event"
+         ],
+         "type":"object",
+         "properties":{
+            "eventId":{
+               "description":"The identifier of the notification.",
+               "type":"string"
+            },
+            "eventTime":{
+               "description":"Time of the event occurrence.",
+               "type":"string",
+               "format":"date-time"
+            },
+            "descriction":{
+               "description":"An explnatory of the event.",
+               "type":"string"
+            },
+            "timeOccured":{
+               "description":"The time the event occured.",
+               "type":"string",
+               "format":"date-time"
+            },
+            "title":{
+               "description":"The title of the event.",
+               "type":"string"
+            },
+            "eventType":{
+               "description":"The type of the notification.",
+               "type":"string"
+            },
+            "event":{
+               "$ref":"#\/definitions\/OrganizationCreateEventPayload"
+            }
+         }
+      },
+      "OrganizationCreateEventPayload":{
+         "required":[
+            "organization"
+         ],
+         "type":"object",
+         "properties":{
+            "organization":{
+               "$ref":"#\/definitions\/Organization"
+            }
+         }
+      },
+      "OrganizationIdentification":{
+         "type":"object",
+         "properties":{
+            "identificationType":{
+               "$ref":"#\/definitions\/IdentificationOrgEnum"
+            },
+            "identificationId":{
+               "type":"string"
+            },
+            "issuingDate":{
+               "type":"string"
+            },
+            "validFor":{
+               "$ref":"#\/definitions\/ValidFor"
+            }
+         }
+      },
+      "OrganizationParentRelationship":{
+         "type":"object",
+         "properties":{
+            "id":{
+               "type":"string"
+            }
+         }
+      },
+      "OrganizationType":{
+         "type":"string",
+         "enum":[
+            "organization",
+            "dealer"
+         ]
+      },
+      "OtherName":{
+         "type":"object",
+         "properties":{
+            "title":{
+               "type":"string"
+            },
+            "givenName":{
+               "type":"string"
+            },
+            "familyName":{
+               "type":"string"
+            },
+            "middleName":{
+               "type":"string"
+            },
+            "fullName":{
+               "type":"string"
+            },
+            "formattedName":{
+               "type":"string"
+            },
+            "validFor":{
+               "$ref":"#\/definitions\/ValidFor"
+            },
+            "nameType":{
+               "type":"string"
+            },
+            "tradingName":{
+               "type":"string"
+            }
+         }
+      },
+      "ReferredTypeEnum":{
+         "type":"string",
+         "enum":[
+            "Individual",
+            "Organization",
+            "PartyRole"
+         ]
+      },
+      "RelatedParty":{
+         "required":[
+            "@referredType"
+         ],
+         "type":"object",
+         "properties":{
+            "id":{
+               "type":"string"
+            },
+            "name":{
+               "type":"string"
+            },
+            "role":{
+               "$ref":"#\/definitions\/Role"
+            },
+            "@referredType":{
+               "$ref":"#\/definitions\/ReferredTypeEnum"
+            }
+         }
+      },
+      "Role":{
+         "type":"string",
+         "enum":[
+            "tutor",
+            "customer",
+            "payer",
+            "commercial",
+            "owner",
+            "user",
+            "mainFleetManager",
+            "secondFleetManager",
+            "thirdFleetManager"
+         ]
+      },
+      "StatusEnum":{
+         "type":"string",
+         "enum":[
+            "initialized",
+            "validated",
+            "deceased"
+         ]
+      },
+      "StatusEnumOrg":{
+         "type":"string",
+         "enum":[
+            "initialized",
+            "validated",
+            "closed"
+         ]
+      },
+      "TitleEnum":{
+         "type":"string",
+         "enum":[
+            "Mr",
+            "Mrs",
+            "Ms",
+            "Comp",
+            "Sir",
+            "Lady",
+            "Tr",
+            "Miss",
+            "Dr"
+         ]
+      },
+      "ValidFor":{
+         "type":"object",
+         "properties":{
+            "startDateTime":{
+               "type":"string",
+               "format":"date-time"
+            },
+            "endDateTime":{
+               "type":"string",
+               "format":"date-time"
+            }
+         }
+      }
+   }
 }

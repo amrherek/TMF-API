@@ -1695,7 +1695,7 @@ public final class Constants {
     public static final String P_CSP_BANKZIP = "CSP_BANKZIP";
     public static final String P_CSP_CCAG_CODE = "CSP_CCAG_CODE";
     public static final String P_CSP_CEILING = "P_CSP_CEILING";
-    public static final String P_CSP_ID = "P_CSP_ID";
+    public static final String P_CSP_ID = "CSP_ID"; //"P_CSP_ID";
     public static final String P_CSP_ORDERNUMBER = "CSP_ORDERNUMBER";
     public static final String P_CSP_VALID_FROM = "CSP_VALID_FROM";
 

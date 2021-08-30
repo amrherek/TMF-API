@@ -3,6 +3,7 @@ package com.orange.bscs.model;
 import java.util.Date;
 
 import com.orange.bscs.model.businesspartner.BSCSCustomer;
+import com.orange.bscs.model.businesspartner.EnumCustomerLevelCode;
 import com.orange.bscs.model.businesspartner.EnumCustomerStatus;
 
 /**
@@ -32,4 +33,5 @@ public abstract class BscsCustomer {
     public abstract String getCode();
 
     public abstract Long getNumericId();
+
 }

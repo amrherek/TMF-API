@@ -2,10 +2,10 @@ package com.orange.bscs.model.businesspartner;
 
 public enum EnumCustomerLevelCode {
 
-    ROOT("10"),
-    DIVISION("20"),
-    COST_CENTER("30"),
-    SUBSCRIBER("40");
+    ROOT("1"),
+    DIVISION("2"),
+    COST_CENTER("3"),
+    SUBSCRIBER("4");
     
     
     private String csLevelCode;
@@ -20,13 +20,13 @@ public enum EnumCustomerLevelCode {
         EnumCustomerLevelCode result=null;
         if(null==level){
              return null;
-        } else if("10".equals(level)){
+        } else if("1".equals(level)){
             result = ROOT;
-        } else if ("20".equals(level)){
+        } else if ("2".equals(level)){
             result=DIVISION;
-        } else if("30".equals(level)){
+        } else if("3".equals(level)){
             result = COST_CENTER;
-        } else if ("40".equals(level)){
+        } else if ("4".equals(level)){
             result=SUBSCRIBER;
         }
         return result;

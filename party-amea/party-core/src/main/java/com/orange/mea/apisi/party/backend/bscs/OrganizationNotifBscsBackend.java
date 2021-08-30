@@ -18,30 +18,26 @@ import com.orange.apibss.party.model.obw.CharacteristicNameEnum;
 import com.orange.apibss.party.model.obw.ContactMedium;
 import com.orange.apibss.party.model.obw.ContactMediumType;
 import com.orange.apibss.party.model.obw.ExternalReference;
-import com.orange.apibss.party.model.obw.Gender;
-import com.orange.apibss.party.model.obw.IdentificationType;
-import com.orange.apibss.party.model.obw.Individual;
-import com.orange.apibss.party.model.obw.IndividualIdentification;
 import com.orange.apibss.party.model.obw.MediumCharacteristic;
-import com.orange.apibss.party.model.obw.RelatedParty;
+import com.orange.apibss.party.model.obw.Organization;
+import com.orange.apibss.party.model.obw.OrganizationIdentification;
 import com.orange.apibss.party.model.obw.StatusEnum;
+import com.orange.apibss.party.model.obw.StatusEnumOrg;
 import com.orange.bscs.api.aop.TransactionalBscs;
 import com.orange.bscs.api.exceptions.APIException;
-import com.orange.bscs.api.model.exception.CMSException;
 import com.orange.bscs.model.BscsAddress;
 import com.orange.bscs.model.businesspartner.BSCSCustomer;
 import com.orange.bscs.model.businesspartner.EnumAddressRole;
-import com.orange.bscs.service.exception.BscsInvalidFieldException;
-import com.orange.bscs.service.exception.BscsInvalidIdException;
-import com.orange.mea.apisi.party.backend.CreateIndividualBackend;
+import com.orange.bscs.model.businesspartner.EnumCustomerLevelCode;
+import com.orange.mea.apisi.party.backend.CreateOrganizationBackend;
 import com.orange.mea.apisi.party.backend.bscs.transformer.BscsAddressToIndividualTransformer;
 import com.orange.mea.apisi.party.backend.bscs.transformer.BscsCustomerInfoToIndividualTransformer;
 import com.orange.mea.apisi.party.backend.bscs.transformer.IndividualToBscsAddressTransformer;
 import com.orange.mea.apisi.party.backend.bscs.transformer.IndividualToBscsCustomerInfoTransformer;
 
 @Service
-public class IndividualNotifBscsBackend
-  implements CreateIndividualBackend
+public class OrganizationNotifBscsBackend
+  implements CreateOrganizationBackend
 {
   @Autowired
   protected BscsIndividualService bscsIndividualService;
@@ -56,15 +52,14 @@ public class IndividualNotifBscsBackend
   protected boolean customerInfoNeeded = false;
   
   @TransactionalBscs
-  public BSCSCustomer createIndividual(Individual individual)
-    throws ApiException, BscsInvalidIdException, BscsInvalidFieldException, CMSException
+  public BSCSCustomer createOrganization(Organization organization)
+    throws ApiException, MissingParameterException
   {
-   
-	  try{
-		  
 	  
-	  boolean adressExists = false;
-    List<ContactMedium> contactMediumList = individual.getContactMedium();
+  try
+	{
+    boolean adressExists = false;
+    List<ContactMedium> contactMediumList = organization.getContactMedium();
     if ((null != contactMediumList) && (!contactMediumList.isEmpty())) {
       for (ContactMedium tmfContactMedium : contactMediumList)
       {
@@ -72,42 +67,14 @@ public class IndividualNotifBscsBackend
         if (null != medium) {
           adressExists = true;
         } else {
-          throw new MissingParameterException("MediumCharacteristic");
+        	throw new MissingParameterException("MediumCharacteristic");
         }
       }
     } else {
-       throw new MissingParameterException("ContactMedium");
+    	throw new MissingParameterException("ContactMedium");
     }
 
-    List<Characteristic> characteristics = individual.getCharacteristic();
-    List<ExternalReference> extRef = individual.getExternalReference();
-    String refCRM = null;
-    String refCRMSet = null;
-    if(extRef != null && extRef.size()>0)
-    {
-    	refCRM = extRef.get(0).getName();
-    	refCRMSet = extRef.get(0).getExternalReferenceType();
-    	if (refCRM ==null){
-    		 throw new MissingParameterException("ExternalReference.name");
-    	}
-    	if (refCRMSet ==null){
-   		 throw new MissingParameterException("ExternalReference.ExternalReferenceType");
-    	}
-    	if (refCRM.length()>15){
-   		 throw new BadParameterFormatException("Max size for ExternalReference.name = 15 ");
-    	}
-  		if (refCRMSet.length()>5){
-   		 throw new BadParameterFormatException("Max size for ExternalReference.ExternalReferenceType = 5 ");
-  		}
-    }
-  //CUSTOMERS.SEARCH
-	List<BSCSCustomer> customerResult=null;
-    if( null!=refCRMSet && null !=refCRM ){
-		customerResult = bscsIndividualService.customerSearch(refCRM, refCRMSet);
-    }
-    
-	if(null!=customerResult && customerResult.size()> 0)
-		throw new BadParameterValueException("Customer with ExternalReference :  " + refCRM+ " already exist in data base" );
+    List<Characteristic> characteristics = organization.getCharacteristic();
     
     String ratePlan = null;
     String billCycle = null;
@@ -147,8 +114,8 @@ public class IndividualNotifBscsBackend
             job = characteristic.getValue();
           } else if (characteristic.getName().getValue().equalsIgnoreCase(CharacteristicNameEnum.PAYMENTMETHOD.getValue())) {
             payMethod = characteristic.getValue();
-          }else if (characteristic.getName().getValue().equalsIgnoreCase(CharacteristicNameEnum.REGISTRATIONSTATUS.getValue())) {
-          	  rsCode = Long.valueOf(characteristic.getValue());
+          } else if (characteristic.getName().getValue().equalsIgnoreCase(CharacteristicNameEnum.REGISTRATIONSTATUS.getValue())) {
+        	  rsCode = Long.valueOf(characteristic.getValue());
           }
           /*PayMethod*/
           else if (characteristic.getName().getValue().equalsIgnoreCase(CharacteristicNameEnum.PMETHACCOUNTNUMBER.getValue())) {
@@ -187,12 +154,13 @@ public class IndividualNotifBscsBackend
           /*End PayMethod*/
         }
         else {
-          throw new MissingParameterException("Characteristic.name");
+        	throw new MissingParameterException("Characteristic.name");
         }
       }
-    } else {
-        throw new MissingParameterException("Characteristic");
-      }
+    }else {
+    	throw new MissingParameterException("Characteristic");
+    }
+    
     if (null==ratePlan)
     	throw new MissingParameterException("Characteristic.occRatePlan");
     if (null==billCycle)
@@ -201,35 +169,109 @@ public class IndividualNotifBscsBackend
     	throw new MissingParameterException("Characteristic.categoryCode");
     if (null==payMethod)
     	throw new MissingParameterException("Characteristic.paymentMethod");
-    
-      String key = "INITIATOR";
+    if (null==isPayResp)
+    	throw new MissingParameterException("Characteristic.isPaymentResp");
+
+    	/*  String key = "INITIATOR";
       boolean paymentResp = true;
       Long custCat = null;
 
       String role = null;
-      if (null != individual.getRelatedParty() && !individual.getRelatedParty().isEmpty())
-    		  {
-		      if ((null != ((RelatedParty)individual.getRelatedParty().get(0)).getRole()) 
-		    		  && (((RelatedParty)individual.getRelatedParty().get(0)).getRole().getValue().length() > 0)) {
-		        role = ((RelatedParty)individual.getRelatedParty().get(0)).getRole().getValue();
-		      }
-    		  }
+      if ((null != ((RelatedParty)organization.getRelatedParty().get(0)).getRole()) && (((RelatedParty)organization.getRelatedParty().get(0)).getRole().getValue().length() > 0)) {
+        role = ((RelatedParty)organization.getRelatedParty().get(0)).getRole().getValue();
+      }
       BSCSCustomer bscscustomer = this.bscsIndividualService.executeCustomerNewForePostPartyIndividual(billCycle, prgCode, ratePlan, null, 
-        Boolean.valueOf(paymentResp), refCRM, refCRMSet, role);
+        Boolean.valueOf(paymentResp), null, null, role);*/
       
 
-      String csIdPub = bscscustomer.getCustomerIDPub();
-      this.bscsIndividualService.executePaymentArrangementWriteForPostPartyIndividual(csIdPub, new Long(0L), payMethod,bankAccount,
-    		  bankAccountOwner,bankCity,bankCode,bankCountry,bankName, bankProvince, bankStreetName,bankStreetNum,bankZip,bankZone,
-    		  creditCardCompany,creditCardLimit,creditCardExpirDate,swiftCode, false, false);
+			//LA_MEMBER.NEW
 
-      
-      List<ContactMedium> contactMeduimList = individual.getContactMedium();
+			Boolean paymentResp=null;
+			Long custCat=null;
+
+				if(isPayResp.equalsIgnoreCase("true")|| isPayResp.equalsIgnoreCase("x")){
+					paymentResp=true;
+				}
+				if(isPayResp.equalsIgnoreCase("false")||isPayResp.trim().equalsIgnoreCase(""))
+					paymentResp=false;
+
+			String externalId1=null;
+			String externalSetId1=null;
+			List<ExternalReference> extRef = organization.getExternalReference();
+		    if(extRef != null && extRef.size()>0)
+				    {
+				    	externalId1 = extRef.get(0).getName();
+				    	externalSetId1 = extRef.get(0).getExternalReferenceType();
+				    	if (externalId1 ==null){
+				    		 throw new MissingParameterException("ExternalReference.name");
+				    	}
+				    	if (externalSetId1 ==null){
+				   		 throw new MissingParameterException("ExternalReference.ExternalReferenceType");
+				    	}
+				    	if (externalId1.length()>15){
+				    		 throw new BadParameterFormatException("Max size for ExternalReference.name is 15 ");
+				    	}
+				   		if (externalSetId1.length()!=5){
+				    		 throw new BadParameterFormatException("ExternalReference.ExternalReferenceType should countain 5 characters");
+				    	}
+				    }
+		  //CUSTOMERS.SEARCH
+			List<BSCSCustomer> customerResult=null;
+		    if( null!=externalId1 && null !=externalSetId1 ){
+				customerResult = bscsIndividualService.customerSearch(externalId1, externalSetId1);
+		    }
+		    
+			if(null!=customerResult && customerResult.size()> 0)
+				throw new BadParameterValueException("Customer with ExternalReference :  " + externalId1+ " already exist in data base" );
+
+		    
+		    
+		    
+		    
+			Long csIdHigh=null;
+			EnumCustomerLevelCode level=EnumCustomerLevelCode.ROOT;
+			if(null!=organization.getOrganizationParentRelationship()){
+				if(null!=organization.getOrganizationParentRelationship().getId()){
+					BSCSCustomer  customerHigh = bscsIndividualService.customerRead(organization.getOrganizationParentRelationship().getId());
+					if(null==customerHigh)
+						throw new NotFoundException("CUSTOMER HIGH NOT FOUND : OrganizationParentRelationship.id = " +organization.getOrganizationParentRelationship().getId());
+
+					if (null != customerHigh.getCustomerID()) {
+							csIdHigh=Long.valueOf(customerHigh.getCustomerID());
+						}
+					if (null != customerHigh.getCustomerID()) {
+						csIdHigh=Long.valueOf(customerHigh.getCustomerID());
+					}
+
+					if (null != customerHigh.getCustomerLevelCode()) {
+						if(EnumCustomerLevelCode.SUBSCRIBER.getLevelCode().equals(customerHigh.getCustomerLevelCode()))
+						throw new BadParameterValueException("Wrong Parent level, the level of OrganizationParentRelationship.id is a subscriber : OrganizationParentRelationship.id = " +organization.getOrganizationParentRelationship().getId());
+						
+						if (EnumCustomerLevelCode.ROOT.getLevelCode().equals(customerHigh.getCustomerLevelCode().getLevelCode())){
+							level =EnumCustomerLevelCode.DIVISION;
+						}else if (EnumCustomerLevelCode.DIVISION.getLevelCode().equals(customerHigh.getCustomerLevelCode().getLevelCode())){
+							level =EnumCustomerLevelCode.COST_CENTER;
+						}else if(EnumCustomerLevelCode.COST_CENTER.getLevelCode().equals(customerHigh.getCustomerLevelCode().getLevelCode())){
+							level =EnumCustomerLevelCode.SUBSCRIBER;
+						}
+						
+					}
+				}						
+
+			}
+			
+			BSCSCustomer laMemberResult = bscsIndividualService.executeLaMemberNewForPostPartyOrganization(billCycle, prgCode, ratePlan,null, paymentResp, externalId1, externalSetId1, null,csIdHigh,level);
+			//LA_MEMBER.NEW RESULT MAPPING
+		      String csIdPub = laMemberResult.getCustomerIDPub();
+
+		      this.bscsIndividualService.executePaymentArrangementWriteForPostPartyIndividual(csIdPub, new Long(0L), payMethod,bankAccount,
+		    		  bankAccountOwner,bankCity,bankCode,bankCountry,bankName, bankProvince, bankStreetName,bankStreetNum,bankZip,bankZone,
+		    		  creditCardCompany,creditCardLimit,creditCardExpirDate,swiftCode, false, false);
+      List<ContactMedium> contactMeduimList = organization.getContactMedium();
       if ((null != contactMeduimList) && (!contactMeduimList.isEmpty())) {
           String idNo = null;
           Long idType = null;
-          String licence = null;
-          String social = null;
+          String compno = null;
           Character adrCsType = null;
           String adrStreetNo = null;
           String adrCity = null;
@@ -239,64 +281,36 @@ public class IndividualNotifBscsBackend
           String adrRoles = null;
           String fax = null;
           String tel = null;
-          String email = null;       
-          String maritalStatus= null;
+          String email = null;
           Date birthDate = null;
-          String givenName = null;
-          String familyName = null;
-          String middleName = null;
-          Character gender = null;
-          String title = null;
-          String nationality = null;
-          String adrState = null ;
+          String tradingName = null;
+          String adrState = null;
         for (ContactMedium contactMedium : contactMeduimList)
         {
-          if (null != individual.getIndividualIdentification())
+
+          if (null != organization.getOrganizationIdentification())
           {
-            List<IndividualIdentification> individualIdentificationList = individual.getIndividualIdentification();
-            if ((null != individualIdentificationList) && (!individualIdentificationList.isEmpty())) {
-              for (IndividualIdentification tmfIndividualIdentification : individualIdentificationList) {
-                if ((null != tmfIndividualIdentification.getIdentificationType().getValue()) && 
-                  (null != tmfIndividualIdentification.getIdentificationId()) && 
-                  (tmfIndividualIdentification.getIdentificationId().length() > 0))
+           OrganizationIdentification organisationIdentification = organization.getOrganizationIdentification();
+                if ((null != organisationIdentification.getIdentificationType().getValue()) &&
+                  (organisationIdentification.getIdentificationId().length() > 0))
                 {
-                  String type = tmfIndividualIdentification.getIdentificationType().getValue();
-                  if ((!type.equalsIgnoreCase(IdentificationType.DRIVERLICENCE.getValue())) && 
-                    (!type.equalsIgnoreCase(IdentificationType.SOCIALSECURITYNUMBER.getValue()))) {
-                    idNo = tmfIndividualIdentification.getIdentificationId();
-                    if (type.equalsIgnoreCase(IdentificationType.IDENTITYCARD.getValue())){
-                    	idType= 1L;
-                    }else if (type.equalsIgnoreCase(IdentificationType.PASSPORT.getValue())){
-                    	idType= 2L ;
-                    }
-                  }
-                  if (type.equalsIgnoreCase(IdentificationType.DRIVERLICENCE.getValue())) {
-                    licence = tmfIndividualIdentification.getIdentificationId();
-                  }
-                  if (type.equalsIgnoreCase(IdentificationType.SOCIALSECURITYNUMBER.getValue())) {
-                    social = tmfIndividualIdentification.getIdentificationId();
-                  }
-                }
-              }
-            }
+                	compno=organisationIdentification.getIdentificationId();
+                }                         
           }
-          
-          if (null != individual.getMaritalStatus())
-          {
-        	  maritalStatus = individual.getMaritalStatus().getValue();
-          }
+        	  
+
           
           adrRoles = "B";
           if ((null != contactMedium.getMediumType()) && 
             (contactMedium.getMediumType().getValue().equalsIgnoreCase(ContactMediumType.POSTALADDRESS.getValue())))
           {
-            adrCsType = Character.valueOf('C');
+            adrCsType = Character.valueOf('B');
             if (null != contactMedium.getCharacteristic().getStateOrProvince()) {
-            adrState = contactMedium.getCharacteristic().getStateOrProvince();
-            }
-            if (null != contactMedium.getCharacteristic().getPlot()) {
-                adrStreetNo = contactMedium.getCharacteristic().getPlot();
+                adrState = contactMedium.getCharacteristic().getStateOrProvince();
                 }
+                if (null != contactMedium.getCharacteristic().getPlot()) {
+                    adrStreetNo = contactMedium.getCharacteristic().getPlot();
+                    }
             if (null != contactMedium.getCharacteristic().getCity()) {
               adrCity = contactMedium.getCharacteristic().getCity();
             }
@@ -325,72 +339,48 @@ public class IndividualNotifBscsBackend
             (null != contactMedium.getCharacteristic().getPhoneNumber())) {
             tel = contactMedium.getCharacteristic().getPhoneNumber();
           }
-
-          if ((null != individual.getGivenName()) && (individual.getGivenName().length() > 0)) {
-            givenName = individual.getGivenName();
-          }
-          if ((null != individual.getBirthDate())) {
-        	  birthDate = individual.getBirthDate().toDate();
-            }
-
-          if ((null != individual.getFamilyName()) && (individual.getFamilyName().length() > 0)) {
-            familyName = individual.getFamilyName();
-          }
-
-          if (null != individual.getGender())
-          {
-            if (individual.getGender().getValue().equalsIgnoreCase(Gender.MALE.getValue())) {
-              gender = Character.valueOf('M');
-            }
-            if (individual.getGender().getValue().equalsIgnoreCase(Gender.FEMALE.getValue())) {
-              gender = Character.valueOf('F');
-            } else {
-              gender = Character.valueOf('M');
-            }
-          }
-
-          if (null != individual.getTitle()) {
-            title = individual.getTitle().getValue().toUpperCase();
-          }
           
-          if ((null != individual.getNationality()) && (individual.getNationality().length() > 0)) {
-            nationality = individual.getNationality();
+          if ((null != organization.getTradingName()) && (organization.getTradingName().length() > 0)) {
+            tradingName = organization.getTradingName();
           }
         }
-          this.bscsIndividualService.executeAddressWriteForPostParty(csIdPub, adrCsType, new Long(0L), givenName, familyName, middleName, adrStreetNo, adrCity, gender, adrStreet, adrZip, countryIdPub, job, birthDate, title, nationality, adrRoles, licence, social, idNo, idType, email, fax, tel, null, null, maritalStatus, adrState, false);
+          this.bscsIndividualService.executeAddressWriteForPostParty(csIdPub, adrCsType, new Long(0L), null, null, null, adrStreetNo, adrCity, null, adrStreet, adrZip, countryIdPub, job, birthDate, null, null, adrRoles, null, null, idNo, idType, email, fax, tel, tradingName, compno, null ,adrState, false);
         
       }
+      
       Character csStatus = Character.valueOf('a');
-      if (null != individual.getStatus())
+      if (null != organization.getStatus())
       {
-        if (individual.getStatus().getValue().equalsIgnoreCase(StatusEnum.INITIALIZED.getValue())) {
+        if (organization.getStatus().getValue().equalsIgnoreCase(StatusEnumOrg.INITIALIZED.getValue())) {
         	csStatus = Character.valueOf('i');
         }
-        if (individual.getStatus().getValue().equalsIgnoreCase(StatusEnum.VALIDATED.getValue())) {
+        if (organization.getStatus().getValue().equalsIgnoreCase(StatusEnumOrg.VALIDATED.getValue())) {
         	csStatus = Character.valueOf('a');
         }
-        if (individual.getStatus().getValue().equalsIgnoreCase(StatusEnum.DECEASED.getValue())) {
+        if (organization.getStatus().getValue().equalsIgnoreCase(StatusEnumOrg.CLOSED.getValue())) {
         	csStatus = Character.valueOf('d');
         }
       }
 
-      this.bscsIndividualService.executeCustomerWriteForPostPartyIndividual(csIdPub, csStatus, rsCode, ratePlan, custCat, null, null, prgCode, billCycle);
       
 
-      return bscscustomer;
-	  }catch (ApiException e ){
+      this.bscsIndividualService.executeCustomerWriteForPostPartyIndividual(csIdPub, csStatus, rsCode, ratePlan, custCat, null, null, prgCode, billCycle);
+      
+      if(null!=csIdHigh)
+    	  this.bscsIndividualService.executeCustomerHierarchyWriteForPatchPartyOrganization(laMemberResult.getCustomerID(), csIdPub, csIdHigh, paymentResp, level);
+      
+
+      return laMemberResult;
+	 }catch (ApiException e ){
 		  throw e ;
 	  }catch (Exception e ){
 		  throw new TechnicalException(e.getMessage());
 	  }
-   
   }
   
-  
-  //************Patch Individual
-  
+ //************Patch Organization
   @TransactionalBscs
-  public Individual patchIndividual(Individual individual) 
+  public Organization patchOrganization(Organization organization) 
 			throws APIException, ApiException {
 		
 	  try{
@@ -400,7 +390,7 @@ public class IndividualNotifBscsBackend
 			BSCSCustomer customerResult=null;
 			String externalId1=null;
 			String externalSetId1=null;
-			  List<ExternalReference> extRef = individual.getExternalReference();
+			  List<ExternalReference> extRef = organization.getExternalReference();
 			    if(extRef != null && extRef.size()>0)
 			    {
 			    	externalId1 = extRef.get(0).getName();
@@ -414,65 +404,64 @@ public class IndividualNotifBscsBackend
 			    	if (externalId1.length()>15){
 			    		 throw new BadParameterFormatException("Max size for ExternalReference.name = 15 ");
 			    	}
-			   		if (externalSetId1.length()!= 5){
-			    		 throw new BadParameterFormatException("ExternalReference.ExternalReferenceType should countain 5 characters");
+			   		if (externalSetId1.length()!=5){
+			    		 throw new BadParameterFormatException("ExternalReference.ExternalReferenceType should countain 5 characters ");
 			    	}
-			   	
 			    }
 
-			if( null!=individual.getId() && individual.getId().length()>0 )
-				customerResult = bscsIndividualService.customerRead(individual.getId());
+			if( null!=organization.getId() && organization.getId().length()>0 )
+				customerResult = bscsIndividualService.customerRead(organization.getId());
 			else
-				throw new MissingParameterException("individual.id");
+				throw new MissingParameterException("organization.id");
 			//CUSTOMERS.SEARCH RESULT MAPPING
 			if(null==customerResult)
-				throw new NotFoundException("CUSTOMER NOT FOUND : id = " + individual.getId().toString());
+				throw new NotFoundException("CUSTOMER NOT FOUND : organization.id = " + organization.getId().toString());
 			csIdPub = customerResult.getCustomerIDPub();
 
 			
 			//CUSTOMER.WRITE
 
 		      Character csStatus = null;
-		      if (null != individual.getStatus())
+		      if (null != organization.getStatus())
 		      {
-		        if (individual.getStatus().getValue().equalsIgnoreCase(StatusEnum.INITIALIZED.getValue())) {
+		        if (organization.getStatus().getValue().equalsIgnoreCase(StatusEnumOrg.INITIALIZED.getValue())) {
 		        	csStatus = Character.valueOf('i');
 		        }
-		        if (individual.getStatus().getValue().equalsIgnoreCase(StatusEnum.VALIDATED.getValue())) {
+		        if (organization.getStatus().getValue().equalsIgnoreCase(StatusEnumOrg.VALIDATED.getValue())) {
 		        	csStatus = Character.valueOf('a');
 		        }
-		        if (individual.getStatus().getValue().equalsIgnoreCase(StatusEnum.DECEASED.getValue())) {
+		        if (organization.getStatus().getValue().equalsIgnoreCase(StatusEnumOrg.CLOSED.getValue())) {
 		        	csStatus = Character.valueOf('d');
 		        }
-				if(!(individual.getStatus().getValue().equalsIgnoreCase(StatusEnum.INITIALIZED.getValue())
-						||individual.getStatus().getValue().equalsIgnoreCase(StatusEnum.VALIDATED.getValue())
-						||individual.getStatus().getValue().equalsIgnoreCase(StatusEnum.DECEASED.getValue())))
-					throw new BadParameterValueException("WRONG STATUS VALUE : " + individual.getStatus().getValue()); 
+				if(!(organization.getStatus().getValue().equalsIgnoreCase(StatusEnumOrg.INITIALIZED.getValue())
+						||organization.getStatus().getValue().equalsIgnoreCase(StatusEnumOrg.VALIDATED.getValue())
+						||organization.getStatus().getValue().equalsIgnoreCase(StatusEnumOrg.CLOSED.getValue())))
+					throw new BadParameterValueException("WRONG STATUS VALUE : " + organization.getStatus().getValue());
 			}
-		      List<Characteristic> characteristics = individual.getCharacteristic();
-		      String maritalStatus= null;
+		      List<Characteristic> characteristics = organization.getCharacteristic();
+		      
 		      String ratePlan = null;
 		      String billCycle = null;
 		      String prgCode = null;
 		      String isPayResp = null;
 		      String job = null;
 		      String payMethod = null;
-			 Long rsCode = null;
-			 String bankAccount = null;
-			    String bankAccountOwner = null;
-			    String bankCity = null;
-			    String bankCode = null;
-			    String bankCountry = null;
-			    String bankName = null;
-			    String bankProvince = null;
-			    String bankStreetName = null;
-			    String bankStreetNum = null;
-			    String bankZip = null;
-			    String bankZone = null;
-			    String creditCardCompany = null;
-			    String creditCardLimit = null;
-			    String creditCardExpirDate = null;
-			    String swiftCode = null;
+		      Long rsCode = null;
+		      String bankAccount = null;
+		      String bankAccountOwner = null;
+		      String bankCity = null;
+		      String bankCode = null;
+		      String bankCountry = null;
+		      String bankName = null;
+		      String bankProvince = null;
+		      String bankStreetName = null;
+		      String bankStreetNum = null;
+		      String bankZip = null;
+		      String bankZone = null;
+		      String creditCardCompany = null;
+		      String creditCardLimit = null;
+		      String creditCardExpirDate = null;
+		      String swiftCode = null;
 		      if ((characteristics != null) && characteristics.size() > 0) {
 		        for (Characteristic characteristic : characteristics) {
 		          if (StringUtils.isNotBlank(characteristic.getName().getValue()))
@@ -490,9 +479,9 @@ public class IndividualNotifBscsBackend
 		            } else if (characteristic.getName().getValue().equalsIgnoreCase(CharacteristicNameEnum.PAYMENTMETHOD.getValue())) {
 		              payMethod = characteristic.getValue();
 		            } else if (characteristic.getName().getValue().equalsIgnoreCase(CharacteristicNameEnum.REGISTRATIONSTATUS.getValue())) {
-			          	  if (null !=csStatus)
-			          		  rsCode = Long.valueOf(characteristic.getValue());
-			        }
+		            	if (null !=csStatus)
+		            		rsCode = Long.valueOf(characteristic.getValue());
+		            }
 		            /*PayMethod*/
 		            else if (characteristic.getName().getValue().equalsIgnoreCase(CharacteristicNameEnum.PMETHACCOUNTNUMBER.getValue())) {
 		            	  bankAccount = characteristic.getValue();
@@ -531,154 +520,105 @@ public class IndividualNotifBscsBackend
 		          }
 		        }
 		      }
+		      
 		      if (null !=csStatus && null ==rsCode)
 		    	  throw new MissingParameterException("Characteristic.registrationStatus");
-		      
 
 			String role=null;
-
-			this.bscsIndividualService.executeCustomerWriteForPostPartyIndividual(csIdPub, csStatus, rsCode, ratePlan, null,externalId1, externalSetId1, prgCode, billCycle);
+			this.bscsIndividualService.executeCustomerWriteForPostPartyIndividual(csIdPub, csStatus, rsCode, ratePlan, null, externalId1, externalSetId1, prgCode, billCycle);
 			//ADDRESS
 
 			BscsAddress oldbadress = this.bscsIndividualService.executeAddressReadForPatchParty(csIdPub, EnumAddressRole.BILL);
 			
-			 List<ContactMedium> contactMeduimList = individual.getContactMedium();
-			 if ((null != contactMeduimList) && (!contactMeduimList.isEmpty())) {
-		          String idNo = null;
-		          Long idType = null;
-		          String licence = null;
-		          String social = null;
-		          Character adrCsType = null;
-		          String adrStreetNo = null;
-		          String adrCity = null;
-		          String adrStreet = null;
-		          String adrZip = null;
-		          String countryIdPub = null;
-		          String adrRoles = null;
-		          String fax = null;
-		          String tel = null;
-		          String email = null;
-		          Date birthDate = null;
-		          String givenName = null;
-		          String familyName = null;
-		          String middleName = null;
-		          Character gender = null;
-		          String title = null;
-		          String nationality = null;
-		          String adrState = null;
-					 
-			        for (ContactMedium contactMedium : contactMeduimList)
-			        {
-			          if (null != individual.getIndividualIdentification())
-			          {
-			            List<IndividualIdentification> individualIdentificationList = individual.getIndividualIdentification();
-			            if ((null != individualIdentificationList) && (!individualIdentificationList.isEmpty())) {
-			              for (IndividualIdentification tmfIndividualIdentification : individualIdentificationList) {
-			                if ((null != tmfIndividualIdentification.getIdentificationType().getValue()) && 
-			                  (null != tmfIndividualIdentification.getIdentificationId()) && 
-			                  (tmfIndividualIdentification.getIdentificationId().length() > 0))
-			                {
-			                  String type = tmfIndividualIdentification.getIdentificationType().getValue();
-			                  if ((!type.equalsIgnoreCase(IdentificationType.DRIVERLICENCE.getValue())) && 
-			                    (!type.equalsIgnoreCase(IdentificationType.SOCIALSECURITYNUMBER.getValue()))) {
-			                    idNo = tmfIndividualIdentification.getIdentificationId();
-			                    if (type.equalsIgnoreCase(IdentificationType.IDENTITYCARD.getValue())){
-			                    	idType= 1L;
-			                    }else if (type.equalsIgnoreCase(IdentificationType.PASSPORT.getValue())){
-			                    	idType= 2L ;
-			                    }
-					            
-			                  }
-			                  if (type.equalsIgnoreCase(IdentificationType.DRIVERLICENCE.getValue())) {
-			                    licence = tmfIndividualIdentification.getIdentificationId();
-			                  }
-			                  if (type.equalsIgnoreCase(IdentificationType.SOCIALSECURITYNUMBER.getValue())) {
-			                    social = tmfIndividualIdentification.getIdentificationId();
-			                  }
-			                }
-			              }
-			            }
-			          }
-			          
-			          adrRoles = "B";
-			          if ((null != contactMedium.getMediumType()) && 
-			            (contactMedium.getMediumType().getValue().equalsIgnoreCase(ContactMediumType.POSTALADDRESS.getValue())))
-			          {
-			            adrCsType = Character.valueOf('C');
-			            if (null != contactMedium.getCharacteristic().getStateOrProvince()) {
-			                adrState = contactMedium.getCharacteristic().getStateOrProvince();
-			                }
-			                if (null != contactMedium.getCharacteristic().getPlot()) {
-			                    adrStreetNo = contactMedium.getCharacteristic().getPlot();
-			                    }
-			            if (null != contactMedium.getCharacteristic().getCity()) {
-			              adrCity = contactMedium.getCharacteristic().getCity();
-			            }
-			            if (null != contactMedium.getCharacteristic().getStreet1()) {
-			              adrStreet = contactMedium.getCharacteristic().getStreet1();
-			            }
-			            if (null != contactMedium.getCharacteristic().getPostcode()) {
-			              adrZip = contactMedium.getCharacteristic().getPostcode();
-			            }
-			            if (null != contactMedium.getCharacteristic().getCountry()) {
-			              countryIdPub = contactMedium.getCharacteristic().getCountry();
-			            }
-			          }
-			          if ((null != contactMedium.getMediumType()) && 
-			            (contactMedium.getMediumType().getValue().equalsIgnoreCase(ContactMediumType.EMAILADDRESS.getValue())) && 
-			            (null != contactMedium.getCharacteristic().getEmailAddress())) {
-			            email = contactMedium.getCharacteristic().getEmailAddress();
-			          }
-			          if ((null != contactMedium.getMediumType()) && 
-			            (contactMedium.getMediumType().getValue().equalsIgnoreCase(ContactMediumType.FAXNUMBER.getValue())) && 
-			            (null != contactMedium.getCharacteristic().getFaxNumber())) {
-			            fax = contactMedium.getCharacteristic().getFaxNumber();
-			          }
-			          if ((null != contactMedium.getMediumType()) && 
-			            (contactMedium.getMediumType().getValue().equalsIgnoreCase(ContactMediumType.PHONENUMBER.getValue())) && 
-			            (null != contactMedium.getCharacteristic().getPhoneNumber())) {
-			            tel = contactMedium.getCharacteristic().getPhoneNumber();
-			          }
-			          
-			          if ((null != individual.getGivenName()) && (individual.getGivenName().length() > 0)) {
-			            givenName = individual.getGivenName();
-			          }
-			          if ((null != individual.getBirthDate())) {
-			        	  birthDate = individual.getBirthDate().toDate();
-			            }
+			 List<ContactMedium> contactMeduimList = organization.getContactMedium();
+		      if ((null != contactMeduimList) && (!contactMeduimList.isEmpty())) {
+	        	  
+	          Character adrCsType = null;
+	          String adrStreetNo = null;
+	          String adrCity = null;
+	          String adrStreet = null;
+	          String adrZip = null;
+	          String countryIdPub = null;
+	          String adrRoles = null;
+	          String fax = null;
+	          String tel = null;
+	          String email = null;
+	          String idNo = null;
+	          Long idType = null;
+	          String compno = null;
+	          Date birthDate = null;
+	          String tradingName = null;
+	          String adrState = null;
+		        for (ContactMedium contactMedium : contactMeduimList)
+		        {
 
-			          if ((null != individual.getFamilyName()) && (individual.getFamilyName().length() > 0)) {
-			            familyName = individual.getFamilyName();
-			          }
-			          
-			          if (null != individual.getGender())
-			          {
-			            if (individual.getGender().getValue().equalsIgnoreCase(Gender.MALE.getValue())) {
-			              gender = Character.valueOf('M');
-			            }
-			            if (individual.getGender().getValue().equalsIgnoreCase(Gender.FEMALE.getValue())) {
-			              gender = Character.valueOf('F');
-			            } else {
-			              gender = Character.valueOf('M');
-			            }
-			          }
-			         
-			          if (null != individual.getTitle()) {
-			            title = individual.getTitle().getValue().toUpperCase();
-			          } 
-			          
-			          if ((null != individual.getNationality()) && (individual.getNationality().length() > 0)) {
-			            nationality = individual.getNationality();
-			          }
-			          
-			          if (null != individual.getMaritalStatus())
-			          {
-			        	  maritalStatus = individual.getMaritalStatus().getValue();
-			          }
-			        } 
-			          this.bscsIndividualService.executeAddressWriteForPostParty(csIdPub, adrCsType, new Long(0L), givenName, familyName, middleName, adrStreetNo, adrCity, gender, adrStreet, adrZip, countryIdPub, job, birthDate, title, nationality, adrRoles, licence, social, idNo, idType, email, fax, tel, null, null,maritalStatus , adrState, true);
-			        
-			      }
+		          if (null != organization.getOrganizationIdentification())
+		          {
+		           OrganizationIdentification organisationIdentification = organization.getOrganizationIdentification();
+		                if ((null != organisationIdentification.getIdentificationType().getValue()) &&
+		                  (organisationIdentification.getIdentificationId().length() > 0))
+		                {
+		                	compno=organisationIdentification.getIdentificationId();
+		                }                         
+		          }
+	          
+		          adrRoles = "B";
+		          if ((null != contactMedium.getMediumType()) && 
+		            (contactMedium.getMediumType().getValue().equalsIgnoreCase(ContactMediumType.POSTALADDRESS.getValue())))
+		          {
+		            adrCsType = Character.valueOf('B');
+		            if (null != contactMedium.getCharacteristic().getStateOrProvince()) {
+		                adrState = contactMedium.getCharacteristic().getStateOrProvince();
+		                }
+		                if (null != contactMedium.getCharacteristic().getPlot()) {
+		                    adrStreetNo = contactMedium.getCharacteristic().getPlot();
+		                    }
+		            if (null != contactMedium.getCharacteristic().getCity()) {
+		              adrCity = contactMedium.getCharacteristic().getCity();
+		            }
+		            if (null != contactMedium.getCharacteristic().getStreet1()) {
+		              adrStreet = contactMedium.getCharacteristic().getStreet1();
+		            }
+		            if (null != contactMedium.getCharacteristic().getPostcode()) {
+		              adrZip = contactMedium.getCharacteristic().getPostcode();
+		            }
+		            if (null != contactMedium.getCharacteristic().getCountry()) {
+		              countryIdPub = contactMedium.getCharacteristic().getCountry();
+		            }
+		          }
+		          if ((null != contactMedium.getMediumType()) && 
+		            (contactMedium.getMediumType().getValue().equalsIgnoreCase(ContactMediumType.EMAILADDRESS.getValue())) && 
+		            (null != contactMedium.getCharacteristic().getEmailAddress())) {
+		            email = contactMedium.getCharacteristic().getEmailAddress();
+		          }
+		          if ((null != contactMedium.getMediumType()) && 
+		            (contactMedium.getMediumType().getValue().equalsIgnoreCase(ContactMediumType.FAXNUMBER.getValue())) && 
+		            (null != contactMedium.getCharacteristic().getFaxNumber())) {
+		            fax = contactMedium.getCharacteristic().getFaxNumber();
+		          }
+		          if ((null != contactMedium.getMediumType()) && 
+		            (contactMedium.getMediumType().getValue().equalsIgnoreCase(ContactMediumType.PHONENUMBER.getValue())) && 
+		            (null != contactMedium.getCharacteristic().getPhoneNumber())) {
+		            tel = contactMedium.getCharacteristic().getPhoneNumber();
+		          }
+
+		          if ((null != organization.getTradingName()) && (organization.getTradingName().length() > 0)) {
+		            tradingName = organization.getTradingName();
+		          }else{
+		        	  tradingName = oldbadress.getCompanyName();
+		          }
+		          
+		          if(null!=organization.getOrganizationIdentification()
+		        		  && null!=organization.getOrganizationIdentification().getIdentificationId()
+		        		  && organization.getOrganizationIdentification().getIdentificationId().length()>0){
+		        	      compno=organization.getOrganizationIdentification().getIdentificationId();
+					}else{
+						compno = oldbadress.getBscsModel().getNationalOrganisationIdentifier();
+					}
+		        }
+		          this.bscsIndividualService.executeAddressWriteForPostParty(csIdPub, adrCsType, new Long(0L), null, null, null, adrStreetNo, adrCity, null, adrStreet, adrZip, countryIdPub, job, birthDate, null, null, adrRoles, null, null, idNo, idType, email, fax, tel, tradingName, compno, null, adrState,  true);
+		        
+		      }
 
 			//PAYMENT_ARRANGEMENT.WRITE
 		      if (null != payMethod || null != bankAccount || null != bankAccountOwner || null != bankCity || null != bankCode  || null != bankCountry
@@ -686,17 +626,64 @@ public class IndividualNotifBscsBackend
 		    		  || null != creditCardCompany || null != creditCardLimit || null != creditCardExpirDate || null != swiftCode) {
 		          this.bscsIndividualService.executePaymentArrangementWriteForPostPartyIndividual(csIdPub, new Long(0L), payMethod,bankAccount,
 		        		  bankAccountOwner,bankCity,bankCode,bankCountry,bankName, bankProvince, bankStreetName,bankStreetNum,bankZip,bankZone,
-		        		  creditCardCompany,creditCardLimit,creditCardExpirDate,swiftCode,true, true);
+		        		  creditCardCompany,creditCardLimit,creditCardExpirDate,swiftCode, true, true);
 		        }
 	        //------------------
-			return individual;
-	  
-		  }catch (ApiException e ){
-			  throw e ;
-		  }catch (Exception e ){
-			  throw new TechnicalException(e.getMessage());
-		  }
-	  
+			Long csIdHigh=null;
+			EnumCustomerLevelCode level=null;
+			if(null!=organization.getOrganizationParentRelationship()){
+				if(null!=organization.getOrganizationParentRelationship().getId() && StringUtils.isNotBlank(organization.getOrganizationParentRelationship().getId())){
+					BSCSCustomer  customerHigh = bscsIndividualService.customerRead(organization.getOrganizationParentRelationship().getId());
+					if(null==customerHigh)
+						throw new NotFoundException("CUSTOMER HIGH NOT FOUND : OrganizationParentRelationship.id = " +organization.getOrganizationParentRelationship().getId());
+					
+					if (null != customerHigh.getCustomerID()) {
+							csIdHigh=Long.valueOf(customerHigh.getCustomerID());
+						}
+					if (null != customerHigh.getCustomerID()) {
+						csIdHigh=Long.valueOf(customerHigh.getCustomerID());
+					}
+
+					if (null != customerHigh.getCustomerLevelCode()) {
+						if(EnumCustomerLevelCode.SUBSCRIBER.getLevelCode().equals(customerHigh.getCustomerLevelCode()))
+							throw new BadParameterValueException("Wrong Parent level, the level of OrganizationParentRelationship.id is a subscriber : OrganizationParentRelationship.id = " +organization.getOrganizationParentRelationship().getId());
+												
+						if (EnumCustomerLevelCode.ROOT.getLevelCode().equals(customerHigh.getCustomerLevelCode().getLevelCode())){
+							level =EnumCustomerLevelCode.DIVISION;
+						}else if (EnumCustomerLevelCode.DIVISION.getLevelCode().equals(customerHigh.getCustomerLevelCode().getLevelCode())){
+							level =EnumCustomerLevelCode.COST_CENTER;
+						}else if(EnumCustomerLevelCode.COST_CENTER.getLevelCode().equals(customerHigh.getCustomerLevelCode().getLevelCode())){
+							level =EnumCustomerLevelCode.SUBSCRIBER;
+						}					
+					}
+				}else {
+					level =EnumCustomerLevelCode.ROOT;
+				}
+			}
+			
+			Boolean paymentResp=null;
+			Long custCat=null;
+
+			if (null == isPayResp){
+				paymentResp = customerResult.getIsPaymentResponsible();
+			}	
+			else if(isPayResp.equalsIgnoreCase("true")|| isPayResp.equalsIgnoreCase("x")){
+					paymentResp=true;
+				}
+			else if(isPayResp.equalsIgnoreCase("false")||isPayResp.trim().equalsIgnoreCase(""))
+					paymentResp=false;
+				
+			
+			if(null!=csIdHigh || null!=level )
+					    	  this.bscsIndividualService.executeCustomerHierarchyWriteForPatchPartyOrganization(null, csIdPub, csIdHigh, paymentResp, level);
+					
+			return organization;
+	  }catch (ApiException e ){
+		  throw e ;
+	  }catch (Exception e ){
+		  throw new TechnicalException(e.getMessage());
+	  }
 }
+  
 }
 

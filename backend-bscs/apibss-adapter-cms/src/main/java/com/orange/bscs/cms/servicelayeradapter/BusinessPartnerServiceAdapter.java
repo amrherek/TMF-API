@@ -19,6 +19,7 @@ import com.orange.bscs.model.businesspartner.BSCSCustomer;
 import com.orange.bscs.model.businesspartner.BSCSCustomerWriteInput;
 import com.orange.bscs.model.businesspartner.BSCSCustomersSearchRequest;
 import com.orange.bscs.model.businesspartner.BSCSPaymentArrangement;
+import com.orange.bscs.model.businesspartner.BSCSPaymentArrangementAssignment;
 import com.orange.bscs.model.businesspartner.EnumAddressRole;
 import com.orange.bscs.model.businesspartner.EnumCustomerLevelCode;
 
@@ -175,6 +176,15 @@ public class BusinessPartnerServiceAdapter extends BaseDAO implements BusinessPa
                 BSCSPaymentArrangement.class);
         pa.setId(res.getId());
         pa.setSequenceNumber(res.getSequenceNumber());
+        return pa;
+    }
+    
+    @Override
+    public BSCSPaymentArrangementAssignment paymentArrangementAssignementWrite(BSCSPaymentArrangementAssignment pa) {
+        BSCSPaymentArrangementAssignment res = ConnectionHolder.getCurrentConnection().execute(Constants.CMD_PAYMENT_ARRANGEMENT_ASSIGNMENT_WRITE, pa,
+                BSCSPaymentArrangementAssignment.class);
+        pa.setPaymentArrangementId(res.getPaymentArrangementId());
+        pa.setPaymentMode(res.getPaymentMode());
         return pa;
     }
 
@@ -373,8 +383,19 @@ public class BusinessPartnerServiceAdapter extends BaseDAO implements BusinessPa
         input.setCustomerLevelCode(csLevelCode);
         input.setIsPaymentResponsible(isPaymentResponsible);
 
-        return execute(Constants.CMD_LA_MEMBER_NEW, input, BSCSCustomer.class);
+
+        return execute(Constants.CMD_LA_MEMBER_NEW,input, BSCSCustomer.class);
     }
+  
+	/**
+	 * {@inheritDoc}
+	 *
+     * @return */
+    @Override
+    public BSCSCustomer laMemberNewOne(BSCSCustomer input) {
+        return execute(Constants.CMD_LA_MEMBER_NEW,input, BSCSCustomer.class);
+    }
+
     
 }
 
